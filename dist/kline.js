@@ -75,49 +75,41 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.ChartManager = void 0;
-
-var _control = __webpack_require__(10);
-
-var _chart = __webpack_require__(26);
-
-var indicators = _interopRequireWildcard(__webpack_require__(30));
-
-var ranges = _interopRequireWildcard(__webpack_require__(22));
-
-var templates = _interopRequireWildcard(__webpack_require__(8));
-
-var data_sources = _interopRequireWildcard(__webpack_require__(2));
-
-var _chart_settings = __webpack_require__(4);
-
-var data_providers = _interopRequireWildcard(__webpack_require__(14));
-
-var themes = _interopRequireWildcard(__webpack_require__(6));
-
-var plotters = _interopRequireWildcard(__webpack_require__(13));
-
-var ctools = _interopRequireWildcard(__webpack_require__(12));
-
-var areas = _interopRequireWildcard(__webpack_require__(15));
-
-var _util = __webpack_require__(5);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChartManager; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__control__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__chart__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__indicators__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ranges__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__templates__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__data_sources__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__chart_settings__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__data_providers__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__themes__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__plotters__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ctools__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__areas__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__util__ = __webpack_require__(5);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 var ChartManager =
 /*#__PURE__*/
@@ -142,7 +134,7 @@ function () {
     this._fakeIndicators = {};
     this._captureMouseWheelDirectly = true;
     this._chart = {};
-    this._chart.defaultFrame = new _chart.Chart();
+    this._chart.defaultFrame = new __WEBPACK_IMPORTED_MODULE_1__chart__["a" /* Chart */]();
     this._drawingTool = ChartManager.DrawingTool["CrossCursor"];
     this._beforeDrawingTool = this._drawingTool;
     this._language = "zh-cn";
@@ -192,7 +184,7 @@ function () {
         this._overlayContext = canvas.getContext("2d");
 
         if (this._captureMouseWheelDirectly) {
-          $(this._overlayCanvas).bind('mousewheel', _control.Control.mouseWheel);
+          $(this._overlayCanvas).bind('mousewheel', __WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].mouseWheel);
         }
       }
     }
@@ -205,7 +197,7 @@ function () {
     key: "setCaptureMouseWheelDirectly",
     value: function setCaptureMouseWheelDirectly(v) {
       this._captureMouseWheelDirectly = v;
-      if (v) $(this._overlayCanvas).bind('mousewheel', _control.Control.mouseWheel);else $(this._overlayCanvas).unbind('mousewheel');
+      if (v) $(this._overlayCanvas).bind('mousewheel', __WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].mouseWheel);else $(this._overlayCanvas).unbind('mousewheel');
     }
   }, {
     key: "getChart",
@@ -219,7 +211,7 @@ function () {
       delete this._ranges['frame0.k0.indic1Range'];
       delete this._areas['frame0.k0.indic1'];
       delete this._areas['frame0.k0.indic1Range'];
-      templates.DefaultTemplate.loadTemplate("frame0.k0", "");
+      __WEBPACK_IMPORTED_MODULE_4__templates__["a" /* DefaultTemplate */].loadTemplate("frame0.k0", "");
       this.redraw('All', true);
     }
   }, {
@@ -246,12 +238,12 @@ function () {
 
       switch (themeName) {
         case "Light":
-          theme = new themes.LightTheme();
+          theme = new __WEBPACK_IMPORTED_MODULE_8__themes__["b" /* LightTheme */]();
           break;
 
         default:
           themeName = "Dark";
-          theme = new themes.DarkTheme();
+          theme = new __WEBPACK_IMPORTED_MODULE_8__themes__["a" /* DarkTheme */]();
           break;
       }
 
@@ -281,39 +273,39 @@ function () {
         case "OHLC":
           dp = this.getDataProvider(dpName);
 
-          if (dp === undefined || !_util.Util.isInstance(dp, data_providers.MainDataProvider)) {
-            dp = new data_providers.MainDataProvider(dpName);
+          if (dp === undefined || !__WEBPACK_IMPORTED_MODULE_12__util__["a" /* Util */].isInstance(dp, __WEBPACK_IMPORTED_MODULE_7__data_providers__["b" /* MainDataProvider */])) {
+            dp = new __WEBPACK_IMPORTED_MODULE_7__data_providers__["b" /* MainDataProvider */](dpName);
             this.setDataProvider(dpName, dp);
             dp.updateData();
           }
 
-          this.setMainIndicator(dsName, _chart_settings.ChartSettings.get().charts.mIndic);
+          this.setMainIndicator(dsName, __WEBPACK_IMPORTED_MODULE_6__chart_settings__["a" /* ChartSettings */].get().charts.mIndic);
 
           switch (style) {
             case "CandleStick":
-              plotter = new plotters.CandlestickPlotter(plotterName);
+              plotter = new __WEBPACK_IMPORTED_MODULE_9__plotters__["h" /* CandlestickPlotter */](plotterName);
               break;
 
             case "CandleStickHLC":
-              plotter = new plotters.CandlestickHLCPlotter(plotterName);
+              plotter = new __WEBPACK_IMPORTED_MODULE_9__plotters__["g" /* CandlestickHLCPlotter */](plotterName);
               break;
 
             case "OHLC":
-              plotter = new plotters.OHLCPlotter(plotterName);
+              plotter = new __WEBPACK_IMPORTED_MODULE_9__plotters__["E" /* OHLCPlotter */](plotterName);
               break;
           }
 
           this.setPlotter(plotterName, plotter);
-          plotter = new plotters.MinMaxPlotter(areaName + ".decoration");
+          plotter = new __WEBPACK_IMPORTED_MODULE_9__plotters__["D" /* MinMaxPlotter */](areaName + ".decoration");
           this.setPlotter(plotter.getName(), plotter);
           break;
 
         case "Line":
-          dp = new data_providers.IndicatorDataProvider(dpName);
+          dp = new __WEBPACK_IMPORTED_MODULE_7__data_providers__["a" /* IndicatorDataProvider */](dpName);
           this.setDataProvider(dp.getName(), dp);
-          dp.setIndicator(new indicators.HLCIndicator());
+          dp.setIndicator(new __WEBPACK_IMPORTED_MODULE_2__indicators__["g" /* HLCIndicator */]());
           this.removeMainIndicator(dsName);
-          plotter = new plotters.IndicatorPlotter(plotterName);
+          plotter = new __WEBPACK_IMPORTED_MODULE_9__plotters__["y" /* IndicatorPlotter */](plotterName);
           this.setPlotter(plotterName, plotter);
           this.removePlotter(areaName + ".decoration");
           break;
@@ -345,7 +337,7 @@ function () {
       var pds = this.getDataSource("frame0.k0");
       var curr_o = pds.getCurrentToolObject();
 
-      if (curr_o !== null && curr_o.state !== ctools.CToolObject.state.AfterDraw) {
+      if (curr_o !== null && curr_o.state !== __WEBPACK_IMPORTED_MODULE_10__ctools__["n" /* CToolObject */].state.AfterDraw) {
         pds.delToolObject();
       }
 
@@ -369,25 +361,25 @@ function () {
 
         case ChartManager.DrawingTool.ArrowLine:
           {
-            pds.addToolObject(new ctools.CArrowLineObject("frame0.k0"));
+            pds.addToolObject(new __WEBPACK_IMPORTED_MODULE_10__ctools__["a" /* CArrowLineObject */]("frame0.k0"));
             break;
           }
 
         case ChartManager.DrawingTool.BandLine:
           {
-            pds.addToolObject(new ctools.CBandLineObject("frame0.k0"));
+            pds.addToolObject(new __WEBPACK_IMPORTED_MODULE_10__ctools__["b" /* CBandLineObject */]("frame0.k0"));
             break;
           }
 
         case ChartManager.DrawingTool.BiParallelLine:
           {
-            pds.addToolObject(new ctools.CBiParallelLineObject("frame0.k0"));
+            pds.addToolObject(new __WEBPACK_IMPORTED_MODULE_10__ctools__["c" /* CBiParallelLineObject */]("frame0.k0"));
             break;
           }
 
         case ChartManager.DrawingTool.BiParallelRayLine:
           {
-            pds.addToolObject(new ctools.CBiParallelRayLineObject("frame0.k0"));
+            pds.addToolObject(new __WEBPACK_IMPORTED_MODULE_10__ctools__["d" /* CBiParallelRayLineObject */]("frame0.k0"));
             break;
           }
 
@@ -399,73 +391,73 @@ function () {
 
         case ChartManager.DrawingTool.DrawFibFans:
           {
-            pds.addToolObject(new ctools.CFibFansObject("frame0.k0"));
+            pds.addToolObject(new __WEBPACK_IMPORTED_MODULE_10__ctools__["e" /* CFibFansObject */]("frame0.k0"));
             break;
           }
 
         case ChartManager.DrawingTool.DrawFibRetrace:
           {
-            pds.addToolObject(new ctools.CFibRetraceObject("frame0.k0"));
+            pds.addToolObject(new __WEBPACK_IMPORTED_MODULE_10__ctools__["f" /* CFibRetraceObject */]("frame0.k0"));
             break;
           }
 
         case ChartManager.DrawingTool.DrawLines:
           {
-            pds.addToolObject(new ctools.CStraightLineObject("frame0.k0"));
+            pds.addToolObject(new __WEBPACK_IMPORTED_MODULE_10__ctools__["m" /* CStraightLineObject */]("frame0.k0"));
             break;
           }
 
         case ChartManager.DrawingTool.HoriRayLine:
           {
-            pds.addToolObject(new ctools.CHoriRayLineObject("frame0.k0"));
+            pds.addToolObject(new __WEBPACK_IMPORTED_MODULE_10__ctools__["g" /* CHoriRayLineObject */]("frame0.k0"));
             break;
           }
 
         case ChartManager.DrawingTool.HoriSegLine:
           {
-            pds.addToolObject(new ctools.CHoriSegLineObject("frame0.k0"));
+            pds.addToolObject(new __WEBPACK_IMPORTED_MODULE_10__ctools__["h" /* CHoriSegLineObject */]("frame0.k0"));
             break;
           }
 
         case ChartManager.DrawingTool.HoriStraightLine:
           {
-            pds.addToolObject(new ctools.CHoriStraightLineObject("frame0.k0"));
+            pds.addToolObject(new __WEBPACK_IMPORTED_MODULE_10__ctools__["i" /* CHoriStraightLineObject */]("frame0.k0"));
             break;
           }
 
         case ChartManager.DrawingTool.PriceLine:
           {
-            pds.addToolObject(new ctools.CPriceLineObject("frame0.k0"));
+            pds.addToolObject(new __WEBPACK_IMPORTED_MODULE_10__ctools__["j" /* CPriceLineObject */]("frame0.k0"));
             break;
           }
 
         case ChartManager.DrawingTool.RayLine:
           {
-            pds.addToolObject(new ctools.CRayLineObject("frame0.k0"));
+            pds.addToolObject(new __WEBPACK_IMPORTED_MODULE_10__ctools__["k" /* CRayLineObject */]("frame0.k0"));
             break;
           }
 
         case ChartManager.DrawingTool.SegLine:
           {
-            pds.addToolObject(new ctools.CSegLineObject("frame0.k0"));
+            pds.addToolObject(new __WEBPACK_IMPORTED_MODULE_10__ctools__["l" /* CSegLineObject */]("frame0.k0"));
             break;
           }
 
         case ChartManager.DrawingTool.StraightLine:
           {
-            pds.addToolObject(new ctools.CStraightLineObject("frame0.k0"));
+            pds.addToolObject(new __WEBPACK_IMPORTED_MODULE_10__ctools__["m" /* CStraightLineObject */]("frame0.k0"));
             break;
           }
 
         case ChartManager.DrawingTool.TriParallelLine:
           {
-            pds.addToolObject(new ctools.CTriParallelLineObject("frame0.k0"));
+            pds.addToolObject(new __WEBPACK_IMPORTED_MODULE_10__ctools__["o" /* CTriParallelLineObject */]("frame0.k0"));
             break;
           }
 
         case ChartManager.DrawingTool.VertiStraightLine:
           {
-            pds.addToolObject(new ctools.CVertiStraightLineObject("frame0.k0"));
+            pds.addToolObject(new __WEBPACK_IMPORTED_MODULE_10__ctools__["p" /* CVertiStraightLineObject */]("frame0.k0"));
             break;
           }
       }
@@ -488,7 +480,7 @@ function () {
       if (cached !== undefined && cached !== null) {
         this.setDataSource(dsName, cached, true);
       } else {
-        cached = new data_sources.MainDataSource(dsAlias);
+        cached = new __WEBPACK_IMPORTED_MODULE_5__data_sources__["b" /* MainDataSource */](dsAlias);
         this.setDataSource(dsName, cached, true);
         this.setCachedDataSource(dsAlias, cached);
       }
@@ -684,7 +676,7 @@ function () {
 
       if (!drawn) {
         for (var it in this._areas) {
-          if (this._areas[it].getFrameName() === frameName && !_util.Util.isInstance(this._areas[it], areas.ChartAreaGroup)) this.drawAreaMain(context, this._areas[it]);
+          if (this._areas[it].getFrameName() === frameName && !__WEBPACK_IMPORTED_MODULE_12__util__["a" /* Util */].isInstance(this._areas[it], __WEBPACK_IMPORTED_MODULE_11__areas__["b" /* ChartAreaGroup */])) this.drawAreaMain(context, this._areas[it]);
         }
       }
 
@@ -710,14 +702,14 @@ function () {
     value: function drawOverlay(frameName, context) {
       for (var n in this._areas) {
         var area = this._areas[n];
-        if (_util.Util.isInstance(area, areas.ChartAreaGroup)) if (area.getFrameName() === frameName) {
+        if (__WEBPACK_IMPORTED_MODULE_12__util__["a" /* Util */].isInstance(area, __WEBPACK_IMPORTED_MODULE_11__areas__["b" /* ChartAreaGroup */])) if (area.getFrameName() === frameName) {
           area.drawGrid(context);
         }
       }
 
       for (var _n in this._areas) {
         var _area = this._areas[_n];
-        if (_util.Util.isInstance(_area, areas.ChartAreaGroup) === false) if (_area.getFrameName() === frameName) {
+        if (__WEBPACK_IMPORTED_MODULE_12__util__["a" /* Util */].isInstance(_area, __WEBPACK_IMPORTED_MODULE_11__areas__["b" /* ChartAreaGroup */]) === false) if (_area.getFrameName() === frameName) {
           this.drawAreaOverlay(context, _area);
         }
       }
@@ -736,9 +728,9 @@ function () {
           return false;
         }
 
-        if (ds.getUpdateMode() === data_sources.DataSource.UpdateMode.DoNothing) return true;
+        if (ds.getUpdateMode() === __WEBPACK_IMPORTED_MODULE_5__data_sources__["a" /* DataSource */].UpdateMode.DoNothing) return true;
       } else {
-        ds.setUpdateMode(data_sources.DataSource.UpdateMode.Refresh);
+        ds.setUpdateMode(__WEBPACK_IMPORTED_MODULE_5__data_sources__["a" /* DataSource */].UpdateMode.Refresh);
       }
 
       var timeline = this.getTimeline(dsName);
@@ -757,7 +749,7 @@ function () {
       for (var n in this._areas) {
         area = this._areas[n];
 
-        if (_util.Util.isInstance(area, areas.ChartAreaGroup)) {
+        if (__WEBPACK_IMPORTED_MODULE_12__util__["a" /* Util */].isInstance(area, __WEBPACK_IMPORTED_MODULE_11__areas__["b" /* ChartAreaGroup */])) {
           continue;
         }
 
@@ -792,7 +784,7 @@ function () {
 
       for (var n in this._areas) {
         area = this._areas[n];
-        if (_util.Util.isInstance(area, areas.ChartAreaGroup)) continue;
+        if (__WEBPACK_IMPORTED_MODULE_12__util__["a" /* Util */].isInstance(area, __WEBPACK_IMPORTED_MODULE_11__areas__["b" /* ChartAreaGroup */])) continue;
         if (area.getDataSourceName() !== dsName) continue;
         areaName = area.getName();
 
@@ -924,7 +916,7 @@ function () {
       for (var n in this._dataSources) {
         if (n.indexOf(frameName) === 0) {
           var ds = this._dataSources[n];
-          if (_util.Util.isInstance(ds, data_sources.MainDataSource)) if (ds.toolManager.acceptMouseMoveEvent(x, y)) ret = true;
+          if (__WEBPACK_IMPORTED_MODULE_12__util__["a" /* Util */].isInstance(ds, __WEBPACK_IMPORTED_MODULE_5__data_sources__["b" /* MainDataSource */])) if (ds.toolManager.acceptMouseMoveEvent(x, y)) ret = true;
         }
       }
 
@@ -939,7 +931,7 @@ function () {
       for (var n in this._dataSources) {
         if (n.indexOf(frameName) === 0) {
           var ds = this._dataSources[n];
-          if (_util.Util.isInstance(ds, data_sources.MainDataSource)) if (ds.toolManager.acceptMouseDownEvent(x, y)) ret = true;
+          if (__WEBPACK_IMPORTED_MODULE_12__util__["a" /* Util */].isInstance(ds, __WEBPACK_IMPORTED_MODULE_5__data_sources__["b" /* MainDataSource */])) if (ds.toolManager.acceptMouseDownEvent(x, y)) ret = true;
         }
       }
 
@@ -954,7 +946,7 @@ function () {
       for (var n in this._dataSources) {
         if (n.indexOf(frameName) === 0) {
           var ds = this._dataSources[n];
-          if (_util.Util.isInstance(ds, data_sources.MainDataSource)) if (ds.toolManager.acceptMouseUpEvent(x, y)) ret = true;
+          if (__WEBPACK_IMPORTED_MODULE_12__util__["a" /* Util */].isInstance(ds, __WEBPACK_IMPORTED_MODULE_5__data_sources__["b" /* MainDataSource */])) if (ds.toolManager.acceptMouseUpEvent(x, y)) ret = true;
         }
       }
 
@@ -969,7 +961,7 @@ function () {
       for (var n in this._dataSources) {
         if (n.indexOf(frameName) === 0) {
           var ds = this._dataSources[n];
-          if (_util.Util.isInstance(ds, data_sources.MainDataSource)) if (ds.toolManager.acceptMouseDownMoveEvent(x, y)) ret = true;
+          if (__WEBPACK_IMPORTED_MODULE_12__util__["a" /* Util */].isInstance(ds, __WEBPACK_IMPORTED_MODULE_5__data_sources__["b" /* MainDataSource */])) if (ds.toolManager.acceptMouseDownMoveEvent(x, y)) ret = true;
         }
       }
 
@@ -1002,7 +994,7 @@ function () {
         a = a.onMouseMove(x, y);
 
         if (a !== null) {
-          if (!_util.Util.isInstance(a, areas.ChartAreaGroup)) {
+          if (!__WEBPACK_IMPORTED_MODULE_12__util__["a" /* Util */].isInstance(a, __WEBPACK_IMPORTED_MODULE_11__areas__["b" /* ChartAreaGroup */])) {
             frame.highlight(a);
             this._highlightedFrame = frame;
           }
@@ -1064,7 +1056,7 @@ function () {
             frame.select(null);
             this._selectedFrame = null;
           } else {
-            if (this._selectedFrame !== frame) if (!this._captureMouseWheelDirectly) $(this._overlayCanvas).bind('mousewheel', _control.Control.mouseWheel);
+            if (this._selectedFrame !== frame) if (!this._captureMouseWheelDirectly) $(this._overlayCanvas).bind('mousewheel', __WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].mouseWheel);
             frame.select(this._capturingMouseArea);
             this._selectedFrame = frame;
           }
@@ -1082,7 +1074,7 @@ function () {
       if (selectObject !== null) pDPTool.delSelectToolObject();
       var currentObject = pDPTool.getCurrentToolObject();
 
-      if (currentObject !== null && currentObject.getState() !== ctools.CToolObject.state.AfterDraw) {
+      if (currentObject !== null && currentObject.getState() !== __WEBPACK_IMPORTED_MODULE_10__ctools__["n" /* CToolObject */].state.AfterDraw) {
         pDPTool.delToolObject();
       }
 
@@ -1130,103 +1122,103 @@ function () {
 
       switch (indicName) {
         case "MA":
-          indic = new indicators.MAIndicator();
-          range = new ranges.PositiveRange(areaName);
+          indic = new __WEBPACK_IMPORTED_MODULE_2__indicators__["j" /* MAIndicator */]();
+          range = new __WEBPACK_IMPORTED_MODULE_3__ranges__["c" /* PositiveRange */](areaName);
           break;
 
         case "EMA":
-          indic = new indicators.EMAIndicator();
-          range = new ranges.PositiveRange(areaName);
+          indic = new __WEBPACK_IMPORTED_MODULE_2__indicators__["e" /* EMAIndicator */]();
+          range = new __WEBPACK_IMPORTED_MODULE_3__ranges__["c" /* PositiveRange */](areaName);
           break;
 
         case "VOLUME":
-          indic = new indicators.VOLUMEIndicator();
-          range = new ranges.ZeroBasedPositiveRange(areaName);
+          indic = new __WEBPACK_IMPORTED_MODULE_2__indicators__["s" /* VOLUMEIndicator */]();
+          range = new __WEBPACK_IMPORTED_MODULE_3__ranges__["e" /* ZeroBasedPositiveRange */](areaName);
           break;
 
         case "MACD":
-          indic = new indicators.MACDIndicator();
-          range = new ranges.ZeroCenteredRange(areaName);
+          indic = new __WEBPACK_IMPORTED_MODULE_2__indicators__["i" /* MACDIndicator */]();
+          range = new __WEBPACK_IMPORTED_MODULE_3__ranges__["f" /* ZeroCenteredRange */](areaName);
           break;
 
         case "DMI":
-          indic = new indicators.DMIIndicator();
-          range = new ranges.PercentageRange(areaName);
+          indic = new __WEBPACK_IMPORTED_MODULE_2__indicators__["d" /* DMIIndicator */]();
+          range = new __WEBPACK_IMPORTED_MODULE_3__ranges__["b" /* PercentageRange */](areaName);
           break;
 
         case "DMA":
-          indic = new indicators.DMAIndicator();
-          range = new ranges.Range(areaName);
+          indic = new __WEBPACK_IMPORTED_MODULE_2__indicators__["c" /* DMAIndicator */]();
+          range = new __WEBPACK_IMPORTED_MODULE_3__ranges__["d" /* Range */](areaName);
           break;
 
         case "TRIX":
-          indic = new indicators.TRIXIndicator();
-          range = new ranges.Range(areaName);
+          indic = new __WEBPACK_IMPORTED_MODULE_2__indicators__["r" /* TRIXIndicator */]();
+          range = new __WEBPACK_IMPORTED_MODULE_3__ranges__["d" /* Range */](areaName);
           break;
 
         case "BRAR":
-          indic = new indicators.BRARIndicator();
-          range = new ranges.Range(areaName);
+          indic = new __WEBPACK_IMPORTED_MODULE_2__indicators__["b" /* BRARIndicator */]();
+          range = new __WEBPACK_IMPORTED_MODULE_3__ranges__["d" /* Range */](areaName);
           break;
 
         case "VR":
-          indic = new indicators.VRIndicator();
-          range = new ranges.Range(areaName);
+          indic = new __WEBPACK_IMPORTED_MODULE_2__indicators__["t" /* VRIndicator */]();
+          range = new __WEBPACK_IMPORTED_MODULE_3__ranges__["d" /* Range */](areaName);
           break;
 
         case "OBV":
-          indic = new indicators.OBVIndicator();
-          range = new ranges.Range(areaName);
+          indic = new __WEBPACK_IMPORTED_MODULE_2__indicators__["l" /* OBVIndicator */]();
+          range = new __WEBPACK_IMPORTED_MODULE_3__ranges__["d" /* Range */](areaName);
           break;
 
         case "EMV":
-          indic = new indicators.EMVIndicator();
-          range = new ranges.Range(areaName);
+          indic = new __WEBPACK_IMPORTED_MODULE_2__indicators__["f" /* EMVIndicator */]();
+          range = new __WEBPACK_IMPORTED_MODULE_3__ranges__["d" /* Range */](areaName);
           break;
 
         case "RSI":
-          indic = new indicators.RSIIndicator();
-          range = new ranges.PercentageRange(areaName);
+          indic = new __WEBPACK_IMPORTED_MODULE_2__indicators__["o" /* RSIIndicator */]();
+          range = new __WEBPACK_IMPORTED_MODULE_3__ranges__["b" /* PercentageRange */](areaName);
           break;
 
         case "WR":
-          indic = new indicators.WRIndicator();
-          range = new ranges.PercentageRange(areaName);
+          indic = new __WEBPACK_IMPORTED_MODULE_2__indicators__["u" /* WRIndicator */]();
+          range = new __WEBPACK_IMPORTED_MODULE_3__ranges__["b" /* PercentageRange */](areaName);
           break;
 
         case "SAR":
-          indic = new indicators.SARIndicator();
-          range = new ranges.PositiveRange(areaName);
+          indic = new __WEBPACK_IMPORTED_MODULE_2__indicators__["p" /* SARIndicator */]();
+          range = new __WEBPACK_IMPORTED_MODULE_3__ranges__["c" /* PositiveRange */](areaName);
           break;
 
         case "KDJ":
-          indic = new indicators.KDJIndicator();
-          range = new ranges.PercentageRange(areaName);
+          indic = new __WEBPACK_IMPORTED_MODULE_2__indicators__["h" /* KDJIndicator */]();
+          range = new __WEBPACK_IMPORTED_MODULE_3__ranges__["b" /* PercentageRange */](areaName);
           break;
 
         case "ROC":
-          indic = new indicators.ROCIndicator();
-          range = new ranges.Range(areaName);
+          indic = new __WEBPACK_IMPORTED_MODULE_2__indicators__["n" /* ROCIndicator */]();
+          range = new __WEBPACK_IMPORTED_MODULE_3__ranges__["d" /* Range */](areaName);
           break;
 
         case "MTM":
-          indic = new indicators.MTMIndicator();
-          range = new ranges.Range(areaName);
+          indic = new __WEBPACK_IMPORTED_MODULE_2__indicators__["k" /* MTMIndicator */]();
+          range = new __WEBPACK_IMPORTED_MODULE_3__ranges__["d" /* Range */](areaName);
           break;
 
         case "BOLL":
-          indic = new indicators.BOLLIndicator();
-          range = new ranges.Range(areaName);
+          indic = new __WEBPACK_IMPORTED_MODULE_2__indicators__["a" /* BOLLIndicator */]();
+          range = new __WEBPACK_IMPORTED_MODULE_3__ranges__["d" /* Range */](areaName);
           break;
 
         case "PSY":
-          indic = new indicators.PSYIndicator();
-          range = new ranges.Range(areaName);
+          indic = new __WEBPACK_IMPORTED_MODULE_2__indicators__["m" /* PSYIndicator */]();
+          range = new __WEBPACK_IMPORTED_MODULE_3__ranges__["d" /* Range */](areaName);
           break;
 
         case "StochRSI":
-          indic = new indicators.STOCHRSIIndicator();
-          range = new ranges.PercentageRange(areaName);
+          indic = new __WEBPACK_IMPORTED_MODULE_2__indicators__["q" /* STOCHRSIIndicator */]();
+          range = new __WEBPACK_IMPORTED_MODULE_3__ranges__["b" /* PercentageRange */](areaName);
           break;
 
         default:
@@ -1234,7 +1226,7 @@ function () {
       }
 
       if (!notLoadSettings) {
-        indic.setParameters(_chart_settings.ChartSettings.get().indics[indicName]);
+        indic.setParameters(__WEBPACK_IMPORTED_MODULE_6__chart_settings__["a" /* ChartSettings */].get().indics[indicName]);
       }
 
       return {
@@ -1247,36 +1239,36 @@ function () {
     value: function setMainIndicator(dsName, indicName) {
       var areaName = dsName + ".main";
       var dp = this.getDataProvider(areaName + ".main");
-      if (dp === undefined || !_util.Util.isInstance(dp, data_providers.MainDataProvider)) return false;
+      if (dp === undefined || !__WEBPACK_IMPORTED_MODULE_12__util__["a" /* Util */].isInstance(dp, __WEBPACK_IMPORTED_MODULE_7__data_providers__["b" /* MainDataProvider */])) return false;
       var indic;
 
       switch (indicName) {
         case "MA":
-          indic = new indicators.MAIndicator();
+          indic = new __WEBPACK_IMPORTED_MODULE_2__indicators__["j" /* MAIndicator */]();
           break;
 
         case "EMA":
-          indic = new indicators.EMAIndicator();
+          indic = new __WEBPACK_IMPORTED_MODULE_2__indicators__["e" /* EMAIndicator */]();
           break;
 
         case "BOLL":
-          indic = new indicators.BOLLIndicator();
+          indic = new __WEBPACK_IMPORTED_MODULE_2__indicators__["a" /* BOLLIndicator */]();
           break;
 
         case "SAR":
-          indic = new indicators.SARIndicator();
+          indic = new __WEBPACK_IMPORTED_MODULE_2__indicators__["p" /* SARIndicator */]();
           break;
 
         default:
           return false;
       }
 
-      indic.setParameters(_chart_settings.ChartSettings.get().indics[indicName]);
+      indic.setParameters(__WEBPACK_IMPORTED_MODULE_6__chart_settings__["a" /* ChartSettings */].get().indics[indicName]);
       var indicDpName = areaName + ".secondary";
       var indicDp = this.getDataProvider(indicDpName);
 
       if (indicDp === undefined) {
-        indicDp = new data_providers.IndicatorDataProvider(indicDpName);
+        indicDp = new __WEBPACK_IMPORTED_MODULE_7__data_providers__["a" /* IndicatorDataProvider */](indicDpName);
         this.setDataProvider(indicDp.getName(), indicDp);
       }
 
@@ -1284,7 +1276,7 @@ function () {
       var plotter = this.getPlotter(indicDpName);
 
       if (plotter === undefined) {
-        plotter = new plotters.IndicatorPlotter(indicDpName);
+        plotter = new __WEBPACK_IMPORTED_MODULE_9__plotters__["y" /* IndicatorPlotter */](indicDpName);
         this.setPlotter(plotter.getName(), plotter);
       }
 
@@ -1302,7 +1294,7 @@ function () {
 
       var dp = this.getDataProvider(areaName + ".secondary");
 
-      if (dp === null || dp === undefined || !_util.Util.isInstance(dp, data_providers.IndicatorDataProvider)) {
+      if (dp === null || dp === undefined || !__WEBPACK_IMPORTED_MODULE_12__util__["a" /* Util */].isInstance(dp, __WEBPACK_IMPORTED_MODULE_7__data_providers__["a" /* IndicatorDataProvider */])) {
         return false;
       }
 
@@ -1324,17 +1316,17 @@ function () {
       range.setPaddingBottom(4);
       range.setMinInterval(20);
 
-      if (_util.Util.isInstance(indic, indicators.VOLUMEIndicator)) {
-        var plotter = new plotters.LastVolumePlotter(areaName + "Range.decoration");
+      if (__WEBPACK_IMPORTED_MODULE_12__util__["a" /* Util */].isInstance(indic, __WEBPACK_IMPORTED_MODULE_2__indicators__["s" /* VOLUMEIndicator */])) {
+        var plotter = new __WEBPACK_IMPORTED_MODULE_9__plotters__["A" /* LastVolumePlotter */](areaName + "Range.decoration");
         this.setPlotter(plotter.getName(), plotter);
-      } else if (_util.Util.isInstance(indic, indicators.BOLLIndicator) || _util.Util.isInstance(indic, indicators.SARIndicator)) {
-        var _dp = new data_providers.MainDataProvider(areaName + ".main");
+      } else if (__WEBPACK_IMPORTED_MODULE_12__util__["a" /* Util */].isInstance(indic, __WEBPACK_IMPORTED_MODULE_2__indicators__["a" /* BOLLIndicator */]) || __WEBPACK_IMPORTED_MODULE_12__util__["a" /* Util */].isInstance(indic, __WEBPACK_IMPORTED_MODULE_2__indicators__["p" /* SARIndicator */])) {
+        var _dp = new __WEBPACK_IMPORTED_MODULE_7__data_providers__["b" /* MainDataProvider */](areaName + ".main");
 
         this.setDataProvider(_dp.getName(), _dp);
 
         _dp.updateData();
 
-        var _plotter = new plotters.OHLCPlotter(areaName + ".main");
+        var _plotter = new __WEBPACK_IMPORTED_MODULE_9__plotters__["E" /* OHLCPlotter */](areaName + ".main");
 
         this.setPlotter(_plotter.getName(), _plotter);
       }
@@ -1347,7 +1339,7 @@ function () {
       var areaName = dsName + ".main";
       var indicDpName = areaName + ".secondary";
       var indicDp = this.getDataProvider(indicDpName);
-      if (indicDp === undefined || !_util.Util.isInstance(indicDp, data_providers.IndicatorDataProvider)) return;
+      if (indicDp === undefined || !__WEBPACK_IMPORTED_MODULE_12__util__["a" /* Util */].isInstance(indicDp, __WEBPACK_IMPORTED_MODULE_7__data_providers__["a" /* IndicatorDataProvider */])) return;
       this.removeDataProvider(indicDpName);
       this.removePlotter(indicDpName);
       this.getArea(areaName).setChanged(true);
@@ -1358,7 +1350,7 @@ function () {
       var area = this.getArea(areaName);
       if (area === undefined || area.getNameObject().getCompAt(2) === "main") return;
       var dp = this.getDataProvider(areaName + ".secondary");
-      if (dp === undefined || !_util.Util.isInstance(dp, data_providers.IndicatorDataProvider)) return;
+      if (dp === undefined || !__WEBPACK_IMPORTED_MODULE_12__util__["a" /* Util */].isInstance(dp, __WEBPACK_IMPORTED_MODULE_7__data_providers__["a" /* IndicatorDataProvider */])) return;
       var rangeAreaName = areaName + "Range";
       var rangeArea = this.getArea(rangeAreaName);
       if (rangeArea === undefined) return;
@@ -1413,7 +1405,7 @@ function () {
 
       for (n in this._dataProviders) {
         var dp = this._dataProviders[n];
-        if (_util.Util.isInstance(dp, data_providers.IndicatorDataProvider) === false) continue;
+        if (__WEBPACK_IMPORTED_MODULE_12__util__["a" /* Util */].isInstance(dp, __WEBPACK_IMPORTED_MODULE_7__data_providers__["a" /* IndicatorDataProvider */]) === false) continue;
         indic = dp.getIndicator();
 
         if (indic.getName() === indicName) {
@@ -1445,8 +1437,6 @@ function () {
 
   return ChartManager;
 }();
-
-exports.ChartManager = ChartManager;
 ChartManager.DrawingTool = {
   Cursor: 0,
   CrossCursor: 1,
@@ -1472,23 +1462,17 @@ ChartManager.instance = null;
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.NamedObject = void 0;
-
-var _cname = __webpack_require__(19);
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NamedObject; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__cname__ = __webpack_require__(19);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 
 var NamedObject =
 /*#__PURE__*/
@@ -1497,7 +1481,7 @@ function () {
     _classCallCheck(this, NamedObject);
 
     this._name = name;
-    this._nameObj = new _cname.CName(name);
+    this._nameObj = new __WEBPACK_IMPORTED_MODULE_0__cname__["a" /* CName */](name);
   }
 
   _createClass(NamedObject, [{
@@ -1566,35 +1550,19 @@ function () {
   return NamedObject;
 }();
 
-exports.NamedObject = NamedObject;
-
 /***/ }),
 /* 2 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.MainDataSource = exports.DataSource = void 0;
-
-var _named_object = __webpack_require__(1);
-
-var _ctool_manager = __webpack_require__(27);
-
-var _kline = _interopRequireDefault(__webpack_require__(3));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DataSource; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return MainDataSource; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__named_object__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ctool_manager__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__kline__ = __webpack_require__(3);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } _setPrototypeOf(subClass.prototype, superClass && superClass.prototype); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
@@ -1604,11 +1572,20 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _getPrototypeOf(o) { _getPrototypeOf = Object.getPrototypeOf || function _getPrototypeOf(o) { return o.__proto__; }; return _getPrototypeOf(o); }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
 
 var DataSource =
 /*#__PURE__*/
 function (_NamedObject) {
+  _inherits(DataSource, _NamedObject);
+
   function DataSource(name) {
     _classCallCheck(this, DataSource);
 
@@ -1642,22 +1619,19 @@ function (_NamedObject) {
     }
   }]);
 
-  _inherits(DataSource, _NamedObject);
-
   return DataSource;
-}(_named_object.NamedObject);
-
-exports.DataSource = DataSource;
+}(__WEBPACK_IMPORTED_MODULE_0__named_object__["a" /* NamedObject */]);
 DataSource.UpdateMode = {
   DoNothing: 0,
   Refresh: 1,
   Update: 2,
   Append: 3
 };
-
 var MainDataSource =
 /*#__PURE__*/
 function (_DataSource) {
+  _inherits(MainDataSource, _DataSource);
+
   function MainDataSource(name) {
     var _this;
 
@@ -1667,7 +1641,7 @@ function (_DataSource) {
     _this._erasedCount = 0;
     _this._dataItems = [];
     _this._decimalDigits = 0;
-    _this.toolManager = new _ctool_manager.CToolManager(name);
+    _this.toolManager = new __WEBPACK_IMPORTED_MODULE_1__ctool_manager__["a" /* CToolManager */](name);
     return _this;
   }
 
@@ -1787,7 +1761,7 @@ function (_DataSource) {
           }
         }
 
-        if (_cnt < _kline.default.instance.limit) {
+        if (_cnt < __WEBPACK_IMPORTED_MODULE_2__kline__["a" /* default */].instance.limit) {
           this.setUpdateMode(DataSource.UpdateMode.DoNothing);
           return false;
         }
@@ -1868,50 +1842,42 @@ function (_DataSource) {
     }
   }]);
 
-  _inherits(MainDataSource, _DataSource);
-
   return MainDataSource;
 }(DataSource);
 
-exports.MainDataSource = MainDataSource;
-
 /***/ }),
 /* 3 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _control = __webpack_require__(10);
-
-var _kline_trade = __webpack_require__(18);
-
-var _chart_manager = __webpack_require__(0);
-
-var _chart_settings = __webpack_require__(4);
-
-var _templates = __webpack_require__(8);
-
-__webpack_require__(31);
-
-var _tpl = _interopRequireDefault(__webpack_require__(47));
-
-var _firebase = _interopRequireDefault(__webpack_require__(48));
-
-var _jquery = _interopRequireDefault(__webpack_require__(23));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Kline; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__control__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__kline_trade__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__chart_manager__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__chart_settings__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__templates__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__css_main_css__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__css_main_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__css_main_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__view_tpl_html__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__view_tpl_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__view_tpl_html__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__firebase__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_jquery__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_jquery__);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+
+
+
+
+
+
+
 
 var Kline =
 /*#__PURE__*/
@@ -2001,44 +1967,37 @@ function () {
   _createClass(Kline, [{
     key: "draw",
     value: function draw() {
-      Kline.trade = new _kline_trade.KlineTrade();
-      Kline.chartMgr = new _chart_manager.ChartManager();
-
-      var view = _jquery.default.parseHTML(_tpl.default);
+      Kline.trade = new __WEBPACK_IMPORTED_MODULE_1__kline_trade__["a" /* KlineTrade */]();
+      Kline.chartMgr = new __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */]();
+      var view = __WEBPACK_IMPORTED_MODULE_8_jquery___default.a.parseHTML(__WEBPACK_IMPORTED_MODULE_6__view_tpl_html___default.a);
 
       for (var k in this.ranges) {
-        var res = (0, _jquery.default)(view).find('[name="' + this.ranges[k] + '"]');
+        var res = __WEBPACK_IMPORTED_MODULE_8_jquery___default()(view).find('[name="' + this.ranges[k] + '"]');
         res.each(function (i, e) {
-          (0, _jquery.default)(e).attr("style", "display:inline-block");
+          __WEBPACK_IMPORTED_MODULE_8_jquery___default()(e).attr("style", "display:inline-block");
         });
       }
 
-      (0, _jquery.default)(this.element).html(view);
-      setInterval(_control.Control.refreshFunction, this.intervalTime);
+      __WEBPACK_IMPORTED_MODULE_8_jquery___default()(this.element).html(view);
+      setInterval(__WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].refreshFunction, this.intervalTime);
 
       if (this.type === "stomp") {
-        _control.Control.socketConnect();
+        __WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].socketConnect();
       }
 
       if (!this.disableFirebase) {
-        (0, _firebase.default)();
+        Object(__WEBPACK_IMPORTED_MODULE_7__firebase__["a" /* default */])();
       }
 
       this.registerMouseEvent();
-
-      _chart_manager.ChartManager.instance.bindCanvas("main", document.getElementById("chart_mainCanvas"));
-
-      _chart_manager.ChartManager.instance.bindCanvas("overlay", document.getElementById("chart_overlayCanvas"));
-
-      _control.Control.refreshTemplate();
-
-      _control.Control.onSize(this.width, this.height);
-
-      _control.Control.readCookie();
-
+      __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.bindCanvas("main", document.getElementById("chart_mainCanvas"));
+      __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.bindCanvas("overlay", document.getElementById("chart_overlayCanvas"));
+      __WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].refreshTemplate();
+      __WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].onSize(this.width, this.height);
+      __WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].readCookie();
       this.setTheme(this.theme);
       this.setLanguage(this.language);
-      (0, _jquery.default)(this.element).css({
+      __WEBPACK_IMPORTED_MODULE_8_jquery___default()(this.element).css({
         visibility: "visible"
       });
     }
@@ -2047,32 +2006,27 @@ function () {
     value: function resize(width, height) {
       this.width = width;
       this.height = height;
-
-      _control.Control.onSize(this.width, this.height);
+      __WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].onSize(this.width, this.height);
     }
   }, {
     key: "setSymbol",
     value: function setSymbol(symbol, symbolName) {
       this.symbol = symbol;
       this.symbolName = symbolName;
-
-      _control.Control.switchSymbol(symbol);
-
+      __WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].switchSymbol(symbol);
       this.onSymbolChange(symbol, symbolName);
     }
   }, {
     key: "setTheme",
     value: function setTheme(style) {
       this.theme = style;
-
-      _control.Control.switchTheme(style);
+      __WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].switchTheme(style);
     }
   }, {
     key: "setLanguage",
     value: function setLanguage(lang) {
       this.language = lang;
-
-      _control.Control.chartSwitchLanguage(lang);
+      __WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].chartSwitchLanguage(lang);
     }
   }, {
     key: "setShowTrade",
@@ -2080,25 +2034,25 @@ function () {
       this.showTrade = isShow;
 
       if (isShow) {
-        (0, _jquery.default)(".trade_container").show();
+        __WEBPACK_IMPORTED_MODULE_8_jquery___default()(".trade_container").show();
       } else {
-        (0, _jquery.default)(".trade_container").hide();
+        __WEBPACK_IMPORTED_MODULE_8_jquery___default()(".trade_container").hide();
       }
 
-      _control.Control.onSize(this.width, this.height);
+      __WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].onSize(this.width, this.height);
     }
   }, {
     key: "toggleTrade",
     value: function toggleTrade() {
       if (!this.showTrade) {
         this.showTrade = true;
-        (0, _jquery.default)(".trade_container").show();
+        __WEBPACK_IMPORTED_MODULE_8_jquery___default()(".trade_container").show();
       } else {
         this.showTrade = false;
-        (0, _jquery.default)(".trade_container").hide();
+        __WEBPACK_IMPORTED_MODULE_8_jquery___default()(".trade_container").hide();
       }
 
-      _control.Control.onSize(this.width, this.height);
+      __WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].onSize(this.width, this.height);
     }
   }, {
     key: "setIntervalTime",
@@ -2126,8 +2080,7 @@ function () {
       }
 
       this.paused = false;
-
-      _control.Control.requestData(true);
+      __WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].requestData(true);
     }
   }, {
     key: "connect",
@@ -2140,7 +2093,7 @@ function () {
         return;
       }
 
-      _control.Control.socketConnect();
+      __WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].socketConnect();
     }
   }, {
     key: "disconnect",
@@ -2204,27 +2157,27 @@ function () {
   }, {
     key: "registerMouseEvent",
     value: function registerMouseEvent() {
-      (0, _jquery.default)(document).ready(function () {
+      __WEBPACK_IMPORTED_MODULE_8_jquery___default()(document).ready(function () {
         function __resize() {
           if (navigator.userAgent.indexOf('Firefox') >= 0) {
             setTimeout(function () {
-              _control.Control.onSize(this.width, this.height);
+              __WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].onSize(this.width, this.height);
             }, 200);
           } else {
-            _control.Control.onSize(this.width, this.height);
+            __WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].onSize(this.width, this.height);
           }
         }
 
-        (0, _jquery.default)('#chart_overlayCanvas').bind("contextmenu", function (e) {
+        __WEBPACK_IMPORTED_MODULE_8_jquery___default()('#chart_overlayCanvas').bind("contextmenu", function (e) {
           e.cancelBubble = true;
           e.returnValue = false;
           e.preventDefault();
           e.stopPropagation();
           return false;
         });
-        (0, _jquery.default)(".chart_container .chart_dropdown .chart_dropdown_t").mouseover(function () {
-          var container = (0, _jquery.default)(".chart_container");
-          var title = (0, _jquery.default)(this);
+        __WEBPACK_IMPORTED_MODULE_8_jquery___default()(".chart_container .chart_dropdown .chart_dropdown_t").mouseover(function () {
+          var container = __WEBPACK_IMPORTED_MODULE_8_jquery___default()(".chart_container");
+          var title = __WEBPACK_IMPORTED_MODULE_8_jquery___default()(this);
           var dropdown = title.next();
           var containerLeft = container.offset().left;
           var titleLeft = title.offset().left;
@@ -2247,190 +2200,174 @@ function () {
           title.addClass("chart_dropdown-hover");
           dropdown.addClass("chart_dropdown-hover");
         }).mouseout(function () {
-          (0, _jquery.default)(this).next().removeClass("chart_dropdown-hover");
-          (0, _jquery.default)(this).removeClass("chart_dropdown-hover");
+          __WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).next().removeClass("chart_dropdown-hover");
+          __WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).removeClass("chart_dropdown-hover");
         });
-        (0, _jquery.default)(".chart_dropdown_data").mouseover(function () {
-          (0, _jquery.default)(this).addClass("chart_dropdown-hover");
-          (0, _jquery.default)(this).prev().addClass("chart_dropdown-hover");
+        __WEBPACK_IMPORTED_MODULE_8_jquery___default()(".chart_dropdown_data").mouseover(function () {
+          __WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).addClass("chart_dropdown-hover");
+          __WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).prev().addClass("chart_dropdown-hover");
         }).mouseout(function () {
-          (0, _jquery.default)(this).prev().removeClass("chart_dropdown-hover");
-          (0, _jquery.default)(this).removeClass("chart_dropdown-hover");
+          __WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).prev().removeClass("chart_dropdown-hover");
+          __WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).removeClass("chart_dropdown-hover");
         });
-        (0, _jquery.default)("#chart_btn_parameter_settings").click(function () {
-          (0, _jquery.default)('#chart_parameter_settings').addClass("clicked");
-          (0, _jquery.default)(".chart_dropdown_data").removeClass("chart_dropdown-hover");
-          (0, _jquery.default)("#chart_parameter_settings").find("th").each(function () {
-            var name = (0, _jquery.default)(this).html();
+        __WEBPACK_IMPORTED_MODULE_8_jquery___default()("#chart_btn_parameter_settings").click(function () {
+          __WEBPACK_IMPORTED_MODULE_8_jquery___default()('#chart_parameter_settings').addClass("clicked");
+          __WEBPACK_IMPORTED_MODULE_8_jquery___default()(".chart_dropdown_data").removeClass("chart_dropdown-hover");
+          __WEBPACK_IMPORTED_MODULE_8_jquery___default()("#chart_parameter_settings").find("th").each(function () {
+            var name = __WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).html();
             var index = 0;
-
-            var tmp = _chart_settings.ChartSettings.get();
-
+            var tmp = __WEBPACK_IMPORTED_MODULE_3__chart_settings__["a" /* ChartSettings */].get();
             var value = tmp.indics[name];
-            (0, _jquery.default)(this.nextElementSibling).find("input").each(function () {
+            __WEBPACK_IMPORTED_MODULE_8_jquery___default()(this.nextElementSibling).find("input").each(function () {
               if (value !== null && index < value.length) {
-                (0, _jquery.default)(this).val(value[index]);
+                __WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).val(value[index]);
               }
 
               index++;
             });
           });
         });
-        (0, _jquery.default)("#close_settings").click(function () {
-          (0, _jquery.default)('#chart_parameter_settings').removeClass("clicked");
+        __WEBPACK_IMPORTED_MODULE_8_jquery___default()("#close_settings").click(function () {
+          __WEBPACK_IMPORTED_MODULE_8_jquery___default()('#chart_parameter_settings').removeClass("clicked");
         });
-        (0, _jquery.default)(".chart_container .chart_toolbar_tabgroup a").click(function () {
-          _control.Control.switchPeriod((0, _jquery.default)(this).parent().attr('name'));
+        __WEBPACK_IMPORTED_MODULE_8_jquery___default()(".chart_container .chart_toolbar_tabgroup a").click(function () {
+          __WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].switchPeriod(__WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).parent().attr('name'));
         });
-        (0, _jquery.default)("#chart_toolbar_periods_vert ul a").click(function () {
-          _control.Control.switchPeriod((0, _jquery.default)(this).parent().attr('name'));
+        __WEBPACK_IMPORTED_MODULE_8_jquery___default()("#chart_toolbar_periods_vert ul a").click(function () {
+          __WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].switchPeriod(__WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).parent().attr('name'));
         });
-        (0, _jquery.default)(".market_chooser ul a").click(function () {
-          _control.Control.switchSymbol((0, _jquery.default)(this).attr('name'));
+        __WEBPACK_IMPORTED_MODULE_8_jquery___default()(".market_chooser ul a").click(function () {
+          __WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].switchSymbol(__WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).attr('name'));
         });
-        (0, _jquery.default)('#chart_show_tools').click(function () {
-          if ((0, _jquery.default)(this).hasClass('selected')) {
-            _control.Control.switchTools('off');
+        __WEBPACK_IMPORTED_MODULE_8_jquery___default()('#chart_show_tools').click(function () {
+          if (__WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).hasClass('selected')) {
+            __WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].switchTools('off');
           } else {
-            _control.Control.switchTools('on');
+            __WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].switchTools('on');
           }
         });
-        (0, _jquery.default)("#chart_toolpanel .chart_toolpanel_button").click(function () {
-          (0, _jquery.default)(".chart_dropdown_data").removeClass("chart_dropdown-hover");
-          (0, _jquery.default)("#chart_toolpanel .chart_toolpanel_button").removeClass("selected");
-          (0, _jquery.default)(this).addClass("selected");
-          var name = (0, _jquery.default)(this).children().attr('name');
-          Kline.instance.chartMgr.setRunningMode(_chart_manager.ChartManager.DrawingTool[name]);
+        __WEBPACK_IMPORTED_MODULE_8_jquery___default()("#chart_toolpanel .chart_toolpanel_button").click(function () {
+          __WEBPACK_IMPORTED_MODULE_8_jquery___default()(".chart_dropdown_data").removeClass("chart_dropdown-hover");
+          __WEBPACK_IMPORTED_MODULE_8_jquery___default()("#chart_toolpanel .chart_toolpanel_button").removeClass("selected");
+          __WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).addClass("selected");
+          var name = __WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).children().attr('name');
+          Kline.instance.chartMgr.setRunningMode(__WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].DrawingTool[name]);
         });
-        (0, _jquery.default)('#chart_show_indicator').click(function () {
-          if ((0, _jquery.default)(this).hasClass('selected')) {
-            _control.Control.switchIndic('off');
+        __WEBPACK_IMPORTED_MODULE_8_jquery___default()('#chart_show_indicator').click(function () {
+          if (__WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).hasClass('selected')) {
+            __WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].switchIndic('off');
           } else {
-            _control.Control.switchIndic('on');
+            __WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].switchIndic('on');
           }
         });
-        (0, _jquery.default)("#chart_tabbar li a").click(function () {
-          (0, _jquery.default)("#chart_tabbar li a").removeClass('selected');
-          (0, _jquery.default)(this).addClass('selected');
-          var name = (0, _jquery.default)(this).attr('name');
-
-          var tmp = _chart_settings.ChartSettings.get();
-
+        __WEBPACK_IMPORTED_MODULE_8_jquery___default()("#chart_tabbar li a").click(function () {
+          __WEBPACK_IMPORTED_MODULE_8_jquery___default()("#chart_tabbar li a").removeClass('selected');
+          __WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).addClass('selected');
+          var name = __WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).attr('name');
+          var tmp = __WEBPACK_IMPORTED_MODULE_3__chart_settings__["a" /* ChartSettings */].get();
           tmp.charts.indics[1] = name;
-
-          _chart_settings.ChartSettings.save();
-
-          if (_templates.Template.displayVolume === false) _chart_manager.ChartManager.instance.getChart().setIndicator(1, name);else _chart_manager.ChartManager.instance.getChart().setIndicator(2, name);
+          __WEBPACK_IMPORTED_MODULE_3__chart_settings__["a" /* ChartSettings */].save();
+          if (__WEBPACK_IMPORTED_MODULE_4__templates__["b" /* Template */].displayVolume === false) __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.getChart().setIndicator(1, name);else __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.getChart().setIndicator(2, name);
         });
-        (0, _jquery.default)("#chart_select_chart_style a").click(function () {
-          (0, _jquery.default)("#chart_select_chart_style a").removeClass('selected');
-          (0, _jquery.default)(this).addClass("selected");
-
-          var tmp = _chart_settings.ChartSettings.get();
-
-          tmp.charts.chartStyle = (0, _jquery.default)(this)[0].innerHTML;
-
-          _chart_settings.ChartSettings.save();
-
-          var mgr = _chart_manager.ChartManager.instance;
-          mgr.setChartStyle("frame0.k0", (0, _jquery.default)(this).html());
+        __WEBPACK_IMPORTED_MODULE_8_jquery___default()("#chart_select_chart_style a").click(function () {
+          __WEBPACK_IMPORTED_MODULE_8_jquery___default()("#chart_select_chart_style a").removeClass('selected');
+          __WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).addClass("selected");
+          var tmp = __WEBPACK_IMPORTED_MODULE_3__chart_settings__["a" /* ChartSettings */].get();
+          tmp.charts.chartStyle = __WEBPACK_IMPORTED_MODULE_8_jquery___default()(this)[0].innerHTML;
+          __WEBPACK_IMPORTED_MODULE_3__chart_settings__["a" /* ChartSettings */].save();
+          var mgr = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance;
+          mgr.setChartStyle("frame0.k0", __WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).html());
           mgr.redraw();
         });
-        (0, _jquery.default)('#chart_dropdown_themes li').click(function () {
-          (0, _jquery.default)('#chart_dropdown_themes li a').removeClass('selected');
-          var name = (0, _jquery.default)(this).attr('name');
+        __WEBPACK_IMPORTED_MODULE_8_jquery___default()('#chart_dropdown_themes li').click(function () {
+          __WEBPACK_IMPORTED_MODULE_8_jquery___default()('#chart_dropdown_themes li a').removeClass('selected');
+          var name = __WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).attr('name');
 
           if (name === 'chart_themes_dark') {
-            _control.Control.switchTheme('dark');
+            __WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].switchTheme('dark');
           } else if (name === 'chart_themes_light') {
-            _control.Control.switchTheme('light');
+            __WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].switchTheme('light');
           }
         });
-        (0, _jquery.default)("#chart_select_main_indicator a").click(function () {
-          (0, _jquery.default)("#chart_select_main_indicator a").removeClass('selected');
-          (0, _jquery.default)(this).addClass("selected");
-          var name = (0, _jquery.default)(this).attr('name');
-
-          var tmp = _chart_settings.ChartSettings.get();
-
+        __WEBPACK_IMPORTED_MODULE_8_jquery___default()("#chart_select_main_indicator a").click(function () {
+          __WEBPACK_IMPORTED_MODULE_8_jquery___default()("#chart_select_main_indicator a").removeClass('selected');
+          __WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).addClass("selected");
+          var name = __WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).attr('name');
+          var tmp = __WEBPACK_IMPORTED_MODULE_3__chart_settings__["a" /* ChartSettings */].get();
           tmp.charts.mIndic = name;
-
-          _chart_settings.ChartSettings.save();
-
-          var mgr = _chart_manager.ChartManager.instance;
+          __WEBPACK_IMPORTED_MODULE_3__chart_settings__["a" /* ChartSettings */].save();
+          var mgr = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance;
           if (!mgr.setMainIndicator("frame0.k0", name)) mgr.removeMainIndicator("frame0.k0");
           mgr.redraw();
         });
-        (0, _jquery.default)('#chart_toolbar_theme a').click(function () {
-          (0, _jquery.default)('#chart_toolbar_theme a').removeClass('selected');
+        __WEBPACK_IMPORTED_MODULE_8_jquery___default()('#chart_toolbar_theme a').click(function () {
+          __WEBPACK_IMPORTED_MODULE_8_jquery___default()('#chart_toolbar_theme a').removeClass('selected');
 
-          if ((0, _jquery.default)(this).attr('name') === 'dark') {
-            _control.Control.switchTheme('dark');
-          } else if ((0, _jquery.default)(this).attr('name') === 'light') {
-            _control.Control.switchTheme('light');
+          if (__WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).attr('name') === 'dark') {
+            __WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].switchTheme('dark');
+          } else if (__WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).attr('name') === 'light') {
+            __WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].switchTheme('light');
           }
         });
-        (0, _jquery.default)('#chart_select_theme li a').click(function () {
-          (0, _jquery.default)('#chart_select_theme a').removeClass('selected');
+        __WEBPACK_IMPORTED_MODULE_8_jquery___default()('#chart_select_theme li a').click(function () {
+          __WEBPACK_IMPORTED_MODULE_8_jquery___default()('#chart_select_theme a').removeClass('selected');
 
-          if ((0, _jquery.default)(this).attr('name') === 'dark') {
-            _control.Control.switchTheme('dark');
-          } else if ((0, _jquery.default)(this).attr('name') === 'light') {
-            _control.Control.switchTheme('light');
+          if (__WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).attr('name') === 'dark') {
+            __WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].switchTheme('dark');
+          } else if (__WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).attr('name') === 'light') {
+            __WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].switchTheme('light');
           }
         });
-        (0, _jquery.default)('#chart_enable_tools li a').click(function () {
-          (0, _jquery.default)('#chart_enable_tools a').removeClass('selected');
+        __WEBPACK_IMPORTED_MODULE_8_jquery___default()('#chart_enable_tools li a').click(function () {
+          __WEBPACK_IMPORTED_MODULE_8_jquery___default()('#chart_enable_tools a').removeClass('selected');
 
-          if ((0, _jquery.default)(this).attr('name') === 'on') {
-            _control.Control.switchTools('on');
-          } else if ((0, _jquery.default)(this).attr('name') === 'off') {
-            _control.Control.switchTools('off');
+          if (__WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).attr('name') === 'on') {
+            __WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].switchTools('on');
+          } else if (__WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).attr('name') === 'off') {
+            __WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].switchTools('off');
           }
         });
-        (0, _jquery.default)('#chart_enable_indicator li a').click(function () {
-          (0, _jquery.default)('#chart_enable_indicator a').removeClass('selected');
+        __WEBPACK_IMPORTED_MODULE_8_jquery___default()('#chart_enable_indicator li a').click(function () {
+          __WEBPACK_IMPORTED_MODULE_8_jquery___default()('#chart_enable_indicator a').removeClass('selected');
 
-          if ((0, _jquery.default)(this).attr('name') === 'on') {
-            _control.Control.switchIndic('on');
-          } else if ((0, _jquery.default)(this).attr('name') === 'off') {
-            _control.Control.switchIndic('off');
+          if (__WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).attr('name') === 'on') {
+            __WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].switchIndic('on');
+          } else if (__WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).attr('name') === 'off') {
+            __WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].switchIndic('off');
           }
         });
-        (0, _jquery.default)('#chart_language_setting_div li a').click(function () {
-          (0, _jquery.default)('#chart_language_setting_div a').removeClass('selected');
+        __WEBPACK_IMPORTED_MODULE_8_jquery___default()('#chart_language_setting_div li a').click(function () {
+          __WEBPACK_IMPORTED_MODULE_8_jquery___default()('#chart_language_setting_div a').removeClass('selected');
 
-          if ((0, _jquery.default)(this).attr('name') === 'zh-cn') {
-            _control.Control.chartSwitchLanguage('zh-cn');
-          } else if ((0, _jquery.default)(this).attr('name') === 'en-us') {
-            _control.Control.chartSwitchLanguage('en-us');
-          } else if ((0, _jquery.default)(this).attr('name') === 'zh-tw') {
-            _control.Control.chartSwitchLanguage('zh-tw');
+          if (__WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).attr('name') === 'zh-cn') {
+            __WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].chartSwitchLanguage('zh-cn');
+          } else if (__WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).attr('name') === 'en-us') {
+            __WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].chartSwitchLanguage('en-us');
+          } else if (__WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).attr('name') === 'zh-tw') {
+            __WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].chartSwitchLanguage('zh-tw');
           }
         });
-        (0, _jquery.default)(document).keyup(function (e) {
+        __WEBPACK_IMPORTED_MODULE_8_jquery___default()(document).keyup(function (e) {
           if (e.keyCode === 46) {
-            _chart_manager.ChartManager.instance.deleteToolObject();
-
-            _chart_manager.ChartManager.instance.redraw('OverlayCanvas', false);
+            __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.deleteToolObject();
+            __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.redraw('OverlayCanvas', false);
           }
         });
-        (0, _jquery.default)("#clearCanvas").click(function () {
-          var pDPTool = _chart_manager.ChartManager.instance.getDataSource("frame0.k0");
-
+        __WEBPACK_IMPORTED_MODULE_8_jquery___default()("#clearCanvas").click(function () {
+          var pDPTool = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.getDataSource("frame0.k0");
           var len = pDPTool.getToolObjectCount();
 
           for (var i = 0; i < len; i++) {
             pDPTool.delToolObject();
           }
 
-          _chart_manager.ChartManager.instance.redraw('OverlayCanvas', false);
+          __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.redraw('OverlayCanvas', false);
         });
-        (0, _jquery.default)("#chart_overlayCanvas").mousemove(function (e) {
+        __WEBPACK_IMPORTED_MODULE_8_jquery___default()("#chart_overlayCanvas").mousemove(function (e) {
           var r = e.target.getBoundingClientRect();
           var x = e.clientX - r.left;
           var y = e.clientY - r.top;
-          var mgr = _chart_manager.ChartManager.instance;
+          var mgr = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance;
 
           if (Kline.instance.buttonDown === true) {
             mgr.onMouseMove("frame0", x, y, true);
@@ -2443,7 +2380,7 @@ function () {
           var r = e.target.getBoundingClientRect();
           var x = e.clientX - r.left;
           var y = e.clientY - r.top;
-          var mgr = _chart_manager.ChartManager.instance;
+          var mgr = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance;
           mgr.onMouseLeave("frame0", x, y, false);
           mgr.redraw("OverlayCanvas");
         }).mouseup(function (e) {
@@ -2455,15 +2392,13 @@ function () {
           var r = e.target.getBoundingClientRect();
           var x = e.clientX - r.left;
           var y = e.clientY - r.top;
-          var mgr = _chart_manager.ChartManager.instance;
+          var mgr = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance;
           mgr.onMouseUp("frame0", x, y);
           mgr.redraw("All");
         }).mousedown(function (e) {
           if (e.which !== 1) {
-            _chart_manager.ChartManager.instance.deleteToolObject();
-
-            _chart_manager.ChartManager.instance.redraw('OverlayCanvas', false);
-
+            __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.deleteToolObject();
+            __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.redraw('OverlayCanvas', false);
             return;
           }
 
@@ -2471,18 +2406,17 @@ function () {
           var r = e.target.getBoundingClientRect();
           var x = e.clientX - r.left;
           var y = e.clientY - r.top;
-
-          _chart_manager.ChartManager.instance.onMouseDown("frame0", x, y);
+          __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.onMouseDown("frame0", x, y);
         });
-        (0, _jquery.default)("#chart_parameter_settings :input").change(function () {
-          var name = (0, _jquery.default)(this).attr("name");
+        __WEBPACK_IMPORTED_MODULE_8_jquery___default()("#chart_parameter_settings :input").change(function () {
+          var name = __WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).attr("name");
           var index = 0;
           var valueArray = [];
-          var mgr = _chart_manager.ChartManager.instance;
-          (0, _jquery.default)("#chart_parameter_settings :input").each(function () {
-            if ((0, _jquery.default)(this).attr("name") === name) {
-              if ((0, _jquery.default)(this).val() !== "" && (0, _jquery.default)(this).val() !== null && (0, _jquery.default)(this).val() !== undefined) {
-                var i = parseInt((0, _jquery.default)(this).val());
+          var mgr = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance;
+          __WEBPACK_IMPORTED_MODULE_8_jquery___default()("#chart_parameter_settings :input").each(function () {
+            if (__WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).attr("name") === name) {
+              if (__WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).val() !== "" && __WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).val() !== null && __WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).val() !== undefined) {
+                var i = parseInt(__WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).val());
                 valueArray.push(i);
               }
 
@@ -2495,57 +2429,46 @@ function () {
             var value = mgr.getIndicatorParameters(name);
             var cookieArray = [];
             index = 0;
-            (0, _jquery.default)("#chart_parameter_settings :input").each(function () {
-              if ((0, _jquery.default)(this).attr("name") === name) {
-                if ((0, _jquery.default)(this).val() !== "" && (0, _jquery.default)(this).val() !== null && (0, _jquery.default)(this).val() !== undefined) {
-                  (0, _jquery.default)(this).val(value[index].getValue());
+            __WEBPACK_IMPORTED_MODULE_8_jquery___default()("#chart_parameter_settings :input").each(function () {
+              if (__WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).attr("name") === name) {
+                if (__WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).val() !== "" && __WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).val() !== null && __WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).val() !== undefined) {
+                  __WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).val(value[index].getValue());
                   cookieArray.push(value[index].getValue());
                 }
 
                 index++;
               }
             });
-
-            var tmp = _chart_settings.ChartSettings.get();
-
+            var tmp = __WEBPACK_IMPORTED_MODULE_3__chart_settings__["a" /* ChartSettings */].get();
             tmp.indics[name] = cookieArray;
-
-            _chart_settings.ChartSettings.save();
-
+            __WEBPACK_IMPORTED_MODULE_3__chart_settings__["a" /* ChartSettings */].save();
             mgr.redraw('All', false);
           }
         });
-        (0, _jquery.default)("#chart_parameter_settings button").click(function () {
-          var name = (0, _jquery.default)(this).parents("tr").children("th").html();
+        __WEBPACK_IMPORTED_MODULE_8_jquery___default()("#chart_parameter_settings button").click(function () {
+          var name = __WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).parents("tr").children("th").html();
           var index = 0;
-
-          var value = _chart_manager.ChartManager.instance.getIndicatorParameters(name);
-
+          var value = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.getIndicatorParameters(name);
           var valueArray = [];
-          (0, _jquery.default)(this).parent().prev().children('input').each(function () {
+          __WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).parent().prev().children('input').each(function () {
             if (value !== null && index < value.length) {
-              (0, _jquery.default)(this).val(value[index].getDefaultValue());
+              __WEBPACK_IMPORTED_MODULE_8_jquery___default()(this).val(value[index].getDefaultValue());
               valueArray.push(value[index].getDefaultValue());
             }
 
             index++;
           });
-
-          _chart_manager.ChartManager.instance.setIndicatorParameters(name, valueArray);
-
-          var tmp = _chart_settings.ChartSettings.get();
-
+          __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.setIndicatorParameters(name, valueArray);
+          var tmp = __WEBPACK_IMPORTED_MODULE_3__chart_settings__["a" /* ChartSettings */].get();
           tmp.indics[name] = valueArray;
-
-          _chart_settings.ChartSettings.save();
-
-          _chart_manager.ChartManager.instance.redraw('All', false);
+          __WEBPACK_IMPORTED_MODULE_3__chart_settings__["a" /* ChartSettings */].save();
+          __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.redraw('All', false);
         });
-        (0, _jquery.default)('body').on('click', '#sizeIcon', function () {
+        __WEBPACK_IMPORTED_MODULE_8_jquery___default()('body').on('click', '#sizeIcon', function () {
           Kline.instance.isSized = !Kline.instance.isSized;
 
           if (Kline.instance.isSized) {
-            (0, _jquery.default)(Kline.instance.element).css({
+            __WEBPACK_IMPORTED_MODULE_8_jquery___default()(Kline.instance.element).css({
               position: 'fixed',
               left: '0',
               right: '0',
@@ -2555,21 +2478,17 @@ function () {
               height: '100%',
               zIndex: '10000'
             });
-
-            _control.Control.onSize();
-
-            (0, _jquery.default)('html,body').css({
+            __WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].onSize();
+            __WEBPACK_IMPORTED_MODULE_8_jquery___default()('html,body').css({
               width: '100%',
               height: '100%',
               overflow: 'hidden'
             });
           } else {
-            (0, _jquery.default)(Kline.instance.element).attr('style', '');
-            (0, _jquery.default)('html,body').attr('style', '');
-
-            _control.Control.onSize(Kline.instance.width, Kline.instance.height);
-
-            (0, _jquery.default)(Kline.instance.element).css({
+            __WEBPACK_IMPORTED_MODULE_8_jquery___default()(Kline.instance.element).attr('style', '');
+            __WEBPACK_IMPORTED_MODULE_8_jquery___default()('html,body').attr('style', '');
+            __WEBPACK_IMPORTED_MODULE_0__control__["a" /* Control */].onSize(Kline.instance.width, Kline.instance.height);
+            __WEBPACK_IMPORTED_MODULE_8_jquery___default()(Kline.instance.element).css({
               visibility: 'visible',
               height: Kline.instance.height + 'px'
             });
@@ -2582,29 +2501,23 @@ function () {
   return Kline;
 }();
 
-exports.default = Kline;
 Kline.created = false;
 Kline.instance = null;
 
+
 /***/ }),
 /* 4 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.ChartSettings = void 0;
-
-var _chart_manager = __webpack_require__(0);
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChartSettings; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__chart_manager__ = __webpack_require__(0);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 
 var ChartSettings =
 /*#__PURE__*/
@@ -2660,7 +2573,7 @@ function () {
       var _name = ['MA', 'EMA', 'VOLUME', 'MACD', 'KDJ', 'StochRSI', 'RSI', 'DMI', 'OBV', 'BOLL', 'DMA', 'TRIX', 'BRAR', 'VR', 'EMV', 'WR', 'ROC', 'MTM', 'PSY'];
 
       for (var i = 0; i < _name.length; i++) {
-        var _value = _chart_manager.ChartManager.instance.createIndicatorAndRange('', _name[i], true);
+        var _value = __WEBPACK_IMPORTED_MODULE_0__chart_manager__["a" /* ChartManager */].instance.createIndicatorAndRange('', _name[i], true);
 
         if (_value === null) continue;
         _indic_param[_name[i]] = [];
@@ -2714,20 +2627,12 @@ function () {
   return ChartSettings;
 }();
 
-exports.ChartSettings = ChartSettings;
-
 /***/ }),
 /* 5 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Util = void 0;
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Util; });
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -2770,41 +2675,33 @@ function () {
   return Util;
 }();
 
-exports.Util = Util;
-
 /***/ }),
 /* 6 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.LightTheme = exports.DarkTheme = exports.Theme = void 0;
-
-var _kline = _interopRequireDefault(__webpack_require__(3));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return Theme; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DarkTheme; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return LightTheme; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__kline__ = __webpack_require__(3);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } _setPrototypeOf(subClass.prototype, superClass && superClass.prototype); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _getPrototypeOf(o) { _getPrototypeOf = Object.getPrototypeOf || function _getPrototypeOf(o) { return o.__proto__; }; return _getPrototypeOf(o); }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 
 var Theme =
 /*#__PURE__*/
@@ -2826,8 +2723,6 @@ function () {
 
   return Theme;
 }();
-
-exports.Theme = Theme;
 Theme.theme_color_id = 0;
 Theme.theme_font_id = 0;
 Theme.Color = {
@@ -2865,10 +2760,11 @@ Theme.Color = {
 Theme.Font = {
   Default: Theme.theme_font_id++
 };
-
 var DarkTheme =
 /*#__PURE__*/
 function (_Theme) {
+  _inherits(DarkTheme, _Theme);
+
   function DarkTheme() {
     var _this;
 
@@ -2877,7 +2773,7 @@ function (_Theme) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(DarkTheme).call(this));
     _this._colors = [];
 
-    if (_kline.default.instance.reverseColor) {
+    if (__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.reverseColor) {
       _this._colors[Theme.Color.Positive] = "#990e0e";
       _this._colors[Theme.Color.Negative] = "#19b34c";
       _this._colors[Theme.Color.PositiveDark] = "#3b0e08";
@@ -2920,16 +2816,13 @@ function (_Theme) {
     return _this;
   }
 
-  _inherits(DarkTheme, _Theme);
-
   return DarkTheme;
 }(Theme);
-
-exports.DarkTheme = DarkTheme;
-
 var LightTheme =
 /*#__PURE__*/
 function (_Theme2) {
+  _inherits(LightTheme, _Theme2);
+
   function LightTheme() {
     var _this2;
 
@@ -2938,7 +2831,7 @@ function (_Theme2) {
     _this2 = _possibleConstructorReturn(this, _getPrototypeOf(LightTheme).call(this));
     _this2._colors = [];
 
-    if (_kline.default.instance.reverseColor) {
+    if (__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.reverseColor) {
       _this2._colors[Theme.Color.Positive] = "#db5542";
       _this2._colors[Theme.Color.Negative] = "#53b37b";
       _this2._colors[Theme.Color.PositiveDark] = "#ffadaa";
@@ -2979,12 +2872,8 @@ function (_Theme2) {
     return _this2;
   }
 
-  _inherits(LightTheme, _Theme2);
-
   return LightTheme;
 }(Theme);
-
-exports.LightTheme = LightTheme;
 
 /***/ }),
 /* 7 */
@@ -3393,57 +3282,51 @@ var firebase = createFirebaseNamespace();
 
 /***/ }),
 /* 8 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.TemplateMeasuringHandler = exports.DefaultTemplate = exports.Template = void 0;
-
-var _chart_manager = __webpack_require__(0);
-
-var _chart_settings = __webpack_require__(4);
-
-var data_sources = _interopRequireWildcard(__webpack_require__(2));
-
-var data_providers = _interopRequireWildcard(__webpack_require__(14));
-
-var areas = _interopRequireWildcard(__webpack_require__(15));
-
-var plotters = _interopRequireWildcard(__webpack_require__(13));
-
-var _timeline = __webpack_require__(28);
-
-var _cname = __webpack_require__(19);
-
-var layouts = _interopRequireWildcard(__webpack_require__(29));
-
-var themes = _interopRequireWildcard(__webpack_require__(6));
-
-var ranges = _interopRequireWildcard(__webpack_require__(22));
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return Template; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DefaultTemplate; });
+/* unused harmony export TemplateMeasuringHandler */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__chart_manager__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__chart_settings__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_sources__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__data_providers__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__areas__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__plotters__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__timeline__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__cname__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__layouts__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__themes__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ranges__ = __webpack_require__(22);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } _setPrototypeOf(subClass.prototype, superClass && superClass.prototype); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _getPrototypeOf(o) { _getPrototypeOf = Object.getPrototypeOf || function _getPrototypeOf(o) { return o.__proto__; }; return _getPrototypeOf(o); }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+
+
+
+
+
+
+
+
 
 var Template =
 /*#__PURE__*/
@@ -3455,12 +3338,12 @@ function () {
   _createClass(Template, null, [{
     key: "createCandlestickDataSource",
     value: function createCandlestickDataSource(dsAlias) {
-      return new data_sources.MainDataSource(dsAlias);
+      return new __WEBPACK_IMPORTED_MODULE_2__data_sources__["b" /* MainDataSource */](dsAlias);
     }
   }, {
     key: "createDataSource",
     value: function createDataSource(dsName, dsAlias, createFunc) {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_0__chart_manager__["a" /* ChartManager */].instance;
       if (mgr.getCachedDataSource(dsAlias) === null) mgr.setCachedDataSource(dsAlias, createFunc(dsAlias));
       mgr.setCurrentDataSource(dsName, dsAlias);
       mgr.updateData(dsName, null);
@@ -3479,61 +3362,60 @@ function () {
   }, {
     key: "createMainChartComps",
     value: function createMainChartComps(dsName) {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_0__chart_manager__["a" /* ChartManager */].instance;
       var tableLayout = mgr.getArea(dsName + ".charts");
       var areaName = dsName + ".main";
       var rangeAreaName = areaName + "Range";
-      var area = new areas.MainArea(areaName);
+      var area = new __WEBPACK_IMPORTED_MODULE_4__areas__["e" /* MainArea */](areaName);
       mgr.setArea(areaName, area);
       tableLayout.addArea(area);
-      var rangeArea = new areas.MainRangeArea(rangeAreaName);
+      var rangeArea = new __WEBPACK_IMPORTED_MODULE_4__areas__["f" /* MainRangeArea */](rangeAreaName);
       mgr.setArea(rangeAreaName, rangeArea);
       tableLayout.addArea(rangeArea);
-      var dp = new data_providers.MainDataProvider(areaName + ".main");
+      var dp = new __WEBPACK_IMPORTED_MODULE_3__data_providers__["b" /* MainDataProvider */](areaName + ".main");
       mgr.setDataProvider(dp.getName(), dp);
       mgr.setMainIndicator(dsName, "MA");
-      var range = new ranges.MainRange(areaName);
+      var range = new __WEBPACK_IMPORTED_MODULE_10__ranges__["a" /* MainRange */](areaName);
       mgr.setRange(range.getName(), range);
       range.setPaddingTop(28);
       range.setPaddingBottom(12);
-      var plotter = new plotters.MainAreaBackgroundPlotter(areaName + ".background");
+      var plotter = new __WEBPACK_IMPORTED_MODULE_5__plotters__["B" /* MainAreaBackgroundPlotter */](areaName + ".background");
       mgr.setPlotter(plotter.getName(), plotter);
-      plotter = new plotters.CGridPlotter(areaName + ".grid");
+      plotter = new __WEBPACK_IMPORTED_MODULE_5__plotters__["c" /* CGridPlotter */](areaName + ".grid");
       mgr.setPlotter(plotter.getName(), plotter);
-      plotter = new plotters.CandlestickPlotter(areaName + ".main");
+      plotter = new __WEBPACK_IMPORTED_MODULE_5__plotters__["h" /* CandlestickPlotter */](areaName + ".main");
       mgr.setPlotter(plotter.getName(), plotter);
-      plotter = new plotters.MinMaxPlotter(areaName + ".decoration");
+      plotter = new __WEBPACK_IMPORTED_MODULE_5__plotters__["D" /* MinMaxPlotter */](areaName + ".decoration");
       mgr.setPlotter(plotter.getName(), plotter);
-      plotter = new plotters.MainInfoPlotter(areaName + ".info");
+      plotter = new __WEBPACK_IMPORTED_MODULE_5__plotters__["C" /* MainInfoPlotter */](areaName + ".info");
       mgr.setPlotter(plotter.getName(), plotter);
-      plotter = new plotters.SelectionPlotter(areaName + ".selection");
+      plotter = new __WEBPACK_IMPORTED_MODULE_5__plotters__["I" /* SelectionPlotter */](areaName + ".selection");
       mgr.setPlotter(plotter.getName(), plotter);
-      plotter = new plotters.CDynamicLinePlotter(areaName + ".tool");
+      plotter = new __WEBPACK_IMPORTED_MODULE_5__plotters__["b" /* CDynamicLinePlotter */](areaName + ".tool");
       mgr.setPlotter(plotter.getName(), plotter);
-      plotter = new plotters.RangeAreaBackgroundPlotter(areaName + "Range.background");
+      plotter = new __WEBPACK_IMPORTED_MODULE_5__plotters__["F" /* RangeAreaBackgroundPlotter */](areaName + "Range.background");
       mgr.setPlotter(plotter.getName(), plotter);
-      plotter = new plotters.COrderGraphPlotter(areaName + "Range.grid");
+      plotter = new __WEBPACK_IMPORTED_MODULE_5__plotters__["f" /* COrderGraphPlotter */](areaName + "Range.grid");
       mgr.setPlotter(plotter.getName(), plotter);
-      plotter = new plotters.RangePlotter(areaName + "Range.main");
+      plotter = new __WEBPACK_IMPORTED_MODULE_5__plotters__["G" /* RangePlotter */](areaName + "Range.main");
       mgr.setPlotter(plotter.getName(), plotter);
-      plotter = new plotters.RangeSelectionPlotter(areaName + "Range.selection");
+      plotter = new __WEBPACK_IMPORTED_MODULE_5__plotters__["H" /* RangeSelectionPlotter */](areaName + "Range.selection");
       mgr.setPlotter(plotter.getName(), plotter);
-      plotter = new plotters.LastClosePlotter(areaName + "Range.decoration");
+      plotter = new __WEBPACK_IMPORTED_MODULE_5__plotters__["z" /* LastClosePlotter */](areaName + "Range.decoration");
       mgr.setPlotter(plotter.getName(), plotter);
     }
   }, {
     key: "createIndicatorChartComps",
     value: function createIndicatorChartComps(dsName, indicName) {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_0__chart_manager__["a" /* ChartManager */].instance;
       var tableLayout = mgr.getArea(dsName + ".charts");
       var areaName = dsName + ".indic" + tableLayout.getNextRowId();
       var rangeAreaName = areaName + "Range";
-      var area = new areas.IndicatorArea(areaName);
+      var area = new __WEBPACK_IMPORTED_MODULE_4__areas__["c" /* IndicatorArea */](areaName);
       mgr.setArea(areaName, area);
       tableLayout.addArea(area);
       var rowIndex = tableLayout.getAreaCount() >> 1;
-
-      var heights = _chart_settings.ChartSettings.get().charts.areaHeight;
+      var heights = __WEBPACK_IMPORTED_MODULE_1__chart_settings__["a" /* ChartSettings */].get().charts.areaHeight;
 
       if (heights.length > rowIndex) {
         var a, i;
@@ -3548,10 +3430,10 @@ function () {
         area.setBottom(heights[rowIndex]);
       }
 
-      var rangeArea = new areas.IndicatorRangeArea(rangeAreaName);
+      var rangeArea = new __WEBPACK_IMPORTED_MODULE_4__areas__["d" /* IndicatorRangeArea */](rangeAreaName);
       mgr.setArea(rangeAreaName, rangeArea);
       tableLayout.addArea(rangeArea);
-      var dp = new data_providers.IndicatorDataProvider(areaName + ".secondary");
+      var dp = new __WEBPACK_IMPORTED_MODULE_3__data_providers__["a" /* IndicatorDataProvider */](areaName + ".secondary");
       mgr.setDataProvider(dp.getName(), dp);
 
       if (mgr.setIndicator(areaName, indicName) === false) {
@@ -3559,68 +3441,67 @@ function () {
         return;
       }
 
-      var plotter = new plotters.MainAreaBackgroundPlotter(areaName + ".background");
+      var plotter = new __WEBPACK_IMPORTED_MODULE_5__plotters__["B" /* MainAreaBackgroundPlotter */](areaName + ".background");
       mgr.setPlotter(plotter.getName(), plotter);
-      plotter = new plotters.CGridPlotter(areaName + ".grid");
+      plotter = new __WEBPACK_IMPORTED_MODULE_5__plotters__["c" /* CGridPlotter */](areaName + ".grid");
       mgr.setPlotter(plotter.getName(), plotter);
-      plotter = new plotters.IndicatorPlotter(areaName + ".secondary");
+      plotter = new __WEBPACK_IMPORTED_MODULE_5__plotters__["y" /* IndicatorPlotter */](areaName + ".secondary");
       mgr.setPlotter(plotter.getName(), plotter);
-      plotter = new plotters.IndicatorInfoPlotter(areaName + ".info");
+      plotter = new __WEBPACK_IMPORTED_MODULE_5__plotters__["x" /* IndicatorInfoPlotter */](areaName + ".info");
       mgr.setPlotter(plotter.getName(), plotter);
-      plotter = new plotters.SelectionPlotter(areaName + ".selection");
+      plotter = new __WEBPACK_IMPORTED_MODULE_5__plotters__["I" /* SelectionPlotter */](areaName + ".selection");
       mgr.setPlotter(plotter.getName(), plotter);
-      plotter = new plotters.RangeAreaBackgroundPlotter(areaName + "Range.background");
+      plotter = new __WEBPACK_IMPORTED_MODULE_5__plotters__["F" /* RangeAreaBackgroundPlotter */](areaName + "Range.background");
       mgr.setPlotter(plotter.getName(), plotter);
-      plotter = new plotters.RangePlotter(areaName + "Range.main");
+      plotter = new __WEBPACK_IMPORTED_MODULE_5__plotters__["G" /* RangePlotter */](areaName + "Range.main");
       mgr.setPlotter(plotter.getName(), plotter);
-      plotter = new plotters.RangeSelectionPlotter(areaName + "Range.selection");
+      plotter = new __WEBPACK_IMPORTED_MODULE_5__plotters__["H" /* RangeSelectionPlotter */](areaName + "Range.selection");
       mgr.setPlotter(plotter.getName(), plotter);
     }
   }, {
     key: "createTimelineComps",
     value: function createTimelineComps(dsName) {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_0__chart_manager__["a" /* ChartManager */].instance;
       var plotter;
-      var timeline = new _timeline.Timeline(dsName);
+      var timeline = new __WEBPACK_IMPORTED_MODULE_6__timeline__["a" /* Timeline */](dsName);
       mgr.setTimeline(timeline.getName(), timeline);
-      plotter = new plotters.TimelineAreaBackgroundPlotter(dsName + ".timeline.background");
+      plotter = new __WEBPACK_IMPORTED_MODULE_5__plotters__["J" /* TimelineAreaBackgroundPlotter */](dsName + ".timeline.background");
       mgr.setPlotter(plotter.getName(), plotter);
-      plotter = new plotters.TimelinePlotter(dsName + ".timeline.main");
+      plotter = new __WEBPACK_IMPORTED_MODULE_5__plotters__["K" /* TimelinePlotter */](dsName + ".timeline.main");
       mgr.setPlotter(plotter.getName(), plotter);
-      plotter = new plotters.TimelineSelectionPlotter(dsName + ".timeline.selection");
+      plotter = new __WEBPACK_IMPORTED_MODULE_5__plotters__["L" /* TimelineSelectionPlotter */](dsName + ".timeline.selection");
       mgr.setPlotter(plotter.getName(), plotter);
     }
   }, {
     key: "createLiveOrderComps",
     value: function createLiveOrderComps(dsName) {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_0__chart_manager__["a" /* ChartManager */].instance;
       var plotter;
-      plotter = new plotters.BackgroundPlotter(dsName + ".main.background");
+      plotter = new __WEBPACK_IMPORTED_MODULE_5__plotters__["a" /* BackgroundPlotter */](dsName + ".main.background");
       mgr.setPlotter(plotter.getName(), plotter);
-      plotter = new plotters.CLiveOrderPlotter(dsName + ".main.main");
+      plotter = new __WEBPACK_IMPORTED_MODULE_5__plotters__["CLiveOrderPlotter"](dsName + ".main.main");
       mgr.setPlotter(plotter.getName(), plotter);
     }
   }, {
     key: "createLiveTradeComps",
     value: function createLiveTradeComps(dsName) {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_0__chart_manager__["a" /* ChartManager */].instance;
       var plotter;
-      plotter = new plotters.BackgroundPlotter(dsName + ".main.background");
+      plotter = new __WEBPACK_IMPORTED_MODULE_5__plotters__["a" /* BackgroundPlotter */](dsName + ".main.background");
       mgr.setPlotter(plotter.getName(), plotter);
-      plotter = new plotters.CLiveTradePlotter(dsName + ".main.main");
+      plotter = new __WEBPACK_IMPORTED_MODULE_5__plotters__["CLiveTradePlotter"](dsName + ".main.main");
       mgr.setPlotter(plotter.getName(), plotter);
     }
   }]);
 
   return Template;
 }();
-
-exports.Template = Template;
 Template.displayVolume = true;
-
 var DefaultTemplate =
 /*#__PURE__*/
 function (_Template) {
+  _inherits(DefaultTemplate, _Template);
+
   function DefaultTemplate() {
     _classCallCheck(this, DefaultTemplate);
 
@@ -3630,25 +3511,23 @@ function (_Template) {
   _createClass(DefaultTemplate, null, [{
     key: "loadTemplate",
     value: function loadTemplate(dsName, dsAlias) {
-      var mgr = _chart_manager.ChartManager.instance;
-
-      var settings = _chart_settings.ChartSettings.get();
-
-      var frameName = new _cname.CName(dsName).getCompAt(0);
+      var mgr = __WEBPACK_IMPORTED_MODULE_0__chart_manager__["a" /* ChartManager */].instance;
+      var settings = __WEBPACK_IMPORTED_MODULE_1__chart_settings__["a" /* ChartSettings */].get();
+      var frameName = new __WEBPACK_IMPORTED_MODULE_7__cname__["a" /* CName */](dsName).getCompAt(0);
       mgr.unloadTemplate(frameName);
       this.createDataSource(dsName, dsAlias, this.createCandlestickDataSource);
-      var frame = new layouts.DockableLayout(frameName);
+      var frame = new __WEBPACK_IMPORTED_MODULE_8__layouts__["a" /* DockableLayout */](frameName);
       mgr.setFrame(frame.getName(), frame);
       mgr.setArea(frame.getName(), frame);
-      frame.setGridColor(themes.Theme.Color.Grid1);
-      var area = new areas.TimelineArea(dsName + ".timeline");
+      frame.setGridColor(__WEBPACK_IMPORTED_MODULE_9__themes__["c" /* Theme */].Color.Grid1);
+      var area = new __WEBPACK_IMPORTED_MODULE_4__areas__["g" /* TimelineArea */](dsName + ".timeline");
       mgr.setArea(area.getName(), area);
       frame.addArea(area);
-      area.setDockStyle(areas.ChartArea.DockStyle.Bottom);
+      area.setDockStyle(__WEBPACK_IMPORTED_MODULE_4__areas__["a" /* ChartArea */].DockStyle.Bottom);
       area.Measuring.addHandler(area, TemplateMeasuringHandler.onMeasuring);
-      var tableLayout = new layouts.TableLayout(dsName + ".charts");
+      var tableLayout = new __WEBPACK_IMPORTED_MODULE_8__layouts__["b" /* TableLayout */](dsName + ".charts");
       mgr.setArea(tableLayout.getName(), tableLayout);
-      tableLayout.setDockStyle(areas.ChartArea.DockStyle.Fill);
+      tableLayout.setDockStyle(__WEBPACK_IMPORTED_MODULE_4__areas__["a" /* ChartArea */].DockStyle.Fill);
       frame.addArea(tableLayout);
       this.createTableComps(dsName);
       mgr.setThemeName(frameName, settings.theme);
@@ -3656,13 +3535,8 @@ function (_Template) {
     }
   }]);
 
-  _inherits(DefaultTemplate, _Template);
-
   return DefaultTemplate;
 }(Template);
-
-exports.DefaultTemplate = DefaultTemplate;
-
 var TemplateMeasuringHandler =
 /*#__PURE__*/
 function () {
@@ -3685,8 +3559,6 @@ function () {
 
   return TemplateMeasuringHandler;
 }();
-
-exports.TemplateMeasuringHandler = TemplateMeasuringHandler;
 
 /***/ }),
 /* 9 */
@@ -3717,37 +3589,30 @@ module.exports = g;
 
 /***/ }),
 /* 10 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Control = void 0;
-
-var _kline = _interopRequireDefault(__webpack_require__(3));
-
-var _kline_trade = __webpack_require__(18);
-
-var _chart_manager = __webpack_require__(0);
-
-var _chart_settings = __webpack_require__(4);
-
-var _templates = __webpack_require__(8);
-
-var _mevent = __webpack_require__(21);
-
-var _jquery = _interopRequireDefault(__webpack_require__(23));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Control; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__kline__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__kline_trade__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__chart_manager__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__chart_settings__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__templates__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__mevent__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_jquery__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_jquery__);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+
+
+
+
 
 var Control =
 /*#__PURE__*/
@@ -3760,34 +3625,33 @@ function () {
     key: "refreshFunction",
     value: function refreshFunction() {
       Control.refreshCounter++;
-
-      var lang = _chart_manager.ChartManager.instance.getLanguage();
+      var lang = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.getLanguage();
 
       if (Control.refreshCounter > 3600) {
         var num = Number(Control.refreshCounter / 3600);
 
         if (lang === "en-us") {
-          (0, _jquery.default)("#chart_updated_time_text").html(num.toFixed(0) + "h");
+          __WEBPACK_IMPORTED_MODULE_6_jquery___default()("#chart_updated_time_text").html(num.toFixed(0) + "h");
         } else if (lang === "zh-tw") {
-          (0, _jquery.default)("#chart_updated_time_text").html(num.toFixed(0) + "小時");
+          __WEBPACK_IMPORTED_MODULE_6_jquery___default()("#chart_updated_time_text").html(num.toFixed(0) + "小時");
         } else {
-          (0, _jquery.default)("#chart_updated_time_text").html(num.toFixed(0) + "小时");
+          __WEBPACK_IMPORTED_MODULE_6_jquery___default()("#chart_updated_time_text").html(num.toFixed(0) + "小时");
         }
       } else if (Control.refreshCounter > 60 && Control.refreshCounter <= 3600) {
         var _num = Number(Control.refreshCounter / 60);
 
         if (lang === "en-us") {
-          (0, _jquery.default)("#chart_updated_time_text").html(_num.toFixed(0) + "m");
+          __WEBPACK_IMPORTED_MODULE_6_jquery___default()("#chart_updated_time_text").html(_num.toFixed(0) + "m");
         } else if (lang === "zh-tw") {
-          (0, _jquery.default)("#chart_updated_time_text").html(_num.toFixed(0) + "分鐘");
+          __WEBPACK_IMPORTED_MODULE_6_jquery___default()("#chart_updated_time_text").html(_num.toFixed(0) + "分鐘");
         } else {
-          (0, _jquery.default)("#chart_updated_time_text").html(_num.toFixed(0) + "分钟");
+          __WEBPACK_IMPORTED_MODULE_6_jquery___default()("#chart_updated_time_text").html(_num.toFixed(0) + "分钟");
         }
       } else if (Control.refreshCounter <= 60) {
         if (lang === "en-us") {
-          (0, _jquery.default)("#chart_updated_time_text").html(Control.refreshCounter + "s");
+          __WEBPACK_IMPORTED_MODULE_6_jquery___default()("#chart_updated_time_text").html(Control.refreshCounter + "s");
         } else {
-          (0, _jquery.default)("#chart_updated_time_text").html(Control.refreshCounter + "秒");
+          __WEBPACK_IMPORTED_MODULE_6_jquery___default()("#chart_updated_time_text").html(Control.refreshCounter + "秒");
         }
       }
     }
@@ -3796,32 +3660,31 @@ function () {
     value: function clearRefreshCounter() {
       window.clearInterval(Control.refreshHandler);
       Control.refreshCounter = 0;
-
-      var lang = _chart_manager.ChartManager.instance.getLanguage();
+      var lang = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.getLanguage();
 
       if (lang === "en-us") {
-        (0, _jquery.default)("#chart_updated_time_text").html(Control.refreshCounter + "s");
+        __WEBPACK_IMPORTED_MODULE_6_jquery___default()("#chart_updated_time_text").html(Control.refreshCounter + "s");
       } else {
-        (0, _jquery.default)("#chart_updated_time_text").html(Control.refreshCounter + "秒");
+        __WEBPACK_IMPORTED_MODULE_6_jquery___default()("#chart_updated_time_text").html(Control.refreshCounter + "秒");
       }
 
-      Control.refreshHandler = setInterval(Control.refreshFunction, _kline.default.instance.intervalTime);
+      Control.refreshHandler = setInterval(Control.refreshFunction, __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.intervalTime);
     }
   }, {
     key: "requestData",
     value: function requestData(showLoading) {
       Control.AbortRequest();
-      window.clearTimeout(_kline.default.instance.timer);
+      window.clearTimeout(__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.timer);
 
-      if (_kline.default.instance.paused) {
+      if (__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.paused) {
         return;
       }
 
       if (showLoading === true) {
-        (0, _jquery.default)("#chart_loading").addClass("activated");
+        __WEBPACK_IMPORTED_MODULE_6_jquery___default()("#chart_loading").addClass("activated");
       }
 
-      if (_kline.default.instance.type === "stomp" && _kline.default.instance.stompClient) {
+      if (__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.type === "stomp" && __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.stompClient) {
         Control.requestOverStomp();
       } else {
         Control.requestOverHttp();
@@ -3835,53 +3698,52 @@ function () {
   }, {
     key: "requestOverStomp",
     value: function requestOverStomp() {
-      if (!_kline.default.instance.socketConnected) {
-        if (_kline.default.instance.debug) {
+      if (!__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.socketConnected) {
+        if (__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.debug) {
           console.log("DEBUG: socket is not coonnected");
         }
 
         return;
       }
 
-      if (_kline.default.instance.stompClient && _kline.default.instance.stompClient.ws.readyState === 1) {
-        _kline.default.instance.stompClient.send(_kline.default.instance.sendPath, {}, JSON.stringify(Control.parseRequestParam(_kline.default.instance.requestParam)));
-
+      if (__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.stompClient && __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.stompClient.ws.readyState === 1) {
+        __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.stompClient.send(__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.sendPath, {}, JSON.stringify(Control.parseRequestParam(__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.requestParam)));
         return;
       }
 
-      if (_kline.default.instance.debug) {
+      if (__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.debug) {
         console.log("DEBUG: stomp client is not ready yet ...");
       }
 
-      _kline.default.instance.timer = setTimeout(function () {
+      __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.timer = setTimeout(function () {
         Control.requestData(true);
       }, 1000);
     }
   }, {
     key: "requestOverHttp",
     value: function requestOverHttp() {
-      if (_kline.default.instance.debug) {
-        console.log("DEBUG: " + _kline.default.instance.requestParam);
+      if (__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.debug) {
+        console.log("DEBUG: " + __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.requestParam);
       }
 
-      (0, _jquery.default)(document).ready(_kline.default.instance.G_HTTP_REQUEST = _jquery.default.ajax({
+      __WEBPACK_IMPORTED_MODULE_6_jquery___default()(document).ready(__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.G_HTTP_REQUEST = __WEBPACK_IMPORTED_MODULE_6_jquery___default.a.ajax({
         type: "GET",
-        url: _kline.default.instance.url,
+        url: __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.url,
         dataType: 'json',
-        data: _kline.default.instance.requestParam,
+        data: __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.requestParam,
         timeout: 30000,
         created: Date.now(),
         beforeSend: function beforeSend() {
-          this.range = _kline.default.instance.range;
-          this.symbol = _kline.default.instance.symbol;
+          this.range = __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.range;
+          this.symbol = __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.symbol;
         },
         success: function success(res) {
-          if (_kline.default.instance.G_HTTP_REQUEST) {
+          if (__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.G_HTTP_REQUEST) {
             Control.requestSuccessHandler(res);
           }
         },
         error: function error(xhr, textStatus, errorThrown) {
-          if (_kline.default.instance.debug) {
+          if (__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.debug) {
             console.log(xhr);
           }
 
@@ -3889,88 +3751,83 @@ function () {
             return;
           }
 
-          _kline.default.instance.timer = setTimeout(function () {
+          __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.timer = setTimeout(function () {
             Control.requestData(true);
-          }, _kline.default.instance.intervalTime);
+          }, __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.intervalTime);
         },
         complete: function complete() {
-          _kline.default.instance.G_HTTP_REQUEST = null;
+          __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.G_HTTP_REQUEST = null;
         }
       }));
     }
   }, {
     key: "requestSuccessHandler",
     value: function requestSuccessHandler(res) {
-      if (_kline.default.instance.debug) {
+      if (__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.debug) {
         console.log(res);
       }
 
       if (!res || !res.success) {
-        if (_kline.default.instance.type === 'poll') {
-          _kline.default.instance.timer = setTimeout(function () {
+        if (__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.type === 'poll') {
+          __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.timer = setTimeout(function () {
             Control.requestData(true);
-          }, _kline.default.instance.intervalTime);
+          }, __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.intervalTime);
         }
 
         return;
       }
 
-      (0, _jquery.default)("#chart_loading").removeClass("activated");
-
-      var chart = _chart_manager.ChartManager.instance.getChart();
-
+      __WEBPACK_IMPORTED_MODULE_6_jquery___default()("#chart_loading").removeClass("activated");
+      var chart = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.getChart();
       chart.setTitle();
-      _kline.default.instance.data = eval(res.data);
-
-      var updateDataRes = _kline.default.instance.chartMgr.updateData("frame0.k0", _kline.default.instance.data.lines);
-
-      _kline.default.instance.requestParam = Control.setHttpRequestParam(_kline.default.instance.symbol, _kline.default.instance.range, null, _kline.default.instance.chartMgr.getDataSource("frame0.k0").getLastDate());
-      var intervalTime = _kline.default.instance.intervalTime < _kline.default.instance.range ? _kline.default.instance.intervalTime : _kline.default.instance.range;
+      __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.data = eval(res.data);
+      var updateDataRes = __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.chartMgr.updateData("frame0.k0", __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.data.lines);
+      __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.requestParam = Control.setHttpRequestParam(__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.symbol, __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.range, null, __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.chartMgr.getDataSource("frame0.k0").getLastDate());
+      var intervalTime = __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.intervalTime < __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.range ? __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.intervalTime : __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.range;
 
       if (!updateDataRes) {
-        if (_kline.default.instance.type === 'poll') {
-          _kline.default.instance.timer = setTimeout(Control.requestData, intervalTime);
+        if (__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.type === 'poll') {
+          __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.timer = setTimeout(Control.requestData, intervalTime);
         }
 
         return;
       }
 
-      if (_kline.default.instance.data.trades && _kline.default.instance.data.trades.length > 0) {
-        _kline_trade.KlineTrade.instance.pushTrades(_kline.default.instance.data.trades);
-
-        _kline_trade.KlineTrade.instance.klineTradeInit = true;
+      if (__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.data.trades && __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.data.trades.length > 0) {
+        __WEBPACK_IMPORTED_MODULE_1__kline_trade__["a" /* KlineTrade */].instance.pushTrades(__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.data.trades);
+        __WEBPACK_IMPORTED_MODULE_1__kline_trade__["a" /* KlineTrade */].instance.klineTradeInit = true;
       }
 
-      if (_kline.default.instance.data.depths) {
-        _kline_trade.KlineTrade.instance.updateDepth(_kline.default.instance.data.depths);
+      if (__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.data.depths) {
+        __WEBPACK_IMPORTED_MODULE_1__kline_trade__["a" /* KlineTrade */].instance.updateDepth(__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.data.depths);
       }
 
       Control.clearRefreshCounter();
 
-      if (_kline.default.instance.type === 'poll') {
-        _kline.default.instance.timer = setTimeout(Control.TwoSecondThread, intervalTime);
+      if (__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.type === 'poll') {
+        __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.timer = setTimeout(Control.TwoSecondThread, intervalTime);
       }
 
-      _chart_manager.ChartManager.instance.redraw('All', false);
+      __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.redraw('All', false);
     }
   }, {
     key: "AbortRequest",
     value: function AbortRequest() {
-      if (_kline.default.instance.type !== "stomp" || !_kline.default.instance.stompClient) {
-        if (_kline.default.instance.G_HTTP_REQUEST && _kline.default.instance.G_HTTP_REQUEST.readyState !== 4) {
-          _kline.default.instance.G_HTTP_REQUEST.abort();
+      if (__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.type !== "stomp" || !__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.stompClient) {
+        if (__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.G_HTTP_REQUEST && __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.G_HTTP_REQUEST.readyState !== 4) {
+          __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.G_HTTP_REQUEST.abort();
         }
       }
     }
   }, {
     key: "TwoSecondThread",
     value: function TwoSecondThread() {
-      var f = _kline.default.instance.chartMgr.getDataSource("frame0.k0").getLastDate();
+      var f = __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.chartMgr.getDataSource("frame0.k0").getLastDate();
 
       if (f === -1) {
-        _kline.default.instance.requestParam = Control.setHttpRequestParam(_kline.default.instance.symbol, _kline.default.instance.range, _kline.default.instance.limit, null);
+        __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.requestParam = Control.setHttpRequestParam(__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.symbol, __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.range, __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.limit, null);
       } else {
-        _kline.default.instance.requestParam = Control.setHttpRequestParam(_kline.default.instance.symbol, _kline.default.instance.range, null, f.toString());
+        __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.requestParam = Control.setHttpRequestParam(__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.symbol, __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.range, null, f.toString());
       }
 
       Control.requestData();
@@ -3978,27 +3835,23 @@ function () {
   }, {
     key: "readCookie",
     value: function readCookie() {
-      _chart_settings.ChartSettings.get();
-
-      _chart_settings.ChartSettings.save();
-
-      var tmp = _chart_settings.ChartSettings.get();
-
-      _chart_manager.ChartManager.instance.setChartStyle('frame0.k0', tmp.charts.chartStyle);
-
+      __WEBPACK_IMPORTED_MODULE_3__chart_settings__["a" /* ChartSettings */].get();
+      __WEBPACK_IMPORTED_MODULE_3__chart_settings__["a" /* ChartSettings */].save();
+      var tmp = __WEBPACK_IMPORTED_MODULE_3__chart_settings__["a" /* ChartSettings */].get();
+      __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.setChartStyle('frame0.k0', tmp.charts.chartStyle);
       var symbol = tmp.charts.symbol;
 
-      if (!_kline.default.instance.init) {
-        symbol = _kline.default.instance.symbol;
-        _kline.default.instance.init = true;
+      if (!__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.init) {
+        symbol = __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.symbol;
+        __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.init = true;
       }
 
-      _kline.default.instance.symbol = symbol;
+      __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.symbol = symbol;
       Control.switchSymbolSelected(symbol);
       var period = tmp.charts.period;
       Control.switchPeriod(period);
-      (0, _jquery.default)('#chart_period_' + period + '_v a').addClass('selected');
-      (0, _jquery.default)('#chart_period_' + period + '_h a').addClass('selected');
+      __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_period_' + period + '_v a').addClass('selected');
+      __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_period_' + period + '_h a').addClass('selected');
 
       if (tmp.charts.indicsStatus === 'close') {
         Control.switchIndic('off');
@@ -4006,23 +3859,20 @@ function () {
         Control.switchIndic('on');
       }
 
-      var mainIndic = (0, _jquery.default)('#chart_select_main_indicator');
+      var mainIndic = __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_select_main_indicator');
       mainIndic.find('a').each(function () {
-        if ((0, _jquery.default)(this).attr('name') === tmp.charts.mIndic) {
-          (0, _jquery.default)(this).addClass('selected');
+        if (__WEBPACK_IMPORTED_MODULE_6_jquery___default()(this).attr('name') === tmp.charts.mIndic) {
+          __WEBPACK_IMPORTED_MODULE_6_jquery___default()(this).addClass('selected');
         }
       });
-      var chart_style = (0, _jquery.default)('#chart_select_chart_style');
+      var chart_style = __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_select_chart_style');
       chart_style.find('a').each(function () {
-        if ((0, _jquery.default)(this)[0].innerHTML === tmp.charts.chartStyle) {
-          (0, _jquery.default)(this).addClass('selected');
+        if (__WEBPACK_IMPORTED_MODULE_6_jquery___default()(this)[0].innerHTML === tmp.charts.chartStyle) {
+          __WEBPACK_IMPORTED_MODULE_6_jquery___default()(this).addClass('selected');
         }
       });
-
-      _chart_manager.ChartManager.instance.getChart().setMainIndicator(tmp.charts.mIndic);
-
-      _chart_manager.ChartManager.instance.setThemeName('frame0', tmp.theme);
-
+      __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.getChart().setMainIndicator(tmp.charts.mIndic);
+      __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.setThemeName('frame0', tmp.theme);
       Control.switchTools('off');
 
       if (tmp.theme === 'Dark') {
@@ -4039,8 +3889,8 @@ function () {
       var str = "symbol=" + symbol + "&range=" + range;
       if (limit !== null) str += "&limit=" + limit;else str += "&since=" + since;
 
-      if (_kline_trade.KlineTrade.instance.tradeDate.getTime() !== 0) {
-        str += "&prevTradeTime=" + _kline_trade.KlineTrade.instance.tradeDate.getTime();
+      if (__WEBPACK_IMPORTED_MODULE_1__kline_trade__["a" /* KlineTrade */].instance.tradeDate.getTime() !== 0) {
+        str += "&prevTradeTime=" + __WEBPACK_IMPORTED_MODULE_1__kline_trade__["a" /* KlineTrade */].instance.tradeDate.getTime();
       }
 
       return str;
@@ -4048,53 +3898,46 @@ function () {
   }, {
     key: "refreshTemplate",
     value: function refreshTemplate() {
-      _kline.default.instance.chartMgr = _templates.DefaultTemplate.loadTemplate("frame0.k0", "");
-
-      _chart_manager.ChartManager.instance.redraw('All', true);
+      __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.chartMgr = __WEBPACK_IMPORTED_MODULE_4__templates__["a" /* DefaultTemplate */].loadTemplate("frame0.k0", "");
+      __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.redraw('All', true);
     }
   }, {
     key: "chartSwitchLanguage",
     value: function chartSwitchLanguage(lang) {
       var langTmp = lang.replace(/-/, '_');
-      (0, _jquery.default)('#chart_language_switch_tmp').find('span').each(function () {
-        var name = (0, _jquery.default)(this).attr('name');
-        var attr = (0, _jquery.default)(this).attr(langTmp);
+      __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_language_switch_tmp').find('span').each(function () {
+        var name = __WEBPACK_IMPORTED_MODULE_6_jquery___default()(this).attr('name');
+        var attr = __WEBPACK_IMPORTED_MODULE_6_jquery___default()(this).attr(langTmp);
         name = '.' + name;
-        var obj = (0, _jquery.default)(name)[0];
+        var obj = __WEBPACK_IMPORTED_MODULE_6_jquery___default()(name)[0];
         if (!obj) return;
-        (0, _jquery.default)(name).each(function () {
-          (0, _jquery.default)(this)[0].innerHTML = attr;
+        __WEBPACK_IMPORTED_MODULE_6_jquery___default()(name).each(function () {
+          __WEBPACK_IMPORTED_MODULE_6_jquery___default()(this)[0].innerHTML = attr;
         });
       });
-      (0, _jquery.default)("#chart_language_setting_div li a[name='" + lang + "']").addClass("selected");
-
-      _chart_manager.ChartManager.instance.setLanguage(lang);
-
-      _chart_manager.ChartManager.instance.getChart().setTitle();
-
-      var tmp = _chart_settings.ChartSettings.get();
-
+      __WEBPACK_IMPORTED_MODULE_6_jquery___default()("#chart_language_setting_div li a[name='" + lang + "']").addClass("selected");
+      __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.setLanguage(lang);
+      __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.getChart().setTitle();
+      var tmp = __WEBPACK_IMPORTED_MODULE_3__chart_settings__["a" /* ChartSettings */].get();
       tmp.language = lang;
-
-      _chart_settings.ChartSettings.save();
-
-      _kline.default.instance.onLangChange(lang);
+      __WEBPACK_IMPORTED_MODULE_3__chart_settings__["a" /* ChartSettings */].save();
+      __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.onLangChange(lang);
     }
   }, {
     key: "onSize",
     value: function onSize(w, h) {
       var width = w || window.innerWidth;
-      var chartWidth = _kline.default.instance.showTrade ? width - _kline.default.instance.tradeWidth : width;
+      var chartWidth = __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.showTrade ? width - __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.tradeWidth : width;
       var height = h || window.innerHeight;
-      var container = (0, _jquery.default)(_kline.default.instance.element);
+      var container = __WEBPACK_IMPORTED_MODULE_6_jquery___default()(__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.element);
       container.css({
         width: width + 'px',
         height: height + 'px'
       });
-      var toolBar = (0, _jquery.default)('#chart_toolbar');
-      var toolPanel = (0, _jquery.default)('#chart_toolpanel');
-      var canvasGroup = (0, _jquery.default)('#chart_canvasGroup');
-      var tabBar = (0, _jquery.default)('#chart_tabbar');
+      var toolBar = __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_toolbar');
+      var toolPanel = __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_toolpanel');
+      var canvasGroup = __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_canvasGroup');
+      var tabBar = __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_tabbar');
       var toolPanelShown = toolPanel[0].style.display !== 'inline' ? false : true;
       var tabBarShown = tabBar[0].style.display !== 'block' ? false : true;
       var toolBarRect = {};
@@ -4139,8 +3982,8 @@ function () {
         // width: canvasGroupRect.w + 'px',
         height: canvasGroupRect.h + 'px'
       });
-      var mainCanvas = (0, _jquery.default)('#chart_mainCanvas')[0];
-      var overlayCanvas = (0, _jquery.default)('#chart_overlayCanvas')[0];
+      var mainCanvas = __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_mainCanvas')[0];
+      var overlayCanvas = __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_overlayCanvas')[0];
       mainCanvas.width = canvasGroupRect.w;
       mainCanvas.height = canvasGroupRect.h;
       overlayCanvas.width = canvasGroupRect.w;
@@ -4155,26 +3998,26 @@ function () {
         });
       }
 
-      var dlgSettings = (0, _jquery.default)("#chart_parameter_settings");
+      var dlgSettings = __WEBPACK_IMPORTED_MODULE_6_jquery___default()("#chart_parameter_settings");
       dlgSettings.css({
         left: chartWidth - dlgSettings.width() >> 1,
         top: height - dlgSettings.height() >> 1
       });
-      var dlgLoading = (0, _jquery.default)("#chart_loading");
+      var dlgLoading = __WEBPACK_IMPORTED_MODULE_6_jquery___default()("#chart_loading");
       dlgLoading.css({
         left: chartWidth - dlgLoading.width() >> 1,
         top: height - dlgLoading.height() >> 2
       });
-      var domElemCache = (0, _jquery.default)('#chart_dom_elem_cache');
-      var rowTheme = (0, _jquery.default)('#chart_select_theme')[0];
-      var rowTools = (0, _jquery.default)('#chart_enable_tools')[0];
-      var rowIndic = (0, _jquery.default)('#chart_enable_indicator')[0];
-      var periodsVert = (0, _jquery.default)('#chart_toolbar_periods_vert');
-      var periodsHorz = (0, _jquery.default)('#chart_toolbar_periods_horz')[0];
-      var showIndic = (0, _jquery.default)('#chart_show_indicator')[0];
-      var showTools = (0, _jquery.default)('#chart_show_tools')[0];
-      var selectTheme = (0, _jquery.default)('#chart_toolbar_theme')[0];
-      var dropDownSettings = (0, _jquery.default)('#chart_dropdown_settings');
+      var domElemCache = __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_dom_elem_cache');
+      var rowTheme = __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_select_theme')[0];
+      var rowTools = __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_enable_tools')[0];
+      var rowIndic = __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_enable_indicator')[0];
+      var periodsVert = __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_toolbar_periods_vert');
+      var periodsHorz = __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_toolbar_periods_horz')[0];
+      var showIndic = __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_show_indicator')[0];
+      var showTools = __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_show_tools')[0];
+      var selectTheme = __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_toolbar_theme')[0];
+      var dropDownSettings = __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_dropdown_settings');
       var periodsVertNW = periodsVert[0].offsetWidth;
       var periodsHorzNW = periodsVertNW + periodsHorz.offsetWidth;
       var showIndicNW = periodsHorzNW + showIndic.offsetWidth + 4;
@@ -4217,257 +4060,218 @@ function () {
         rowTheme.style.display = "none";
       }
 
-      _chart_manager.ChartManager.instance.redraw('All', true);
-
-      _kline.default.instance.onResize(width, height);
+      __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.redraw('All', true);
+      __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.onResize(width, height);
     }
   }, {
     key: "mouseWheel",
     value: function mouseWheel(e, delta) {
-      _chart_manager.ChartManager.instance.scale(delta > 0 ? 1 : -1);
-
-      _chart_manager.ChartManager.instance.redraw("All", true);
-
+      __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.scale(delta > 0 ? 1 : -1);
+      __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.redraw("All", true);
       return false;
     }
   }, {
     key: "switchTheme",
     value: function switchTheme(name) {
-      (0, _jquery.default)('#chart_toolbar_theme a').removeClass('selected');
-      (0, _jquery.default)('#chart_select_theme a').removeClass('selected');
-      (0, _jquery.default)('#chart_toolbar_theme').find('a').each(function () {
-        if ((0, _jquery.default)(this).attr('name') === name) {
-          (0, _jquery.default)(this).addClass('selected');
+      __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_toolbar_theme a').removeClass('selected');
+      __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_select_theme a').removeClass('selected');
+      __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_toolbar_theme').find('a').each(function () {
+        if (__WEBPACK_IMPORTED_MODULE_6_jquery___default()(this).attr('name') === name) {
+          __WEBPACK_IMPORTED_MODULE_6_jquery___default()(this).addClass('selected');
         }
       });
-      (0, _jquery.default)('#chart_select_theme a').each(function () {
-        if ((0, _jquery.default)(this).attr('name') === name) {
-          (0, _jquery.default)(this).addClass('selected');
+      __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_select_theme a').each(function () {
+        if (__WEBPACK_IMPORTED_MODULE_6_jquery___default()(this).attr('name') === name) {
+          __WEBPACK_IMPORTED_MODULE_6_jquery___default()(this).addClass('selected');
         }
       });
-      (0, _jquery.default)(".chart_container").attr('class', "chart_container " + name);
-      (0, _jquery.default)(".marketName_ a").attr('class', name);
+      __WEBPACK_IMPORTED_MODULE_6_jquery___default()(".chart_container").attr('class', "chart_container " + name);
+      __WEBPACK_IMPORTED_MODULE_6_jquery___default()(".marketName_ a").attr('class', name);
 
       if (name === 'dark') {
-        (0, _jquery.default)(".trade_container").addClass("dark").removeClass("light");
-
-        _chart_manager.ChartManager.instance.setThemeName('frame0', 'Dark');
-
-        var tmp = _chart_settings.ChartSettings.get();
-
+        __WEBPACK_IMPORTED_MODULE_6_jquery___default()(".trade_container").addClass("dark").removeClass("light");
+        __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.setThemeName('frame0', 'Dark');
+        var tmp = __WEBPACK_IMPORTED_MODULE_3__chart_settings__["a" /* ChartSettings */].get();
         tmp.theme = 'Dark';
-
-        _chart_settings.ChartSettings.save();
+        __WEBPACK_IMPORTED_MODULE_3__chart_settings__["a" /* ChartSettings */].save();
       } else if (name === 'light') {
-        (0, _jquery.default)(".trade_container").addClass("light").removeClass("dark");
+        __WEBPACK_IMPORTED_MODULE_6_jquery___default()(".trade_container").addClass("light").removeClass("dark");
+        __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.setThemeName('frame0', 'Light');
 
-        _chart_manager.ChartManager.instance.setThemeName('frame0', 'Light');
-
-        var _tmp = _chart_settings.ChartSettings.get();
+        var _tmp = __WEBPACK_IMPORTED_MODULE_3__chart_settings__["a" /* ChartSettings */].get();
 
         _tmp.theme = 'Light';
-
-        _chart_settings.ChartSettings.save();
+        __WEBPACK_IMPORTED_MODULE_3__chart_settings__["a" /* ChartSettings */].save();
       }
 
       var a = {};
       a.command = "set current themes";
       a.content = name;
-      (0, _jquery.default)('#chart_output_interface_text').val(JSON.stringify(a));
-      (0, _jquery.default)('#chart_output_interface_submit').submit();
-      new _mevent.MEvent().raise(name);
-
-      _chart_manager.ChartManager.instance.redraw();
-
-      _kline.default.instance.onThemeChange(name);
+      __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_output_interface_text').val(JSON.stringify(a));
+      __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_output_interface_submit').submit();
+      new __WEBPACK_IMPORTED_MODULE_5__mevent__["a" /* MEvent */]().raise(name);
+      __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.redraw();
+      __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.onThemeChange(name);
     }
   }, {
     key: "switchTools",
     value: function switchTools(name) {
-      (0, _jquery.default)(".chart_dropdown_data").removeClass("chart_dropdown-hover");
-      (0, _jquery.default)("#chart_toolpanel .chart_toolpanel_button").removeClass("selected");
-      (0, _jquery.default)('#chart_enable_tools a').removeClass('selected');
+      __WEBPACK_IMPORTED_MODULE_6_jquery___default()(".chart_dropdown_data").removeClass("chart_dropdown-hover");
+      __WEBPACK_IMPORTED_MODULE_6_jquery___default()("#chart_toolpanel .chart_toolpanel_button").removeClass("selected");
+      __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_enable_tools a').removeClass('selected');
 
       if (name === 'on') {
-        (0, _jquery.default)('#chart_show_tools').addClass('selected');
-        (0, _jquery.default)('#chart_enable_tools a').each(function () {
-          if ((0, _jquery.default)(this).attr('name') === 'on') {
-            (0, _jquery.default)(this).addClass('selected');
+        __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_show_tools').addClass('selected');
+        __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_enable_tools a').each(function () {
+          if (__WEBPACK_IMPORTED_MODULE_6_jquery___default()(this).attr('name') === 'on') {
+            __WEBPACK_IMPORTED_MODULE_6_jquery___default()(this).addClass('selected');
           }
         });
-        (0, _jquery.default)('#chart_toolpanel')[0].style.display = 'inline';
+        __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_toolpanel')[0].style.display = 'inline';
 
-        if (_chart_manager.ChartManager.instance._drawingTool === _chart_manager.ChartManager.DrawingTool.Cursor) {
-          (0, _jquery.default)('#chart_Cursor').parent().addClass('selected');
-        } else if (_chart_manager.ChartManager.instance._drawingTool === _chart_manager.ChartManager.DrawingTool.CrossCursor) {
-          (0, _jquery.default)('#chart_CrossCursor').parent().addClass('selected');
+        if (__WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance._drawingTool === __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].DrawingTool.Cursor) {
+          __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_Cursor').parent().addClass('selected');
+        } else if (__WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance._drawingTool === __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].DrawingTool.CrossCursor) {
+          __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_CrossCursor').parent().addClass('selected');
         }
       } else if (name === 'off') {
-        (0, _jquery.default)('#chart_show_tools').removeClass('selected');
-        (0, _jquery.default)('#chart_enable_tools a').each(function () {
-          if ((0, _jquery.default)(this).attr('name') === 'off') {
-            (0, _jquery.default)(this).addClass('selected');
+        __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_show_tools').removeClass('selected');
+        __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_enable_tools a').each(function () {
+          if (__WEBPACK_IMPORTED_MODULE_6_jquery___default()(this).attr('name') === 'off') {
+            __WEBPACK_IMPORTED_MODULE_6_jquery___default()(this).addClass('selected');
           }
         });
-        (0, _jquery.default)('#chart_toolpanel')[0].style.display = 'none';
-
-        _chart_manager.ChartManager.instance.setRunningMode(_chart_manager.ChartManager.instance._beforeDrawingTool);
-
-        _chart_manager.ChartManager.instance.redraw("All", true);
+        __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_toolpanel')[0].style.display = 'none';
+        __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.setRunningMode(__WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance._beforeDrawingTool);
+        __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.redraw("All", true);
       }
 
-      if (_kline.default.instance.isSized) {
+      if (__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.isSized) {
         Control.onSize();
       } else {
-        Control.onSize(_kline.default.instance.width, _kline.default.instance.height);
+        Control.onSize(__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.width, __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.height);
       }
     }
   }, {
     key: "switchIndic",
     value: function switchIndic(name) {
-      (0, _jquery.default)('#chart_enable_indicator a').removeClass('selected');
-      (0, _jquery.default)("#chart_enable_indicator a[name='" + name + "']").addClass('selected');
+      __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_enable_indicator a').removeClass('selected');
+      __WEBPACK_IMPORTED_MODULE_6_jquery___default()("#chart_enable_indicator a[name='" + name + "']").addClass('selected');
 
       if (name === 'on') {
-        (0, _jquery.default)('#chart_show_indicator').addClass('selected');
-
-        var tmp = _chart_settings.ChartSettings.get();
-
+        __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_show_indicator').addClass('selected');
+        var tmp = __WEBPACK_IMPORTED_MODULE_3__chart_settings__["a" /* ChartSettings */].get();
         tmp.charts.indicsStatus = 'open';
-
-        _chart_settings.ChartSettings.save();
-
+        __WEBPACK_IMPORTED_MODULE_3__chart_settings__["a" /* ChartSettings */].save();
         var value = tmp.charts.indics[1];
-        if (_templates.Template.displayVolume === false) _chart_manager.ChartManager.instance.getChart().setIndicator(2, value);else _chart_manager.ChartManager.instance.getChart().setIndicator(2, value);
-        (0, _jquery.default)("#chart_tabbar").find('a').each(function () {
-          if ((0, _jquery.default)(this).attr('name') === value) (0, _jquery.default)(this).addClass('selected');
+        if (__WEBPACK_IMPORTED_MODULE_4__templates__["b" /* Template */].displayVolume === false) __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.getChart().setIndicator(2, value);else __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.getChart().setIndicator(2, value);
+        __WEBPACK_IMPORTED_MODULE_6_jquery___default()("#chart_tabbar").find('a').each(function () {
+          if (__WEBPACK_IMPORTED_MODULE_6_jquery___default()(this).attr('name') === value) __WEBPACK_IMPORTED_MODULE_6_jquery___default()(this).addClass('selected');
         });
-        (0, _jquery.default)('#chart_tabbar')[0].style.display = 'block';
+        __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_tabbar')[0].style.display = 'block';
       } else if (name === 'off') {
-        (0, _jquery.default)('#chart_show_indicator').removeClass('selected');
+        __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_show_indicator').removeClass('selected');
+        __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.getChart().setIndicator(2, 'NONE');
 
-        _chart_manager.ChartManager.instance.getChart().setIndicator(2, 'NONE');
-
-        var _tmp2 = _chart_settings.ChartSettings.get();
+        var _tmp2 = __WEBPACK_IMPORTED_MODULE_3__chart_settings__["a" /* ChartSettings */].get();
 
         _tmp2.charts.indicsStatus = 'close';
-
-        _chart_settings.ChartSettings.save();
-
-        (0, _jquery.default)('#chart_tabbar')[0].style.display = 'none';
-        (0, _jquery.default)("#chart_tabbar a").removeClass("selected");
+        __WEBPACK_IMPORTED_MODULE_3__chart_settings__["a" /* ChartSettings */].save();
+        __WEBPACK_IMPORTED_MODULE_6_jquery___default()('#chart_tabbar')[0].style.display = 'none';
+        __WEBPACK_IMPORTED_MODULE_6_jquery___default()("#chart_tabbar a").removeClass("selected");
       }
 
-      if (_kline.default.instance.isSized) {
+      if (__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.isSized) {
         Control.onSize();
       } else {
-        Control.onSize(_kline.default.instance.width, _kline.default.instance.height);
+        Control.onSize(__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.width, __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.height);
       }
     }
   }, {
     key: "switchPeriod",
     value: function switchPeriod(name) {
-      (0, _jquery.default)(".chart_container .chart_toolbar_tabgroup a").removeClass("selected");
-      (0, _jquery.default)("#chart_toolbar_periods_vert ul a").removeClass("selected");
-      (0, _jquery.default)(".chart_container .chart_toolbar_tabgroup a").each(function () {
-        if ((0, _jquery.default)(this).parent().attr('name') === name) {
-          (0, _jquery.default)(this).addClass('selected');
+      __WEBPACK_IMPORTED_MODULE_6_jquery___default()(".chart_container .chart_toolbar_tabgroup a").removeClass("selected");
+      __WEBPACK_IMPORTED_MODULE_6_jquery___default()("#chart_toolbar_periods_vert ul a").removeClass("selected");
+      __WEBPACK_IMPORTED_MODULE_6_jquery___default()(".chart_container .chart_toolbar_tabgroup a").each(function () {
+        if (__WEBPACK_IMPORTED_MODULE_6_jquery___default()(this).parent().attr('name') === name) {
+          __WEBPACK_IMPORTED_MODULE_6_jquery___default()(this).addClass('selected');
         }
       });
-      (0, _jquery.default)("#chart_toolbar_periods_vert ul a").each(function () {
-        if ((0, _jquery.default)(this).parent().attr('name') === name) {
-          (0, _jquery.default)(this).addClass('selected');
+      __WEBPACK_IMPORTED_MODULE_6_jquery___default()("#chart_toolbar_periods_vert ul a").each(function () {
+        if (__WEBPACK_IMPORTED_MODULE_6_jquery___default()(this).parent().attr('name') === name) {
+          __WEBPACK_IMPORTED_MODULE_6_jquery___default()(this).addClass('selected');
         }
       });
-
-      _chart_manager.ChartManager.instance.showCursor();
-
+      __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.showCursor();
       Control.calcPeriodWeight(name);
 
       if (name === 'line') {
-        _chart_manager.ChartManager.instance.getChart().strIsLine = true;
+        __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.getChart().strIsLine = true;
+        __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.setChartStyle('frame0.k0', 'Line');
+        __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.getChart().setCurrentPeriod('line');
 
-        _chart_manager.ChartManager.instance.setChartStyle('frame0.k0', 'Line');
-
-        _chart_manager.ChartManager.instance.getChart().setCurrentPeriod('line');
-
-        var _settings = _chart_settings.ChartSettings.get();
+        var _settings = __WEBPACK_IMPORTED_MODULE_3__chart_settings__["a" /* ChartSettings */].get();
 
         _settings.charts.period = name;
-
-        _chart_settings.ChartSettings.save();
-
+        __WEBPACK_IMPORTED_MODULE_3__chart_settings__["a" /* ChartSettings */].save();
         return;
       }
 
-      _chart_manager.ChartManager.instance.getChart().strIsLine = false;
-      var p = _kline.default.instance.tagMapPeriod[name];
-
-      _chart_manager.ChartManager.instance.setChartStyle('frame0.k0', _chart_settings.ChartSettings.get().charts.chartStyle);
-
-      _chart_manager.ChartManager.instance.getChart().setCurrentPeriod(p);
-
-      var settings = _chart_settings.ChartSettings.get();
-
+      __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.getChart().strIsLine = false;
+      var p = __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.tagMapPeriod[name];
+      __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.setChartStyle('frame0.k0', __WEBPACK_IMPORTED_MODULE_3__chart_settings__["a" /* ChartSettings */].get().charts.chartStyle);
+      __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.getChart().setCurrentPeriod(p);
+      var settings = __WEBPACK_IMPORTED_MODULE_3__chart_settings__["a" /* ChartSettings */].get();
       settings.charts.period = name;
-
-      _chart_settings.ChartSettings.save();
+      __WEBPACK_IMPORTED_MODULE_3__chart_settings__["a" /* ChartSettings */].save();
     }
   }, {
     key: "reset",
     value: function reset(symbol) {
-      _kline.default.instance.symbol = symbol;
+      __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.symbol = symbol;
 
-      if (_kline.default.instance.showTrade) {
-        _kline_trade.KlineTrade.instance.reset(symbol);
+      if (__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.showTrade) {
+        __WEBPACK_IMPORTED_MODULE_1__kline_trade__["a" /* KlineTrade */].instance.reset(symbol);
       }
     }
   }, {
     key: "switchSymbolSelected",
     value: function switchSymbolSelected(symbol) {
       Control.reset(symbol);
-      (0, _jquery.default)(".market_chooser ul a").removeClass("selected");
-      (0, _jquery.default)(".market_chooser ul a[name='" + symbol + "']").addClass("selected");
-      _chart_manager.ChartManager.instance.getChart()._symbol = symbol;
-
-      var settings = _chart_settings.ChartSettings.get();
-
+      __WEBPACK_IMPORTED_MODULE_6_jquery___default()(".market_chooser ul a").removeClass("selected");
+      __WEBPACK_IMPORTED_MODULE_6_jquery___default()(".market_chooser ul a[name='" + symbol + "']").addClass("selected");
+      __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.getChart()._symbol = symbol;
+      var settings = __WEBPACK_IMPORTED_MODULE_3__chart_settings__["a" /* ChartSettings */].get();
       settings.charts.symbol = symbol;
-
-      _chart_settings.ChartSettings.save();
+      __WEBPACK_IMPORTED_MODULE_3__chart_settings__["a" /* ChartSettings */].save();
     }
   }, {
     key: "switchSymbol",
     value: function switchSymbol(symbol) {
-      if (_kline.default.instance.type === "stomp" && _kline.default.instance.stompClient.ws.readyState === 1) {
-        _kline.default.instance.subscribed.unsubscribe();
-
-        _kline.default.instance.subscribed = _kline.default.instance.stompClient.subscribe(_kline.default.instance.subscribePath + '/' + symbol + '/' + _kline.default.instance.range, Control.subscribeCallback);
+      if (__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.type === "stomp" && __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.stompClient.ws.readyState === 1) {
+        __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.subscribed.unsubscribe();
+        __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.subscribed = __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.stompClient.subscribe(__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.subscribePath + '/' + symbol + '/' + __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.range, Control.subscribeCallback);
       }
 
       Control.switchSymbolSelected(symbol);
-
-      var settings = _chart_settings.ChartSettings.get();
+      var settings = __WEBPACK_IMPORTED_MODULE_3__chart_settings__["a" /* ChartSettings */].get();
 
       if (settings.charts.period === "line") {
-        _chart_manager.ChartManager.instance.getChart().strIsLine = true;
-
-        _chart_manager.ChartManager.instance.setChartStyle('frame0.k0', 'Line');
+        __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.getChart().strIsLine = true;
+        __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.setChartStyle('frame0.k0', 'Line');
       } else {
-        _chart_manager.ChartManager.instance.getChart().strIsLine = false;
-
-        _chart_manager.ChartManager.instance.setChartStyle('frame0.k0', _chart_settings.ChartSettings.get().charts.chartStyle);
+        __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.getChart().strIsLine = false;
+        __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.setChartStyle('frame0.k0', __WEBPACK_IMPORTED_MODULE_3__chart_settings__["a" /* ChartSettings */].get().charts.chartStyle);
       }
 
-      _chart_manager.ChartManager.instance.getChart().setSymbol(symbol);
+      __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.getChart().setSymbol(symbol);
     }
   }, {
     key: "calcPeriodWeight",
     value: function calcPeriodWeight(period) {
       var index = period;
-      if (period !== 'line') index = _kline.default.instance.periodMap[_kline.default.instance.tagMapPeriod[period]];
-
-      var periodWeight = _chart_settings.ChartSettings.get().charts.period_weight;
+      if (period !== 'line') index = __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.periodMap[__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.tagMapPeriod[period]];
+      var periodWeight = __WEBPACK_IMPORTED_MODULE_3__chart_settings__["a" /* ChartSettings */].get().charts.period_weight;
 
       for (var i in periodWeight) {
         if (periodWeight[i] > periodWeight[index]) {
@@ -4476,8 +4280,7 @@ function () {
       }
 
       periodWeight[index] = 8;
-
-      _chart_settings.ChartSettings.save();
+      __WEBPACK_IMPORTED_MODULE_3__chart_settings__["a" /* ChartSettings */].save();
     }
   }, {
     key: "subscribeCallback",
@@ -4487,34 +4290,32 @@ function () {
   }, {
     key: "socketConnect",
     value: function socketConnect() {
-      if (!_kline.default.instance.stompClient || !_kline.default.instance.socketConnected) {
-        if (_kline.default.instance.enableSockjs) {
-          var socket = new SockJS(_kline.default.instance.url);
-          _kline.default.instance.stompClient = Stomp.over(socket);
+      if (!__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.stompClient || !__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.socketConnected) {
+        if (__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.enableSockjs) {
+          var socket = new SockJS(__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.url);
+          __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.stompClient = Stomp.over(socket);
         } else {
-          _kline.default.instance.stompClient = Stomp.client(_kline.default.instance.url);
+          __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.stompClient = Stomp.client(__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.url);
         }
 
-        _kline.default.instance.socketConnected = true;
+        __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.socketConnected = true;
       }
 
-      if (_kline.default.instance.stompClient.ws.readyState === 1) {
+      if (__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.stompClient.ws.readyState === 1) {
         console.log('DEBUG: already connected');
         return;
       }
 
-      if (!_kline.default.instance.debug) {
-        _kline.default.instance.stompClient.debug = null;
+      if (!__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.debug) {
+        __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.stompClient.debug = null;
       }
 
-      _kline.default.instance.stompClient.connect({}, function () {
-        _kline.default.instance.stompClient.subscribe('/user' + _kline.default.instance.subscribePath, Control.subscribeCallback);
-
-        _kline.default.instance.subscribed = _kline.default.instance.stompClient.subscribe(_kline.default.instance.subscribePath + '/' + _kline.default.instance.symbol + '/' + _kline.default.instance.range, Control.subscribeCallback);
+      __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.stompClient.connect({}, function () {
+        __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.stompClient.subscribe('/user' + __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.subscribePath, Control.subscribeCallback);
+        __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.subscribed = __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.stompClient.subscribe(__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.subscribePath + '/' + __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.symbol + '/' + __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.range, Control.subscribeCallback);
         Control.requestData(true);
       }, function () {
-        _kline.default.instance.stompClient.disconnect();
-
+        __WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.stompClient.disconnect();
         console.log("DEBUG: reconnect in 5 seconds ...");
         setTimeout(function () {
           Control.socketConnect();
@@ -4525,40 +4326,22 @@ function () {
 
   return Control;
 }();
-
-exports.Control = Control;
 Control.refreshCounter = 0;
 Control.refreshHandler = null;
 
 /***/ }),
 /* 11 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.CPoint = void 0;
-
-var _chart_manager = __webpack_require__(0);
-
-var _named_object = __webpack_require__(1);
-
-var data_sources = _interopRequireWildcard(__webpack_require__(2));
-
-var _util = __webpack_require__(5);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CPoint; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__chart_manager__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__named_object__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_sources__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__util__ = __webpack_require__(5);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } _setPrototypeOf(subClass.prototype, superClass && superClass.prototype); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
@@ -4568,11 +4351,21 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _getPrototypeOf(o) { _getPrototypeOf = Object.getPrototypeOf || function _getPrototypeOf(o) { return o.__proto__; }; return _getPrototypeOf(o); }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
 
 var CPoint =
 /*#__PURE__*/
 function (_NamedObject) {
+  _inherits(CPoint, _NamedObject);
+
   function CPoint(name) {
     var _this;
 
@@ -4590,9 +4383,9 @@ function (_NamedObject) {
   _createClass(CPoint, [{
     key: "getChartObjects",
     value: function getChartObjects() {
-      var ppMgr = _chart_manager.ChartManager.instance;
+      var ppMgr = __WEBPACK_IMPORTED_MODULE_0__chart_manager__["a" /* ChartManager */].instance;
       var ppCDS = ppMgr.getDataSource("frame0.k0");
-      if (ppCDS === null || !_util.Util.isInstance(ppCDS, data_sources.MainDataSource)) return null;
+      if (ppCDS === null || !__WEBPACK_IMPORTED_MODULE_3__util__["a" /* Util */].isInstance(ppCDS, __WEBPACK_IMPORTED_MODULE_2__data_sources__["b" /* MainDataSource */])) return null;
       var ppTimeline = ppMgr.getTimeline("frame0.k0");
       if (ppTimeline === null) return null;
       var ppRange = ppMgr.getRange("frame0.k0.main");
@@ -4718,12 +4511,8 @@ function (_NamedObject) {
     }
   }]);
 
-  _inherits(CPoint, _NamedObject);
-
   return CPoint;
-}(_named_object.NamedObject);
-
-exports.CPoint = CPoint;
+}(__WEBPACK_IMPORTED_MODULE_1__named_object__["a" /* NamedObject */]);
 CPoint.state = {
   Hide: 0,
   Show: 1,
@@ -4732,30 +4521,33 @@ CPoint.state = {
 
 /***/ }),
 /* 12 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.CArrowLineObject = exports.CPriceLineObject = exports.CVertiStraightLineObject = exports.CTriParallelLineObject = exports.CStraightLineObject = exports.CSegLineObject = exports.CRayLineObject = exports.CHoriStraightLineObject = exports.CHoriSegLineObject = exports.CHoriRayLineObject = exports.CFibRetraceObject = exports.CFibFansObject = exports.CBiParallelRayLineObject = exports.CBiParallelLineObject = exports.CBandLineObject = exports.CTriToolObject = exports.CBiToolObject = exports.CToolObject = void 0;
-
-var _chart_manager = __webpack_require__(0);
-
-var _named_object = __webpack_require__(1);
-
-var _cpoint = __webpack_require__(11);
-
-var _util = __webpack_require__(5);
-
-var data_sources = _interopRequireWildcard(__webpack_require__(2));
-
-var plotters = _interopRequireWildcard(__webpack_require__(13));
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return CToolObject; });
+/* unused harmony export CBiToolObject */
+/* unused harmony export CTriToolObject */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return CBandLineObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return CBiParallelLineObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return CBiParallelRayLineObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return CFibFansObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return CFibRetraceObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return CHoriRayLineObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return CHoriSegLineObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return CHoriStraightLineObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return CRayLineObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return CSegLineObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return CStraightLineObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return CTriParallelLineObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return CVertiStraightLineObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return CPriceLineObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CArrowLineObject; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__chart_manager__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__named_object__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cpoint__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__util__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__data_sources__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__plotters__ = __webpack_require__(13);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
@@ -4763,10 +4555,6 @@ function _get(target, property, receiver) { if (typeof Reflect !== "undefined" &
 function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } _setPrototypeOf(subClass.prototype, superClass && superClass.prototype); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
@@ -4776,11 +4564,23 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _getPrototypeOf(o) { _getPrototypeOf = Object.getPrototypeOf || function _getPrototypeOf(o) { return o.__proto__; }; return _getPrototypeOf(o); }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
 
 var CToolObject =
 /*#__PURE__*/
 function (_NamedObject) {
+  _inherits(CToolObject, _NamedObject);
+
   function CToolObject(name) {
     var _this;
 
@@ -4797,9 +4597,9 @@ function (_NamedObject) {
   _createClass(CToolObject, [{
     key: "getChartObjects",
     value: function getChartObjects() {
-      var ppMgr = _chart_manager.ChartManager.instance;
+      var ppMgr = __WEBPACK_IMPORTED_MODULE_0__chart_manager__["a" /* ChartManager */].instance;
       var ppCDS = ppMgr.getDataSource("frame0.k0");
-      if (ppCDS === null || !_util.Util.isInstance(ppCDS, data_sources.MainDataSource)) return null;
+      if (ppCDS === null || !__WEBPACK_IMPORTED_MODULE_3__util__["a" /* Util */].isInstance(ppCDS, __WEBPACK_IMPORTED_MODULE_4__data_sources__["b" /* MainDataSource */])) return null;
       var ppTimeline = ppMgr.getTimeline("frame0.k0");
       if (ppTimeline === null) return null;
       var ppArea = ppMgr.getArea('frame0.k0.main');
@@ -4953,14 +4753,14 @@ function (_NamedObject) {
     value: function setBeforeDrawPos(x, y) {
       for (var index in this.points) {
         this.points[index].setPosXY(x, y);
-        this.points[index].setState(_cpoint.CPoint.state.Show);
+        this.points[index].setState(__WEBPACK_IMPORTED_MODULE_2__cpoint__["a" /* CPoint */].state.Show);
       }
     }
   }, {
     key: "setDrawPos",
     value: function setDrawPos(x, y) {
       for (var index in this.points) {
-        if (this.points[index].getState() === _cpoint.CPoint.state.Highlight) {
+        if (this.points[index].getState() === __WEBPACK_IMPORTED_MODULE_2__cpoint__["a" /* CPoint */].state.Highlight) {
           this.points[index].setPosXY(x, y);
         }
       }
@@ -4973,7 +4773,7 @@ function (_NamedObject) {
       }
 
       for (var index in this.points) {
-        this.points[index].setState(_cpoint.CPoint.state.Hide);
+        this.points[index].setState(__WEBPACK_IMPORTED_MODULE_2__cpoint__["a" /* CPoint */].state.Hide);
       }
 
       if (this.step === 0) {
@@ -4988,7 +4788,7 @@ function (_NamedObject) {
 
       for (var index in this.points) {
         if (this.points[index].isSelected(x, y)) {
-          this.points[index].setState(_cpoint.CPoint.state.Highlight);
+          this.points[index].setState(__WEBPACK_IMPORTED_MODULE_2__cpoint__["a" /* CPoint */].state.Highlight);
           isFind = true;
           break;
         }
@@ -5005,8 +4805,8 @@ function (_NamedObject) {
     key: "select",
     value: function select() {
       for (var index in this.points) {
-        if (this.points[index].getState() === _cpoint.CPoint.state.Hide) {
-          this.points[index].setState(_cpoint.CPoint.state.Show);
+        if (this.points[index].getState() === __WEBPACK_IMPORTED_MODULE_2__cpoint__["a" /* CPoint */].state.Hide) {
+          this.points[index].setState(__WEBPACK_IMPORTED_MODULE_2__cpoint__["a" /* CPoint */].state.Show);
         }
       }
     }
@@ -5014,8 +4814,8 @@ function (_NamedObject) {
     key: "unselect",
     value: function unselect() {
       for (var index in this.points) {
-        if (this.points[index].getState() !== _cpoint.CPoint.state.Hide) {
-          this.points[index].setState(_cpoint.CPoint.state.Hide);
+        if (this.points[index].getState() !== __WEBPACK_IMPORTED_MODULE_2__cpoint__["a" /* CPoint */].state.Hide) {
+          this.points[index].setState(__WEBPACK_IMPORTED_MODULE_2__cpoint__["a" /* CPoint */].state.Hide);
         }
       }
     }
@@ -5099,21 +4899,18 @@ function (_NamedObject) {
     }
   }]);
 
-  _inherits(CToolObject, _NamedObject);
-
   return CToolObject;
-}(_named_object.NamedObject);
-
-exports.CToolObject = CToolObject;
+}(__WEBPACK_IMPORTED_MODULE_1__named_object__["a" /* NamedObject */]);
 CToolObject.state = {
   BeforeDraw: 0,
   Draw: 1,
   AfterDraw: 2
 };
-
 var CBiToolObject =
 /*#__PURE__*/
 function (_CToolObject) {
+  _inherits(CBiToolObject, _CToolObject);
+
   function CBiToolObject(name) {
     var _this2;
 
@@ -5121,9 +4918,9 @@ function (_CToolObject) {
 
     _this2 = _possibleConstructorReturn(this, _getPrototypeOf(CBiToolObject).call(this, name));
 
-    _this2.addPoint(new _cpoint.CPoint(name));
+    _this2.addPoint(new __WEBPACK_IMPORTED_MODULE_2__cpoint__["a" /* CPoint */](name));
 
-    _this2.addPoint(new _cpoint.CPoint(name));
+    _this2.addPoint(new __WEBPACK_IMPORTED_MODULE_2__cpoint__["a" /* CPoint */](name));
 
     return _this2;
   }
@@ -5135,21 +4932,18 @@ function (_CToolObject) {
 
       _get(_getPrototypeOf(CBiToolObject.prototype), "setBeforeDrawPos", this).call(this, x, y);
 
-      this.getPoint(0).setState(_cpoint.CPoint.state.Show);
-      this.getPoint(1).setState(_cpoint.CPoint.state.Highlight);
+      this.getPoint(0).setState(__WEBPACK_IMPORTED_MODULE_2__cpoint__["a" /* CPoint */].state.Show);
+      this.getPoint(1).setState(__WEBPACK_IMPORTED_MODULE_2__cpoint__["a" /* CPoint */].state.Highlight);
     }
   }]);
 
-  _inherits(CBiToolObject, _CToolObject);
-
   return CBiToolObject;
 }(CToolObject);
-
-exports.CBiToolObject = CBiToolObject;
-
 var CTriToolObject =
 /*#__PURE__*/
 function (_CToolObject2) {
+  _inherits(CTriToolObject, _CToolObject2);
+
   function CTriToolObject(name) {
     var _this3;
 
@@ -5157,11 +4951,11 @@ function (_CToolObject2) {
 
     _this3 = _possibleConstructorReturn(this, _getPrototypeOf(CTriToolObject).call(this, name));
 
-    _this3.addPoint(new _cpoint.CPoint(name));
+    _this3.addPoint(new __WEBPACK_IMPORTED_MODULE_2__cpoint__["a" /* CPoint */](name));
 
-    _this3.addPoint(new _cpoint.CPoint(name));
+    _this3.addPoint(new __WEBPACK_IMPORTED_MODULE_2__cpoint__["a" /* CPoint */](name));
 
-    _this3.addPoint(new _cpoint.CPoint(name));
+    _this3.addPoint(new __WEBPACK_IMPORTED_MODULE_2__cpoint__["a" /* CPoint */](name));
 
     return _this3;
   }
@@ -5173,9 +4967,9 @@ function (_CToolObject2) {
 
       _get(_getPrototypeOf(CTriToolObject.prototype), "setBeforeDrawPos", this).call(this, x, y);
 
-      this.getPoint(0).setState(_cpoint.CPoint.state.Show);
-      this.getPoint(1).setState(_cpoint.CPoint.state.Show);
-      this.getPoint(2).setState(_cpoint.CPoint.state.Highlight);
+      this.getPoint(0).setState(__WEBPACK_IMPORTED_MODULE_2__cpoint__["a" /* CPoint */].state.Show);
+      this.getPoint(1).setState(__WEBPACK_IMPORTED_MODULE_2__cpoint__["a" /* CPoint */].state.Show);
+      this.getPoint(2).setState(__WEBPACK_IMPORTED_MODULE_2__cpoint__["a" /* CPoint */].state.Highlight);
     }
   }, {
     key: "setAfterDrawPos",
@@ -5184,12 +4978,12 @@ function (_CToolObject2) {
 
       if (this.step === 0) {
         for (var index in this.points) {
-          this.points[index].setState(_cpoint.CPoint.state.Hide);
+          this.points[index].setState(__WEBPACK_IMPORTED_MODULE_2__cpoint__["a" /* CPoint */].state.Hide);
         }
       } else {
-        this.getPoint(0).setState(_cpoint.CPoint.state.Show);
-        this.getPoint(1).setState(_cpoint.CPoint.state.Highlight);
-        this.getPoint(2).setState(_cpoint.CPoint.state.Show);
+        this.getPoint(0).setState(__WEBPACK_IMPORTED_MODULE_2__cpoint__["a" /* CPoint */].state.Show);
+        this.getPoint(1).setState(__WEBPACK_IMPORTED_MODULE_2__cpoint__["a" /* CPoint */].state.Highlight);
+        this.getPoint(2).setState(__WEBPACK_IMPORTED_MODULE_2__cpoint__["a" /* CPoint */].state.Show);
       }
 
       if (this.step === 0) {
@@ -5199,23 +4993,20 @@ function (_CToolObject2) {
     }
   }]);
 
-  _inherits(CTriToolObject, _CToolObject2);
-
   return CTriToolObject;
 }(CToolObject);
-
-exports.CTriToolObject = CTriToolObject;
-
 var CBandLineObject =
 /*#__PURE__*/
 function (_CBiToolObject) {
+  _inherits(CBandLineObject, _CBiToolObject);
+
   function CBandLineObject(name) {
     var _this4;
 
     _classCallCheck(this, CBandLineObject);
 
     _this4 = _possibleConstructorReturn(this, _getPrototypeOf(CBandLineObject).call(this, name));
-    _this4.drawer = new plotters.DrawBandLinesPlotter(name, _assertThisInitialized(_assertThisInitialized(_this4)));
+    _this4.drawer = new __WEBPACK_IMPORTED_MODULE_5__plotters__["j" /* DrawBandLinesPlotter */](name, _assertThisInitialized(_this4));
     return _this4;
   }
 
@@ -5226,7 +5017,7 @@ function (_CBiToolObject) {
         return true;
       }
 
-      var c = new _cpoint.CPoint("frame0.k0");
+      var c = new __WEBPACK_IMPORTED_MODULE_2__cpoint__["a" /* CPoint */]("frame0.k0");
       c.setPosXY(x, y);
       var sx = this.getPoint(0).getPosXY().x;
       var sy = this.getPoint(0).getPosXY().y;
@@ -5247,23 +5038,20 @@ function (_CBiToolObject) {
     }
   }]);
 
-  _inherits(CBandLineObject, _CBiToolObject);
-
   return CBandLineObject;
 }(CBiToolObject);
-
-exports.CBandLineObject = CBandLineObject;
-
 var CBiParallelLineObject =
 /*#__PURE__*/
 function (_CTriToolObject) {
+  _inherits(CBiParallelLineObject, _CTriToolObject);
+
   function CBiParallelLineObject(name) {
     var _this5;
 
     _classCallCheck(this, CBiParallelLineObject);
 
     _this5 = _possibleConstructorReturn(this, _getPrototypeOf(CBiParallelLineObject).call(this, name));
-    _this5.drawer = new plotters.DrawBiParallelLinesPlotter(name, _assertThisInitialized(_assertThisInitialized(_this5)));
+    _this5.drawer = new __WEBPACK_IMPORTED_MODULE_5__plotters__["k" /* DrawBiParallelLinesPlotter */](name, _assertThisInitialized(_this5));
     return _this5;
   }
 
@@ -5318,23 +5106,20 @@ function (_CTriToolObject) {
     }
   }]);
 
-  _inherits(CBiParallelLineObject, _CTriToolObject);
-
   return CBiParallelLineObject;
 }(CTriToolObject);
-
-exports.CBiParallelLineObject = CBiParallelLineObject;
-
 var CBiParallelRayLineObject =
 /*#__PURE__*/
 function (_CTriToolObject2) {
+  _inherits(CBiParallelRayLineObject, _CTriToolObject2);
+
   function CBiParallelRayLineObject(name) {
     var _this6;
 
     _classCallCheck(this, CBiParallelRayLineObject);
 
     _this6 = _possibleConstructorReturn(this, _getPrototypeOf(CBiParallelRayLineObject).call(this, name));
-    _this6.drawer = new plotters.DrawBiParallelRayLinesPlotter(name, _assertThisInitialized(_assertThisInitialized(_this6)));
+    _this6.drawer = new __WEBPACK_IMPORTED_MODULE_5__plotters__["l" /* DrawBiParallelRayLinesPlotter */](name, _assertThisInitialized(_this6));
     return _this6;
   }
 
@@ -5394,23 +5179,20 @@ function (_CTriToolObject2) {
     }
   }]);
 
-  _inherits(CBiParallelRayLineObject, _CTriToolObject2);
-
   return CBiParallelRayLineObject;
 }(CTriToolObject);
-
-exports.CBiParallelRayLineObject = CBiParallelRayLineObject;
-
 var CFibFansObject =
 /*#__PURE__*/
 function (_CBiToolObject2) {
+  _inherits(CFibFansObject, _CBiToolObject2);
+
   function CFibFansObject(name) {
     var _this7;
 
     _classCallCheck(this, CFibFansObject);
 
     _this7 = _possibleConstructorReturn(this, _getPrototypeOf(CFibFansObject).call(this, name));
-    _this7.drawer = new plotters.DrawFibFansPlotter(name, _assertThisInitialized(_assertThisInitialized(_this7)));
+    _this7.drawer = new __WEBPACK_IMPORTED_MODULE_5__plotters__["m" /* DrawFibFansPlotter */](name, _assertThisInitialized(_this7));
     return _this7;
   }
 
@@ -5421,7 +5203,7 @@ function (_CBiToolObject2) {
         return true;
       }
 
-      var c = new _cpoint.CPoint("frame0.k0");
+      var c = new __WEBPACK_IMPORTED_MODULE_2__cpoint__["a" /* CPoint */]("frame0.k0");
       c.setPosXY(x, y);
       var sx = this.getPoint(0).getPosXY().x;
       var sy = this.getPoint(0).getPosXY().y;
@@ -5458,9 +5240,9 @@ function (_CBiToolObject2) {
         };
         if (tempCrossPt.x > sx && x < sx) continue;
         if (tempCrossPt.x < sx && x > sx) continue;
-        var a = new _cpoint.CPoint("frame0.k0");
+        var a = new __WEBPACK_IMPORTED_MODULE_2__cpoint__["a" /* CPoint */]("frame0.k0");
         a.setPosXY(sx, sy);
-        var b = new _cpoint.CPoint("frame0.k0");
+        var b = new __WEBPACK_IMPORTED_MODULE_2__cpoint__["a" /* CPoint */]("frame0.k0");
         b.setPosXY(tempCrossPt.x, tempCrossPt.y);
 
         if (this.calcDistance(a, b, c) > 4) {
@@ -5475,23 +5257,20 @@ function (_CBiToolObject2) {
     }
   }]);
 
-  _inherits(CFibFansObject, _CBiToolObject2);
-
   return CFibFansObject;
 }(CBiToolObject);
-
-exports.CFibFansObject = CFibFansObject;
-
 var CFibRetraceObject =
 /*#__PURE__*/
 function (_CBiToolObject3) {
+  _inherits(CFibRetraceObject, _CBiToolObject3);
+
   function CFibRetraceObject(name) {
     var _this8;
 
     _classCallCheck(this, CFibRetraceObject);
 
     _this8 = _possibleConstructorReturn(this, _getPrototypeOf(CFibRetraceObject).call(this, name));
-    _this8.drawer = new plotters.DrawFibRetracePlotter(name, _assertThisInitialized(_assertThisInitialized(_this8)));
+    _this8.drawer = new __WEBPACK_IMPORTED_MODULE_5__plotters__["n" /* DrawFibRetracePlotter */](name, _assertThisInitialized(_this8));
     return _this8;
   }
 
@@ -5502,7 +5281,7 @@ function (_CBiToolObject3) {
         return true;
       }
 
-      var c = new _cpoint.CPoint("frame0.k0");
+      var c = new __WEBPACK_IMPORTED_MODULE_2__cpoint__["a" /* CPoint */]("frame0.k0");
       c.setPosXY(x, y);
       var sx = this.getPoint(0).getPosXY().x;
       var sy = this.getPoint(0).getPosXY().y;
@@ -5523,36 +5302,33 @@ function (_CBiToolObject3) {
     }
   }]);
 
-  _inherits(CFibRetraceObject, _CBiToolObject3);
-
   return CFibRetraceObject;
 }(CBiToolObject);
-
-exports.CFibRetraceObject = CFibRetraceObject;
-
 var CHoriRayLineObject =
 /*#__PURE__*/
 function (_CBiToolObject4) {
+  _inherits(CHoriRayLineObject, _CBiToolObject4);
+
   function CHoriRayLineObject(name) {
     var _this9;
 
     _classCallCheck(this, CHoriRayLineObject);
 
     _this9 = _possibleConstructorReturn(this, _getPrototypeOf(CHoriRayLineObject).call(this, name));
-    _this9.drawer = new plotters.DrawHoriRayLinesPlotter(name, _assertThisInitialized(_assertThisInitialized(_this9)));
+    _this9.drawer = new __WEBPACK_IMPORTED_MODULE_5__plotters__["o" /* DrawHoriRayLinesPlotter */](name, _assertThisInitialized(_this9));
     return _this9;
   }
 
   _createClass(CHoriRayLineObject, [{
     key: "setDrawPos",
     value: function setDrawPos(x, y) {
-      if (this.points[0].getState() === _cpoint.CPoint.state.Highlight) {
+      if (this.points[0].getState() === __WEBPACK_IMPORTED_MODULE_2__cpoint__["a" /* CPoint */].state.Highlight) {
         this.points[0].setPosXY(x, y);
         this.points[1].setPosXYNoSnap(this.points[1].getPosXY().x, this.points[0].getPosXY().y);
         return;
       }
 
-      if (this.points[1].getState() === _cpoint.CPoint.state.Highlight) {
+      if (this.points[1].getState() === __WEBPACK_IMPORTED_MODULE_2__cpoint__["a" /* CPoint */].state.Highlight) {
         this.points[1].setPosXY(x, y);
         this.points[0].setPosXYNoSnap(this.points[0].getPosXY().x, this.points[1].getPosXY().y);
       }
@@ -5564,7 +5340,7 @@ function (_CBiToolObject4) {
         return true;
       }
 
-      var c = new _cpoint.CPoint("frame0.k0");
+      var c = new __WEBPACK_IMPORTED_MODULE_2__cpoint__["a" /* CPoint */]("frame0.k0");
       c.setPosXY(x, y);
       var sy = this.getPoint(0).getPosXY().y;
       var sx = this.getPoint(0).getPosXY().x;
@@ -5587,36 +5363,33 @@ function (_CBiToolObject4) {
     }
   }]);
 
-  _inherits(CHoriRayLineObject, _CBiToolObject4);
-
   return CHoriRayLineObject;
 }(CBiToolObject);
-
-exports.CHoriRayLineObject = CHoriRayLineObject;
-
 var CHoriSegLineObject =
 /*#__PURE__*/
 function (_CBiToolObject5) {
+  _inherits(CHoriSegLineObject, _CBiToolObject5);
+
   function CHoriSegLineObject(name) {
     var _this10;
 
     _classCallCheck(this, CHoriSegLineObject);
 
     _this10 = _possibleConstructorReturn(this, _getPrototypeOf(CHoriSegLineObject).call(this, name));
-    _this10.drawer = new plotters.DrawHoriSegLinesPlotter(name, _assertThisInitialized(_assertThisInitialized(_this10)));
+    _this10.drawer = new __WEBPACK_IMPORTED_MODULE_5__plotters__["p" /* DrawHoriSegLinesPlotter */](name, _assertThisInitialized(_this10));
     return _this10;
   }
 
   _createClass(CHoriSegLineObject, [{
     key: "setDrawPos",
     value: function setDrawPos(x, y) {
-      if (this.points[0].getState() === _cpoint.CPoint.state.Highlight) {
+      if (this.points[0].getState() === __WEBPACK_IMPORTED_MODULE_2__cpoint__["a" /* CPoint */].state.Highlight) {
         this.points[0].setPosXY(x, y);
         this.points[1].setPosXYNoSnap(this.points[1].getPosXY().x, this.points[0].getPosXY().y);
         return;
       }
 
-      if (this.points[1].getState() === _cpoint.CPoint.state.Highlight) {
+      if (this.points[1].getState() === __WEBPACK_IMPORTED_MODULE_2__cpoint__["a" /* CPoint */].state.Highlight) {
         this.points[1].setPosXY(x, y);
         this.points[0].setPosXYNoSnap(this.points[0].getPosXY().x, this.points[1].getPosXY().y);
       }
@@ -5628,7 +5401,7 @@ function (_CBiToolObject5) {
         return true;
       }
 
-      var c = new _cpoint.CPoint("frame0.k0");
+      var c = new __WEBPACK_IMPORTED_MODULE_2__cpoint__["a" /* CPoint */]("frame0.k0");
       c.setPosXY(x, y);
       var sy = this.getPoint(0).getPosXY().y;
       var sx = this.getPoint(0).getPosXY().x;
@@ -5651,23 +5424,20 @@ function (_CBiToolObject5) {
     }
   }]);
 
-  _inherits(CHoriSegLineObject, _CBiToolObject5);
-
   return CHoriSegLineObject;
 }(CBiToolObject);
-
-exports.CHoriSegLineObject = CHoriSegLineObject;
-
 var CHoriStraightLineObject =
 /*#__PURE__*/
 function (_CBiToolObject6) {
+  _inherits(CHoriStraightLineObject, _CBiToolObject6);
+
   function CHoriStraightLineObject(name) {
     var _this11;
 
     _classCallCheck(this, CHoriStraightLineObject);
 
     _this11 = _possibleConstructorReturn(this, _getPrototypeOf(CHoriStraightLineObject).call(this, name));
-    _this11.drawer = new plotters.DrawHoriStraightLinesPlotter(name, _assertThisInitialized(_assertThisInitialized(_this11)));
+    _this11.drawer = new __WEBPACK_IMPORTED_MODULE_5__plotters__["q" /* DrawHoriStraightLinesPlotter */](name, _assertThisInitialized(_this11));
     return _this11;
   }
 
@@ -5685,7 +5455,7 @@ function (_CBiToolObject6) {
         return true;
       }
 
-      var c = new _cpoint.CPoint("frame0.k0");
+      var c = new __WEBPACK_IMPORTED_MODULE_2__cpoint__["a" /* CPoint */]("frame0.k0");
       c.setPosXY(x, y);
       var sy = this.getPoint(0).getPosXY().y;
 
@@ -5698,23 +5468,20 @@ function (_CBiToolObject6) {
     }
   }]);
 
-  _inherits(CHoriStraightLineObject, _CBiToolObject6);
-
   return CHoriStraightLineObject;
 }(CBiToolObject);
-
-exports.CHoriStraightLineObject = CHoriStraightLineObject;
-
 var CRayLineObject =
 /*#__PURE__*/
 function (_CBiToolObject7) {
+  _inherits(CRayLineObject, _CBiToolObject7);
+
   function CRayLineObject(name) {
     var _this12;
 
     _classCallCheck(this, CRayLineObject);
 
     _this12 = _possibleConstructorReturn(this, _getPrototypeOf(CRayLineObject).call(this, name));
-    _this12.drawer = new plotters.DrawRayLinesPlotter(name, _assertThisInitialized(_assertThisInitialized(_this12)));
+    _this12.drawer = new __WEBPACK_IMPORTED_MODULE_5__plotters__["s" /* DrawRayLinesPlotter */](name, _assertThisInitialized(_this12));
     return _this12;
   }
 
@@ -5725,7 +5492,7 @@ function (_CBiToolObject7) {
         return true;
       }
 
-      var c = new _cpoint.CPoint("frame0.k0");
+      var c = new __WEBPACK_IMPORTED_MODULE_2__cpoint__["a" /* CPoint */]("frame0.k0");
       c.setPosXY(x, y);
       var sx = this.getPoint(0).getPosXY().x;
       var ex = this.getPoint(1).getPosXY().x;
@@ -5747,23 +5514,20 @@ function (_CBiToolObject7) {
     }
   }]);
 
-  _inherits(CRayLineObject, _CBiToolObject7);
-
   return CRayLineObject;
 }(CBiToolObject);
-
-exports.CRayLineObject = CRayLineObject;
-
 var CSegLineObject =
 /*#__PURE__*/
 function (_CBiToolObject8) {
+  _inherits(CSegLineObject, _CBiToolObject8);
+
   function CSegLineObject(name) {
     var _this13;
 
     _classCallCheck(this, CSegLineObject);
 
     _this13 = _possibleConstructorReturn(this, _getPrototypeOf(CSegLineObject).call(this, name));
-    _this13.drawer = new plotters.DrawSegLinesPlotter(name, _assertThisInitialized(_assertThisInitialized(_this13)));
+    _this13.drawer = new __WEBPACK_IMPORTED_MODULE_5__plotters__["t" /* DrawSegLinesPlotter */](name, _assertThisInitialized(_this13));
     return _this13;
   }
 
@@ -5774,7 +5538,7 @@ function (_CBiToolObject8) {
         return true;
       }
 
-      var c = new _cpoint.CPoint("frame0.k0");
+      var c = new __WEBPACK_IMPORTED_MODULE_2__cpoint__["a" /* CPoint */]("frame0.k0");
       c.setPosXY(x, y);
 
       if (this.isWithRect(this.getPoint(0), this.getPoint(1), c) === false) {
@@ -5790,23 +5554,20 @@ function (_CBiToolObject8) {
     }
   }]);
 
-  _inherits(CSegLineObject, _CBiToolObject8);
-
   return CSegLineObject;
 }(CBiToolObject);
-
-exports.CSegLineObject = CSegLineObject;
-
 var CStraightLineObject =
 /*#__PURE__*/
 function (_CBiToolObject9) {
+  _inherits(CStraightLineObject, _CBiToolObject9);
+
   function CStraightLineObject(name) {
     var _this14;
 
     _classCallCheck(this, CStraightLineObject);
 
     _this14 = _possibleConstructorReturn(this, _getPrototypeOf(CStraightLineObject).call(this, name));
-    _this14.drawer = new plotters.DrawStraightLinesPlotter(name, _assertThisInitialized(_assertThisInitialized(_this14)));
+    _this14.drawer = new __WEBPACK_IMPORTED_MODULE_5__plotters__["u" /* DrawStraightLinesPlotter */](name, _assertThisInitialized(_this14));
     return _this14;
   }
 
@@ -5817,7 +5578,7 @@ function (_CBiToolObject9) {
         return true;
       }
 
-      var c = new _cpoint.CPoint("frame0.k0");
+      var c = new __WEBPACK_IMPORTED_MODULE_2__cpoint__["a" /* CPoint */]("frame0.k0");
       c.setPosXY(x, y);
 
       if (this.calcDistance(this.getPoint(0), this.getPoint(1), c) < 4) {
@@ -5829,23 +5590,20 @@ function (_CBiToolObject9) {
     }
   }]);
 
-  _inherits(CStraightLineObject, _CBiToolObject9);
-
   return CStraightLineObject;
 }(CBiToolObject);
-
-exports.CStraightLineObject = CStraightLineObject;
-
 var CTriParallelLineObject =
 /*#__PURE__*/
 function (_CTriToolObject3) {
+  _inherits(CTriParallelLineObject, _CTriToolObject3);
+
   function CTriParallelLineObject(name) {
     var _this15;
 
     _classCallCheck(this, CTriParallelLineObject);
 
     _this15 = _possibleConstructorReturn(this, _getPrototypeOf(CTriParallelLineObject).call(this, name));
-    _this15.drawer = new plotters.DrawTriParallelLinesPlotter(name, _assertThisInitialized(_assertThisInitialized(_this15)));
+    _this15.drawer = new __WEBPACK_IMPORTED_MODULE_5__plotters__["v" /* DrawTriParallelLinesPlotter */](name, _assertThisInitialized(_this15));
     return _this15;
   }
 
@@ -5933,23 +5691,20 @@ function (_CTriToolObject3) {
     }
   }]);
 
-  _inherits(CTriParallelLineObject, _CTriToolObject3);
-
   return CTriParallelLineObject;
 }(CTriToolObject);
-
-exports.CTriParallelLineObject = CTriParallelLineObject;
-
 var CVertiStraightLineObject =
 /*#__PURE__*/
 function (_CBiToolObject10) {
+  _inherits(CVertiStraightLineObject, _CBiToolObject10);
+
   function CVertiStraightLineObject(name) {
     var _this16;
 
     _classCallCheck(this, CVertiStraightLineObject);
 
     _this16 = _possibleConstructorReturn(this, _getPrototypeOf(CVertiStraightLineObject).call(this, name));
-    _this16.drawer = new plotters.DrawVertiStraightLinesPlotter(name, _assertThisInitialized(_assertThisInitialized(_this16)));
+    _this16.drawer = new __WEBPACK_IMPORTED_MODULE_5__plotters__["w" /* DrawVertiStraightLinesPlotter */](name, _assertThisInitialized(_this16));
     return _this16;
   }
 
@@ -5967,7 +5722,7 @@ function (_CBiToolObject10) {
         return true;
       }
 
-      var c = new _cpoint.CPoint("frame0.k0");
+      var c = new __WEBPACK_IMPORTED_MODULE_2__cpoint__["a" /* CPoint */]("frame0.k0");
       c.setPosXY(x, y);
       var sx = this.getPoint(0).getPosXY().x;
 
@@ -5980,23 +5735,20 @@ function (_CBiToolObject10) {
     }
   }]);
 
-  _inherits(CVertiStraightLineObject, _CBiToolObject10);
-
   return CVertiStraightLineObject;
 }(CBiToolObject);
-
-exports.CVertiStraightLineObject = CVertiStraightLineObject;
-
 var CPriceLineObject =
 /*#__PURE__*/
 function (_CSegLineObject) {
+  _inherits(CPriceLineObject, _CSegLineObject);
+
   function CPriceLineObject(name) {
     var _this17;
 
     _classCallCheck(this, CPriceLineObject);
 
     _this17 = _possibleConstructorReturn(this, _getPrototypeOf(CPriceLineObject).call(this, name));
-    _this17.drawer = new plotters.DrawPriceLinesPlotter(name, _assertThisInitialized(_assertThisInitialized(_this17)));
+    _this17.drawer = new __WEBPACK_IMPORTED_MODULE_5__plotters__["r" /* DrawPriceLinesPlotter */](name, _assertThisInitialized(_this17));
     return _this17;
   }
 
@@ -6014,7 +5766,7 @@ function (_CSegLineObject) {
         return true;
       }
 
-      var c = new _cpoint.CPoint("frame0.k0");
+      var c = new __WEBPACK_IMPORTED_MODULE_2__cpoint__["a" /* CPoint */]("frame0.k0");
       c.setPosXY(x, y);
       var sx = this.getPoint(0).getPosXY().x;
       var sy = this.getPoint(0).getPosXY().y;
@@ -6034,76 +5786,84 @@ function (_CSegLineObject) {
     }
   }]);
 
-  _inherits(CPriceLineObject, _CSegLineObject);
-
   return CPriceLineObject;
 }(CSegLineObject);
-
-exports.CPriceLineObject = CPriceLineObject;
-
 var CArrowLineObject =
 /*#__PURE__*/
 function (_CSegLineObject2) {
+  _inherits(CArrowLineObject, _CSegLineObject2);
+
   function CArrowLineObject(name) {
     var _this18;
 
     _classCallCheck(this, CArrowLineObject);
 
     _this18 = _possibleConstructorReturn(this, _getPrototypeOf(CArrowLineObject).call(this, name));
-    _this18.drawer = new plotters.DrawArrowLinesPlotter(name, _assertThisInitialized(_assertThisInitialized(_this18)));
+    _this18.drawer = new __WEBPACK_IMPORTED_MODULE_5__plotters__["i" /* DrawArrowLinesPlotter */](name, _assertThisInitialized(_this18));
     return _this18;
   }
-
-  _inherits(CArrowLineObject, _CSegLineObject2);
 
   return CArrowLineObject;
 }(CSegLineObject);
 
-exports.CArrowLineObject = CArrowLineObject;
-
 /***/ }),
 /* 13 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.CDynamicLinePlotter = exports.DrawFibFansPlotter = exports.DrawBandLinesPlotter = exports.DrawFibRetracePlotter = exports.BandLinesPlotter = exports.DrawTriParallelLinesPlotter = exports.DrawBiParallelRayLinesPlotter = exports.DrawBiParallelLinesPlotter = exports.ParallelLinesPlotter = exports.DrawPriceLinesPlotter = exports.DrawVertiStraightLinesPlotter = exports.DrawHoriSegLinesPlotter = exports.DrawHoriRayLinesPlotter = exports.DrawHoriStraightLinesPlotter = exports.DrawArrowLinesPlotter = exports.DrawRayLinesPlotter = exports.DrawSegLinesPlotter = exports.DrawStraightLinesPlotter = exports.CToolPlotter = exports.RangeSelectionPlotter = exports.TimelineSelectionPlotter = exports.SelectionPlotter = exports.LastClosePlotter = exports.LastVolumePlotter = exports.COrderGraphPlotter = exports.RangePlotter = exports.TimelinePlotter = exports.MinMaxPlotter = exports.IndicatorInfoPlotter = exports.IndicatorPlotter = exports.MainInfoPlotter = exports.OHLCPlotter = exports.CandlestickHLCPlotter = exports.CandlestickPlotter = exports.CGridPlotter = exports.TimelineAreaBackgroundPlotter = exports.RangeAreaBackgroundPlotter = exports.MainAreaBackgroundPlotter = exports.BackgroundPlotter = exports.Plotter = void 0;
-
-var _kline = _interopRequireDefault(__webpack_require__(3));
-
-var _named_object = __webpack_require__(1);
-
-var _chart_manager = __webpack_require__(0);
-
-var _util = __webpack_require__(5);
-
-var _cpoint = __webpack_require__(11);
-
-var exprs = _interopRequireWildcard(__webpack_require__(20));
-
-var themes = _interopRequireWildcard(__webpack_require__(6));
-
-var data_providers = _interopRequireWildcard(__webpack_require__(14));
-
-var data_sources = _interopRequireWildcard(__webpack_require__(2));
-
-var ctools = _interopRequireWildcard(__webpack_require__(12));
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+/* unused harmony export Plotter */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BackgroundPlotter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B", function() { return MainAreaBackgroundPlotter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "F", function() { return RangeAreaBackgroundPlotter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "J", function() { return TimelineAreaBackgroundPlotter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return CGridPlotter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return CandlestickPlotter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return CandlestickHLCPlotter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "E", function() { return OHLCPlotter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "C", function() { return MainInfoPlotter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "y", function() { return IndicatorPlotter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "x", function() { return IndicatorInfoPlotter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "D", function() { return MinMaxPlotter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "K", function() { return TimelinePlotter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "G", function() { return RangePlotter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return COrderGraphPlotter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "A", function() { return LastVolumePlotter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "z", function() { return LastClosePlotter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "I", function() { return SelectionPlotter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "L", function() { return TimelineSelectionPlotter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "H", function() { return RangeSelectionPlotter; });
+/* unused harmony export CToolPlotter */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "u", function() { return DrawStraightLinesPlotter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "t", function() { return DrawSegLinesPlotter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s", function() { return DrawRayLinesPlotter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return DrawArrowLinesPlotter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "q", function() { return DrawHoriStraightLinesPlotter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return DrawHoriRayLinesPlotter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return DrawHoriSegLinesPlotter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "w", function() { return DrawVertiStraightLinesPlotter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "r", function() { return DrawPriceLinesPlotter; });
+/* unused harmony export ParallelLinesPlotter */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return DrawBiParallelLinesPlotter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return DrawBiParallelRayLinesPlotter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "v", function() { return DrawTriParallelLinesPlotter; });
+/* unused harmony export BandLinesPlotter */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return DrawFibRetracePlotter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return DrawBandLinesPlotter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return DrawFibFansPlotter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return CDynamicLinePlotter; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__kline__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__named_object__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__chart_manager__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__util__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__cpoint__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__exprs__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__themes__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__data_providers__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__data_sources__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ctools__ = __webpack_require__(12);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } _setPrototypeOf(subClass.prototype, superClass && superClass.prototype); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
@@ -6113,11 +5873,27 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _getPrototypeOf(o) { _getPrototypeOf = Object.getPrototypeOf || function _getPrototypeOf(o) { return o.__proto__; }; return _getPrototypeOf(o); }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+
+
+
+
 
 var Plotter =
 /*#__PURE__*/
 function (_NamedObject) {
+  _inherits(Plotter, _NamedObject);
+
   function Plotter(name) {
     _classCallCheck(this, Plotter);
 
@@ -6250,24 +6026,21 @@ function (_NamedObject) {
     }
   }]);
 
-  _inherits(Plotter, _NamedObject);
-
   return Plotter;
-}(_named_object.NamedObject);
-
-exports.Plotter = Plotter;
+}(__WEBPACK_IMPORTED_MODULE_1__named_object__["a" /* NamedObject */]);
 Plotter.isChrome = navigator.userAgent.toLowerCase().match(/chrome/) !== null;
-
 var BackgroundPlotter =
 /*#__PURE__*/
 function (_Plotter) {
+  _inherits(BackgroundPlotter, _Plotter);
+
   function BackgroundPlotter(name) {
     var _this;
 
     _classCallCheck(this, BackgroundPlotter);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(BackgroundPlotter).call(this, name));
-    _this._color = themes.Theme.Color.Background;
+    _this._color = __WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Background;
     return _this;
   }
 
@@ -6284,7 +6057,7 @@ function (_Plotter) {
   }, {
     key: "Draw",
     value: function Draw(context) {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance;
       var area = mgr.getArea(this.getAreaName());
       var theme = mgr.getTheme(this.getFrameName());
       context.fillStyle = theme.getColor(this._color);
@@ -6292,16 +6065,13 @@ function (_Plotter) {
     }
   }]);
 
-  _inherits(BackgroundPlotter, _Plotter);
-
   return BackgroundPlotter;
 }(Plotter);
-
-exports.BackgroundPlotter = BackgroundPlotter;
-
 var MainAreaBackgroundPlotter =
 /*#__PURE__*/
 function (_BackgroundPlotter) {
+  _inherits(MainAreaBackgroundPlotter, _BackgroundPlotter);
+
   function MainAreaBackgroundPlotter(name) {
     _classCallCheck(this, MainAreaBackgroundPlotter);
 
@@ -6311,7 +6081,7 @@ function (_BackgroundPlotter) {
   _createClass(MainAreaBackgroundPlotter, [{
     key: "Draw",
     value: function Draw(context) {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance;
       var area = mgr.getArea(this.getAreaName());
       var timeline = mgr.getTimeline(this.getDataSourceName());
       var range = mgr.getRange(this.getAreaName());
@@ -6331,16 +6101,13 @@ function (_BackgroundPlotter) {
     }
   }]);
 
-  _inherits(MainAreaBackgroundPlotter, _BackgroundPlotter);
-
   return MainAreaBackgroundPlotter;
 }(BackgroundPlotter);
-
-exports.MainAreaBackgroundPlotter = MainAreaBackgroundPlotter;
-
 var RangeAreaBackgroundPlotter =
 /*#__PURE__*/
 function (_BackgroundPlotter2) {
+  _inherits(RangeAreaBackgroundPlotter, _BackgroundPlotter2);
+
   function RangeAreaBackgroundPlotter(name) {
     _classCallCheck(this, RangeAreaBackgroundPlotter);
 
@@ -6350,7 +6117,7 @@ function (_BackgroundPlotter2) {
   _createClass(RangeAreaBackgroundPlotter, [{
     key: "Draw",
     value: function Draw(context) {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance;
       var areaName = this.getAreaName();
       var area = mgr.getArea(areaName);
       var range = mgr.getRange(areaName.substring(0, areaName.lastIndexOf("Range")));
@@ -6366,16 +6133,13 @@ function (_BackgroundPlotter2) {
     }
   }]);
 
-  _inherits(RangeAreaBackgroundPlotter, _BackgroundPlotter2);
-
   return RangeAreaBackgroundPlotter;
 }(BackgroundPlotter);
-
-exports.RangeAreaBackgroundPlotter = RangeAreaBackgroundPlotter;
-
 var TimelineAreaBackgroundPlotter =
 /*#__PURE__*/
 function (_BackgroundPlotter3) {
+  _inherits(TimelineAreaBackgroundPlotter, _BackgroundPlotter3);
+
   function TimelineAreaBackgroundPlotter(name) {
     _classCallCheck(this, TimelineAreaBackgroundPlotter);
 
@@ -6385,7 +6149,7 @@ function (_BackgroundPlotter3) {
   _createClass(TimelineAreaBackgroundPlotter, [{
     key: "Draw",
     value: function Draw(context) {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance;
       var area = mgr.getArea(this.getAreaName());
       var timeline = mgr.getTimeline(this.getDataSourceName());
       if (!area.isChanged() && !timeline.isUpdated()) return;
@@ -6395,16 +6159,13 @@ function (_BackgroundPlotter3) {
     }
   }]);
 
-  _inherits(TimelineAreaBackgroundPlotter, _BackgroundPlotter3);
-
   return TimelineAreaBackgroundPlotter;
 }(BackgroundPlotter);
-
-exports.TimelineAreaBackgroundPlotter = TimelineAreaBackgroundPlotter;
-
 var CGridPlotter =
 /*#__PURE__*/
 function (_NamedObject2) {
+  _inherits(CGridPlotter, _NamedObject2);
+
   function CGridPlotter(name) {
     _classCallCheck(this, CGridPlotter);
 
@@ -6414,7 +6175,7 @@ function (_NamedObject2) {
   _createClass(CGridPlotter, [{
     key: "Draw",
     value: function Draw(context) {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance;
       var area = mgr.getArea(this.getAreaName());
       var timeline = mgr.getTimeline(this.getDataSourceName());
       var range = mgr.getRange(this.getAreaName());
@@ -6432,7 +6193,7 @@ function (_NamedObject2) {
       }
 
       var theme = mgr.getTheme(this.getFrameName());
-      context.fillStyle = theme.getColor(themes.Theme.Color.Grid0);
+      context.fillStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Grid0);
       context.beginPath();
       var dashLen = 4,
           dashSolid = 1;
@@ -6456,16 +6217,13 @@ function (_NamedObject2) {
     }
   }]);
 
-  _inherits(CGridPlotter, _NamedObject2);
-
   return CGridPlotter;
-}(_named_object.NamedObject);
-
-exports.CGridPlotter = CGridPlotter;
-
+}(__WEBPACK_IMPORTED_MODULE_1__named_object__["a" /* NamedObject */]);
 var CandlestickPlotter =
 /*#__PURE__*/
 function (_NamedObject3) {
+  _inherits(CandlestickPlotter, _NamedObject3);
+
   function CandlestickPlotter(name) {
     _classCallCheck(this, CandlestickPlotter);
 
@@ -6475,7 +6233,7 @@ function (_NamedObject3) {
   _createClass(CandlestickPlotter, [{
     key: "Draw",
     value: function Draw(context) {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance;
       var ds = mgr.getDataSource(this.getDataSourceName());
 
       if (ds.getDataCount() < 1) {
@@ -6491,9 +6249,7 @@ function (_NamedObject3) {
       }
 
       var theme = mgr.getTheme(this.getFrameName());
-
-      var dark = _util.Util.isInstance(theme, themes.DarkTheme);
-
+      var dark = __WEBPACK_IMPORTED_MODULE_3__util__["a" /* Util */].isInstance(theme, __WEBPACK_IMPORTED_MODULE_6__themes__["a" /* DarkTheme */]);
       var first = timeline.getFirstIndex();
       var last = timeline.getLastIndex();
       var start;
@@ -6594,41 +6350,38 @@ function (_NamedObject3) {
       }
 
       if (strokePosRects.length > 0) {
-        context.strokeStyle = theme.getColor(themes.Theme.Color.Positive);
+        context.strokeStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Positive);
         Plotter.createRectangles(context, strokePosRects);
         context.stroke();
       }
 
       if (fillPosRects.length > 0) {
-        context.fillStyle = theme.getColor(themes.Theme.Color.Positive);
+        context.fillStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Positive);
         Plotter.createRectangles(context, fillPosRects);
         context.fill();
       }
 
       if (fillUchRects.length > 0) {
-        context.fillStyle = theme.getColor(themes.Theme.Color.Negative);
+        context.fillStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Negative);
         Plotter.createRectangles(context, fillUchRects);
         context.fill();
       }
 
       if (fillNegRects.length > 0) {
-        context.fillStyle = theme.getColor(themes.Theme.Color.Negative);
+        context.fillStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Negative);
         Plotter.createRectangles(context, fillNegRects);
         context.fill();
       }
     }
   }]);
 
-  _inherits(CandlestickPlotter, _NamedObject3);
-
   return CandlestickPlotter;
-}(_named_object.NamedObject);
-
-exports.CandlestickPlotter = CandlestickPlotter;
-
+}(__WEBPACK_IMPORTED_MODULE_1__named_object__["a" /* NamedObject */]);
 var CandlestickHLCPlotter =
 /*#__PURE__*/
 function (_Plotter2) {
+  _inherits(CandlestickHLCPlotter, _Plotter2);
+
   function CandlestickHLCPlotter(name) {
     _classCallCheck(this, CandlestickHLCPlotter);
 
@@ -6638,10 +6391,10 @@ function (_Plotter2) {
   _createClass(CandlestickHLCPlotter, [{
     key: "Draw",
     value: function Draw(context) {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance;
       var ds = mgr.getDataSource(this.getDataSourceName());
 
-      if (!_util.Util.isInstance(ds, data_sources.MainDataSource) || ds.getDataCount() < 1) {
+      if (!__WEBPACK_IMPORTED_MODULE_3__util__["a" /* Util */].isInstance(ds, __WEBPACK_IMPORTED_MODULE_8__data_sources__["b" /* MainDataSource */]) || ds.getDataCount() < 1) {
         return;
       }
 
@@ -6654,9 +6407,7 @@ function (_Plotter2) {
       }
 
       var theme = mgr.getTheme(this.getFrameName());
-
-      var dark = _util.Util.isInstance(theme, themes.DarkTheme);
-
+      var dark = __WEBPACK_IMPORTED_MODULE_3__util__["a" /* Util */].isInstance(theme, __WEBPACK_IMPORTED_MODULE_6__themes__["a" /* DarkTheme */]);
       var first = timeline.getFirstIndex();
       var last = timeline.getLastIndex();
       var start;
@@ -6791,41 +6542,38 @@ function (_Plotter2) {
       }
 
       if (strokePosRects.length > 0) {
-        context.strokeStyle = theme.getColor(themes.Theme.Color.Positive);
+        context.strokeStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Positive);
         Plotter.createRectangles(context, strokePosRects);
         context.stroke();
       }
 
       if (fillPosRects.length > 0) {
-        context.fillStyle = theme.getColor(themes.Theme.Color.Positive);
+        context.fillStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Positive);
         Plotter.createRectangles(context, fillPosRects);
         context.fill();
       }
 
       if (fillUchRects.length > 0) {
-        context.fillStyle = theme.getColor(themes.Theme.Color.Negative);
+        context.fillStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Negative);
         Plotter.createRectangles(context, fillUchRects);
         context.fill();
       }
 
       if (fillNegRects.length > 0) {
-        context.fillStyle = theme.getColor(themes.Theme.Color.Negative);
+        context.fillStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Negative);
         Plotter.createRectangles(context, fillNegRects);
         context.fill();
       }
     }
   }]);
 
-  _inherits(CandlestickHLCPlotter, _Plotter2);
-
   return CandlestickHLCPlotter;
 }(Plotter);
-
-exports.CandlestickHLCPlotter = CandlestickHLCPlotter;
-
 var OHLCPlotter =
 /*#__PURE__*/
 function (_Plotter3) {
+  _inherits(OHLCPlotter, _Plotter3);
+
   function OHLCPlotter(name) {
     _classCallCheck(this, OHLCPlotter);
 
@@ -6835,10 +6583,10 @@ function (_Plotter3) {
   _createClass(OHLCPlotter, [{
     key: "Draw",
     value: function Draw(context) {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance;
       var ds = mgr.getDataSource(this.getDataSourceName());
 
-      if (!_util.Util.isInstance(ds, data_sources.MainDataSource) || ds.getDataCount() < 1) {
+      if (!__WEBPACK_IMPORTED_MODULE_3__util__["a" /* Util */].isInstance(ds, __WEBPACK_IMPORTED_MODULE_8__data_sources__["b" /* MainDataSource */]) || ds.getDataCount() < 1) {
         return;
       }
 
@@ -6948,35 +6696,32 @@ function (_Plotter3) {
       }
 
       if (fillPosRects.length > 0) {
-        context.fillStyle = theme.getColor(themes.Theme.Color.Positive);
+        context.fillStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Positive);
         Plotter.createRectangles(context, fillPosRects);
         context.fill();
       }
 
       if (fillUchRects.length > 0) {
-        context.fillStyle = theme.getColor(themes.Theme.Color.Negative);
+        context.fillStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Negative);
         Plotter.createRectangles(context, fillUchRects);
         context.fill();
       }
 
       if (fillNegRects.length > 0) {
-        context.fillStyle = theme.getColor(themes.Theme.Color.Negative);
+        context.fillStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Negative);
         Plotter.createRectangles(context, fillNegRects);
         context.fill();
       }
     }
   }]);
 
-  _inherits(OHLCPlotter, _Plotter3);
-
   return OHLCPlotter;
 }(Plotter);
-
-exports.OHLCPlotter = OHLCPlotter;
-
 var MainInfoPlotter =
 /*#__PURE__*/
 function (_Plotter4) {
+  _inherits(MainInfoPlotter, _Plotter4);
+
   function MainInfoPlotter(name) {
     _classCallCheck(this, MainInfoPlotter);
 
@@ -6986,15 +6731,15 @@ function (_Plotter4) {
   _createClass(MainInfoPlotter, [{
     key: "Draw",
     value: function Draw(context) {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance;
       var area = mgr.getArea(this.getAreaName());
       var timeline = mgr.getTimeline(this.getDataSourceName());
       var ds = mgr.getDataSource(this.getDataSourceName());
       var theme = mgr.getTheme(this.getFrameName());
-      context.font = theme.getFont(themes.Theme.Font.Default);
+      context.font = theme.getFont(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Font.Default);
       context.textAlign = "left";
       context.textBaseline = "top";
-      context.fillStyle = theme.getColor(themes.Theme.Color.Text4);
+      context.fillStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Text4);
       var rect = {
         x: area.getLeft() + 4,
         y: area.getTop() + 2,
@@ -7007,15 +6752,10 @@ function (_Plotter4) {
       var digits = ds.getDecimalDigits();
       var time = new Date(data.date);
       var year = time.getFullYear();
-
-      var month = _util.Util.formatTime(time.getMonth() + 1);
-
-      var date = _util.Util.formatTime(time.getDate());
-
-      var hour = _util.Util.formatTime(time.getHours());
-
-      var minute = _util.Util.formatTime(time.getMinutes());
-
+      var month = __WEBPACK_IMPORTED_MODULE_3__util__["a" /* Util */].formatTime(time.getMonth() + 1);
+      var date = __WEBPACK_IMPORTED_MODULE_3__util__["a" /* Util */].formatTime(time.getDate());
+      var hour = __WEBPACK_IMPORTED_MODULE_3__util__["a" /* Util */].formatTime(time.getHours());
+      var minute = __WEBPACK_IMPORTED_MODULE_3__util__["a" /* Util */].formatTime(time.getMinutes());
       var lang = mgr.getLanguage();
 
       if (lang === "zh-cn") {
@@ -7064,14 +6804,14 @@ function (_Plotter4) {
 
         if (change >= 0) {
           change = ' ' + change.toFixed(2);
-          context.fillStyle = theme.getColor(themes.Theme.Color.TextPositive);
+          context.fillStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.TextPositive);
         } else {
           change = change.toFixed(2);
-          context.fillStyle = theme.getColor(themes.Theme.Color.TextNegative);
+          context.fillStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.TextNegative);
         }
 
         if (!Plotter.drawString(context, change, rect)) return;
-        context.fillStyle = theme.getColor(themes.Theme.Color.Text4);
+        context.fillStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Text4);
         if (!Plotter.drawString(context, ' %', rect)) return;
       }
 
@@ -7128,7 +6868,7 @@ function (_Plotter4) {
         var color = out.getColor();
 
         if (color === undefined) {
-          color = themes.Theme.Color.Indicator0 + n;
+          color = __WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Indicator0 + n;
         }
 
         context.fillStyle = theme.getColor(color);
@@ -7140,16 +6880,13 @@ function (_Plotter4) {
     }
   }]);
 
-  _inherits(MainInfoPlotter, _Plotter4);
-
   return MainInfoPlotter;
 }(Plotter);
-
-exports.MainInfoPlotter = MainInfoPlotter;
-
 var IndicatorPlotter =
 /*#__PURE__*/
 function (_NamedObject4) {
+  _inherits(IndicatorPlotter, _NamedObject4);
+
   function IndicatorPlotter(name) {
     _classCallCheck(this, IndicatorPlotter);
 
@@ -7159,13 +6896,13 @@ function (_NamedObject4) {
   _createClass(IndicatorPlotter, [{
     key: "Draw",
     value: function Draw(context) {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance;
       var area = mgr.getArea(this.getAreaName());
       var timeline = mgr.getTimeline(this.getDataSourceName());
       var range = mgr.getRange(this.getAreaName());
       if (range.getRange() === 0.0) return;
       var dp = mgr.getDataProvider(this.getName());
-      if (!_util.Util.isInstance(dp, data_providers.IndicatorDataProvider)) return;
+      if (!__WEBPACK_IMPORTED_MODULE_3__util__["a" /* Util */].isInstance(dp, __WEBPACK_IMPORTED_MODULE_7__data_providers__["a" /* IndicatorDataProvider */])) return;
       var theme = mgr.getTheme(this.getFrameName());
       var cW = timeline.getColumnWidth();
       var first = timeline.getFirstIndex();
@@ -7181,11 +6918,11 @@ function (_NamedObject4) {
         out = indic.getOutputAt(n);
         var style = out.getStyle();
 
-        if (style === exprs.OutputExpr.outputStyle.VolumeStick) {
+        if (style === __WEBPACK_IMPORTED_MODULE_5__exprs__["y" /* OutputExpr */].outputStyle.VolumeStick) {
           this.drawVolumeStick(context, theme, mgr.getDataSource(this.getDataSourceName()), start, last, timeline.toItemLeft(start), cW, timeline.getItemWidth(), range);
-        } else if (style === exprs.OutputExpr.outputStyle.MACDStick) {
+        } else if (style === __WEBPACK_IMPORTED_MODULE_5__exprs__["y" /* OutputExpr */].outputStyle.MACDStick) {
           this.drawMACDStick(context, theme, out, start, last, timeline.toItemLeft(start), cW, timeline.getItemWidth(), range);
-        } else if (style === exprs.OutputExpr.outputStyle.SARPoint) {
+        } else if (style === __WEBPACK_IMPORTED_MODULE_5__exprs__["y" /* OutputExpr */].outputStyle.SARPoint) {
           this.drawSARPoint(context, theme, out, start, last, timeline.toItemCenter(start), cW, timeline.getItemWidth(), range);
         }
       }
@@ -7201,7 +6938,7 @@ function (_NamedObject4) {
         var x = center;
         out = indic.getOutputAt(n);
 
-        if (out.getStyle() === exprs.OutputExpr.outputStyle.Line) {
+        if (out.getStyle() === __WEBPACK_IMPORTED_MODULE_5__exprs__["y" /* OutputExpr */].outputStyle.Line) {
           var v = void 0,
               points = [];
 
@@ -7223,7 +6960,7 @@ function (_NamedObject4) {
 
           if (points.length > 0) {
             var color = out.getColor();
-            if (color === undefined) color = themes.Theme.Color.Indicator0 + n;
+            if (color === undefined) color = __WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Indicator0 + n;
             context.strokeStyle = theme.getColor(color);
             Plotter.drawLines(context, points);
           }
@@ -7235,8 +6972,7 @@ function (_NamedObject4) {
   }, {
     key: "drawVolumeStick",
     value: function drawVolumeStick(context, theme, ds, first, last, startX, cW, iW, range) {
-      var dark = _util.Util.isInstance(theme, themes.DarkTheme);
-
+      var dark = __WEBPACK_IMPORTED_MODULE_3__util__["a" /* Util */].isInstance(theme, __WEBPACK_IMPORTED_MODULE_6__themes__["a" /* DarkTheme */]);
       var left = startX;
       var bottom = range.toY(0);
       var strokePosRects = [];
@@ -7302,19 +7038,19 @@ function (_NamedObject4) {
       }
 
       if (strokePosRects.length > 0) {
-        context.strokeStyle = theme.getColor(themes.Theme.Color.Positive);
+        context.strokeStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Positive);
         Plotter.createRectangles(context, strokePosRects);
         context.stroke();
       }
 
       if (fillPosRects.length > 0) {
-        context.fillStyle = theme.getColor(themes.Theme.Color.Positive);
+        context.fillStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Positive);
         Plotter.createRectangles(context, fillPosRects);
         context.fill();
       }
 
       if (fillNegRects.length > 0) {
-        context.fillStyle = theme.getColor(themes.Theme.Color.Negative);
+        context.fillStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Negative);
         Plotter.createRectangles(context, fillNegRects);
         context.fill();
       }
@@ -7367,25 +7103,25 @@ function (_NamedObject4) {
       }
 
       if (strokePosRects.length > 0) {
-        context.strokeStyle = theme.getColor(themes.Theme.Color.Positive);
+        context.strokeStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Positive);
         Plotter.createRectangles(context, strokePosRects);
         context.stroke();
       }
 
       if (strokeNegRects.length > 0) {
-        context.strokeStyle = theme.getColor(themes.Theme.Color.Negative);
+        context.strokeStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Negative);
         Plotter.createRectangles(context, strokeNegRects);
         context.stroke();
       }
 
       if (fillPosRects.length > 0) {
-        context.fillStyle = theme.getColor(themes.Theme.Color.Positive);
+        context.fillStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Positive);
         Plotter.createRectangles(context, fillPosRects);
         context.fill();
       }
 
       if (fillNegRects.length > 0) {
-        context.fillStyle = theme.getColor(themes.Theme.Color.Negative);
+        context.fillStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Negative);
         Plotter.createRectangles(context, fillNegRects);
         context.fill();
       }
@@ -7401,7 +7137,7 @@ function (_NamedObject4) {
       var endAngle = 2 * Math.PI;
       context.save();
       context.translate(0.5, 0.5);
-      context.strokeStyle = theme.getColor(themes.Theme.Color.Indicator3);
+      context.strokeStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Indicator3);
       context.beginPath();
 
       for (var i = first; i < last; i++) {
@@ -7417,16 +7153,13 @@ function (_NamedObject4) {
     }
   }]);
 
-  _inherits(IndicatorPlotter, _NamedObject4);
-
   return IndicatorPlotter;
-}(_named_object.NamedObject);
-
-exports.IndicatorPlotter = IndicatorPlotter;
-
+}(__WEBPACK_IMPORTED_MODULE_1__named_object__["a" /* NamedObject */]);
 var IndicatorInfoPlotter =
 /*#__PURE__*/
 function (_Plotter5) {
+  _inherits(IndicatorInfoPlotter, _Plotter5);
+
   function IndicatorInfoPlotter(name) {
     _classCallCheck(this, IndicatorInfoPlotter);
 
@@ -7436,15 +7169,15 @@ function (_Plotter5) {
   _createClass(IndicatorInfoPlotter, [{
     key: "Draw",
     value: function Draw(context) {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance;
       var area = mgr.getArea(this.getAreaName());
       var timeline = mgr.getTimeline(this.getDataSourceName());
       var dp = mgr.getDataProvider(this.getAreaName() + ".secondary");
       var theme = mgr.getTheme(this.getFrameName());
-      context.font = theme.getFont(themes.Theme.Font.Default);
+      context.font = theme.getFont(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Font.Default);
       context.textAlign = "left";
       context.textBaseline = "top";
-      context.fillStyle = theme.getColor(themes.Theme.Color.Text4);
+      context.fillStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Text4);
       var rect = {
         x: area.getLeft() + 4,
         y: area.getTop() + 2,
@@ -7492,23 +7225,20 @@ function (_Plotter5) {
         if (isNaN(v)) continue;
         info = "  " + out.getName() + ": " + v.toFixed(2);
         color = out.getColor();
-        if (color === undefined) color = themes.Theme.Color.Indicator0 + n;
+        if (color === undefined) color = __WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Indicator0 + n;
         context.fillStyle = theme.getColor(color);
         if (!Plotter.drawString(context, info, rect)) return;
       }
     }
   }]);
 
-  _inherits(IndicatorInfoPlotter, _Plotter5);
-
   return IndicatorInfoPlotter;
 }(Plotter);
-
-exports.IndicatorInfoPlotter = IndicatorInfoPlotter;
-
 var MinMaxPlotter =
 /*#__PURE__*/
 function (_NamedObject5) {
+  _inherits(MinMaxPlotter, _NamedObject5);
+
   function MinMaxPlotter(name) {
     _classCallCheck(this, MinMaxPlotter);
 
@@ -7518,7 +7248,7 @@ function (_NamedObject5) {
   _createClass(MinMaxPlotter, [{
     key: "Draw",
     value: function Draw(context) {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance;
       var ds = mgr.getDataSource(this.getDataSourceName());
       if (ds.getDataCount() < 1) return;
       var timeline = mgr.getTimeline(this.getDataSourceName());
@@ -7529,10 +7259,10 @@ function (_NamedObject5) {
       var first = timeline.getFirstIndex();
       var center = first + timeline.getLastIndex() >> 1;
       var theme = mgr.getTheme(this.getFrameName());
-      context.font = theme.getFont(themes.Theme.Font.Default);
+      context.font = theme.getFont(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Font.Default);
       context.textBaseline = "middle";
-      context.fillStyle = theme.getColor(themes.Theme.Color.Text4);
-      context.strokeStyle = theme.getColor(themes.Theme.Color.Text4);
+      context.fillStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Text4);
+      context.strokeStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Text4);
       var digits = ds.getDecimalDigits();
       this.drawMark(context, dp.getMinValue(), digits, range.toY(dp.getMinValue()), first, center, dp.getMinValueIndex(), timeline);
       this.drawMark(context, dp.getMaxValue(), digits, range.toY(dp.getMaxValue()), first, center, dp.getMaxValueIndex(), timeline);
@@ -7561,20 +7291,17 @@ function (_NamedObject5) {
       Plotter.drawLine(context, arrowStart, y, arrowStop, y);
       Plotter.drawLine(context, arrowStart, y, _arrowStop, y + 2);
       Plotter.drawLine(context, arrowStart, y, _arrowStop, y - 2);
-      context.fillText(_util.Util.fromFloat(v, digits), textStart, y);
+      context.fillText(__WEBPACK_IMPORTED_MODULE_3__util__["a" /* Util */].fromFloat(v, digits), textStart, y);
     }
   }]);
 
-  _inherits(MinMaxPlotter, _NamedObject5);
-
   return MinMaxPlotter;
-}(_named_object.NamedObject);
-
-exports.MinMaxPlotter = MinMaxPlotter;
-
+}(__WEBPACK_IMPORTED_MODULE_1__named_object__["a" /* NamedObject */]);
 var TimelinePlotter =
 /*#__PURE__*/
 function (_Plotter6) {
+  _inherits(TimelinePlotter, _Plotter6);
+
   function TimelinePlotter(name) {
     _classCallCheck(this, TimelinePlotter);
 
@@ -7584,7 +7311,7 @@ function (_Plotter6) {
   _createClass(TimelinePlotter, [{
     key: "Draw",
     value: function Draw(context) {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance;
       var area = mgr.getArea(this.getAreaName());
       var timeline = mgr.getTimeline(this.getDataSourceName());
       if (!area.isChanged() && !timeline.isUpdated()) return;
@@ -7607,7 +7334,7 @@ function (_Plotter6) {
       var d = new Date();
       var local_utc_diff = d.getTimezoneOffset() * 60 * 1000;
       var theme = mgr.getTheme(this.getFrameName());
-      context.font = theme.getFont(themes.Theme.Font.Default);
+      context.font = theme.getFont(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Font.Default);
       context.textAlign = "center";
       context.textBaseline = "middle";
       var lang = mgr.getLanguage();
@@ -7631,12 +7358,12 @@ function (_Plotter6) {
 
           if (localDate % m === 0) {
             if (lang === "zh-cn") text = month.toString() + "月" + date.toString() + "日";else if (lang === "zh-tw") text = month.toString() + "月" + date.toString() + "日";else if (lang === "en-us") text = TimelinePlotter.MonthConvert[month] + " " + date.toString();
-            context.fillStyle = theme.getColor(themes.Theme.Color.Text4);
+            context.fillStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Text4);
           } else if (localDate % TimelinePlotter.TIME_INTERVAL[n] === 0) {
             var strMinute = minute.toString();
             if (minute < 10) strMinute = "0" + strMinute;
             text = hour.toString() + ":" + strMinute;
-            context.fillStyle = theme.getColor(themes.Theme.Color.Text2);
+            context.fillStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Text2);
           }
         } else if (date === 1 && hour < timeInterval / TimelinePlotter.TP_HOUR) {
           if (month === 1) {
@@ -7646,7 +7373,7 @@ function (_Plotter6) {
             if (lang === "zh-cn") text = month.toString() + "月";else if (lang === "zh-tw") text = month.toString() + "月";else if (lang === "en-us") text = TimelinePlotter.MonthConvert[month];
           }
 
-          context.fillStyle = theme.getColor(themes.Theme.Color.Text4);
+          context.fillStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Text4);
         }
 
         if (text.length > 0) {
@@ -7662,19 +7389,15 @@ function (_Plotter6) {
       }
 
       if (gridRects.length > 0) {
-        context.fillStyle = theme.getColor(themes.Theme.Color.Grid1);
+        context.fillStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Grid1);
         Plotter.createRectangles(context, gridRects);
         context.fill();
       }
     }
   }]);
 
-  _inherits(TimelinePlotter, _Plotter6);
-
   return TimelinePlotter;
 }(Plotter);
-
-exports.TimelinePlotter = TimelinePlotter;
 TimelinePlotter.TP_MINUTE = 60 * 1000;
 TimelinePlotter.TP_HOUR = 60 * TimelinePlotter.TP_MINUTE;
 TimelinePlotter.TP_DAY = 24 * TimelinePlotter.TP_HOUR;
@@ -7693,10 +7416,11 @@ TimelinePlotter.MonthConvert = {
   11: "Nov.",
   12: "Dec."
 };
-
 var RangePlotter =
 /*#__PURE__*/
 function (_NamedObject6) {
+  _inherits(RangePlotter, _NamedObject6);
+
   function RangePlotter(name) {
     _classCallCheck(this, RangePlotter);
 
@@ -7706,15 +7430,15 @@ function (_NamedObject6) {
   _createClass(RangePlotter, [{
     key: "getRequiredWidth",
     value: function getRequiredWidth(context, v) {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance;
       var theme = mgr.getTheme(this.getFrameName());
-      context.font = theme.getFont(themes.Theme.Font.Default);
+      context.font = theme.getFont(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Font.Default);
       return context.measureText((Math.floor(v) + 0.88).toString()).width + 16;
     }
   }, {
     key: "Draw",
     value: function Draw(context) {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance;
       var areaName = this.getAreaName();
       var area = mgr.getArea(areaName);
       var rangeName = areaName.substring(0, areaName.lastIndexOf("Range"));
@@ -7732,10 +7456,10 @@ function (_NamedObject6) {
       var right = area.getRight();
       var center = area.getCenter();
       var theme = mgr.getTheme(this.getFrameName());
-      context.font = theme.getFont(themes.Theme.Font.Default);
+      context.font = theme.getFont(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Font.Default);
       context.textAlign = "center";
       context.textBaseline = "middle";
-      context.fillStyle = theme.getColor(themes.Theme.Color.Text2);
+      context.fillStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Text2);
       var gridRects = [];
 
       for (var n in gradations) {
@@ -7752,27 +7476,24 @@ function (_NamedObject6) {
           w: 6,
           h: 1
         });
-        context.fillText(_util.Util.fromFloat(gradations[n], 2), center, y);
+        context.fillText(__WEBPACK_IMPORTED_MODULE_3__util__["a" /* Util */].fromFloat(gradations[n], 2), center, y);
       }
 
       if (gridRects.length > 0) {
-        context.fillStyle = theme.getColor(themes.Theme.Color.Grid1);
+        context.fillStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Grid1);
         Plotter.createRectangles(context, gridRects);
         context.fill();
       }
     }
   }]);
 
-  _inherits(RangePlotter, _NamedObject6);
-
   return RangePlotter;
-}(_named_object.NamedObject);
-
-exports.RangePlotter = RangePlotter;
-
+}(__WEBPACK_IMPORTED_MODULE_1__named_object__["a" /* NamedObject */]);
 var COrderGraphPlotter =
 /*#__PURE__*/
 function (_NamedObject7) {
+  _inherits(COrderGraphPlotter, _NamedObject7);
+
   function COrderGraphPlotter(name) {
     _classCallCheck(this, COrderGraphPlotter);
 
@@ -7797,7 +7518,7 @@ function (_NamedObject7) {
       context.rect(this.m_left, this.m_top, this.m_right - this.m_left, this.m_bottom - this.m_top);
       context.clip();
 
-      var all = _chart_manager.ChartManager.instance.getChart()._depthData;
+      var all = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.getChart()._depthData;
 
       this.x_offset = 0;
       this.y_offset = 0;
@@ -7823,39 +7544,39 @@ function (_NamedObject7) {
   }, {
     key: "DrawBackground",
     value: function DrawBackground(context) {
-      context.fillStyle = this.m_pTheme.getColor(themes.Theme.Color.Background);
+      context.fillStyle = this.m_pTheme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Background);
       context.fillRect(this.m_left, this.m_top, this.m_right - this.m_left, this.m_bottom - this.m_top);
 
-      var all = _chart_manager.ChartManager.instance.getChart()._depthData;
+      var all = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.getChart()._depthData;
 
       if (this.m_mode === 0) {
         var ask_bottom = this.m_pRange.toY(all.array[this.m_ask_si].rate) - this.y_offset;
         var bid_top = this.m_pRange.toY(all.array[this.m_bid_si].rate) + this.y_offset;
         var ask_gradient = context.createLinearGradient(this.m_left, 0, this.m_right, 0);
-        ask_gradient.addColorStop(0, this.m_pTheme.getColor(themes.Theme.Color.Background));
-        ask_gradient.addColorStop(1, this.m_pTheme.getColor(themes.Theme.Color.PositiveDark));
+        ask_gradient.addColorStop(0, this.m_pTheme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Background));
+        ask_gradient.addColorStop(1, this.m_pTheme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.PositiveDark));
         context.fillStyle = ask_gradient;
         context.fillRect(this.m_left, this.m_top, this.m_right - this.m_left, ask_bottom - this.m_top);
         var bid_gradient = context.createLinearGradient(this.m_left, 0, this.m_right, 0);
-        bid_gradient.addColorStop(0, this.m_pTheme.getColor(themes.Theme.Color.Background));
-        bid_gradient.addColorStop(1, this.m_pTheme.getColor(themes.Theme.Color.NegativeDark));
+        bid_gradient.addColorStop(0, this.m_pTheme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Background));
+        bid_gradient.addColorStop(1, this.m_pTheme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.NegativeDark));
         context.fillStyle = bid_gradient;
         context.fillRect(this.m_left, bid_top, this.m_right - this.m_left, this.m_bottom - bid_top);
       } else if (this.m_mode === 1) {
         var _ask_gradient = context.createLinearGradient(this.m_left, 0, this.m_right, 0);
 
-        _ask_gradient.addColorStop(0, this.m_pTheme.getColor(themes.Theme.Color.Background));
+        _ask_gradient.addColorStop(0, this.m_pTheme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Background));
 
-        _ask_gradient.addColorStop(1, this.m_pTheme.getColor(themes.Theme.Color.PositiveDark));
+        _ask_gradient.addColorStop(1, this.m_pTheme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.PositiveDark));
 
         context.fillStyle = _ask_gradient;
         context.fillRect(this.m_left, this.m_top, this.m_right - this.m_left, this.m_bottom - this.m_top);
       } else if (this.m_mode === 2) {
         var _bid_gradient = context.createLinearGradient(this.m_left, 0, this.m_right, 0);
 
-        _bid_gradient.addColorStop(0, this.m_pTheme.getColor(themes.Theme.Color.Background));
+        _bid_gradient.addColorStop(0, this.m_pTheme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Background));
 
-        _bid_gradient.addColorStop(1, this.m_pTheme.getColor(themes.Theme.Color.NegativeDark));
+        _bid_gradient.addColorStop(1, this.m_pTheme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.NegativeDark));
 
         context.fillStyle = _bid_gradient;
         context.fillRect(this.m_left, this.m_top, this.m_right - this.m_left, this.m_bottom - this.m_top);
@@ -7865,7 +7586,7 @@ function (_NamedObject7) {
     key: "DrawLine",
     value: function DrawLine(context) {
       if (this.m_mode === 0 || this.m_mode === 1) {
-        context.strokeStyle = this.m_pTheme.getColor(themes.Theme.Color.Positive);
+        context.strokeStyle = this.m_pTheme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Positive);
         context.beginPath();
         context.moveTo(Math.floor(this.m_ask_points[0].x) + 0.5, Math.floor(this.m_ask_points[0].y) + 0.5);
 
@@ -7877,7 +7598,7 @@ function (_NamedObject7) {
       }
 
       if (this.m_mode === 0 || this.m_mode === 2) {
-        context.strokeStyle = this.m_pTheme.getColor(themes.Theme.Color.Negative);
+        context.strokeStyle = this.m_pTheme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Negative);
         context.beginPath();
         context.moveTo(this.m_bid_points[0].x + 0.5, this.m_bid_points[0].y + 0.5);
 
@@ -7891,7 +7612,7 @@ function (_NamedObject7) {
   }, {
     key: "UpdatePoints",
     value: function UpdatePoints() {
-      var all = _chart_manager.ChartManager.instance.getChart()._depthData;
+      var all = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.getChart()._depthData;
 
       this.m_ask_points = [];
       var index_ask = {};
@@ -7952,7 +7673,7 @@ function (_NamedObject7) {
   }, {
     key: "updateData",
     value: function updateData() {
-      var all = _chart_manager.ChartManager.instance.getChart()._depthData;
+      var all = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.getChart()._depthData;
 
       if (all.array === null) return false;
       if (all.array.length <= 50) return false;
@@ -8015,7 +7736,7 @@ function (_NamedObject7) {
   }, {
     key: "Update",
     value: function Update() {
-      this.m_pMgr = _chart_manager.ChartManager.instance;
+      this.m_pMgr = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance;
       var areaName = this.getAreaName();
       this.m_pArea = this.m_pMgr.getArea(areaName);
       if (this.m_pArea === null) return false;
@@ -8033,7 +7754,7 @@ function (_NamedObject7) {
   }, {
     key: "DrawGradations",
     value: function DrawGradations(context) {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance;
       var areaName = this.getAreaName();
       var area = mgr.getArea(areaName);
       var rangeName = areaName.substring(0, areaName.lastIndexOf("Range"));
@@ -8063,7 +7784,7 @@ function (_NamedObject7) {
 
       if (gridRects.length > 0) {
         var theme = mgr.getTheme(this.getFrameName());
-        context.fillStyle = theme.getColor(themes.Theme.Color.Grid1);
+        context.fillStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Grid1);
         Plotter.createRectangles(context, gridRects);
         context.fill();
       }
@@ -8089,7 +7810,7 @@ function (_NamedObject7) {
       ask_point.push(ask_last_add);
       bid_point.unshift(bid_first_add);
       bid_point.push(bid_last_add);
-      context.fillStyle = this.m_pTheme.getColor(themes.Theme.Color.Background);
+      context.fillStyle = this.m_pTheme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Background);
       context.beginPath();
       context.moveTo(Math.floor(ask_point[0].x) + 0.5, Math.floor(ask_point[0].y) + 0.5);
 
@@ -8115,7 +7836,7 @@ function (_NamedObject7) {
     key: "DrawTickerGraph",
     value: function DrawTickerGraph(context) {
       // return;
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance;
       var ds = mgr.getDataSource(this.getDataSourceName());
       var ticker = ds._dataItems[ds._dataItems.length - 1].close;
       var p1x = this.m_left + 1;
@@ -8124,21 +7845,18 @@ function (_NamedObject7) {
       var p2y = p1y + 2.5;
       var p3x = p1x + 5;
       var p3y = p1y - 2.5;
-      context.fillStyle = this.m_pTheme.getColor(themes.Theme.Color.Mark);
-      context.strokeStyle = this.m_pTheme.getColor(themes.Theme.Color.Mark);
+      context.fillStyle = this.m_pTheme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Mark);
+      context.strokeStyle = this.m_pTheme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Mark);
     }
   }]);
 
-  _inherits(COrderGraphPlotter, _NamedObject7);
-
   return COrderGraphPlotter;
-}(_named_object.NamedObject);
-
-exports.COrderGraphPlotter = COrderGraphPlotter;
-
+}(__WEBPACK_IMPORTED_MODULE_1__named_object__["a" /* NamedObject */]);
 var LastVolumePlotter =
 /*#__PURE__*/
 function (_Plotter7) {
+  _inherits(LastVolumePlotter, _Plotter7);
+
   function LastVolumePlotter(name) {
     _classCallCheck(this, LastVolumePlotter);
 
@@ -8148,7 +7866,7 @@ function (_Plotter7) {
   _createClass(LastVolumePlotter, [{
     key: "Draw",
     value: function Draw(context) {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance;
       var timeline = mgr.getTimeline(this.getDataSourceName());
       var areaName = this.getAreaName();
       var area = mgr.getArea(areaName);
@@ -8158,31 +7876,28 @@ function (_Plotter7) {
       var ds = mgr.getDataSource(this.getDataSourceName());
       if (ds.getDataCount() < 1) return;
       var theme = mgr.getTheme(this.getFrameName());
-      context.font = theme.getFont(themes.Theme.Font.Default);
+      context.font = theme.getFont(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Font.Default);
       context.textAlign = "left";
       context.textBaseline = "middle";
-      context.fillStyle = theme.getColor(themes.Theme.Color.RangeMark);
-      context.strokeStyle = theme.getColor(themes.Theme.Color.RangeMark);
+      context.fillStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.RangeMark);
+      context.strokeStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.RangeMark);
       var v = ds.getDataAt(ds.getDataCount() - 1).volume;
       var y = range.toY(v);
       var left = area.getLeft() + 1;
       Plotter.drawLine(context, left, y, left + 7, y);
       Plotter.drawLine(context, left, y, left + 3, y + 2);
       Plotter.drawLine(context, left, y, left + 3, y - 2);
-      context.fillText(_util.Util.fromFloat(v, 2), left + 10, y);
+      context.fillText(__WEBPACK_IMPORTED_MODULE_3__util__["a" /* Util */].fromFloat(v, 2), left + 10, y);
     }
   }]);
 
-  _inherits(LastVolumePlotter, _Plotter7);
-
   return LastVolumePlotter;
 }(Plotter);
-
-exports.LastVolumePlotter = LastVolumePlotter;
-
 var LastClosePlotter =
 /*#__PURE__*/
 function (_Plotter8) {
+  _inherits(LastClosePlotter, _Plotter8);
+
   function LastClosePlotter(name) {
     _classCallCheck(this, LastClosePlotter);
 
@@ -8192,7 +7907,7 @@ function (_Plotter8) {
   _createClass(LastClosePlotter, [{
     key: "Draw",
     value: function Draw(context) {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance;
       var timeline = mgr.getTimeline(this.getDataSourceName());
       var areaName = this.getAreaName();
       var area = mgr.getArea(areaName);
@@ -8204,30 +7919,27 @@ function (_Plotter8) {
       var v = ds._dataItems[ds._dataItems.length - 1].close;
       if (v <= range.getMinValue() || v >= range.getMaxValue()) return;
       var theme = mgr.getTheme(this.getFrameName());
-      context.font = theme.getFont(themes.Theme.Font.Default);
+      context.font = theme.getFont(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Font.Default);
       context.textAlign = "left";
       context.textBaseline = "middle";
-      context.fillStyle = theme.getColor(themes.Theme.Color.RangeMark);
-      context.strokeStyle = theme.getColor(themes.Theme.Color.RangeMark);
+      context.fillStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.RangeMark);
+      context.strokeStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.RangeMark);
       var y = range.toY(v);
       var left = area.getLeft() + 1;
       Plotter.drawLine(context, left, y, left + 7, y);
       Plotter.drawLine(context, left, y, left + 3, y + 2);
       Plotter.drawLine(context, left, y, left + 3, y - 2);
-      context.fillText(_util.Util.fromFloat(v, ds.getDecimalDigits()), left + 10, y);
+      context.fillText(__WEBPACK_IMPORTED_MODULE_3__util__["a" /* Util */].fromFloat(v, ds.getDecimalDigits()), left + 10, y);
     }
   }]);
 
-  _inherits(LastClosePlotter, _Plotter8);
-
   return LastClosePlotter;
 }(Plotter);
-
-exports.LastClosePlotter = LastClosePlotter;
-
 var SelectionPlotter =
 /*#__PURE__*/
 function (_Plotter9) {
+  _inherits(SelectionPlotter, _Plotter9);
+
   function SelectionPlotter(name) {
     _classCallCheck(this, SelectionPlotter);
 
@@ -8237,9 +7949,9 @@ function (_Plotter9) {
   _createClass(SelectionPlotter, [{
     key: "Draw",
     value: function Draw(context) {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance;
 
-      if (mgr._drawingTool !== _chart_manager.ChartManager.DrawingTool.CrossCursor) {
+      if (mgr._drawingTool !== __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].DrawingTool.CrossCursor) {
         return;
       }
 
@@ -8252,7 +7964,7 @@ function (_Plotter9) {
 
       var range = mgr.getRange(this.getAreaName());
       var theme = mgr.getTheme(this.getFrameName());
-      context.strokeStyle = theme.getColor(themes.Theme.Color.Cursor);
+      context.strokeStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Cursor);
       var x = timeline.toItemCenter(timeline.getSelectedIndex());
       Plotter.drawLine(context, x, area.getTop() - 1, x, area.getBottom());
       var pos = range.getSelectedPosition();
@@ -8263,16 +7975,13 @@ function (_Plotter9) {
     }
   }]);
 
-  _inherits(SelectionPlotter, _Plotter9);
-
   return SelectionPlotter;
 }(Plotter);
-
-exports.SelectionPlotter = SelectionPlotter;
-
 var TimelineSelectionPlotter =
 /*#__PURE__*/
 function (_Plotter10) {
+  _inherits(TimelineSelectionPlotter, _Plotter10);
+
   function TimelineSelectionPlotter(name) {
     _classCallCheck(this, TimelineSelectionPlotter);
 
@@ -8282,23 +7991,23 @@ function (_Plotter10) {
   _createClass(TimelineSelectionPlotter, [{
     key: "Draw",
     value: function Draw(context) {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance;
       var area = mgr.getArea(this.getAreaName());
       var timeline = mgr.getTimeline(this.getDataSourceName());
       if (timeline.getSelectedIndex() < 0) return;
       var ds = mgr.getDataSource(this.getDataSourceName());
-      if (!_util.Util.isInstance(ds, data_sources.MainDataSource)) return;
+      if (!__WEBPACK_IMPORTED_MODULE_3__util__["a" /* Util */].isInstance(ds, __WEBPACK_IMPORTED_MODULE_8__data_sources__["b" /* MainDataSource */])) return;
       var theme = mgr.getTheme(this.getFrameName());
       var lang = mgr.getLanguage();
       var x = timeline.toItemCenter(timeline.getSelectedIndex());
-      context.fillStyle = theme.getColor(themes.Theme.Color.Background);
+      context.fillStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Background);
       context.fillRect(x - 52.5, area.getTop() + 2.5, 106, 18);
-      context.strokeStyle = theme.getColor(themes.Theme.Color.Grid3);
+      context.strokeStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Grid3);
       context.strokeRect(x - 52.5, area.getTop() + 2.5, 106, 18);
-      context.font = theme.getFont(themes.Theme.Font.Default);
+      context.font = theme.getFont(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Font.Default);
       context.textAlign = "center";
       context.textBaseline = "middle";
-      context.fillStyle = theme.getColor(themes.Theme.Color.Text4);
+      context.fillStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Text4);
       var time = new Date(ds.getDataAt(timeline.getSelectedIndex()).date);
       var month = time.getMonth() + 1;
       var date = time.getDate();
@@ -8329,7 +8038,7 @@ function (_Plotter10) {
         text = TimelineSelectionPlotter.MonthConvert[month] + " " + strDate + "  " + strHour + ":" + strMinute;
       }
 
-      if (_kline.default.instance.range < 60000) {
+      if (__WEBPACK_IMPORTED_MODULE_0__kline__["a" /* default */].instance.range < 60000) {
         text += ":" + strSecond;
       }
 
@@ -8337,12 +8046,8 @@ function (_Plotter10) {
     }
   }]);
 
-  _inherits(TimelineSelectionPlotter, _Plotter10);
-
   return TimelineSelectionPlotter;
 }(Plotter);
-
-exports.TimelineSelectionPlotter = TimelineSelectionPlotter;
 TimelineSelectionPlotter.MonthConvert = {
   1: "Jan.",
   2: "Feb.",
@@ -8357,10 +8062,11 @@ TimelineSelectionPlotter.MonthConvert = {
   11: "Nov.",
   12: "Dec."
 };
-
 var RangeSelectionPlotter =
 /*#__PURE__*/
 function (_NamedObject8) {
+  _inherits(RangeSelectionPlotter, _NamedObject8);
+
   function RangeSelectionPlotter(name) {
     _classCallCheck(this, RangeSelectionPlotter);
 
@@ -8370,7 +8076,7 @@ function (_NamedObject8) {
   _createClass(RangeSelectionPlotter, [{
     key: "Draw",
     value: function Draw(context) {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance;
       var areaName = this.getAreaName();
       var area = mgr.getArea(areaName);
       var timeline = mgr.getTimeline(this.getDataSourceName());
@@ -8410,34 +8116,31 @@ function (_NamedObject8) {
         "y": y - 10
       }]);
       var theme = mgr.getTheme(this.getFrameName());
-      context.fillStyle = theme.getColor(themes.Theme.Color.Background);
+      context.fillStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Background);
       context.fill();
-      context.strokeStyle = theme.getColor(themes.Theme.Color.Grid4);
+      context.strokeStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Grid4);
       context.stroke();
-      context.font = theme.getFont(themes.Theme.Font.Default);
+      context.font = theme.getFont(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Font.Default);
       context.textAlign = "center";
       context.textBaseline = "middle";
-      context.fillStyle = theme.getColor(themes.Theme.Color.Text3);
+      context.fillStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.Text3);
       var digits = 2;
 
       if (range.getNameObject().getCompAt(2) === "main") {
         digits = mgr.getDataSource(this.getDataSourceName()).getDecimalDigits();
       }
 
-      context.fillText(_util.Util.fromFloat(v, digits), area.getCenter(), y);
+      context.fillText(__WEBPACK_IMPORTED_MODULE_3__util__["a" /* Util */].fromFloat(v, digits), area.getCenter(), y);
     }
   }]);
 
-  _inherits(RangeSelectionPlotter, _NamedObject8);
-
   return RangeSelectionPlotter;
-}(_named_object.NamedObject);
-
-exports.RangeSelectionPlotter = RangeSelectionPlotter;
-
+}(__WEBPACK_IMPORTED_MODULE_1__named_object__["a" /* NamedObject */]);
 var CToolPlotter =
 /*#__PURE__*/
 function (_NamedObject9) {
+  _inherits(CToolPlotter, _NamedObject9);
+
   function CToolPlotter(name, toolObject) {
     var _this2;
 
@@ -8445,7 +8148,7 @@ function (_NamedObject9) {
 
     _this2 = _possibleConstructorReturn(this, _getPrototypeOf(CToolPlotter).call(this, name));
     _this2.toolObject = toolObject;
-    var pMgr = _chart_manager.ChartManager.instance;
+    var pMgr = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance;
     var pArea = pMgr.getArea('frame0.k0.main');
 
     if (pArea === null) {
@@ -8469,7 +8172,7 @@ function (_NamedObject9) {
     _this2.selectedSize = 6;
     _this2.cursorLen = 4;
     _this2.cursorGapLen = 3;
-    _this2.theme = _chart_manager.ChartManager.instance.getTheme(_this2.getFrameName());
+    _this2.theme = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.getTheme(_this2.getFrameName());
     return _this2;
   }
 
@@ -8481,8 +8184,8 @@ function (_NamedObject9) {
   }, {
     key: "drawCrossCursor",
     value: function drawCrossCursor(context) {
-      context.strokeStyle = this.theme.getColor(themes.Theme.Color.LineColorNormal);
-      context.fillStyle = this.theme.getColor(themes.Theme.Color.LineColorNormal);
+      context.strokeStyle = this.theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.LineColorNormal);
+      context.fillStyle = this.theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.LineColorNormal);
       var tempPt = this.toolObject.getPoint(0).getPosXY();
 
       if (tempPt === null) {
@@ -8506,14 +8209,14 @@ function (_NamedObject9) {
       var centerY = center.y;
       context.beginPath();
       context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-      context.fillStyle = this.theme.getColor(themes.Theme.Color.CircleColorFill);
+      context.fillStyle = this.theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.CircleColorFill);
       context.fill();
       context.stroke();
     }
   }, {
     key: "drawCtrlPt",
     value: function drawCtrlPt(context) {
-      context.strokeStyle = this.theme.getColor(themes.Theme.Color.CircleColorStroke);
+      context.strokeStyle = this.theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.CircleColorStroke);
 
       for (var i = 0; i < this.ctrlPtsNum; i++) {
         this.drawCircle(context, this.ctrlPts[1][i], this.normalSize);
@@ -8522,10 +8225,10 @@ function (_NamedObject9) {
   }, {
     key: "highlightCtrlPt",
     value: function highlightCtrlPt(context) {
-      context.strokeStyle = this.theme.getColor(themes.Theme.Color.CircleColorStroke);
+      context.strokeStyle = this.theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.CircleColorStroke);
 
       for (var i = 0; i < this.ctrlPtsNum; i++) {
-        if (this.toolObject.getPoint(i).getState() === _cpoint.CPoint.state.Highlight) this.drawCircle(context, this.ctrlPts[1][i], this.selectedSize);
+        if (this.toolObject.getPoint(i).getState() === __WEBPACK_IMPORTED_MODULE_4__cpoint__["a" /* CPoint */].state.Highlight) this.drawCircle(context, this.ctrlPts[1][i], this.selectedSize);
       }
     }
   }, {
@@ -8605,7 +8308,7 @@ function (_NamedObject9) {
   }, {
     key: "getAreaPos",
     value: function getAreaPos() {
-      var pMgr = _chart_manager.ChartManager.instance;
+      var pMgr = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance;
       var pArea = pMgr.getArea('frame0.k0.main');
 
       if (pArea === null) {
@@ -8628,36 +8331,33 @@ function (_NamedObject9) {
   }, {
     key: "updateDraw",
     value: function updateDraw(context) {
-      context.strokeStyle = this.theme.getColor(themes.Theme.Color.LineColorNormal);
+      context.strokeStyle = this.theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.LineColorNormal);
       this.draw(context);
       this.drawCtrlPt(context);
     }
   }, {
     key: "finishDraw",
     value: function finishDraw(context) {
-      context.strokeStyle = this.theme.getColor(themes.Theme.Color.LineColorNormal);
+      context.strokeStyle = this.theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.LineColorNormal);
       this.draw(context);
     }
   }, {
     key: "highlight",
     value: function highlight(context) {
-      context.strokeStyle = this.theme.getColor(themes.Theme.Color.LineColorSelected);
+      context.strokeStyle = this.theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.LineColorSelected);
       this.draw(context);
       this.drawCtrlPt(context);
       this.highlightCtrlPt(context);
     }
   }]);
 
-  _inherits(CToolPlotter, _NamedObject9);
-
   return CToolPlotter;
-}(_named_object.NamedObject);
-
-exports.CToolPlotter = CToolPlotter;
-
+}(__WEBPACK_IMPORTED_MODULE_1__named_object__["a" /* NamedObject */]);
 var DrawStraightLinesPlotter =
 /*#__PURE__*/
 function (_CToolPlotter) {
+  _inherits(DrawStraightLinesPlotter, _CToolPlotter);
+
   function DrawStraightLinesPlotter(name, toolObject) {
     var _this3;
 
@@ -8690,16 +8390,13 @@ function (_CToolPlotter) {
     }
   }]);
 
-  _inherits(DrawStraightLinesPlotter, _CToolPlotter);
-
   return DrawStraightLinesPlotter;
 }(CToolPlotter);
-
-exports.DrawStraightLinesPlotter = DrawStraightLinesPlotter;
-
 var DrawSegLinesPlotter =
 /*#__PURE__*/
 function (_CToolPlotter2) {
+  _inherits(DrawSegLinesPlotter, _CToolPlotter2);
+
   function DrawSegLinesPlotter(name, toolObject) {
     var _this4;
 
@@ -8730,16 +8427,13 @@ function (_CToolPlotter2) {
     }
   }]);
 
-  _inherits(DrawSegLinesPlotter, _CToolPlotter2);
-
   return DrawSegLinesPlotter;
 }(CToolPlotter);
-
-exports.DrawSegLinesPlotter = DrawSegLinesPlotter;
-
 var DrawRayLinesPlotter =
 /*#__PURE__*/
 function (_CToolPlotter3) {
+  _inherits(DrawRayLinesPlotter, _CToolPlotter3);
+
   function DrawRayLinesPlotter(name, toolObject) {
     var _this5;
 
@@ -8771,16 +8465,13 @@ function (_CToolPlotter3) {
     }
   }]);
 
-  _inherits(DrawRayLinesPlotter, _CToolPlotter3);
-
   return DrawRayLinesPlotter;
 }(CToolPlotter);
-
-exports.DrawRayLinesPlotter = DrawRayLinesPlotter;
-
 var DrawArrowLinesPlotter =
 /*#__PURE__*/
 function (_CToolPlotter4) {
+  _inherits(DrawArrowLinesPlotter, _CToolPlotter4);
+
   function DrawArrowLinesPlotter(name, toolObject) {
     var _this6;
 
@@ -8841,16 +8532,13 @@ function (_CToolPlotter4) {
     }
   }]);
 
-  _inherits(DrawArrowLinesPlotter, _CToolPlotter4);
-
   return DrawArrowLinesPlotter;
 }(CToolPlotter);
-
-exports.DrawArrowLinesPlotter = DrawArrowLinesPlotter;
-
 var DrawHoriStraightLinesPlotter =
 /*#__PURE__*/
 function (_CToolPlotter5) {
+  _inherits(DrawHoriStraightLinesPlotter, _CToolPlotter5);
+
   function DrawHoriStraightLinesPlotter(name, toolObject) {
     var _this7;
 
@@ -8876,16 +8564,13 @@ function (_CToolPlotter5) {
     }
   }]);
 
-  _inherits(DrawHoriStraightLinesPlotter, _CToolPlotter5);
-
   return DrawHoriStraightLinesPlotter;
 }(CToolPlotter);
-
-exports.DrawHoriStraightLinesPlotter = DrawHoriStraightLinesPlotter;
-
 var DrawHoriRayLinesPlotter =
 /*#__PURE__*/
 function (_CToolPlotter6) {
+  _inherits(DrawHoriRayLinesPlotter, _CToolPlotter6);
+
   function DrawHoriRayLinesPlotter(name, toolObject) {
     var _this8;
 
@@ -8921,16 +8606,13 @@ function (_CToolPlotter6) {
     }
   }]);
 
-  _inherits(DrawHoriRayLinesPlotter, _CToolPlotter6);
-
   return DrawHoriRayLinesPlotter;
 }(CToolPlotter);
-
-exports.DrawHoriRayLinesPlotter = DrawHoriRayLinesPlotter;
-
 var DrawHoriSegLinesPlotter =
 /*#__PURE__*/
 function (_CToolPlotter7) {
+  _inherits(DrawHoriSegLinesPlotter, _CToolPlotter7);
+
   function DrawHoriSegLinesPlotter(name, toolObject) {
     var _this9;
 
@@ -8962,16 +8644,13 @@ function (_CToolPlotter7) {
     }
   }]);
 
-  _inherits(DrawHoriSegLinesPlotter, _CToolPlotter7);
-
   return DrawHoriSegLinesPlotter;
 }(CToolPlotter);
-
-exports.DrawHoriSegLinesPlotter = DrawHoriSegLinesPlotter;
-
 var DrawVertiStraightLinesPlotter =
 /*#__PURE__*/
 function (_CToolPlotter8) {
+  _inherits(DrawVertiStraightLinesPlotter, _CToolPlotter8);
+
   function DrawVertiStraightLinesPlotter(name, toolObject) {
     var _this10;
 
@@ -8997,16 +8676,13 @@ function (_CToolPlotter8) {
     }
   }]);
 
-  _inherits(DrawVertiStraightLinesPlotter, _CToolPlotter8);
-
   return DrawVertiStraightLinesPlotter;
 }(CToolPlotter);
-
-exports.DrawVertiStraightLinesPlotter = DrawVertiStraightLinesPlotter;
-
 var DrawPriceLinesPlotter =
 /*#__PURE__*/
 function (_CToolPlotter9) {
+  _inherits(DrawPriceLinesPlotter, _CToolPlotter9);
+
   function DrawPriceLinesPlotter(name, toolObject) {
     var _this11;
 
@@ -9027,7 +8703,7 @@ function (_CToolPlotter9) {
     value: function draw(context) {
       context.font = "12px Tahoma";
       context.textAlign = "left";
-      context.fillStyle = this.theme.getColor(themes.Theme.Color.LineColorNormal);
+      context.fillStyle = this.theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.LineColorNormal);
       this.updateCtrlPtPos();
       this.getAreaPos();
       this.startPoint = this.ctrlPts[1][0];
@@ -9037,16 +8713,13 @@ function (_CToolPlotter9) {
     }
   }]);
 
-  _inherits(DrawPriceLinesPlotter, _CToolPlotter9);
-
   return DrawPriceLinesPlotter;
 }(CToolPlotter);
-
-exports.DrawPriceLinesPlotter = DrawPriceLinesPlotter;
-
 var ParallelLinesPlotter =
 /*#__PURE__*/
 function (_CToolPlotter10) {
+  _inherits(ParallelLinesPlotter, _CToolPlotter10);
+
   function ParallelLinesPlotter(name, toolObject) {
     var _this12;
 
@@ -9075,16 +8748,13 @@ function (_CToolPlotter10) {
     }
   }]);
 
-  _inherits(ParallelLinesPlotter, _CToolPlotter10);
-
   return ParallelLinesPlotter;
 }(CToolPlotter);
-
-exports.ParallelLinesPlotter = ParallelLinesPlotter;
-
 var DrawBiParallelLinesPlotter =
 /*#__PURE__*/
 function (_ParallelLinesPlotter) {
+  _inherits(DrawBiParallelLinesPlotter, _ParallelLinesPlotter);
+
   function DrawBiParallelLinesPlotter(name, toolObject) {
     var _this13;
 
@@ -9117,16 +8787,13 @@ function (_ParallelLinesPlotter) {
     }
   }]);
 
-  _inherits(DrawBiParallelLinesPlotter, _ParallelLinesPlotter);
-
   return DrawBiParallelLinesPlotter;
 }(ParallelLinesPlotter);
-
-exports.DrawBiParallelLinesPlotter = DrawBiParallelLinesPlotter;
-
 var DrawBiParallelRayLinesPlotter =
 /*#__PURE__*/
 function (_ParallelLinesPlotter2) {
+  _inherits(DrawBiParallelRayLinesPlotter, _ParallelLinesPlotter2);
+
   function DrawBiParallelRayLinesPlotter(name, toolObject) {
     var _this14;
 
@@ -9161,16 +8828,13 @@ function (_ParallelLinesPlotter2) {
     }
   }]);
 
-  _inherits(DrawBiParallelRayLinesPlotter, _ParallelLinesPlotter2);
-
   return DrawBiParallelRayLinesPlotter;
 }(ParallelLinesPlotter);
-
-exports.DrawBiParallelRayLinesPlotter = DrawBiParallelRayLinesPlotter;
-
 var DrawTriParallelLinesPlotter =
 /*#__PURE__*/
 function (_ParallelLinesPlotter3) {
+  _inherits(DrawTriParallelLinesPlotter, _ParallelLinesPlotter3);
+
   function DrawTriParallelLinesPlotter(name, toolObject) {
     var _this15;
 
@@ -9228,16 +8892,13 @@ function (_ParallelLinesPlotter3) {
     }
   }]);
 
-  _inherits(DrawTriParallelLinesPlotter, _ParallelLinesPlotter3);
-
   return DrawTriParallelLinesPlotter;
 }(ParallelLinesPlotter);
-
-exports.DrawTriParallelLinesPlotter = DrawTriParallelLinesPlotter;
-
 var BandLinesPlotter =
 /*#__PURE__*/
 function (_CToolPlotter11) {
+  _inherits(BandLinesPlotter, _CToolPlotter11);
+
   function BandLinesPlotter(name, toolObject) {
     var _this16;
 
@@ -9258,10 +8919,10 @@ function (_CToolPlotter11) {
     value: function drawLinesAndInfo(context, startPoint, endPoint) {
       context.font = "12px Tahoma";
       context.textAlign = "left";
-      context.fillStyle = this.theme.getColor(themes.Theme.Color.LineColorNormal);
+      context.fillStyle = this.theme.getColor(__WEBPACK_IMPORTED_MODULE_6__themes__["c" /* Theme */].Color.LineColorNormal);
       var text;
 
-      if (this.toolObject.state === ctools.CToolObject.state.Draw) {
+      if (this.toolObject.state === __WEBPACK_IMPORTED_MODULE_9__ctools__["n" /* CToolObject */].state.Draw) {
         this.startPtValue = this.toolObject.getPoint(0).getPosIV().v;
         this.endPtValue = this.toolObject.getPoint(1).getPosIV().v;
       }
@@ -9288,16 +8949,13 @@ function (_CToolPlotter11) {
     }
   }]);
 
-  _inherits(BandLinesPlotter, _CToolPlotter11);
-
   return BandLinesPlotter;
 }(CToolPlotter);
-
-exports.BandLinesPlotter = BandLinesPlotter;
-
 var DrawFibRetracePlotter =
 /*#__PURE__*/
 function (_BandLinesPlotter) {
+  _inherits(DrawFibRetracePlotter, _BandLinesPlotter);
+
   function DrawFibRetracePlotter(name, toolObject) {
     var _this17;
 
@@ -9309,16 +8967,13 @@ function (_BandLinesPlotter) {
     return _this17;
   }
 
-  _inherits(DrawFibRetracePlotter, _BandLinesPlotter);
-
   return DrawFibRetracePlotter;
 }(BandLinesPlotter);
-
-exports.DrawFibRetracePlotter = DrawFibRetracePlotter;
-
 var DrawBandLinesPlotter =
 /*#__PURE__*/
 function (_BandLinesPlotter2) {
+  _inherits(DrawBandLinesPlotter, _BandLinesPlotter2);
+
   function DrawBandLinesPlotter(name, toolObject) {
     var _this18;
 
@@ -9330,16 +8985,13 @@ function (_BandLinesPlotter2) {
     return _this18;
   }
 
-  _inherits(DrawBandLinesPlotter, _BandLinesPlotter2);
-
   return DrawBandLinesPlotter;
 }(BandLinesPlotter);
-
-exports.DrawBandLinesPlotter = DrawBandLinesPlotter;
-
 var DrawFibFansPlotter =
 /*#__PURE__*/
 function (_CToolPlotter12) {
+  _inherits(DrawFibFansPlotter, _CToolPlotter12);
+
   function DrawFibFansPlotter(name, toolObject) {
     var _this19;
 
@@ -9377,16 +9029,13 @@ function (_CToolPlotter12) {
     }
   }]);
 
-  _inherits(DrawFibFansPlotter, _CToolPlotter12);
-
   return DrawFibFansPlotter;
 }(CToolPlotter);
-
-exports.DrawFibFansPlotter = DrawFibFansPlotter;
-
 var CDynamicLinePlotter =
 /*#__PURE__*/
 function (_NamedObject10) {
+  _inherits(CDynamicLinePlotter, _NamedObject10);
+
   function CDynamicLinePlotter(name) {
     var _this20;
 
@@ -9394,14 +9043,14 @@ function (_NamedObject10) {
 
     _this20 = _possibleConstructorReturn(this, _getPrototypeOf(CDynamicLinePlotter).call(this, name));
     _this20.flag = true;
-    _this20.context = _chart_manager.ChartManager.instance._overlayContext;
+    _this20.context = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance._overlayContext;
     return _this20;
   }
 
   _createClass(CDynamicLinePlotter, [{
     key: "getAreaPos",
     value: function getAreaPos() {
-      var pMgr = _chart_manager.ChartManager.instance;
+      var pMgr = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance;
       var pArea = pMgr.getArea('frame0.k0.main');
 
       if (pArea === null) {
@@ -9425,9 +9074,9 @@ function (_NamedObject10) {
     key: "Draw",
     value: function Draw(context) {
       this.getAreaPos();
-      var pMgr = _chart_manager.ChartManager.instance;
+      var pMgr = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance;
       var pTDP = pMgr.getDataSource(this.getDataSourceName());
-      if (pTDP === null || !_util.Util.isInstance(pTDP, data_sources.MainDataSource)) return;
+      if (pTDP === null || !__WEBPACK_IMPORTED_MODULE_3__util__["a" /* Util */].isInstance(pTDP, __WEBPACK_IMPORTED_MODULE_8__data_sources__["b" /* MainDataSource */])) return;
       this.context.save();
       this.context.rect(this.areaPos.left, this.areaPos.top, this.areaPos.right - this.areaPos.left, this.areaPos.bottom - this.areaPos.top);
       this.context.clip();
@@ -9438,18 +9087,18 @@ function (_NamedObject10) {
         var state = toolObject.getState();
 
         switch (state) {
-          case ctools.CToolObject.state.BeforeDraw:
-            toolObject.getPlotter().theme = _chart_manager.ChartManager.instance.getTheme(this.getFrameName());
+          case __WEBPACK_IMPORTED_MODULE_9__ctools__["n" /* CToolObject */].state.BeforeDraw:
+            toolObject.getPlotter().theme = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.getTheme(this.getFrameName());
             toolObject.getPlotter().drawCursor(this.context);
             break;
 
-          case ctools.CToolObject.state.Draw:
-            toolObject.getPlotter().theme = _chart_manager.ChartManager.instance.getTheme(this.getFrameName());
+          case __WEBPACK_IMPORTED_MODULE_9__ctools__["n" /* CToolObject */].state.Draw:
+            toolObject.getPlotter().theme = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.getTheme(this.getFrameName());
             toolObject.getPlotter().updateDraw(this.context);
             break;
 
-          case ctools.CToolObject.state.AfterDraw:
-            toolObject.getPlotter().theme = _chart_manager.ChartManager.instance.getTheme(this.getFrameName());
+          case __WEBPACK_IMPORTED_MODULE_9__ctools__["n" /* CToolObject */].state.AfterDraw:
+            toolObject.getPlotter().theme = __WEBPACK_IMPORTED_MODULE_2__chart_manager__["a" /* ChartManager */].instance.getTheme(this.getFrameName());
             toolObject.getPlotter().finishDraw(this.context);
             break;
 
@@ -9459,47 +9108,29 @@ function (_NamedObject10) {
       }
 
       var sel = pTDP.getSelectToolObjcet();
-      if (sel !== null && sel !== ctools.CToolObject.state.Draw) sel.getPlotter().highlight(this.context);
+      if (sel !== null && sel !== __WEBPACK_IMPORTED_MODULE_9__ctools__["n" /* CToolObject */].state.Draw) sel.getPlotter().highlight(this.context);
       this.context.restore();
     }
   }]);
 
-  _inherits(CDynamicLinePlotter, _NamedObject10);
-
   return CDynamicLinePlotter;
-}(_named_object.NamedObject);
-
-exports.CDynamicLinePlotter = CDynamicLinePlotter;
+}(__WEBPACK_IMPORTED_MODULE_1__named_object__["a" /* NamedObject */]);
 
 /***/ }),
 /* 14 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.IndicatorDataProvider = exports.MainDataProvider = exports.DataProvider = void 0;
-
-var _named_object = __webpack_require__(1);
-
-var _chart_manager = __webpack_require__(0);
-
-var _util = __webpack_require__(5);
-
-var data_sources = _interopRequireWildcard(__webpack_require__(2));
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
-
+/* unused harmony export DataProvider */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return MainDataProvider; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IndicatorDataProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__named_object__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__chart_manager__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__data_sources__ = __webpack_require__(2);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } _setPrototypeOf(subClass.prototype, superClass && superClass.prototype); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
@@ -9509,11 +9140,21 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _getPrototypeOf(o) { _getPrototypeOf = Object.getPrototypeOf || function _getPrototypeOf(o) { return o.__proto__; }; return _getPrototypeOf(o); }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
 
 var DataProvider =
 /*#__PURE__*/
 function (_NamedObject) {
+  _inherits(DataProvider, _NamedObject);
+
   function DataProvider(name) {
     var _this;
 
@@ -9605,7 +9246,7 @@ function (_NamedObject) {
   }, {
     key: "updateRange",
     value: function updateRange() {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_1__chart_manager__["a" /* ChartManager */].instance;
       var timeline = mgr.getTimeline(this.getDataSourceName());
       var firstIndexes = [timeline.getFirstIndex()];
       var minmaxes = [{}];
@@ -9618,16 +9259,13 @@ function (_NamedObject) {
     }
   }]);
 
-  _inherits(DataProvider, _NamedObject);
-
   return DataProvider;
-}(_named_object.NamedObject);
-
-exports.DataProvider = DataProvider;
-
+}(__WEBPACK_IMPORTED_MODULE_0__named_object__["a" /* NamedObject */]);
 var MainDataProvider =
 /*#__PURE__*/
 function (_DataProvider) {
+  _inherits(MainDataProvider, _DataProvider);
+
   function MainDataProvider(name) {
     var _this2;
 
@@ -9641,10 +9279,10 @@ function (_DataProvider) {
   _createClass(MainDataProvider, [{
     key: "updateData",
     value: function updateData() {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_1__chart_manager__["a" /* ChartManager */].instance;
       var ds = mgr.getDataSource(this.getDataSourceName());
 
-      if (!_util.Util.isInstance(ds, data_sources.MainDataSource)) {
+      if (!__WEBPACK_IMPORTED_MODULE_2__util__["a" /* Util */].isInstance(ds, __WEBPACK_IMPORTED_MODULE_3__data_sources__["b" /* MainDataSource */])) {
         return;
       }
 
@@ -9661,16 +9299,13 @@ function (_DataProvider) {
     }
   }]);
 
-  _inherits(MainDataProvider, _DataProvider);
-
   return MainDataProvider;
 }(DataProvider);
-
-exports.MainDataProvider = MainDataProvider;
-
 var IndicatorDataProvider =
 /*#__PURE__*/
 function (_DataProvider2) {
+  _inherits(IndicatorDataProvider, _DataProvider2);
+
   function IndicatorDataProvider() {
     _classCallCheck(this, IndicatorDataProvider);
 
@@ -9691,7 +9326,7 @@ function (_DataProvider2) {
   }, {
     key: "refresh",
     value: function refresh() {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_1__chart_manager__["a" /* ChartManager */].instance;
       var ds = mgr.getDataSource(this.getDataSourceName());
 
       if (ds.getDataCount() < 1) {
@@ -9711,7 +9346,7 @@ function (_DataProvider2) {
   }, {
     key: "updateData",
     value: function updateData() {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_1__chart_manager__["a" /* ChartManager */].instance;
       var ds = mgr.getDataSource(this.getDataSourceName());
 
       if (ds.getDataCount() < 1) {
@@ -9722,19 +9357,19 @@ function (_DataProvider2) {
       var mode = ds.getUpdateMode();
 
       switch (mode) {
-        case data_sources.DataSource.UpdateMode.Refresh:
+        case __WEBPACK_IMPORTED_MODULE_3__data_sources__["a" /* DataSource */].UpdateMode.Refresh:
           {
             this.refresh();
             break;
           }
 
-        case data_sources.DataSource.UpdateMode.Append:
+        case __WEBPACK_IMPORTED_MODULE_3__data_sources__["a" /* DataSource */].UpdateMode.Append:
           {
             indic.reserve(ds.getAppendedCount());
             break;
           }
 
-        case data_sources.DataSource.UpdateMode.Update:
+        case __WEBPACK_IMPORTED_MODULE_3__data_sources__["a" /* DataSource */].UpdateMode.Update:
           {
             var i,
                 last = ds.getDataCount();
@@ -9779,31 +9414,24 @@ function (_DataProvider2) {
     }
   }]);
 
-  _inherits(IndicatorDataProvider, _DataProvider2);
-
   return IndicatorDataProvider;
 }(DataProvider);
 
-exports.IndicatorDataProvider = IndicatorDataProvider;
-
 /***/ }),
 /* 15 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.ChartAreaGroup = exports.TimelineArea = exports.IndicatorRangeArea = exports.MainRangeArea = exports.IndicatorArea = exports.MainArea = exports.ChartArea = void 0;
-
-var _named_object = __webpack_require__(1);
-
-var _chart_manager = __webpack_require__(0);
-
-var _mevent = __webpack_require__(21);
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChartArea; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return MainArea; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return IndicatorArea; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return MainRangeArea; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return IndicatorRangeArea; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return TimelineArea; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return ChartAreaGroup; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__named_object__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__chart_manager__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mevent__ = __webpack_require__(21);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
@@ -9811,10 +9439,6 @@ function _get(target, property, receiver) { if (typeof Reflect !== "undefined" &
 function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } _setPrototypeOf(subClass.prototype, superClass && superClass.prototype); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
@@ -9824,11 +9448,20 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _getPrototypeOf(o) { _getPrototypeOf = Object.getPrototypeOf || function _getPrototypeOf(o) { return o.__proto__; }; return _getPrototypeOf(o); }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
 
 var ChartArea =
 /*#__PURE__*/
 function (_NamedObject) {
+  _inherits(ChartArea, _NamedObject);
+
   function ChartArea(name) {
     var _this;
 
@@ -9843,7 +9476,7 @@ function (_NamedObject) {
     _this._highlighted = false;
     _this._pressed = false;
     _this._selected = false;
-    _this.Measuring = new _mevent.MEvent();
+    _this.Measuring = new __WEBPACK_IMPORTED_MODULE_2__mevent__["a" /* MEvent */]();
     return _this;
   }
 
@@ -10061,12 +9694,8 @@ function (_NamedObject) {
     }
   }]);
 
-  _inherits(ChartArea, _NamedObject);
-
   return ChartArea;
-}(_named_object.NamedObject);
-
-exports.ChartArea = ChartArea;
+}(__WEBPACK_IMPORTED_MODULE_0__named_object__["a" /* NamedObject */]);
 ChartArea.DockStyle = {
   Left: 0,
   Top: 1,
@@ -10074,10 +9703,11 @@ ChartArea.DockStyle = {
   Bottom: 3,
   Fill: 4
 };
-
 var MainArea =
 /*#__PURE__*/
 function (_ChartArea) {
+  _inherits(MainArea, _ChartArea);
+
   function MainArea(name) {
     var _this2;
 
@@ -10094,7 +9724,7 @@ function (_ChartArea) {
   _createClass(MainArea, [{
     key: "onMouseMove",
     value: function onMouseMove(x, y) {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_1__chart_manager__["a" /* ChartManager */].instance;
       if (mgr._capturingMouseArea === this) if (this._dragStarted === false) if (Math.abs(this._oldX - x) > 1 || Math.abs(this._oldY - y) > 1) this._dragStarted = true;
 
       if (this._dragStarted) {
@@ -10110,11 +9740,11 @@ function (_ChartArea) {
       }
 
       switch (mgr._drawingTool) {
-        case _chart_manager.ChartManager.DrawingTool.Cursor:
+        case __WEBPACK_IMPORTED_MODULE_1__chart_manager__["a" /* ChartManager */].DrawingTool.Cursor:
           mgr.showCursor();
           break;
 
-        case _chart_manager.ChartManager.DrawingTool.CrossCursor:
+        case __WEBPACK_IMPORTED_MODULE_1__chart_manager__["a" /* ChartManager */].DrawingTool.CrossCursor:
           if (mgr.showCrossCursor(this, x, y)) mgr.hideCursor();else mgr.showCursor();
           break;
 
@@ -10134,7 +9764,7 @@ function (_ChartArea) {
   }, {
     key: "onMouseDown",
     value: function onMouseDown(x, y) {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_1__chart_manager__["a" /* ChartManager */].instance;
       mgr.getTimeline(this.getDataSourceName()).startMove();
       this._oldX = x;
       this._oldY = y;
@@ -10145,7 +9775,7 @@ function (_ChartArea) {
   }, {
     key: "onMouseUp",
     value: function onMouseUp(x, y) {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_1__chart_manager__["a" /* ChartManager */].instance;
       var ret = null;
 
       if (this._dragStarted) {
@@ -10159,16 +9789,13 @@ function (_ChartArea) {
     }
   }]);
 
-  _inherits(MainArea, _ChartArea);
-
   return MainArea;
 }(ChartArea);
-
-exports.MainArea = MainArea;
-
 var IndicatorArea =
 /*#__PURE__*/
 function (_ChartArea2) {
+  _inherits(IndicatorArea, _ChartArea2);
+
   function IndicatorArea(name) {
     var _this3;
 
@@ -10184,7 +9811,7 @@ function (_ChartArea2) {
   _createClass(IndicatorArea, [{
     key: "onMouseMove",
     value: function onMouseMove(x, y) {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_1__chart_manager__["a" /* ChartManager */].instance;
 
       if (mgr._capturingMouseArea === this) {
         if (this._dragStarted === false) {
@@ -10201,7 +9828,7 @@ function (_ChartArea2) {
       }
 
       switch (mgr._drawingTool) {
-        case _chart_manager.ChartManager.DrawingTool.CrossCursor:
+        case __WEBPACK_IMPORTED_MODULE_1__chart_manager__["a" /* ChartManager */].DrawingTool.CrossCursor:
           if (mgr.showCrossCursor(this, x, y)) mgr.hideCursor();else mgr.showCursor();
           break;
 
@@ -10220,7 +9847,7 @@ function (_ChartArea2) {
   }, {
     key: "onMouseDown",
     value: function onMouseDown(x, y) {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_1__chart_manager__["a" /* ChartManager */].instance;
       mgr.getTimeline(this.getDataSourceName()).startMove();
       this._oldX = x;
       this._oldY = y;
@@ -10239,16 +9866,13 @@ function (_ChartArea2) {
     }
   }]);
 
-  _inherits(IndicatorArea, _ChartArea2);
-
   return IndicatorArea;
 }(ChartArea);
-
-exports.IndicatorArea = IndicatorArea;
-
 var MainRangeArea =
 /*#__PURE__*/
 function (_ChartArea3) {
+  _inherits(MainRangeArea, _ChartArea3);
+
   function MainRangeArea(name) {
     _classCallCheck(this, MainRangeArea);
 
@@ -10258,22 +9882,18 @@ function (_ChartArea3) {
   _createClass(MainRangeArea, [{
     key: "onMouseMove",
     value: function onMouseMove(x, y) {
-      _chart_manager.ChartManager.instance.showCursor();
-
+      __WEBPACK_IMPORTED_MODULE_1__chart_manager__["a" /* ChartManager */].instance.showCursor();
       return this;
     }
   }]);
 
-  _inherits(MainRangeArea, _ChartArea3);
-
   return MainRangeArea;
 }(ChartArea);
-
-exports.MainRangeArea = MainRangeArea;
-
 var IndicatorRangeArea =
 /*#__PURE__*/
 function (_ChartArea4) {
+  _inherits(IndicatorRangeArea, _ChartArea4);
+
   function IndicatorRangeArea(name) {
     _classCallCheck(this, IndicatorRangeArea);
 
@@ -10283,22 +9903,18 @@ function (_ChartArea4) {
   _createClass(IndicatorRangeArea, [{
     key: "onMouseMove",
     value: function onMouseMove(x, y) {
-      _chart_manager.ChartManager.instance.showCursor();
-
+      __WEBPACK_IMPORTED_MODULE_1__chart_manager__["a" /* ChartManager */].instance.showCursor();
       return this;
     }
   }]);
 
-  _inherits(IndicatorRangeArea, _ChartArea4);
-
   return IndicatorRangeArea;
 }(ChartArea);
-
-exports.IndicatorRangeArea = IndicatorRangeArea;
-
 var TimelineArea =
 /*#__PURE__*/
 function (_ChartArea5) {
+  _inherits(TimelineArea, _ChartArea5);
+
   function TimelineArea(name) {
     _classCallCheck(this, TimelineArea);
 
@@ -10308,22 +9924,18 @@ function (_ChartArea5) {
   _createClass(TimelineArea, [{
     key: "onMouseMove",
     value: function onMouseMove(x, y) {
-      _chart_manager.ChartManager.instance.showCursor();
-
+      __WEBPACK_IMPORTED_MODULE_1__chart_manager__["a" /* ChartManager */].instance.showCursor();
       return this;
     }
   }]);
 
-  _inherits(TimelineArea, _ChartArea5);
-
   return TimelineArea;
 }(ChartArea);
-
-exports.TimelineArea = TimelineArea;
-
 var ChartAreaGroup =
 /*#__PURE__*/
 function (_ChartArea6) {
+  _inherits(ChartAreaGroup, _ChartArea6);
+
   function ChartAreaGroup(name) {
     var _this4;
 
@@ -10482,12 +10094,8 @@ function (_ChartArea6) {
     }
   }]);
 
-  _inherits(ChartAreaGroup, _ChartArea6);
-
   return ChartAreaGroup;
 }(ChartArea);
-
-exports.ChartAreaGroup = ChartAreaGroup;
 
 /***/ }),
 /* 16 */
@@ -12477,23 +12085,17 @@ function __importDefault(mod) {
 
 /***/ }),
 /* 18 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.KlineTrade = void 0;
-
-var _chart_manager = __webpack_require__(0);
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return KlineTrade; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__chart_manager__ = __webpack_require__(0);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 
 var KlineTrade =
 /*#__PURE__*/
@@ -12636,8 +12238,7 @@ function () {
   }, {
     key: "updateDepth",
     value: function updateDepth(data) {
-      _chart_manager.ChartManager.instance.getChart().updateDepth(data);
-
+      __WEBPACK_IMPORTED_MODULE_0__chart_manager__["a" /* ChartManager */].instance.getChart().updateDepth(data);
       if (!data) return;
       $("#gasks .table").html(this.getgview(this.getgasks(data.asks)));
       $("#gbids .table").html(this.getgview(this.getgbids(data.bids)));
@@ -12984,23 +12585,15 @@ function () {
 
   return KlineTrade;
 }();
-
-exports.KlineTrade = KlineTrade;
 KlineTrade.created = false;
 KlineTrade.instance = null;
 
 /***/ }),
 /* 19 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.CName = void 0;
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CName; });
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -13061,35 +12654,69 @@ function () {
   return CName;
 }();
 
-exports.CName = CName;
-
 /***/ }),
 /* 20 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.SarExpr = exports.SmaExpr = exports.ExpmemaExpr = exports.EmaExpr = exports.MaExpr = exports.StdExpr = exports.SumExpr = exports.CountExpr = exports.LlvExpr = exports.HhvExpr = exports.RangeExpr = exports.RangeOutputExpr = exports.OutputExpr = exports.AssignExpr = exports.IfExpr = exports.OrExpr = exports.AndExpr = exports.RefExpr = exports.AbsExpr = exports.MaxExpr = exports.EqExpr = exports.LeExpr = exports.LtExpr = exports.GeExpr = exports.GtExpr = exports.DivExpr = exports.MulExpr = exports.SubExpr = exports.AddExpr = exports.NegExpr = exports.OpABCDExpr = exports.OpABCExpr = exports.OpABExpr = exports.OpAExpr = exports.ParameterExpr = exports.ConstExpr = exports.VolumeExpr = exports.CloseExpr = exports.LowExpr = exports.HighExpr = exports.OpenExpr = exports.Expr = exports.ExprEnv = void 0;
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return ExprEnv; });
+/* unused harmony export Expr */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "x", function() { return OpenExpr; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return HighExpr; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "r", function() { return LowExpr; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return CloseExpr; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "H", function() { return VolumeExpr; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return ConstExpr; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "z", function() { return ParameterExpr; });
+/* unused harmony export OpAExpr */
+/* unused harmony export OpABExpr */
+/* unused harmony export OpABCExpr */
+/* unused harmony export OpABCDExpr */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "w", function() { return NegExpr; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return AddExpr; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "F", function() { return SubExpr; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "v", function() { return MulExpr; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return DivExpr; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return GtExpr; });
+/* unused harmony export GeExpr */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s", function() { return LtExpr; });
+/* unused harmony export LeExpr */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return EqExpr; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "u", function() { return MaxExpr; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AbsExpr; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B", function() { return RefExpr; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return AndExpr; });
+/* unused harmony export OrExpr */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return IfExpr; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return AssignExpr; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "y", function() { return OutputExpr; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "A", function() { return RangeOutputExpr; });
+/* unused harmony export RangeExpr */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return HhvExpr; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "q", function() { return LlvExpr; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return CountExpr; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "G", function() { return SumExpr; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "E", function() { return StdExpr; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "t", function() { return MaExpr; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return EmaExpr; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return ExpmemaExpr; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "D", function() { return SmaExpr; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "C", function() { return SarExpr; });
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
 
 function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } _setPrototypeOf(subClass.prototype, superClass && superClass.prototype); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _getPrototypeOf(o) { _getPrototypeOf = Object.getPrototypeOf || function _getPrototypeOf(o) { return o.__proto__; }; return _getPrototypeOf(o); }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -13141,10 +12768,7 @@ function () {
 
   return ExprEnv;
 }();
-
-exports.ExprEnv = ExprEnv;
 ExprEnv.inst = null;
-
 var Expr =
 /*#__PURE__*/
 function () {
@@ -13167,12 +12791,11 @@ function () {
 
   return Expr;
 }();
-
-exports.Expr = Expr;
-
 var OpenExpr =
 /*#__PURE__*/
 function (_Expr) {
+  _inherits(OpenExpr, _Expr);
+
   function OpenExpr() {
     _classCallCheck(this, OpenExpr);
 
@@ -13186,16 +12809,13 @@ function (_Expr) {
     }
   }]);
 
-  _inherits(OpenExpr, _Expr);
-
   return OpenExpr;
 }(Expr);
-
-exports.OpenExpr = OpenExpr;
-
 var HighExpr =
 /*#__PURE__*/
 function (_Expr2) {
+  _inherits(HighExpr, _Expr2);
+
   function HighExpr() {
     _classCallCheck(this, HighExpr);
 
@@ -13209,16 +12829,13 @@ function (_Expr2) {
     }
   }]);
 
-  _inherits(HighExpr, _Expr2);
-
   return HighExpr;
 }(Expr);
-
-exports.HighExpr = HighExpr;
-
 var LowExpr =
 /*#__PURE__*/
 function (_Expr3) {
+  _inherits(LowExpr, _Expr3);
+
   function LowExpr() {
     _classCallCheck(this, LowExpr);
 
@@ -13232,16 +12849,13 @@ function (_Expr3) {
     }
   }]);
 
-  _inherits(LowExpr, _Expr3);
-
   return LowExpr;
 }(Expr);
-
-exports.LowExpr = LowExpr;
-
 var CloseExpr =
 /*#__PURE__*/
 function (_Expr4) {
+  _inherits(CloseExpr, _Expr4);
+
   function CloseExpr() {
     _classCallCheck(this, CloseExpr);
 
@@ -13255,16 +12869,13 @@ function (_Expr4) {
     }
   }]);
 
-  _inherits(CloseExpr, _Expr4);
-
   return CloseExpr;
 }(Expr);
-
-exports.CloseExpr = CloseExpr;
-
 var VolumeExpr =
 /*#__PURE__*/
 function (_Expr5) {
+  _inherits(VolumeExpr, _Expr5);
+
   function VolumeExpr() {
     _classCallCheck(this, VolumeExpr);
 
@@ -13278,16 +12889,13 @@ function (_Expr5) {
     }
   }]);
 
-  _inherits(VolumeExpr, _Expr5);
-
   return VolumeExpr;
 }(Expr);
-
-exports.VolumeExpr = VolumeExpr;
-
 var ConstExpr =
 /*#__PURE__*/
 function (_Expr6) {
+  _inherits(ConstExpr, _Expr6);
+
   function ConstExpr(v) {
     var _this;
 
@@ -13305,16 +12913,13 @@ function (_Expr6) {
     }
   }]);
 
-  _inherits(ConstExpr, _Expr6);
-
   return ConstExpr;
 }(Expr);
-
-exports.ConstExpr = ConstExpr;
-
 var ParameterExpr =
 /*#__PURE__*/
 function (_Expr7) {
+  _inherits(ParameterExpr, _Expr7);
+
   function ParameterExpr(name, minValue, maxValue, defaultValue) {
     var _this2;
 
@@ -13360,16 +12965,13 @@ function (_Expr7) {
     }
   }]);
 
-  _inherits(ParameterExpr, _Expr7);
-
   return ParameterExpr;
 }(Expr);
-
-exports.ParameterExpr = ParameterExpr;
-
 var OpAExpr =
 /*#__PURE__*/
 function (_Expr8) {
+  _inherits(OpAExpr, _Expr8);
+
   function OpAExpr(a) {
     var _this3;
 
@@ -13396,16 +12998,13 @@ function (_Expr8) {
     }
   }]);
 
-  _inherits(OpAExpr, _Expr8);
-
   return OpAExpr;
 }(Expr);
-
-exports.OpAExpr = OpAExpr;
-
 var OpABExpr =
 /*#__PURE__*/
 function (_Expr9) {
+  _inherits(OpABExpr, _Expr9);
+
   function OpABExpr(a, b) {
     var _this4;
 
@@ -13437,16 +13036,13 @@ function (_Expr9) {
     }
   }]);
 
-  _inherits(OpABExpr, _Expr9);
-
   return OpABExpr;
 }(Expr);
-
-exports.OpABExpr = OpABExpr;
-
 var OpABCExpr =
 /*#__PURE__*/
 function (_Expr10) {
+  _inherits(OpABCExpr, _Expr10);
+
   function OpABCExpr(a, b, c) {
     var _this5;
 
@@ -13483,16 +13079,13 @@ function (_Expr10) {
     }
   }]);
 
-  _inherits(OpABCExpr, _Expr10);
-
   return OpABCExpr;
 }(Expr);
-
-exports.OpABCExpr = OpABCExpr;
-
 var OpABCDExpr =
 /*#__PURE__*/
 function (_Expr11) {
+  _inherits(OpABCDExpr, _Expr11);
+
   function OpABCDExpr(a, b, c, d) {
     var _this6;
 
@@ -13534,16 +13127,13 @@ function (_Expr11) {
     }
   }]);
 
-  _inherits(OpABCDExpr, _Expr11);
-
   return OpABCDExpr;
 }(Expr);
-
-exports.OpABCDExpr = OpABCDExpr;
-
 var NegExpr =
 /*#__PURE__*/
 function (_OpAExpr) {
+  _inherits(NegExpr, _OpAExpr);
+
   function NegExpr(a) {
     _classCallCheck(this, NegExpr);
 
@@ -13557,16 +13147,13 @@ function (_OpAExpr) {
     }
   }]);
 
-  _inherits(NegExpr, _OpAExpr);
-
   return NegExpr;
 }(OpAExpr);
-
-exports.NegExpr = NegExpr;
-
 var AddExpr =
 /*#__PURE__*/
 function (_OpABExpr) {
+  _inherits(AddExpr, _OpABExpr);
+
   function AddExpr(a, b) {
     _classCallCheck(this, AddExpr);
 
@@ -13580,16 +13167,13 @@ function (_OpABExpr) {
     }
   }]);
 
-  _inherits(AddExpr, _OpABExpr);
-
   return AddExpr;
 }(OpABExpr);
-
-exports.AddExpr = AddExpr;
-
 var SubExpr =
 /*#__PURE__*/
 function (_OpABExpr2) {
+  _inherits(SubExpr, _OpABExpr2);
+
   function SubExpr(a, b) {
     _classCallCheck(this, SubExpr);
 
@@ -13603,16 +13187,13 @@ function (_OpABExpr2) {
     }
   }]);
 
-  _inherits(SubExpr, _OpABExpr2);
-
   return SubExpr;
 }(OpABExpr);
-
-exports.SubExpr = SubExpr;
-
 var MulExpr =
 /*#__PURE__*/
 function (_OpABExpr3) {
+  _inherits(MulExpr, _OpABExpr3);
+
   function MulExpr(a, b) {
     _classCallCheck(this, MulExpr);
 
@@ -13626,16 +13207,13 @@ function (_OpABExpr3) {
     }
   }]);
 
-  _inherits(MulExpr, _OpABExpr3);
-
   return MulExpr;
 }(OpABExpr);
-
-exports.MulExpr = MulExpr;
-
 var DivExpr =
 /*#__PURE__*/
 function (_OpABExpr4) {
+  _inherits(DivExpr, _OpABExpr4);
+
   function DivExpr(a, b) {
     _classCallCheck(this, DivExpr);
 
@@ -13655,16 +13233,13 @@ function (_OpABExpr4) {
     }
   }]);
 
-  _inherits(DivExpr, _OpABExpr4);
-
   return DivExpr;
 }(OpABExpr);
-
-exports.DivExpr = DivExpr;
-
 var GtExpr =
 /*#__PURE__*/
 function (_OpABExpr5) {
+  _inherits(GtExpr, _OpABExpr5);
+
   function GtExpr(a, b) {
     _classCallCheck(this, GtExpr);
 
@@ -13678,16 +13253,13 @@ function (_OpABExpr5) {
     }
   }]);
 
-  _inherits(GtExpr, _OpABExpr5);
-
   return GtExpr;
 }(OpABExpr);
-
-exports.GtExpr = GtExpr;
-
 var GeExpr =
 /*#__PURE__*/
 function (_OpABExpr6) {
+  _inherits(GeExpr, _OpABExpr6);
+
   function GeExpr(a, b) {
     _classCallCheck(this, GeExpr);
 
@@ -13701,16 +13273,13 @@ function (_OpABExpr6) {
     }
   }]);
 
-  _inherits(GeExpr, _OpABExpr6);
-
   return GeExpr;
 }(OpABExpr);
-
-exports.GeExpr = GeExpr;
-
 var LtExpr =
 /*#__PURE__*/
 function (_OpABExpr7) {
+  _inherits(LtExpr, _OpABExpr7);
+
   function LtExpr(a, b) {
     _classCallCheck(this, LtExpr);
 
@@ -13724,16 +13293,13 @@ function (_OpABExpr7) {
     }
   }]);
 
-  _inherits(LtExpr, _OpABExpr7);
-
   return LtExpr;
 }(OpABExpr);
-
-exports.LtExpr = LtExpr;
-
 var LeExpr =
 /*#__PURE__*/
 function (_OpABExpr8) {
+  _inherits(LeExpr, _OpABExpr8);
+
   function LeExpr(a, b) {
     _classCallCheck(this, LeExpr);
 
@@ -13747,16 +13313,13 @@ function (_OpABExpr8) {
     }
   }]);
 
-  _inherits(LeExpr, _OpABExpr8);
-
   return LeExpr;
 }(OpABExpr);
-
-exports.LeExpr = LeExpr;
-
 var EqExpr =
 /*#__PURE__*/
 function (_OpABExpr9) {
+  _inherits(EqExpr, _OpABExpr9);
+
   function EqExpr(a, b) {
     _classCallCheck(this, EqExpr);
 
@@ -13770,16 +13333,13 @@ function (_OpABExpr9) {
     }
   }]);
 
-  _inherits(EqExpr, _OpABExpr9);
-
   return EqExpr;
 }(OpABExpr);
-
-exports.EqExpr = EqExpr;
-
 var MaxExpr =
 /*#__PURE__*/
 function (_OpABExpr10) {
+  _inherits(MaxExpr, _OpABExpr10);
+
   function MaxExpr(a, b) {
     _classCallCheck(this, MaxExpr);
 
@@ -13793,16 +13353,13 @@ function (_OpABExpr10) {
     }
   }]);
 
-  _inherits(MaxExpr, _OpABExpr10);
-
   return MaxExpr;
 }(OpABExpr);
-
-exports.MaxExpr = MaxExpr;
-
 var AbsExpr =
 /*#__PURE__*/
 function (_OpAExpr2) {
+  _inherits(AbsExpr, _OpAExpr2);
+
   function AbsExpr(a) {
     _classCallCheck(this, AbsExpr);
 
@@ -13816,16 +13373,13 @@ function (_OpAExpr2) {
     }
   }]);
 
-  _inherits(AbsExpr, _OpAExpr2);
-
   return AbsExpr;
 }(OpAExpr);
-
-exports.AbsExpr = AbsExpr;
-
 var RefExpr =
 /*#__PURE__*/
 function (_OpABExpr11) {
+  _inherits(RefExpr, _OpABExpr11);
+
   function RefExpr(a, b) {
     _classCallCheck(this, RefExpr);
 
@@ -13859,16 +13413,13 @@ function (_OpABExpr11) {
     }
   }]);
 
-  _inherits(RefExpr, _OpABExpr11);
-
   return RefExpr;
 }(OpABExpr);
-
-exports.RefExpr = RefExpr;
-
 var AndExpr =
 /*#__PURE__*/
 function (_OpABExpr12) {
+  _inherits(AndExpr, _OpABExpr12);
+
   function AndExpr(a, b) {
     _classCallCheck(this, AndExpr);
 
@@ -13882,16 +13433,13 @@ function (_OpABExpr12) {
     }
   }]);
 
-  _inherits(AndExpr, _OpABExpr12);
-
   return AndExpr;
 }(OpABExpr);
-
-exports.AndExpr = AndExpr;
-
 var OrExpr =
 /*#__PURE__*/
 function (_OpABExpr13) {
+  _inherits(OrExpr, _OpABExpr13);
+
   function OrExpr(a, b) {
     _classCallCheck(this, OrExpr);
 
@@ -13905,16 +13453,13 @@ function (_OpABExpr13) {
     }
   }]);
 
-  _inherits(OrExpr, _OpABExpr13);
-
   return OrExpr;
 }(OpABExpr);
-
-exports.OrExpr = OrExpr;
-
 var IfExpr =
 /*#__PURE__*/
 function (_OpABCExpr) {
+  _inherits(IfExpr, _OpABCExpr);
+
   function IfExpr(a, b, c) {
     _classCallCheck(this, IfExpr);
 
@@ -13928,16 +13473,13 @@ function (_OpABCExpr) {
     }
   }]);
 
-  _inherits(IfExpr, _OpABCExpr);
-
   return IfExpr;
 }(OpABCExpr);
-
-exports.IfExpr = IfExpr;
-
 var AssignExpr =
 /*#__PURE__*/
 function (_OpAExpr3) {
+  _inherits(AssignExpr, _OpAExpr3);
+
   function AssignExpr(name, a) {
     var _this7;
 
@@ -13990,16 +13532,13 @@ function (_OpAExpr3) {
     }
   }]);
 
-  _inherits(AssignExpr, _OpAExpr3);
-
   return AssignExpr;
 }(OpAExpr);
-
-exports.AssignExpr = AssignExpr;
-
 var OutputExpr =
 /*#__PURE__*/
 function (_AssignExpr) {
+  _inherits(OutputExpr, _AssignExpr);
+
   function OutputExpr(name, a, style, color) {
     var _this8;
 
@@ -14023,12 +13562,8 @@ function (_AssignExpr) {
     }
   }]);
 
-  _inherits(OutputExpr, _AssignExpr);
-
   return OutputExpr;
 }(AssignExpr);
-
-exports.OutputExpr = OutputExpr;
 OutputExpr.outputStyle = {
   None: 0,
   Line: 1,
@@ -14036,10 +13571,11 @@ OutputExpr.outputStyle = {
   MACDStick: 3,
   SARPoint: 4
 };
-
 var RangeOutputExpr =
 /*#__PURE__*/
 function (_OutputExpr) {
+  _inherits(RangeOutputExpr, _OutputExpr);
+
   function RangeOutputExpr(name, a, style, color) {
     _classCallCheck(this, RangeOutputExpr);
 
@@ -14053,16 +13589,13 @@ function (_OutputExpr) {
     }
   }]);
 
-  _inherits(RangeOutputExpr, _OutputExpr);
-
   return RangeOutputExpr;
 }(OutputExpr);
-
-exports.RangeOutputExpr = RangeOutputExpr;
-
 var RangeExpr =
 /*#__PURE__*/
 function (_OpABExpr14) {
+  _inherits(RangeExpr, _OpABExpr14);
+
   function RangeExpr(a, b) {
     var _this9;
 
@@ -14119,16 +13652,13 @@ function (_OpABExpr14) {
     }
   }]);
 
-  _inherits(RangeExpr, _OpABExpr14);
-
   return RangeExpr;
 }(OpABExpr);
-
-exports.RangeExpr = RangeExpr;
-
 var HhvExpr =
 /*#__PURE__*/
 function (_RangeExpr) {
+  _inherits(HhvExpr, _RangeExpr);
+
   function HhvExpr(a, b) {
     _classCallCheck(this, HhvExpr);
 
@@ -14169,16 +13699,13 @@ function (_RangeExpr) {
     }
   }]);
 
-  _inherits(HhvExpr, _RangeExpr);
-
   return HhvExpr;
 }(RangeExpr);
-
-exports.HhvExpr = HhvExpr;
-
 var LlvExpr =
 /*#__PURE__*/
 function (_RangeExpr2) {
+  _inherits(LlvExpr, _RangeExpr2);
+
   function LlvExpr(a, b) {
     _classCallCheck(this, LlvExpr);
 
@@ -14212,16 +13739,13 @@ function (_RangeExpr2) {
     }
   }]);
 
-  _inherits(LlvExpr, _RangeExpr2);
-
   return LlvExpr;
 }(RangeExpr);
-
-exports.LlvExpr = LlvExpr;
-
 var CountExpr =
 /*#__PURE__*/
 function (_RangeExpr3) {
+  _inherits(CountExpr, _RangeExpr3);
+
   function CountExpr(a, b) {
     _classCallCheck(this, CountExpr);
 
@@ -14253,16 +13777,13 @@ function (_RangeExpr3) {
     }
   }]);
 
-  _inherits(CountExpr, _RangeExpr3);
-
   return CountExpr;
 }(RangeExpr);
-
-exports.CountExpr = CountExpr;
-
 var SumExpr =
 /*#__PURE__*/
 function (_RangeExpr4) {
+  _inherits(SumExpr, _RangeExpr4);
+
   function SumExpr(a, b) {
     _classCallCheck(this, SumExpr);
 
@@ -14290,16 +13811,13 @@ function (_RangeExpr4) {
     }
   }]);
 
-  _inherits(SumExpr, _RangeExpr4);
-
   return SumExpr;
 }(RangeExpr);
-
-exports.SumExpr = SumExpr;
-
 var StdExpr =
 /*#__PURE__*/
 function (_RangeExpr5) {
+  _inherits(StdExpr, _RangeExpr5);
+
   function StdExpr(a, b) {
     _classCallCheck(this, StdExpr);
 
@@ -14363,16 +13881,13 @@ function (_RangeExpr5) {
     }
   }]);
 
-  _inherits(StdExpr, _RangeExpr5);
-
   return StdExpr;
 }(RangeExpr);
-
-exports.StdExpr = StdExpr;
-
 var MaExpr =
 /*#__PURE__*/
 function (_RangeExpr6) {
+  _inherits(MaExpr, _RangeExpr6);
+
   function MaExpr(a, b) {
     _classCallCheck(this, MaExpr);
 
@@ -14403,16 +13918,13 @@ function (_RangeExpr6) {
     }
   }]);
 
-  _inherits(MaExpr, _RangeExpr6);
-
   return MaExpr;
 }(RangeExpr);
-
-exports.MaExpr = MaExpr;
-
 var EmaExpr =
 /*#__PURE__*/
 function (_RangeExpr7) {
+  _inherits(EmaExpr, _RangeExpr7);
+
   function EmaExpr(a, b) {
     _classCallCheck(this, EmaExpr);
 
@@ -14444,16 +13956,13 @@ function (_RangeExpr7) {
     }
   }]);
 
-  _inherits(EmaExpr, _RangeExpr7);
-
   return EmaExpr;
 }(RangeExpr);
-
-exports.EmaExpr = EmaExpr;
-
 var ExpmemaExpr =
 /*#__PURE__*/
 function (_EmaExpr) {
+  _inherits(ExpmemaExpr, _EmaExpr);
+
   function ExpmemaExpr(a, b) {
     _classCallCheck(this, ExpmemaExpr);
 
@@ -14483,16 +13992,13 @@ function (_EmaExpr) {
     }
   }]);
 
-  _inherits(ExpmemaExpr, _EmaExpr);
-
   return ExpmemaExpr;
 }(EmaExpr);
-
-exports.ExpmemaExpr = ExpmemaExpr;
-
 var SmaExpr =
 /*#__PURE__*/
 function (_RangeExpr8) {
+  _inherits(SmaExpr, _RangeExpr8);
+
   function SmaExpr(a, b, c) {
     var _this10;
 
@@ -14530,16 +14036,13 @@ function (_RangeExpr8) {
     }
   }]);
 
-  _inherits(SmaExpr, _RangeExpr8);
-
   return SmaExpr;
 }(RangeExpr);
-
-exports.SmaExpr = SmaExpr;
-
 var SarExpr =
 /*#__PURE__*/
 function (_OpABCDExpr) {
+  _inherits(SarExpr, _OpABCDExpr);
+
   function SarExpr(a, b, c, d) {
     var _this11;
 
@@ -14662,25 +14165,15 @@ function (_OpABCDExpr) {
     }
   }]);
 
-  _inherits(SarExpr, _OpABCDExpr);
-
   return SarExpr;
 }(OpABCDExpr);
 
-exports.SarExpr = SarExpr;
-
 /***/ }),
 /* 21 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.MEvent = void 0;
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MEvent; });
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -14743,31 +14236,22 @@ function () {
   return MEvent;
 }();
 
-exports.MEvent = MEvent;
-
 /***/ }),
 /* 22 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.PercentageRange = exports.ZeroCenteredRange = exports.MainRange = exports.ZeroBasedPositiveRange = exports.PositiveRange = exports.Range = void 0;
-
-var _named_object = __webpack_require__(1);
-
-var _chart_manager = __webpack_require__(0);
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return Range; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return PositiveRange; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return ZeroBasedPositiveRange; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MainRange; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return ZeroCenteredRange; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return PercentageRange; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__named_object__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__chart_manager__ = __webpack_require__(0);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } _setPrototypeOf(subClass.prototype, superClass && superClass.prototype); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
@@ -14777,11 +14261,19 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _getPrototypeOf(o) { _getPrototypeOf = Object.getPrototypeOf || function _getPrototypeOf(o) { return o.__proto__; }; return _getPrototypeOf(o); }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
 
 var Range =
 /*#__PURE__*/
 function (_NamedObject) {
+  _inherits(Range, _NamedObject);
+
   function Range(name) {
     var _this;
 
@@ -14885,7 +14377,7 @@ function (_NamedObject) {
         return this._selectedValue;
       }
 
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_1__chart_manager__["a" /* ChartManager */].instance;
       var area = mgr.getArea(this.getAreaName());
 
       if (area === null) {
@@ -14925,17 +14417,18 @@ function (_NamedObject) {
   }, {
     key: "toHeight",
     value: function toHeight(value) {
-		if (value == Infinity || this._ratio == 0) {
-		  return 1.5;
-		}
-	  	return Math.floor(value * this._ratio + 1.5);
+      if (value == Infinity || this._ratio == 0) {
+        return 1.5;
+      }
+
+      return Math.floor(value * this._ratio + 1.5);
     }
   }, {
     key: "update",
     value: function update() {
       var min = Number.MAX_VALUE;
       var max = -Number.MAX_VALUE;
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_1__chart_manager__["a" /* ChartManager */].instance;
       var dp,
           dpNames = [".main", ".secondary"];
 
@@ -14984,7 +14477,7 @@ function (_NamedObject) {
   }, {
     key: "setRange",
     value: function setRange(minValue, maxValue) {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_1__chart_manager__["a" /* ChartManager */].instance;
       var area = mgr.getArea(this.getAreaName());
 
       if (this._minValue === minValue && this._maxValue === maxValue && !area.isChanged()) {
@@ -15066,16 +14559,13 @@ function (_NamedObject) {
     }
   }]);
 
-  _inherits(Range, _NamedObject);
-
   return Range;
-}(_named_object.NamedObject);
-
-exports.Range = Range;
-
+}(__WEBPACK_IMPORTED_MODULE_0__named_object__["a" /* NamedObject */]);
 var PositiveRange =
 /*#__PURE__*/
 function (_Range) {
+  _inherits(PositiveRange, _Range);
+
   function PositiveRange(name) {
     _classCallCheck(this, PositiveRange);
 
@@ -15090,16 +14580,13 @@ function (_Range) {
     }
   }]);
 
-  _inherits(PositiveRange, _Range);
-
   return PositiveRange;
 }(Range);
-
-exports.PositiveRange = PositiveRange;
-
 var ZeroBasedPositiveRange =
 /*#__PURE__*/
 function (_Range2) {
+  _inherits(ZeroBasedPositiveRange, _Range2);
+
   function ZeroBasedPositiveRange(name) {
     _classCallCheck(this, ZeroBasedPositiveRange);
 
@@ -15114,16 +14601,13 @@ function (_Range2) {
     }
   }]);
 
-  _inherits(ZeroBasedPositiveRange, _Range2);
-
   return ZeroBasedPositiveRange;
 }(Range);
-
-exports.ZeroBasedPositiveRange = ZeroBasedPositiveRange;
-
 var MainRange =
 /*#__PURE__*/
 function (_Range3) {
+  _inherits(MainRange, _Range3);
+
   function MainRange(name) {
     _classCallCheck(this, MainRange);
 
@@ -15133,7 +14617,7 @@ function (_Range3) {
   _createClass(MainRange, [{
     key: "preSetRange",
     value: function preSetRange(r) {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_1__chart_manager__["a" /* ChartManager */].instance;
       var timeline = mgr.getTimeline(this.getDataSourceName());
       var dIndex = timeline.getMaxIndex() - timeline.getLastIndex();
 
@@ -15166,16 +14650,13 @@ function (_Range3) {
     }
   }]);
 
-  _inherits(MainRange, _Range3);
-
   return MainRange;
 }(Range);
-
-exports.MainRange = MainRange;
-
 var ZeroCenteredRange =
 /*#__PURE__*/
 function (_Range4) {
+  _inherits(ZeroCenteredRange, _Range4);
+
   function ZeroCenteredRange(name) {
     _classCallCheck(this, ZeroCenteredRange);
 
@@ -15205,7 +14686,7 @@ function (_Range4) {
     key: "updateGradations",
     value: function updateGradations() {
       this._gradations = [];
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_1__chart_manager__["a" /* ChartManager */].instance;
       var area = mgr.getArea(this.getAreaName());
       var interval = this.calcInterval(area);
 
@@ -15232,16 +14713,13 @@ function (_Range4) {
     }
   }]);
 
-  _inherits(ZeroCenteredRange, _Range4);
-
   return ZeroCenteredRange;
 }(Range);
-
-exports.ZeroCenteredRange = ZeroCenteredRange;
-
 var PercentageRange =
 /*#__PURE__*/
 function (_Range5) {
+  _inherits(PercentageRange, _Range5);
+
   function PercentageRange(name) {
     _classCallCheck(this, PercentageRange);
 
@@ -15252,7 +14730,7 @@ function (_Range5) {
     key: "updateGradations",
     value: function updateGradations() {
       this._gradations = [];
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_1__chart_manager__["a" /* ChartManager */].instance;
       var area = mgr.getArea(this.getAreaName());
       var interval = 10.0;
       var h = Math.floor(this.toHeight(interval));
@@ -15281,12 +14759,8 @@ function (_Range5) {
     }
   }]);
 
-  _inherits(PercentageRange, _Range5);
-
   return PercentageRange;
 }(Range);
-
-exports.PercentageRange = PercentageRange;
 
 /***/ }),
 /* 23 */
@@ -15486,51 +14960,34 @@ process.umask = function() { return 0; };
 
 /***/ }),
 /* 25 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__js_kline__ = __webpack_require__(3);
 
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _kline = _interopRequireDefault(__webpack_require__(3));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-window.Kline = _kline.default;
-var _default = _kline.default;
-exports.default = _default;
+window.Kline = __WEBPACK_IMPORTED_MODULE_0__js_kline__["a" /* default */];
+/* harmony default export */ __webpack_exports__["default"] = (__WEBPACK_IMPORTED_MODULE_0__js_kline__["a" /* default */]);
 
 /***/ }),
 /* 26 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Chart = void 0;
-
-var _chart_manager = __webpack_require__(0);
-
-var _control = __webpack_require__(10);
-
-var _kline = _interopRequireDefault(__webpack_require__(3));
-
-var _templates = __webpack_require__(8);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Chart; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__chart_manager__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__control__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__kline__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__templates__ = __webpack_require__(8);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+
 
 var Chart =
 /*#__PURE__*/
@@ -15550,21 +15007,19 @@ function () {
       bids_ei: 0
     };
     this.strIsLine = false;
-    this._range = _kline.default.instance.range;
-    this._symbol = _kline.default.instance.symbol;
+    this._range = __WEBPACK_IMPORTED_MODULE_2__kline__["a" /* default */].instance.range;
+    this._symbol = __WEBPACK_IMPORTED_MODULE_2__kline__["a" /* default */].instance.symbol;
   }
 
   _createClass(Chart, [{
     key: "setTitle",
     value: function setTitle() {
-      var lang = _chart_manager.ChartManager.instance.getLanguage();
-
-      var title = _kline.default.instance.symbolName;
+      var lang = __WEBPACK_IMPORTED_MODULE_0__chart_manager__["a" /* ChartManager */].instance.getLanguage();
+      var title = __WEBPACK_IMPORTED_MODULE_2__kline__["a" /* default */].instance.symbolName;
       title += ' ';
       title += this.strIsLine ? Chart.strPeriod[lang]['line'] : Chart.strPeriod[lang][this._range];
       title += (this._contract_unit + '/' + this._money_type).toUpperCase();
-
-      _chart_manager.ChartManager.instance.setTitle('frame0.k0', title);
+      __WEBPACK_IMPORTED_MODULE_0__chart_manager__["a" /* ChartManager */].instance.setTitle('frame0.k0', title);
     }
   }, {
     key: "setSymbol",
@@ -15575,28 +15030,22 @@ function () {
   }, {
     key: "updateDataAndDisplay",
     value: function updateDataAndDisplay() {
-      _kline.default.instance.symbol = this._symbol;
-      _kline.default.instance.range = this._range;
-
-      _chart_manager.ChartManager.instance.setCurrentDataSource('frame0.k0', this._symbol + '.' + this._range);
-
-      _chart_manager.ChartManager.instance.setNormalMode();
-
-      var f = _kline.default.instance.chartMgr.getDataSource("frame0.k0").getLastDate();
-
-      $('.symbol-title>a').text(_kline.default.instance.symbolName);
+      __WEBPACK_IMPORTED_MODULE_2__kline__["a" /* default */].instance.symbol = this._symbol;
+      __WEBPACK_IMPORTED_MODULE_2__kline__["a" /* default */].instance.range = this._range;
+      __WEBPACK_IMPORTED_MODULE_0__chart_manager__["a" /* ChartManager */].instance.setCurrentDataSource('frame0.k0', this._symbol + '.' + this._range);
+      __WEBPACK_IMPORTED_MODULE_0__chart_manager__["a" /* ChartManager */].instance.setNormalMode();
+      var f = __WEBPACK_IMPORTED_MODULE_2__kline__["a" /* default */].instance.chartMgr.getDataSource("frame0.k0").getLastDate();
+      $('.symbol-title>a').text(__WEBPACK_IMPORTED_MODULE_2__kline__["a" /* default */].instance.symbolName);
 
       if (f === -1) {
-        _kline.default.instance.requestParam = _control.Control.setHttpRequestParam(_kline.default.instance.symbol, _kline.default.instance.range, _kline.default.instance.limit, null);
-
-        _control.Control.requestData(true);
+        __WEBPACK_IMPORTED_MODULE_2__kline__["a" /* default */].instance.requestParam = __WEBPACK_IMPORTED_MODULE_1__control__["a" /* Control */].setHttpRequestParam(__WEBPACK_IMPORTED_MODULE_2__kline__["a" /* default */].instance.symbol, __WEBPACK_IMPORTED_MODULE_2__kline__["a" /* default */].instance.range, __WEBPACK_IMPORTED_MODULE_2__kline__["a" /* default */].instance.limit, null);
+        __WEBPACK_IMPORTED_MODULE_1__control__["a" /* Control */].requestData(true);
       } else {
-        _kline.default.instance.requestParam = _control.Control.setHttpRequestParam(_kline.default.instance.symbol, _kline.default.instance.range, null, f.toString());
-
-        _control.Control.requestData();
+        __WEBPACK_IMPORTED_MODULE_2__kline__["a" /* default */].instance.requestParam = __WEBPACK_IMPORTED_MODULE_1__control__["a" /* Control */].setHttpRequestParam(__WEBPACK_IMPORTED_MODULE_2__kline__["a" /* default */].instance.symbol, __WEBPACK_IMPORTED_MODULE_2__kline__["a" /* default */].instance.range, null, f.toString());
+        __WEBPACK_IMPORTED_MODULE_1__control__["a" /* Control */].requestData();
       }
 
-      _chart_manager.ChartManager.instance.redraw('All', false);
+      __WEBPACK_IMPORTED_MODULE_0__chart_manager__["a" /* ChartManager */].instance.redraw('All', false);
     }
   }, {
     key: "setCurrentContractUnit",
@@ -15613,33 +15062,28 @@ function () {
   }, {
     key: "setCurrentPeriod",
     value: function setCurrentPeriod(period) {
-      this._range = _kline.default.instance.periodMap[period];
+      this._range = __WEBPACK_IMPORTED_MODULE_2__kline__["a" /* default */].instance.periodMap[period];
 
-      if (_kline.default.instance.type === "stomp" && _kline.default.instance.stompClient.ws.readyState === 1) {
-        _kline.default.instance.subscribed.unsubscribe();
-
-        _kline.default.instance.subscribed = _kline.default.instance.stompClient.subscribe(_kline.default.instance.subscribePath + '/' + _kline.default.instance.symbol + '/' + this._range, _control.Control.subscribeCallback);
+      if (__WEBPACK_IMPORTED_MODULE_2__kline__["a" /* default */].instance.type === "stomp" && __WEBPACK_IMPORTED_MODULE_2__kline__["a" /* default */].instance.stompClient.ws.readyState === 1) {
+        __WEBPACK_IMPORTED_MODULE_2__kline__["a" /* default */].instance.subscribed.unsubscribe();
+        __WEBPACK_IMPORTED_MODULE_2__kline__["a" /* default */].instance.subscribed = __WEBPACK_IMPORTED_MODULE_2__kline__["a" /* default */].instance.stompClient.subscribe(__WEBPACK_IMPORTED_MODULE_2__kline__["a" /* default */].instance.subscribePath + '/' + __WEBPACK_IMPORTED_MODULE_2__kline__["a" /* default */].instance.symbol + '/' + this._range, __WEBPACK_IMPORTED_MODULE_1__control__["a" /* Control */].subscribeCallback);
       }
 
       this.updateDataAndDisplay();
-
-      _kline.default.instance.onRangeChange(this._range);
+      __WEBPACK_IMPORTED_MODULE_2__kline__["a" /* default */].instance.onRangeChange(this._range);
     }
   }, {
     key: "updateDataSource",
     value: function updateDataSource(data) {
       this._data = data;
-
-      _chart_manager.ChartManager.instance.updateData("frame0.k0", this._data);
+      __WEBPACK_IMPORTED_MODULE_0__chart_manager__["a" /* ChartManager */].instance.updateData("frame0.k0", this._data);
     }
   }, {
     key: "updateDepth",
     value: function updateDepth(array) {
       if (array === null) {
         this._depthData.array = [];
-
-        _chart_manager.ChartManager.instance.redraw('All', false);
-
+        __WEBPACK_IMPORTED_MODULE_0__chart_manager__["a" /* ChartManager */].instance.redraw('All', false);
         return;
       }
 
@@ -15686,7 +15130,7 @@ function () {
         }
       }
 
-      _chart_manager.ChartManager.instance.redraw('All', false);
+      __WEBPACK_IMPORTED_MODULE_0__chart_manager__["a" /* ChartManager */].instance.redraw('All', false);
     }
   }, {
     key: "setMainIndicator",
@@ -15694,60 +15138,53 @@ function () {
       this._mainIndicator = indicName;
 
       if (indicName === 'NONE') {
-        _chart_manager.ChartManager.instance.removeMainIndicator('frame0.k0');
+        __WEBPACK_IMPORTED_MODULE_0__chart_manager__["a" /* ChartManager */].instance.removeMainIndicator('frame0.k0');
       } else {
-        _chart_manager.ChartManager.instance.setMainIndicator('frame0.k0', indicName);
+        __WEBPACK_IMPORTED_MODULE_0__chart_manager__["a" /* ChartManager */].instance.setMainIndicator('frame0.k0', indicName);
       }
 
-      _chart_manager.ChartManager.instance.redraw('All', true);
+      __WEBPACK_IMPORTED_MODULE_0__chart_manager__["a" /* ChartManager */].instance.redraw('All', true);
     }
   }, {
     key: "setIndicator",
     value: function setIndicator(index, indicName) {
       if (indicName === 'NONE') {
         var _index = 2;
-        if (_templates.Template.displayVolume === false) _index = 1;
-
-        var areaName = _chart_manager.ChartManager.instance.getIndicatorAreaName('frame0.k0', _index);
-
-        if (areaName !== '') _chart_manager.ChartManager.instance.removeIndicator(areaName);
+        if (__WEBPACK_IMPORTED_MODULE_3__templates__["b" /* Template */].displayVolume === false) _index = 1;
+        var areaName = __WEBPACK_IMPORTED_MODULE_0__chart_manager__["a" /* ChartManager */].instance.getIndicatorAreaName('frame0.k0', _index);
+        if (areaName !== '') __WEBPACK_IMPORTED_MODULE_0__chart_manager__["a" /* ChartManager */].instance.removeIndicator(areaName);
       } else {
         var _index2 = 2;
-        if (_templates.Template.displayVolume === false) _index2 = 1;
+        if (__WEBPACK_IMPORTED_MODULE_3__templates__["b" /* Template */].displayVolume === false) _index2 = 1;
 
-        var _areaName = _chart_manager.ChartManager.instance.getIndicatorAreaName('frame0.k0', _index2);
+        var _areaName = __WEBPACK_IMPORTED_MODULE_0__chart_manager__["a" /* ChartManager */].instance.getIndicatorAreaName('frame0.k0', _index2);
 
         if (_areaName === '') {
-          _templates.Template.createIndicatorChartComps('frame0.k0', indicName);
+          __WEBPACK_IMPORTED_MODULE_3__templates__["b" /* Template */].createIndicatorChartComps('frame0.k0', indicName);
         } else {
-          _chart_manager.ChartManager.instance.setIndicator(_areaName, indicName);
+          __WEBPACK_IMPORTED_MODULE_0__chart_manager__["a" /* ChartManager */].instance.setIndicator(_areaName, indicName);
         }
       }
 
-      _chart_manager.ChartManager.instance.redraw('All', true);
+      __WEBPACK_IMPORTED_MODULE_0__chart_manager__["a" /* ChartManager */].instance.redraw('All', true);
     }
   }, {
     key: "addIndicator",
     value: function addIndicator(indicName) {
-      _chart_manager.ChartManager.instance.addIndicator(indicName);
-
-      _chart_manager.ChartManager.instance.redraw('All', true);
+      __WEBPACK_IMPORTED_MODULE_0__chart_manager__["a" /* ChartManager */].instance.addIndicator(indicName);
+      __WEBPACK_IMPORTED_MODULE_0__chart_manager__["a" /* ChartManager */].instance.redraw('All', true);
     }
   }, {
     key: "removeIndicator",
     value: function removeIndicator(indicName) {
-      var areaName = _chart_manager.ChartManager.instance.getIndicatorAreaName(2);
-
-      _chart_manager.ChartManager.instance.removeIndicator(areaName);
-
-      _chart_manager.ChartManager.instance.redraw('All', true);
+      var areaName = __WEBPACK_IMPORTED_MODULE_0__chart_manager__["a" /* ChartManager */].instance.getIndicatorAreaName(2);
+      __WEBPACK_IMPORTED_MODULE_0__chart_manager__["a" /* ChartManager */].instance.removeIndicator(areaName);
+      __WEBPACK_IMPORTED_MODULE_0__chart_manager__["a" /* ChartManager */].instance.redraw('All', true);
     }
   }]);
 
   return Chart;
 }();
-
-exports.Chart = Chart;
 Chart.strPeriod = {
   'zh-cn': {
     'line': '(分时)',
@@ -15801,31 +15238,16 @@ Chart.strPeriod = {
 
 /***/ }),
 /* 27 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.CToolManager = void 0;
-
-var _named_object = __webpack_require__(1);
-
-var _cpoint = __webpack_require__(11);
-
-var ctools = _interopRequireWildcard(__webpack_require__(12));
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CToolManager; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__named_object__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__cpoint__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ctools__ = __webpack_require__(12);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } _setPrototypeOf(subClass.prototype, superClass && superClass.prototype); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
@@ -15835,11 +15257,20 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _getPrototypeOf(o) { _getPrototypeOf = Object.getPrototypeOf || function _getPrototypeOf(o) { return o.__proto__; }; return _getPrototypeOf(o); }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
 
 var CToolManager =
 /*#__PURE__*/
 function (_NamedObject) {
+  _inherits(CToolManager, _NamedObject);
+
   function CToolManager(name) {
     var _this;
 
@@ -15896,11 +15327,11 @@ function (_NamedObject) {
     value: function acceptMouseMoveEvent(x, y) {
       if (this.selectedObject === -1) {
         var curr = this.toolObjects[this.getToolObjectCount() - 1];
-        if (curr !== null && curr !== undefined && curr.getState() !== ctools.CToolObject.state.AfterDraw) return curr.acceptMouseMoveEvent(x, y);
+        if (curr !== null && curr !== undefined && curr.getState() !== __WEBPACK_IMPORTED_MODULE_2__ctools__["n" /* CToolObject */].state.AfterDraw) return curr.acceptMouseMoveEvent(x, y);
       } else {
         var sel = this.toolObjects[this.selectedObject];
 
-        if (sel.getState() === ctools.CToolObject.state.Draw) {
+        if (sel.getState() === __WEBPACK_IMPORTED_MODULE_2__ctools__["n" /* CToolObject */].state.Draw) {
           return sel.acceptMouseMoveEvent(x, y);
         }
 
@@ -15924,10 +15355,10 @@ function (_NamedObject) {
 
       if (this.selectedObject === -1) {
         var curr = this.toolObjects[this.getToolObjectCount() - 1];
-        if (curr !== null && curr !== undefined && curr.getState() !== ctools.CToolObject.state.AfterDraw) return curr.acceptMouseDownEvent(x, y);
+        if (curr !== null && curr !== undefined && curr.getState() !== __WEBPACK_IMPORTED_MODULE_2__ctools__["n" /* CToolObject */].state.AfterDraw) return curr.acceptMouseDownEvent(x, y);
       } else {
         var sel = this.toolObjects[this.selectedObject];
-        if (sel.getState() !== ctools.CToolObject.state.BeforeDraw) return sel.acceptMouseDownEvent(x, y);
+        if (sel.getState() !== __WEBPACK_IMPORTED_MODULE_2__ctools__["n" /* CToolObject */].state.BeforeDraw) return sel.acceptMouseDownEvent(x, y);
       }
 
       return false;
@@ -15939,17 +15370,17 @@ function (_NamedObject) {
 
       if (this.selectedObject === -1) {
         var curr = this.toolObjects[this.getToolObjectCount() - 1];
-        if (curr !== null && curr !== undefined && curr.getState() === ctools.CToolObject.state.Draw) return curr.acceptMouseDownMoveEvent(x, y);
+        if (curr !== null && curr !== undefined && curr.getState() === __WEBPACK_IMPORTED_MODULE_2__ctools__["n" /* CToolObject */].state.Draw) return curr.acceptMouseDownMoveEvent(x, y);
         return false;
       } else {
         var sel = this.toolObjects[this.selectedObject];
 
-        if (sel.getState() !== ctools.CToolObject.state.BeforeDraw) {
+        if (sel.getState() !== __WEBPACK_IMPORTED_MODULE_2__ctools__["n" /* CToolObject */].state.BeforeDraw) {
           if (sel.acceptMouseDownMoveEvent(x, y) === true) {
             var point = this.toolObjects[this.selectedObject].points;
 
             for (var i = 0; i < point.length; i++) {
-              if (point[i].state === _cpoint.CPoint.state.Highlight || point[i].state === _cpoint.CPoint.state.Show) {
+              if (point[i].state === __WEBPACK_IMPORTED_MODULE_1__cpoint__["a" /* CPoint */].state.Highlight || point[i].state === __WEBPACK_IMPORTED_MODULE_1__cpoint__["a" /* CPoint */].state.Show) {
                 return true;
               }
             }
@@ -15965,11 +15396,11 @@ function (_NamedObject) {
       if (this.mouseDownMove === true) {
         if (this.selectedObject === -1) {
           var _curr = this.toolObjects[this.getToolObjectCount() - 1];
-          if (_curr !== null && _curr !== undefined && _curr.getState() === ctools.CToolObject.state.Draw) return _curr.acceptMouseUpEvent(x, y);
+          if (_curr !== null && _curr !== undefined && _curr.getState() === __WEBPACK_IMPORTED_MODULE_2__ctools__["n" /* CToolObject */].state.Draw) return _curr.acceptMouseUpEvent(x, y);
           return true;
         } else {
           var sel = this.toolObjects[this.selectedObject];
-          if (sel.getState() !== ctools.CToolObject.state.BeforeDraw) return sel.acceptMouseUpEvent(x, y);
+          if (sel.getState() !== __WEBPACK_IMPORTED_MODULE_2__ctools__["n" /* CToolObject */].state.BeforeDraw) return sel.acceptMouseUpEvent(x, y);
         }
       }
 
@@ -15980,7 +15411,7 @@ function (_NamedObject) {
       var curr = this.toolObjects[this.getToolObjectCount() - 1];
 
       if (curr !== null && curr !== undefined) {
-        if (curr.getState() === ctools.CToolObject.state.Draw) return true;
+        if (curr.getState() === __WEBPACK_IMPORTED_MODULE_2__ctools__["n" /* CToolObject */].state.Draw) return true;
 
         if (!curr.isValidMouseXY(x, y)) {
           return false;
@@ -15995,38 +15426,21 @@ function (_NamedObject) {
     }
   }]);
 
-  _inherits(CToolManager, _NamedObject);
-
   return CToolManager;
-}(_named_object.NamedObject);
-
-exports.CToolManager = CToolManager;
+}(__WEBPACK_IMPORTED_MODULE_0__named_object__["a" /* NamedObject */]);
 
 /***/ }),
 /* 28 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Timeline = void 0;
-
-var _named_object = __webpack_require__(1);
-
-var _chart_manager = __webpack_require__(0);
-
-var _data_sources = __webpack_require__(2);
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Timeline; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__named_object__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__chart_manager__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_sources__ = __webpack_require__(2);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } _setPrototypeOf(subClass.prototype, superClass && superClass.prototype); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
@@ -16036,11 +15450,20 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _getPrototypeOf(o) { _getPrototypeOf = Object.getPrototypeOf || function _getPrototypeOf(o) { return o.__proto__; }; return _getPrototypeOf(o); }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
 
 var Timeline =
 /*#__PURE__*/
 function (_NamedObject) {
+  _inherits(Timeline, _NamedObject);
+
   function Timeline(name) {
     var _this;
 
@@ -16215,7 +15638,7 @@ function (_NamedObject) {
   }, {
     key: "onLayout",
     value: function onLayout() {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_1__chart_manager__["a" /* ChartManager */].instance;
       var area = mgr.getArea(this.getDataSourceName() + ".main");
 
       if (area !== null) {
@@ -16263,19 +15686,19 @@ function (_NamedObject) {
   }, {
     key: "update",
     value: function update() {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_1__chart_manager__["a" /* ChartManager */].instance;
       var ds = mgr.getDataSource(this.getDataSourceName());
       var oldMaxIndex = this._maxIndex;
       this._maxIndex = ds.getDataCount();
 
       switch (ds.getUpdateMode()) {
-        case _data_sources.DataSource.UpdateMode.Refresh:
+        case __WEBPACK_IMPORTED_MODULE_2__data_sources__["a" /* DataSource */].UpdateMode.Refresh:
           if (this._maxIndex < 1) this._firstIndex = -1;else this._firstIndex = Math.max(this._maxIndex - this._maxItemCount, 0);
           this._selectedIndex = -1;
           this._updated = true;
           break;
 
-        case _data_sources.DataSource.UpdateMode.Append:
+        case __WEBPACK_IMPORTED_MODULE_2__data_sources__["a" /* DataSource */].UpdateMode.Append:
           var lastIndex = this.getLastIndex();
           var erasedCount = ds.getErasedCount();
 
@@ -16308,7 +15731,7 @@ function (_NamedObject) {
     key: "move",
     value: function move(x) {
       if (this.isLatestShown()) {
-        _chart_manager.ChartManager.instance.getArea(this.getDataSourceName() + ".mainRange").setChanged(true);
+        __WEBPACK_IMPORTED_MODULE_1__chart_manager__["a" /* ChartManager */].instance.getArea(this.getDataSourceName() + ".mainRange").setChanged(true);
       }
 
       this._firstIndex = this.validateFirstIndex(this._savedFirstIndex - this.calcColumnCount(x), this._maxItemCount);
@@ -16339,12 +15762,8 @@ function (_NamedObject) {
     }
   }]);
 
-  _inherits(Timeline, _NamedObject);
-
   return Timeline;
-}(_named_object.NamedObject);
-
-exports.Timeline = Timeline;
+}(__WEBPACK_IMPORTED_MODULE_0__named_object__["a" /* NamedObject */]);
 Timeline.itemWidth = [1, 3, 3, 5, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29];
 Timeline.spaceWidth = [1, 1, 2, 2, 3, 3, 3, 3, 3, 3, 5, 5, 5, 5, 7, 7, 7];
 Timeline.PADDING_LEFT = 4;
@@ -16352,33 +15771,18 @@ Timeline.PADDING_RIGHT = 8;
 
 /***/ }),
 /* 29 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.DockableLayout = exports.TableLayout = void 0;
-
-var areas = _interopRequireWildcard(__webpack_require__(15));
-
-var _chart_manager = __webpack_require__(0);
-
-var themes = _interopRequireWildcard(__webpack_require__(6));
-
-var _chart_settings = __webpack_require__(4);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return TableLayout; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DockableLayout; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__areas__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__chart_manager__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__themes__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__chart_settings__ = __webpack_require__(4);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } _setPrototypeOf(subClass.prototype, superClass && superClass.prototype); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
@@ -16392,11 +15796,21 @@ function _get(target, property, receiver) { if (typeof Reflect !== "undefined" &
 
 function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
 
-function _getPrototypeOf(o) { _getPrototypeOf = Object.getPrototypeOf || function _getPrototypeOf(o) { return o.__proto__; }; return _getPrototypeOf(o); }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
 
 var TableLayout =
 /*#__PURE__*/
 function (_areas$ChartAreaGroup) {
+  _inherits(TableLayout, _areas$ChartAreaGroup);
+
   function TableLayout(name) {
     var _this;
 
@@ -16472,7 +15886,7 @@ function (_areas$ChartAreaGroup) {
       var minRW = 76;
       var maxRW = Math.min(240, width >> 1);
       var rw = minRW;
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_1__chart_manager__["a" /* ChartManager */].instance;
       var timeline = mgr.getTimeline(this.getDataSourceName());
 
       if (timeline.getFirstIndex() >= 0) {
@@ -16560,9 +15974,9 @@ function (_areas$ChartAreaGroup) {
         return;
       }
 
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_1__chart_manager__["a" /* ChartManager */].instance;
       var theme = mgr.getTheme(this.getFrameName());
-      context.fillStyle = theme.getColor(themes.Theme.Color.Grid1);
+      context.fillStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_2__themes__["c" /* Theme */].Color.Grid1);
       context.fillRect(this._areas[0].getRight(), this.getTop(), 1, this.getHeight());
       var i,
           cnt = this._areas.length - 2;
@@ -16574,7 +15988,7 @@ function (_areas$ChartAreaGroup) {
       if (!mgr.getCaptureMouseWheelDirectly()) {
         for (i = 0, cnt += 2; i < cnt; i += 2) {
           if (this._areas[i].isSelected()) {
-            context.strokeStyle = theme.getColor(themes.Theme.Color.Indicator1);
+            context.strokeStyle = theme.getColor(__WEBPACK_IMPORTED_MODULE_2__themes__["c" /* Theme */].Color.Indicator1);
             context.strokeRect(this.getLeft() + 0.5, this.getTop() + 0.5, this.getWidth() - 1, this.getHeight() - 1);
             break;
           }
@@ -16660,8 +16074,7 @@ function (_areas$ChartAreaGroup) {
         var b = this._areas[i].getBottom();
 
         if (y >= b - 4 && y < b + 4) {
-          _chart_manager.ChartManager.instance.showCursor('n-resize');
-
+          __WEBPACK_IMPORTED_MODULE_1__chart_manager__["a" /* ChartManager */].instance.showCursor('n-resize');
           return this;
         }
       }
@@ -16706,25 +16119,21 @@ function (_areas$ChartAreaGroup) {
           height.push(this._areas[i].getHeight());
         }
 
-        _chart_settings.ChartSettings.get().charts.areaHeight = height;
-
-        _chart_settings.ChartSettings.save();
+        __WEBPACK_IMPORTED_MODULE_3__chart_settings__["a" /* ChartSettings */].get().charts.areaHeight = height;
+        __WEBPACK_IMPORTED_MODULE_3__chart_settings__["a" /* ChartSettings */].save();
       }
 
       return this;
     }
   }]);
 
-  _inherits(TableLayout, _areas$ChartAreaGroup);
-
   return TableLayout;
-}(areas.ChartAreaGroup);
-
-exports.TableLayout = TableLayout;
-
+}(__WEBPACK_IMPORTED_MODULE_0__areas__["b" /* ChartAreaGroup */]);
 var DockableLayout =
 /*#__PURE__*/
 function (_areas$ChartAreaGroup2) {
+  _inherits(DockableLayout, _areas$ChartAreaGroup2);
+
   function DockableLayout(name) {
     _classCallCheck(this, DockableLayout);
 
@@ -16744,17 +16153,17 @@ function (_areas$ChartAreaGroup2) {
         area.measure(context, width, height);
 
         switch (area.getDockStyle()) {
-          case areas.ChartArea.DockStyle.left:
-          case areas.ChartArea.DockStyle.Right:
+          case __WEBPACK_IMPORTED_MODULE_0__areas__["a" /* ChartArea */].DockStyle.left:
+          case __WEBPACK_IMPORTED_MODULE_0__areas__["a" /* ChartArea */].DockStyle.Right:
             width -= area.getMeasuredWidth();
             break;
 
-          case areas.ChartArea.DockStyle.Top:
-          case areas.ChartArea.DockStyle.Bottom:
+          case __WEBPACK_IMPORTED_MODULE_0__areas__["a" /* ChartArea */].DockStyle.Top:
+          case __WEBPACK_IMPORTED_MODULE_0__areas__["a" /* ChartArea */].DockStyle.Bottom:
             height -= area.getMeasuredHeight();
             break;
 
-          case areas.ChartArea.DockStyle.Fill:
+          case __WEBPACK_IMPORTED_MODULE_0__areas__["a" /* ChartArea */].DockStyle.Fill:
             width = 0;
             height = 0;
             break;
@@ -16780,31 +16189,31 @@ function (_areas$ChartAreaGroup2) {
         var area = this._areas[i];
 
         switch (area.getDockStyle()) {
-          case areas.ChartArea.DockStyle.left:
+          case __WEBPACK_IMPORTED_MODULE_0__areas__["a" /* ChartArea */].DockStyle.left:
             w = area.getMeasuredWidth();
             area.layout(left, top, left + w, bottom, forceChange);
             left += w;
             break;
 
-          case areas.ChartArea.DockStyle.Top:
+          case __WEBPACK_IMPORTED_MODULE_0__areas__["a" /* ChartArea */].DockStyle.Top:
             h = area.getMeasuredHeight();
             area.layout(left, top, right, top + h, forceChange);
             top += h;
             break;
 
-          case areas.ChartArea.DockStyle.Right:
+          case __WEBPACK_IMPORTED_MODULE_0__areas__["a" /* ChartArea */].DockStyle.Right:
             w = area.getMeasuredWidth();
             area.layout(right - w, top, right, bottom, forceChange);
             right -= w;
             break;
 
-          case areas.ChartArea.DockStyle.Bottom:
+          case __WEBPACK_IMPORTED_MODULE_0__areas__["a" /* ChartArea */].DockStyle.Bottom:
             h = area.getMeasuredHeight();
             area.layout(left, bottom - h, right, bottom, forceChange);
             bottom -= h;
             break;
 
-          case areas.ChartArea.DockStyle.Fill:
+          case __WEBPACK_IMPORTED_MODULE_0__areas__["a" /* ChartArea */].DockStyle.Fill:
             area.layout(left, top, right, bottom, forceChange);
             left = right;
             top = bottom;
@@ -16817,7 +16226,7 @@ function (_areas$ChartAreaGroup2) {
   }, {
     key: "drawGrid",
     value: function drawGrid(context) {
-      var mgr = _chart_manager.ChartManager.instance;
+      var mgr = __WEBPACK_IMPORTED_MODULE_1__chart_manager__["a" /* ChartManager */].instance;
       var theme = mgr.getTheme(this.getFrameName());
       var left = this.getLeft();
       var top = this.getTop();
@@ -16829,22 +16238,22 @@ function (_areas$ChartAreaGroup2) {
         var area = this._areas[i];
 
         switch (area.getDockStyle()) {
-          case areas.ChartArea.DockStyle.Left:
+          case __WEBPACK_IMPORTED_MODULE_0__areas__["a" /* ChartArea */].DockStyle.Left:
             context.fillRect(area.getRight(), top, 1, bottom - top);
             left += area.getWidth();
             break;
 
-          case areas.ChartArea.DockStyle.Top:
+          case __WEBPACK_IMPORTED_MODULE_0__areas__["a" /* ChartArea */].DockStyle.Top:
             context.fillRect(left, area.getBottom(), right - left, 1);
             top += area.getHeight();
             break;
 
-          case areas.ChartArea.DockStyle.Right:
+          case __WEBPACK_IMPORTED_MODULE_0__areas__["a" /* ChartArea */].DockStyle.Right:
             context.fillRect(area.getLeft(), top, 1, bottom - top);
             right -= area.getWidth();
             break;
 
-          case areas.ChartArea.DockStyle.Bottom:
+          case __WEBPACK_IMPORTED_MODULE_0__areas__["a" /* ChartArea */].DockStyle.Bottom:
             context.fillRect(left, area.getTop(), right - left, 1);
             bottom -= area.getHeight();
             break;
@@ -16853,42 +16262,49 @@ function (_areas$ChartAreaGroup2) {
     }
   }]);
 
-  _inherits(DockableLayout, _areas$ChartAreaGroup2);
-
   return DockableLayout;
-}(areas.ChartAreaGroup);
-
-exports.DockableLayout = DockableLayout;
+}(__WEBPACK_IMPORTED_MODULE_0__areas__["b" /* ChartAreaGroup */]);
 
 /***/ }),
 /* 30 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.STOCHRSIIndicator = exports.PSYIndicator = exports.BOLLIndicator = exports.MTMIndicator = exports.ROCIndicator = exports.KDJIndicator = exports.SARIndicator = exports.WRIndicator = exports.RSIIndicator = exports.EMVIndicator = exports.OBVIndicator = exports.VRIndicator = exports.BRARIndicator = exports.TRIXIndicator = exports.DMAIndicator = exports.DMIIndicator = exports.MACDIndicator = exports.VOLUMEIndicator = exports.EMAIndicator = exports.MAIndicator = exports.HLCIndicator = exports.Indicator = void 0;
-
-var exprs = _interopRequireWildcard(__webpack_require__(20));
-
-var themes = _interopRequireWildcard(__webpack_require__(6));
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
-
+/* unused harmony export Indicator */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return HLCIndicator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return MAIndicator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return EMAIndicator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s", function() { return VOLUMEIndicator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return MACDIndicator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return DMIIndicator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return DMAIndicator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "r", function() { return TRIXIndicator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return BRARIndicator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "t", function() { return VRIndicator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return OBVIndicator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return EMVIndicator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return RSIIndicator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "u", function() { return WRIndicator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return SARIndicator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return KDJIndicator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return ROCIndicator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return MTMIndicator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BOLLIndicator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return PSYIndicator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "q", function() { return STOCHRSIIndicator; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__exprs__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__themes__ = __webpack_require__(6);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } _setPrototypeOf(subClass.prototype, superClass && superClass.prototype); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _getPrototypeOf(o) { _getPrototypeOf = Object.getPrototypeOf || function _getPrototypeOf(o) { return o.__proto__; }; return _getPrototypeOf(o); }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -16896,13 +16312,15 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+
+
 var Indicator =
 /*#__PURE__*/
 function () {
   function Indicator() {
     _classCallCheck(this, Indicator);
 
-    this._exprEnv = new exprs.ExprEnv();
+    this._exprEnv = new __WEBPACK_IMPORTED_MODULE_0__exprs__["l" /* ExprEnv */]();
     this._rid = 0;
     this._params = [];
     this._assigns = [];
@@ -16988,7 +16406,7 @@ function () {
 
       this._exprEnv.setDataSource(ds);
 
-      exprs.ExprEnv.set(this._exprEnv);
+      __WEBPACK_IMPORTED_MODULE_0__exprs__["l" /* ExprEnv */].set(this._exprEnv);
 
       try {
         var i, cnt;
@@ -17040,29 +16458,28 @@ function () {
 
   return Indicator;
 }();
-
-exports.Indicator = Indicator;
-
 var HLCIndicator =
 /*#__PURE__*/
 function (_Indicator) {
+  _inherits(HLCIndicator, _Indicator);
+
   function HLCIndicator() {
     var _this;
 
     _classCallCheck(this, HLCIndicator);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(HLCIndicator).call(this));
-    var M1 = new exprs.ParameterExpr("M1", 2, 1000, 60);
+    var M1 = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("M1", 2, 1000, 60);
 
     _this.addParameter(M1);
 
-    _this.addOutput(new exprs.OutputExpr("HIGH", new exprs.HighExpr(), exprs.OutputExpr.outputStyle.None));
+    _this.addOutput(new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("HIGH", new __WEBPACK_IMPORTED_MODULE_0__exprs__["o" /* HighExpr */](), __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */].outputStyle.None));
 
-    _this.addOutput(new exprs.OutputExpr("LOW", new exprs.LowExpr(), exprs.OutputExpr.outputStyle.None));
+    _this.addOutput(new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("LOW", new __WEBPACK_IMPORTED_MODULE_0__exprs__["r" /* LowExpr */](), __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */].outputStyle.None));
 
-    _this.addOutput(new exprs.OutputExpr("CLOSE", new exprs.CloseExpr(), exprs.OutputExpr.outputStyle.Line, themes.Theme.Color.Indicator0));
+    _this.addOutput(new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("CLOSE", new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */].outputStyle.Line, __WEBPACK_IMPORTED_MODULE_1__themes__["c" /* Theme */].Color.Indicator0));
 
-    _this.addOutput(new exprs.RangeOutputExpr("MA", new exprs.MaExpr(new exprs.CloseExpr(), M1), exprs.OutputExpr.outputStyle.Line, themes.Theme.Color.Indicator1));
+    _this.addOutput(new __WEBPACK_IMPORTED_MODULE_0__exprs__["A" /* RangeOutputExpr */]("MA", new __WEBPACK_IMPORTED_MODULE_0__exprs__["t" /* MaExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), M1), __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */].outputStyle.Line, __WEBPACK_IMPORTED_MODULE_1__themes__["c" /* Theme */].Color.Indicator1));
 
     return _this;
   }
@@ -17074,28 +16491,25 @@ function (_Indicator) {
     }
   }]);
 
-  _inherits(HLCIndicator, _Indicator);
-
   return HLCIndicator;
 }(Indicator);
-
-exports.HLCIndicator = HLCIndicator;
-
 var MAIndicator =
 /*#__PURE__*/
 function (_Indicator2) {
+  _inherits(MAIndicator, _Indicator2);
+
   function MAIndicator() {
     var _this2;
 
     _classCallCheck(this, MAIndicator);
 
     _this2 = _possibleConstructorReturn(this, _getPrototypeOf(MAIndicator).call(this));
-    var M1 = new exprs.ParameterExpr("M1", 2, 1000, 7);
-    var M2 = new exprs.ParameterExpr("M2", 2, 1000, 30);
-    var M3 = new exprs.ParameterExpr("M3", 2, 1000, 0);
-    var M4 = new exprs.ParameterExpr("M4", 2, 1000, 0);
-    var M5 = new exprs.ParameterExpr("M5", 2, 1000, 0);
-    var M6 = new exprs.ParameterExpr("M6", 2, 1000, 0);
+    var M1 = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("M1", 2, 1000, 7);
+    var M2 = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("M2", 2, 1000, 30);
+    var M3 = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("M3", 2, 1000, 0);
+    var M4 = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("M4", 2, 1000, 0);
+    var M5 = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("M5", 2, 1000, 0);
+    var M6 = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("M6", 2, 1000, 0);
 
     _this2.addParameter(M1);
 
@@ -17109,17 +16523,17 @@ function (_Indicator2) {
 
     _this2.addParameter(M6);
 
-    _this2.addOutput(new exprs.RangeOutputExpr("MA", new exprs.MaExpr(new exprs.CloseExpr(), M1)));
+    _this2.addOutput(new __WEBPACK_IMPORTED_MODULE_0__exprs__["A" /* RangeOutputExpr */]("MA", new __WEBPACK_IMPORTED_MODULE_0__exprs__["t" /* MaExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), M1)));
 
-    _this2.addOutput(new exprs.RangeOutputExpr("MA", new exprs.MaExpr(new exprs.CloseExpr(), M2)));
+    _this2.addOutput(new __WEBPACK_IMPORTED_MODULE_0__exprs__["A" /* RangeOutputExpr */]("MA", new __WEBPACK_IMPORTED_MODULE_0__exprs__["t" /* MaExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), M2)));
 
-    _this2.addOutput(new exprs.RangeOutputExpr("MA", new exprs.MaExpr(new exprs.CloseExpr(), M3)));
+    _this2.addOutput(new __WEBPACK_IMPORTED_MODULE_0__exprs__["A" /* RangeOutputExpr */]("MA", new __WEBPACK_IMPORTED_MODULE_0__exprs__["t" /* MaExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), M3)));
 
-    _this2.addOutput(new exprs.RangeOutputExpr("MA", new exprs.MaExpr(new exprs.CloseExpr(), M4)));
+    _this2.addOutput(new __WEBPACK_IMPORTED_MODULE_0__exprs__["A" /* RangeOutputExpr */]("MA", new __WEBPACK_IMPORTED_MODULE_0__exprs__["t" /* MaExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), M4)));
 
-    _this2.addOutput(new exprs.RangeOutputExpr("MA", new exprs.MaExpr(new exprs.CloseExpr(), M5)));
+    _this2.addOutput(new __WEBPACK_IMPORTED_MODULE_0__exprs__["A" /* RangeOutputExpr */]("MA", new __WEBPACK_IMPORTED_MODULE_0__exprs__["t" /* MaExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), M5)));
 
-    _this2.addOutput(new exprs.RangeOutputExpr("MA", new exprs.MaExpr(new exprs.CloseExpr(), M6)));
+    _this2.addOutput(new __WEBPACK_IMPORTED_MODULE_0__exprs__["A" /* RangeOutputExpr */]("MA", new __WEBPACK_IMPORTED_MODULE_0__exprs__["t" /* MaExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), M6)));
 
     return _this2;
   }
@@ -17131,28 +16545,25 @@ function (_Indicator2) {
     }
   }]);
 
-  _inherits(MAIndicator, _Indicator2);
-
   return MAIndicator;
 }(Indicator);
-
-exports.MAIndicator = MAIndicator;
-
 var EMAIndicator =
 /*#__PURE__*/
 function (_Indicator3) {
+  _inherits(EMAIndicator, _Indicator3);
+
   function EMAIndicator() {
     var _this3;
 
     _classCallCheck(this, EMAIndicator);
 
     _this3 = _possibleConstructorReturn(this, _getPrototypeOf(EMAIndicator).call(this));
-    var M1 = new exprs.ParameterExpr("M1", 2, 1000, 7);
-    var M2 = new exprs.ParameterExpr("M2", 2, 1000, 30);
-    var M3 = new exprs.ParameterExpr("M3", 2, 1000, 0);
-    var M4 = new exprs.ParameterExpr("M4", 2, 1000, 0);
-    var M5 = new exprs.ParameterExpr("M5", 2, 1000, 0);
-    var M6 = new exprs.ParameterExpr("M6", 2, 1000, 0);
+    var M1 = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("M1", 2, 1000, 7);
+    var M2 = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("M2", 2, 1000, 30);
+    var M3 = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("M3", 2, 1000, 0);
+    var M4 = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("M4", 2, 1000, 0);
+    var M5 = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("M5", 2, 1000, 0);
+    var M6 = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("M6", 2, 1000, 0);
 
     _this3.addParameter(M1);
 
@@ -17166,17 +16577,17 @@ function (_Indicator3) {
 
     _this3.addParameter(M6);
 
-    _this3.addOutput(new exprs.RangeOutputExpr("EMA", new exprs.EmaExpr(new exprs.CloseExpr(), M1)));
+    _this3.addOutput(new __WEBPACK_IMPORTED_MODULE_0__exprs__["A" /* RangeOutputExpr */]("EMA", new __WEBPACK_IMPORTED_MODULE_0__exprs__["i" /* EmaExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), M1)));
 
-    _this3.addOutput(new exprs.RangeOutputExpr("EMA", new exprs.EmaExpr(new exprs.CloseExpr(), M2)));
+    _this3.addOutput(new __WEBPACK_IMPORTED_MODULE_0__exprs__["A" /* RangeOutputExpr */]("EMA", new __WEBPACK_IMPORTED_MODULE_0__exprs__["i" /* EmaExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), M2)));
 
-    _this3.addOutput(new exprs.RangeOutputExpr("EMA", new exprs.EmaExpr(new exprs.CloseExpr(), M3)));
+    _this3.addOutput(new __WEBPACK_IMPORTED_MODULE_0__exprs__["A" /* RangeOutputExpr */]("EMA", new __WEBPACK_IMPORTED_MODULE_0__exprs__["i" /* EmaExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), M3)));
 
-    _this3.addOutput(new exprs.RangeOutputExpr("EMA", new exprs.EmaExpr(new exprs.CloseExpr(), M4)));
+    _this3.addOutput(new __WEBPACK_IMPORTED_MODULE_0__exprs__["A" /* RangeOutputExpr */]("EMA", new __WEBPACK_IMPORTED_MODULE_0__exprs__["i" /* EmaExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), M4)));
 
-    _this3.addOutput(new exprs.RangeOutputExpr("EMA", new exprs.EmaExpr(new exprs.CloseExpr(), M5)));
+    _this3.addOutput(new __WEBPACK_IMPORTED_MODULE_0__exprs__["A" /* RangeOutputExpr */]("EMA", new __WEBPACK_IMPORTED_MODULE_0__exprs__["i" /* EmaExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), M5)));
 
-    _this3.addOutput(new exprs.RangeOutputExpr("EMA", new exprs.EmaExpr(new exprs.CloseExpr(), M6)));
+    _this3.addOutput(new __WEBPACK_IMPORTED_MODULE_0__exprs__["A" /* RangeOutputExpr */]("EMA", new __WEBPACK_IMPORTED_MODULE_0__exprs__["i" /* EmaExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), M6)));
 
     return _this3;
   }
@@ -17188,36 +16599,33 @@ function (_Indicator3) {
     }
   }]);
 
-  _inherits(EMAIndicator, _Indicator3);
-
   return EMAIndicator;
 }(Indicator);
-
-exports.EMAIndicator = EMAIndicator;
-
 var VOLUMEIndicator =
 /*#__PURE__*/
 function (_Indicator4) {
+  _inherits(VOLUMEIndicator, _Indicator4);
+
   function VOLUMEIndicator() {
     var _this4;
 
     _classCallCheck(this, VOLUMEIndicator);
 
     _this4 = _possibleConstructorReturn(this, _getPrototypeOf(VOLUMEIndicator).call(this));
-    var M1 = new exprs.ParameterExpr("M1", 2, 500, 5);
-    var M2 = new exprs.ParameterExpr("M2", 2, 500, 10);
+    var M1 = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("M1", 2, 500, 5);
+    var M2 = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("M2", 2, 500, 10);
 
     _this4.addParameter(M1);
 
     _this4.addParameter(M2);
 
-    var VOLUME = new exprs.OutputExpr("VOLUME", new exprs.VolumeExpr(), exprs.OutputExpr.outputStyle.VolumeStick, themes.Theme.Color.Text4);
+    var VOLUME = new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("VOLUME", new __WEBPACK_IMPORTED_MODULE_0__exprs__["H" /* VolumeExpr */](), __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */].outputStyle.VolumeStick, __WEBPACK_IMPORTED_MODULE_1__themes__["c" /* Theme */].Color.Text4);
 
     _this4.addOutput(VOLUME);
 
-    _this4.addOutput(new exprs.RangeOutputExpr("MA", new exprs.MaExpr(VOLUME, M1), exprs.OutputExpr.outputStyle.Line, themes.Theme.Color.Indicator0));
+    _this4.addOutput(new __WEBPACK_IMPORTED_MODULE_0__exprs__["A" /* RangeOutputExpr */]("MA", new __WEBPACK_IMPORTED_MODULE_0__exprs__["t" /* MaExpr */](VOLUME, M1), __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */].outputStyle.Line, __WEBPACK_IMPORTED_MODULE_1__themes__["c" /* Theme */].Color.Indicator0));
 
-    _this4.addOutput(new exprs.RangeOutputExpr("MA", new exprs.MaExpr(VOLUME, M2), exprs.OutputExpr.outputStyle.Line, themes.Theme.Color.Indicator1));
+    _this4.addOutput(new __WEBPACK_IMPORTED_MODULE_0__exprs__["A" /* RangeOutputExpr */]("MA", new __WEBPACK_IMPORTED_MODULE_0__exprs__["t" /* MaExpr */](VOLUME, M2), __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */].outputStyle.Line, __WEBPACK_IMPORTED_MODULE_1__themes__["c" /* Theme */].Color.Indicator1));
 
     return _this4;
   }
@@ -17229,25 +16637,22 @@ function (_Indicator4) {
     }
   }]);
 
-  _inherits(VOLUMEIndicator, _Indicator4);
-
   return VOLUMEIndicator;
 }(Indicator);
-
-exports.VOLUMEIndicator = VOLUMEIndicator;
-
 var MACDIndicator =
 /*#__PURE__*/
 function (_Indicator5) {
+  _inherits(MACDIndicator, _Indicator5);
+
   function MACDIndicator() {
     var _this5;
 
     _classCallCheck(this, MACDIndicator);
 
     _this5 = _possibleConstructorReturn(this, _getPrototypeOf(MACDIndicator).call(this));
-    var SHORT = new exprs.ParameterExpr("SHORT", 2, 200, 12);
-    var LONG = new exprs.ParameterExpr("LONG", 2, 200, 26);
-    var MID = new exprs.ParameterExpr("MID", 2, 200, 9);
+    var SHORT = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("SHORT", 2, 200, 12);
+    var LONG = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("LONG", 2, 200, 26);
+    var MID = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("MID", 2, 200, 9);
 
     _this5.addParameter(SHORT);
 
@@ -17255,15 +16660,15 @@ function (_Indicator5) {
 
     _this5.addParameter(MID);
 
-    var DIF = new exprs.OutputExpr("DIF", new exprs.SubExpr(new exprs.EmaExpr(new exprs.CloseExpr(), SHORT), new exprs.EmaExpr(new exprs.CloseExpr(), LONG)));
+    var DIF = new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("DIF", new __WEBPACK_IMPORTED_MODULE_0__exprs__["F" /* SubExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["i" /* EmaExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), SHORT), new __WEBPACK_IMPORTED_MODULE_0__exprs__["i" /* EmaExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), LONG)));
 
     _this5.addOutput(DIF);
 
-    var DEA = new exprs.OutputExpr("DEA", new exprs.EmaExpr(DIF, MID));
+    var DEA = new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("DEA", new __WEBPACK_IMPORTED_MODULE_0__exprs__["i" /* EmaExpr */](DIF, MID));
 
     _this5.addOutput(DEA);
 
-    var MACD = new exprs.OutputExpr("MACD", new exprs.MulExpr(new exprs.SubExpr(DIF, DEA), new exprs.ConstExpr(2)), exprs.OutputExpr.outputStyle.MACDStick);
+    var MACD = new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("MACD", new __WEBPACK_IMPORTED_MODULE_0__exprs__["v" /* MulExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["F" /* SubExpr */](DIF, DEA), new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](2)), __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */].outputStyle.MACDStick);
 
     _this5.addOutput(MACD);
 
@@ -17277,62 +16682,59 @@ function (_Indicator5) {
     }
   }]);
 
-  _inherits(MACDIndicator, _Indicator5);
-
   return MACDIndicator;
 }(Indicator);
-
-exports.MACDIndicator = MACDIndicator;
-
 var DMIIndicator =
 /*#__PURE__*/
 function (_Indicator6) {
+  _inherits(DMIIndicator, _Indicator6);
+
   function DMIIndicator() {
     var _this6;
 
     _classCallCheck(this, DMIIndicator);
 
     _this6 = _possibleConstructorReturn(this, _getPrototypeOf(DMIIndicator).call(this));
-    var N = new exprs.ParameterExpr("N", 2, 90, 14);
-    var MM = new exprs.ParameterExpr("MM", 2, 60, 6);
+    var N = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("N", 2, 90, 14);
+    var MM = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("MM", 2, 60, 6);
 
     _this6.addParameter(N);
 
     _this6.addParameter(MM);
 
-    var MTR = new exprs.AssignExpr("MTR", new exprs.ExpmemaExpr(new exprs.MaxExpr(new exprs.MaxExpr(new exprs.SubExpr(new exprs.HighExpr(), new exprs.LowExpr()), new exprs.AbsExpr(new exprs.SubExpr(new exprs.HighExpr(), new exprs.RefExpr(new exprs.CloseExpr(), new exprs.ConstExpr(1))))), new exprs.AbsExpr(new exprs.SubExpr(new exprs.RefExpr(new exprs.CloseExpr(), new exprs.ConstExpr(1)), new exprs.LowExpr()))), N));
+    var MTR = new __WEBPACK_IMPORTED_MODULE_0__exprs__["d" /* AssignExpr */]("MTR", new __WEBPACK_IMPORTED_MODULE_0__exprs__["k" /* ExpmemaExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["u" /* MaxExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["u" /* MaxExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["F" /* SubExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["o" /* HighExpr */](), new __WEBPACK_IMPORTED_MODULE_0__exprs__["r" /* LowExpr */]()), new __WEBPACK_IMPORTED_MODULE_0__exprs__["a" /* AbsExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["F" /* SubExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["o" /* HighExpr */](), new __WEBPACK_IMPORTED_MODULE_0__exprs__["B" /* RefExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](1))))), new __WEBPACK_IMPORTED_MODULE_0__exprs__["a" /* AbsExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["F" /* SubExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["B" /* RefExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](1)), new __WEBPACK_IMPORTED_MODULE_0__exprs__["r" /* LowExpr */]()))), N));
 
     _this6.addAssign(MTR);
 
-    var HD = new exprs.AssignExpr("HD", new exprs.SubExpr(new exprs.HighExpr(), new exprs.RefExpr(new exprs.HighExpr(), new exprs.ConstExpr(1))));
+    var HD = new __WEBPACK_IMPORTED_MODULE_0__exprs__["d" /* AssignExpr */]("HD", new __WEBPACK_IMPORTED_MODULE_0__exprs__["F" /* SubExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["o" /* HighExpr */](), new __WEBPACK_IMPORTED_MODULE_0__exprs__["B" /* RefExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["o" /* HighExpr */](), new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](1))));
 
     _this6.addAssign(HD);
 
-    var LD = new exprs.AssignExpr("LD", new exprs.SubExpr(new exprs.RefExpr(new exprs.LowExpr(), new exprs.ConstExpr(1)), new exprs.LowExpr()));
+    var LD = new __WEBPACK_IMPORTED_MODULE_0__exprs__["d" /* AssignExpr */]("LD", new __WEBPACK_IMPORTED_MODULE_0__exprs__["F" /* SubExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["B" /* RefExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["r" /* LowExpr */](), new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](1)), new __WEBPACK_IMPORTED_MODULE_0__exprs__["r" /* LowExpr */]()));
 
     _this6.addAssign(LD);
 
-    var DMP = new exprs.AssignExpr("DMP", new exprs.ExpmemaExpr(new exprs.IfExpr(new exprs.AndExpr(new exprs.GtExpr(HD, new exprs.ConstExpr(0)), new exprs.GtExpr(HD, LD)), HD, new exprs.ConstExpr(0)), N));
+    var DMP = new __WEBPACK_IMPORTED_MODULE_0__exprs__["d" /* AssignExpr */]("DMP", new __WEBPACK_IMPORTED_MODULE_0__exprs__["k" /* ExpmemaExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["p" /* IfExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["c" /* AndExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["m" /* GtExpr */](HD, new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](0)), new __WEBPACK_IMPORTED_MODULE_0__exprs__["m" /* GtExpr */](HD, LD)), HD, new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](0)), N));
 
     _this6.addAssign(DMP);
 
-    var DMM = new exprs.AssignExpr("DMM", new exprs.ExpmemaExpr(new exprs.IfExpr(new exprs.AndExpr(new exprs.GtExpr(LD, new exprs.ConstExpr(0)), new exprs.GtExpr(LD, HD)), LD, new exprs.ConstExpr(0)), N));
+    var DMM = new __WEBPACK_IMPORTED_MODULE_0__exprs__["d" /* AssignExpr */]("DMM", new __WEBPACK_IMPORTED_MODULE_0__exprs__["k" /* ExpmemaExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["p" /* IfExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["c" /* AndExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["m" /* GtExpr */](LD, new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](0)), new __WEBPACK_IMPORTED_MODULE_0__exprs__["m" /* GtExpr */](LD, HD)), LD, new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](0)), N));
 
     _this6.addAssign(DMM);
 
-    var PDI = new exprs.OutputExpr("PDI", new exprs.MulExpr(new exprs.DivExpr(DMP, MTR), new exprs.ConstExpr(100)));
+    var PDI = new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("PDI", new __WEBPACK_IMPORTED_MODULE_0__exprs__["v" /* MulExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["h" /* DivExpr */](DMP, MTR), new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](100)));
 
     _this6.addOutput(PDI);
 
-    var MDI = new exprs.OutputExpr("MDI", new exprs.MulExpr(new exprs.DivExpr(DMM, MTR), new exprs.ConstExpr(100)));
+    var MDI = new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("MDI", new __WEBPACK_IMPORTED_MODULE_0__exprs__["v" /* MulExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["h" /* DivExpr */](DMM, MTR), new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](100)));
 
     _this6.addOutput(MDI);
 
-    var ADX = new exprs.OutputExpr("ADX", new exprs.ExpmemaExpr(new exprs.MulExpr(new exprs.DivExpr(new exprs.AbsExpr(new exprs.SubExpr(MDI, PDI)), new exprs.AddExpr(MDI, PDI)), new exprs.ConstExpr(100)), MM));
+    var ADX = new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("ADX", new __WEBPACK_IMPORTED_MODULE_0__exprs__["k" /* ExpmemaExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["v" /* MulExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["h" /* DivExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["a" /* AbsExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["F" /* SubExpr */](MDI, PDI)), new __WEBPACK_IMPORTED_MODULE_0__exprs__["b" /* AddExpr */](MDI, PDI)), new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](100)), MM));
 
     _this6.addOutput(ADX);
 
-    var ADXR = new exprs.OutputExpr("ADXR", new exprs.ExpmemaExpr(ADX, MM));
+    var ADXR = new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("ADXR", new __WEBPACK_IMPORTED_MODULE_0__exprs__["k" /* ExpmemaExpr */](ADX, MM));
 
     _this6.addOutput(ADXR);
 
@@ -17346,25 +16748,22 @@ function (_Indicator6) {
     }
   }]);
 
-  _inherits(DMIIndicator, _Indicator6);
-
   return DMIIndicator;
 }(Indicator);
-
-exports.DMIIndicator = DMIIndicator;
-
 var DMAIndicator =
 /*#__PURE__*/
 function (_Indicator7) {
+  _inherits(DMAIndicator, _Indicator7);
+
   function DMAIndicator() {
     var _this7;
 
     _classCallCheck(this, DMAIndicator);
 
     _this7 = _possibleConstructorReturn(this, _getPrototypeOf(DMAIndicator).call(this));
-    var N1 = new exprs.ParameterExpr("N1", 2, 60, 10);
-    var N2 = new exprs.ParameterExpr("N2", 2, 250, 50);
-    var M = new exprs.ParameterExpr("M", 2, 100, 10);
+    var N1 = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("N1", 2, 60, 10);
+    var N2 = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("N2", 2, 250, 50);
+    var M = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("M", 2, 100, 10);
 
     _this7.addParameter(N1);
 
@@ -17372,11 +16771,11 @@ function (_Indicator7) {
 
     _this7.addParameter(M);
 
-    var DIF = new exprs.OutputExpr("DIF", new exprs.SubExpr(new exprs.MaExpr(new exprs.CloseExpr(), N1), new exprs.MaExpr(new exprs.CloseExpr(), N2)));
+    var DIF = new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("DIF", new __WEBPACK_IMPORTED_MODULE_0__exprs__["F" /* SubExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["t" /* MaExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), N1), new __WEBPACK_IMPORTED_MODULE_0__exprs__["t" /* MaExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), N2)));
 
     _this7.addOutput(DIF);
 
-    var DIFMA = new exprs.OutputExpr("DIFMA", new exprs.MaExpr(DIF, M));
+    var DIFMA = new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("DIFMA", new __WEBPACK_IMPORTED_MODULE_0__exprs__["t" /* MaExpr */](DIF, M));
 
     _this7.addOutput(DIFMA);
 
@@ -17390,38 +16789,35 @@ function (_Indicator7) {
     }
   }]);
 
-  _inherits(DMAIndicator, _Indicator7);
-
   return DMAIndicator;
 }(Indicator);
-
-exports.DMAIndicator = DMAIndicator;
-
 var TRIXIndicator =
 /*#__PURE__*/
 function (_Indicator8) {
+  _inherits(TRIXIndicator, _Indicator8);
+
   function TRIXIndicator() {
     var _this8;
 
     _classCallCheck(this, TRIXIndicator);
 
     _this8 = _possibleConstructorReturn(this, _getPrototypeOf(TRIXIndicator).call(this));
-    var N = new exprs.ParameterExpr("N", 2, 100, 12);
-    var M = new exprs.ParameterExpr("M", 2, 100, 9);
+    var N = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("N", 2, 100, 12);
+    var M = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("M", 2, 100, 9);
 
     _this8.addParameter(N);
 
     _this8.addParameter(M);
 
-    var MTR = new exprs.AssignExpr("MTR", new exprs.EmaExpr(new exprs.EmaExpr(new exprs.EmaExpr(new exprs.CloseExpr(), N), N), N));
+    var MTR = new __WEBPACK_IMPORTED_MODULE_0__exprs__["d" /* AssignExpr */]("MTR", new __WEBPACK_IMPORTED_MODULE_0__exprs__["i" /* EmaExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["i" /* EmaExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["i" /* EmaExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), N), N), N));
 
     _this8.addAssign(MTR);
 
-    var TRIX = new exprs.OutputExpr("TRIX", new exprs.MulExpr(new exprs.DivExpr(new exprs.SubExpr(MTR, new exprs.RefExpr(MTR, new exprs.ConstExpr(1))), new exprs.RefExpr(MTR, new exprs.ConstExpr(1))), new exprs.ConstExpr(100)));
+    var TRIX = new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("TRIX", new __WEBPACK_IMPORTED_MODULE_0__exprs__["v" /* MulExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["h" /* DivExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["F" /* SubExpr */](MTR, new __WEBPACK_IMPORTED_MODULE_0__exprs__["B" /* RefExpr */](MTR, new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](1))), new __WEBPACK_IMPORTED_MODULE_0__exprs__["B" /* RefExpr */](MTR, new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](1))), new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](100)));
 
     _this8.addOutput(TRIX);
 
-    var MATRIX = new exprs.OutputExpr("MATRIX", new exprs.MaExpr(TRIX, M));
+    var MATRIX = new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("MATRIX", new __WEBPACK_IMPORTED_MODULE_0__exprs__["t" /* MaExpr */](TRIX, M));
 
     _this8.addOutput(MATRIX);
 
@@ -17435,35 +16831,32 @@ function (_Indicator8) {
     }
   }]);
 
-  _inherits(TRIXIndicator, _Indicator8);
-
   return TRIXIndicator;
 }(Indicator);
-
-exports.TRIXIndicator = TRIXIndicator;
-
 var BRARIndicator =
 /*#__PURE__*/
 function (_Indicator9) {
+  _inherits(BRARIndicator, _Indicator9);
+
   function BRARIndicator() {
     var _this9;
 
     _classCallCheck(this, BRARIndicator);
 
     _this9 = _possibleConstructorReturn(this, _getPrototypeOf(BRARIndicator).call(this));
-    var N = new exprs.ParameterExpr("N", 2, 120, 26);
+    var N = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("N", 2, 120, 26);
 
     _this9.addParameter(N);
 
-    var REF_CLOSE_1 = new exprs.AssignExpr("REF_CLOSE_1", new exprs.RefExpr(new exprs.CloseExpr(), new exprs.ConstExpr(1)));
+    var REF_CLOSE_1 = new __WEBPACK_IMPORTED_MODULE_0__exprs__["d" /* AssignExpr */]("REF_CLOSE_1", new __WEBPACK_IMPORTED_MODULE_0__exprs__["B" /* RefExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](1)));
 
     _this9.addAssign(REF_CLOSE_1);
 
-    var BR = new exprs.OutputExpr("BR", new exprs.MulExpr(new exprs.DivExpr(new exprs.SumExpr(new exprs.MaxExpr(new exprs.ConstExpr(0), new exprs.SubExpr(new exprs.HighExpr(), REF_CLOSE_1)), N), new exprs.SumExpr(new exprs.MaxExpr(new exprs.ConstExpr(0), new exprs.SubExpr(REF_CLOSE_1, new exprs.LowExpr())), N)), new exprs.ConstExpr(100)));
+    var BR = new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("BR", new __WEBPACK_IMPORTED_MODULE_0__exprs__["v" /* MulExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["h" /* DivExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["G" /* SumExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["u" /* MaxExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](0), new __WEBPACK_IMPORTED_MODULE_0__exprs__["F" /* SubExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["o" /* HighExpr */](), REF_CLOSE_1)), N), new __WEBPACK_IMPORTED_MODULE_0__exprs__["G" /* SumExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["u" /* MaxExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](0), new __WEBPACK_IMPORTED_MODULE_0__exprs__["F" /* SubExpr */](REF_CLOSE_1, new __WEBPACK_IMPORTED_MODULE_0__exprs__["r" /* LowExpr */]())), N)), new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](100)));
 
     _this9.addOutput(BR);
 
-    var AR = new exprs.OutputExpr("AR", new exprs.MulExpr(new exprs.DivExpr(new exprs.SumExpr(new exprs.SubExpr(new exprs.HighExpr(), new exprs.OpenExpr()), N), new exprs.SumExpr(new exprs.SubExpr(new exprs.OpenExpr(), new exprs.LowExpr()), N)), new exprs.ConstExpr(100)));
+    var AR = new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("AR", new __WEBPACK_IMPORTED_MODULE_0__exprs__["v" /* MulExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["h" /* DivExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["G" /* SumExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["F" /* SubExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["o" /* HighExpr */](), new __WEBPACK_IMPORTED_MODULE_0__exprs__["x" /* OpenExpr */]()), N), new __WEBPACK_IMPORTED_MODULE_0__exprs__["G" /* SumExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["F" /* SubExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["x" /* OpenExpr */](), new __WEBPACK_IMPORTED_MODULE_0__exprs__["r" /* LowExpr */]()), N)), new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](100)));
 
     _this9.addOutput(AR);
 
@@ -17477,50 +16870,47 @@ function (_Indicator9) {
     }
   }]);
 
-  _inherits(BRARIndicator, _Indicator9);
-
   return BRARIndicator;
 }(Indicator);
-
-exports.BRARIndicator = BRARIndicator;
-
 var VRIndicator =
 /*#__PURE__*/
 function (_Indicator10) {
+  _inherits(VRIndicator, _Indicator10);
+
   function VRIndicator() {
     var _this10;
 
     _classCallCheck(this, VRIndicator);
 
     _this10 = _possibleConstructorReturn(this, _getPrototypeOf(VRIndicator).call(this));
-    var N = new exprs.ParameterExpr("N", 2, 100, 26);
-    var M = new exprs.ParameterExpr("M", 2, 100, 6);
+    var N = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("N", 2, 100, 26);
+    var M = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("M", 2, 100, 6);
 
     _this10.addParameter(N);
 
     _this10.addParameter(M);
 
-    var REF_CLOSE_1 = new exprs.AssignExpr("REF_CLOSE_1", new exprs.RefExpr(new exprs.CloseExpr(), new exprs.ConstExpr(1)));
+    var REF_CLOSE_1 = new __WEBPACK_IMPORTED_MODULE_0__exprs__["d" /* AssignExpr */]("REF_CLOSE_1", new __WEBPACK_IMPORTED_MODULE_0__exprs__["B" /* RefExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](1)));
 
     _this10.addAssign(REF_CLOSE_1);
 
-    var TH = new exprs.AssignExpr("TH", new exprs.SumExpr(new exprs.IfExpr(new exprs.GtExpr(new exprs.CloseExpr(), REF_CLOSE_1), new exprs.VolumeExpr(), new exprs.ConstExpr(0)), N));
+    var TH = new __WEBPACK_IMPORTED_MODULE_0__exprs__["d" /* AssignExpr */]("TH", new __WEBPACK_IMPORTED_MODULE_0__exprs__["G" /* SumExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["p" /* IfExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["m" /* GtExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), REF_CLOSE_1), new __WEBPACK_IMPORTED_MODULE_0__exprs__["H" /* VolumeExpr */](), new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](0)), N));
 
     _this10.addAssign(TH);
 
-    var TL = new exprs.AssignExpr("TL", new exprs.SumExpr(new exprs.IfExpr(new exprs.LtExpr(new exprs.CloseExpr(), REF_CLOSE_1), new exprs.VolumeExpr(), new exprs.ConstExpr(0)), N));
+    var TL = new __WEBPACK_IMPORTED_MODULE_0__exprs__["d" /* AssignExpr */]("TL", new __WEBPACK_IMPORTED_MODULE_0__exprs__["G" /* SumExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["p" /* IfExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["s" /* LtExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), REF_CLOSE_1), new __WEBPACK_IMPORTED_MODULE_0__exprs__["H" /* VolumeExpr */](), new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](0)), N));
 
     _this10.addAssign(TL);
 
-    var TQ = new exprs.AssignExpr("TQ", new exprs.SumExpr(new exprs.IfExpr(new exprs.EqExpr(new exprs.CloseExpr(), REF_CLOSE_1), new exprs.VolumeExpr(), new exprs.ConstExpr(0)), N));
+    var TQ = new __WEBPACK_IMPORTED_MODULE_0__exprs__["d" /* AssignExpr */]("TQ", new __WEBPACK_IMPORTED_MODULE_0__exprs__["G" /* SumExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["p" /* IfExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["j" /* EqExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), REF_CLOSE_1), new __WEBPACK_IMPORTED_MODULE_0__exprs__["H" /* VolumeExpr */](), new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](0)), N));
 
     _this10.addAssign(TQ);
 
-    var VR = new exprs.OutputExpr("VR", new exprs.MulExpr(new exprs.DivExpr(new exprs.AddExpr(new exprs.MulExpr(TH, new exprs.ConstExpr(2)), TQ), new exprs.AddExpr(new exprs.MulExpr(TL, new exprs.ConstExpr(2)), TQ)), new exprs.ConstExpr(100)));
+    var VR = new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("VR", new __WEBPACK_IMPORTED_MODULE_0__exprs__["v" /* MulExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["h" /* DivExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["b" /* AddExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["v" /* MulExpr */](TH, new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](2)), TQ), new __WEBPACK_IMPORTED_MODULE_0__exprs__["b" /* AddExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["v" /* MulExpr */](TL, new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](2)), TQ)), new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](100)));
 
     _this10.addOutput(VR);
 
-    var MAVR = new exprs.OutputExpr("MAVR", new exprs.MaExpr(VR, M));
+    var MAVR = new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("MAVR", new __WEBPACK_IMPORTED_MODULE_0__exprs__["t" /* MaExpr */](VR, M));
 
     _this10.addOutput(MAVR);
 
@@ -17534,39 +16924,36 @@ function (_Indicator10) {
     }
   }]);
 
-  _inherits(VRIndicator, _Indicator10);
-
   return VRIndicator;
 }(Indicator);
-
-exports.VRIndicator = VRIndicator;
-
 var OBVIndicator =
 /*#__PURE__*/
 function (_Indicator11) {
+  _inherits(OBVIndicator, _Indicator11);
+
   function OBVIndicator() {
     var _this11;
 
     _classCallCheck(this, OBVIndicator);
 
     _this11 = _possibleConstructorReturn(this, _getPrototypeOf(OBVIndicator).call(this));
-    var M = new exprs.ParameterExpr("M", 2, 100, 30);
+    var M = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("M", 2, 100, 30);
 
     _this11.addParameter(M);
 
-    var REF_CLOSE_1 = new exprs.AssignExpr("REF_CLOSE_1", new exprs.RefExpr(new exprs.CloseExpr(), new exprs.ConstExpr(1)));
+    var REF_CLOSE_1 = new __WEBPACK_IMPORTED_MODULE_0__exprs__["d" /* AssignExpr */]("REF_CLOSE_1", new __WEBPACK_IMPORTED_MODULE_0__exprs__["B" /* RefExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](1)));
 
     _this11.addAssign(REF_CLOSE_1);
 
-    var VA = new exprs.AssignExpr("VA", new exprs.IfExpr(new exprs.GtExpr(new exprs.CloseExpr(), REF_CLOSE_1), new exprs.VolumeExpr(), new exprs.NegExpr(new exprs.VolumeExpr())));
+    var VA = new __WEBPACK_IMPORTED_MODULE_0__exprs__["d" /* AssignExpr */]("VA", new __WEBPACK_IMPORTED_MODULE_0__exprs__["p" /* IfExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["m" /* GtExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), REF_CLOSE_1), new __WEBPACK_IMPORTED_MODULE_0__exprs__["H" /* VolumeExpr */](), new __WEBPACK_IMPORTED_MODULE_0__exprs__["w" /* NegExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["H" /* VolumeExpr */]())));
 
     _this11.addAssign(VA);
 
-    var OBV = new exprs.OutputExpr("OBV", new exprs.SumExpr(new exprs.IfExpr(new exprs.EqExpr(new exprs.CloseExpr(), REF_CLOSE_1), new exprs.ConstExpr(0), VA), new exprs.ConstExpr(0)));
+    var OBV = new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("OBV", new __WEBPACK_IMPORTED_MODULE_0__exprs__["G" /* SumExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["p" /* IfExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["j" /* EqExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), REF_CLOSE_1), new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](0), VA), new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](0)));
 
     _this11.addOutput(OBV);
 
-    var MAOBV = new exprs.OutputExpr("MAOBV", new exprs.MaExpr(OBV, M));
+    var MAOBV = new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("MAOBV", new __WEBPACK_IMPORTED_MODULE_0__exprs__["t" /* MaExpr */](OBV, M));
 
     _this11.addOutput(MAOBV);
 
@@ -17580,42 +16967,39 @@ function (_Indicator11) {
     }
   }]);
 
-  _inherits(OBVIndicator, _Indicator11);
-
   return OBVIndicator;
 }(Indicator);
-
-exports.OBVIndicator = OBVIndicator;
-
 var EMVIndicator =
 /*#__PURE__*/
 function (_Indicator12) {
+  _inherits(EMVIndicator, _Indicator12);
+
   function EMVIndicator() {
     var _this12;
 
     _classCallCheck(this, EMVIndicator);
 
     _this12 = _possibleConstructorReturn(this, _getPrototypeOf(EMVIndicator).call(this));
-    var N = new exprs.ParameterExpr("N", 2, 90, 14);
-    var M = new exprs.ParameterExpr("M", 2, 60, 9);
+    var N = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("N", 2, 90, 14);
+    var M = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("M", 2, 60, 9);
 
     _this12.addParameter(N);
 
     _this12.addParameter(M);
 
-    var VOLUME = new exprs.AssignExpr("VOLUME", new exprs.DivExpr(new exprs.MaExpr(new exprs.VolumeExpr(), N), new exprs.VolumeExpr()));
+    var VOLUME = new __WEBPACK_IMPORTED_MODULE_0__exprs__["d" /* AssignExpr */]("VOLUME", new __WEBPACK_IMPORTED_MODULE_0__exprs__["h" /* DivExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["t" /* MaExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["H" /* VolumeExpr */](), N), new __WEBPACK_IMPORTED_MODULE_0__exprs__["H" /* VolumeExpr */]()));
 
     _this12.addAssign(VOLUME);
 
-    var MID = new exprs.AssignExpr("MID", new exprs.MulExpr(new exprs.DivExpr(new exprs.SubExpr(new exprs.AddExpr(new exprs.HighExpr(), new exprs.LowExpr()), new exprs.RefExpr(new exprs.AddExpr(new exprs.HighExpr(), new exprs.LowExpr()), new exprs.ConstExpr(1))), new exprs.AddExpr(new exprs.HighExpr(), new exprs.LowExpr())), new exprs.ConstExpr(100)));
+    var MID = new __WEBPACK_IMPORTED_MODULE_0__exprs__["d" /* AssignExpr */]("MID", new __WEBPACK_IMPORTED_MODULE_0__exprs__["v" /* MulExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["h" /* DivExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["F" /* SubExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["b" /* AddExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["o" /* HighExpr */](), new __WEBPACK_IMPORTED_MODULE_0__exprs__["r" /* LowExpr */]()), new __WEBPACK_IMPORTED_MODULE_0__exprs__["B" /* RefExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["b" /* AddExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["o" /* HighExpr */](), new __WEBPACK_IMPORTED_MODULE_0__exprs__["r" /* LowExpr */]()), new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](1))), new __WEBPACK_IMPORTED_MODULE_0__exprs__["b" /* AddExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["o" /* HighExpr */](), new __WEBPACK_IMPORTED_MODULE_0__exprs__["r" /* LowExpr */]())), new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](100)));
 
     _this12.addAssign(MID);
 
-    var EMV = new exprs.OutputExpr("EMV", new exprs.MaExpr(new exprs.DivExpr(new exprs.MulExpr(MID, new exprs.MulExpr(VOLUME, new exprs.SubExpr(new exprs.HighExpr(), new exprs.LowExpr()))), new exprs.MaExpr(new exprs.SubExpr(new exprs.HighExpr(), new exprs.LowExpr()), N)), N));
+    var EMV = new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("EMV", new __WEBPACK_IMPORTED_MODULE_0__exprs__["t" /* MaExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["h" /* DivExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["v" /* MulExpr */](MID, new __WEBPACK_IMPORTED_MODULE_0__exprs__["v" /* MulExpr */](VOLUME, new __WEBPACK_IMPORTED_MODULE_0__exprs__["F" /* SubExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["o" /* HighExpr */](), new __WEBPACK_IMPORTED_MODULE_0__exprs__["r" /* LowExpr */]()))), new __WEBPACK_IMPORTED_MODULE_0__exprs__["t" /* MaExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["F" /* SubExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["o" /* HighExpr */](), new __WEBPACK_IMPORTED_MODULE_0__exprs__["r" /* LowExpr */]()), N)), N));
 
     _this12.addOutput(EMV);
 
-    var MAEMV = new exprs.OutputExpr("MAEMV", new exprs.MaExpr(EMV, M));
+    var MAEMV = new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("MAEMV", new __WEBPACK_IMPORTED_MODULE_0__exprs__["t" /* MaExpr */](EMV, M));
 
     _this12.addOutput(MAEMV);
 
@@ -17629,25 +17013,22 @@ function (_Indicator12) {
     }
   }]);
 
-  _inherits(EMVIndicator, _Indicator12);
-
   return EMVIndicator;
 }(Indicator);
-
-exports.EMVIndicator = EMVIndicator;
-
 var RSIIndicator =
 /*#__PURE__*/
 function (_Indicator13) {
+  _inherits(RSIIndicator, _Indicator13);
+
   function RSIIndicator() {
     var _this13;
 
     _classCallCheck(this, RSIIndicator);
 
     _this13 = _possibleConstructorReturn(this, _getPrototypeOf(RSIIndicator).call(this));
-    var N1 = new exprs.ParameterExpr("N1", 2, 120, 6);
-    var N2 = new exprs.ParameterExpr("N2", 2, 250, 12);
-    var N3 = new exprs.ParameterExpr("N3", 2, 500, 24);
+    var N1 = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("N1", 2, 120, 6);
+    var N2 = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("N2", 2, 250, 12);
+    var N3 = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("N3", 2, 500, 24);
 
     _this13.addParameter(N1);
 
@@ -17655,19 +17036,19 @@ function (_Indicator13) {
 
     _this13.addParameter(N3);
 
-    var LC = new exprs.AssignExpr("LC", new exprs.RefExpr(new exprs.CloseExpr(), new exprs.ConstExpr(1)));
+    var LC = new __WEBPACK_IMPORTED_MODULE_0__exprs__["d" /* AssignExpr */]("LC", new __WEBPACK_IMPORTED_MODULE_0__exprs__["B" /* RefExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](1)));
 
     _this13.addAssign(LC);
 
-    var CLOSE_LC = new exprs.AssignExpr("CLOSE_LC", new exprs.SubExpr(new exprs.CloseExpr(), LC));
+    var CLOSE_LC = new __WEBPACK_IMPORTED_MODULE_0__exprs__["d" /* AssignExpr */]("CLOSE_LC", new __WEBPACK_IMPORTED_MODULE_0__exprs__["F" /* SubExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), LC));
 
     _this13.addAssign(CLOSE_LC);
 
-    _this13.addOutput(new exprs.OutputExpr("RSI1", new exprs.MulExpr(new exprs.DivExpr(new exprs.SmaExpr(new exprs.MaxExpr(CLOSE_LC, new exprs.ConstExpr(0)), N1, new exprs.ConstExpr(1)), new exprs.SmaExpr(new exprs.AbsExpr(CLOSE_LC), N1, new exprs.ConstExpr(1))), new exprs.ConstExpr(100))));
+    _this13.addOutput(new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("RSI1", new __WEBPACK_IMPORTED_MODULE_0__exprs__["v" /* MulExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["h" /* DivExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["D" /* SmaExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["u" /* MaxExpr */](CLOSE_LC, new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](0)), N1, new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](1)), new __WEBPACK_IMPORTED_MODULE_0__exprs__["D" /* SmaExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["a" /* AbsExpr */](CLOSE_LC), N1, new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](1))), new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](100))));
 
-    _this13.addOutput(new exprs.OutputExpr("RSI2", new exprs.MulExpr(new exprs.DivExpr(new exprs.SmaExpr(new exprs.MaxExpr(CLOSE_LC, new exprs.ConstExpr(0)), N2, new exprs.ConstExpr(1)), new exprs.SmaExpr(new exprs.AbsExpr(CLOSE_LC), N2, new exprs.ConstExpr(1))), new exprs.ConstExpr(100))));
+    _this13.addOutput(new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("RSI2", new __WEBPACK_IMPORTED_MODULE_0__exprs__["v" /* MulExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["h" /* DivExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["D" /* SmaExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["u" /* MaxExpr */](CLOSE_LC, new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](0)), N2, new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](1)), new __WEBPACK_IMPORTED_MODULE_0__exprs__["D" /* SmaExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["a" /* AbsExpr */](CLOSE_LC), N2, new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](1))), new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](100))));
 
-    _this13.addOutput(new exprs.OutputExpr("RSI3", new exprs.MulExpr(new exprs.DivExpr(new exprs.SmaExpr(new exprs.MaxExpr(CLOSE_LC, new exprs.ConstExpr(0)), N3, new exprs.ConstExpr(1)), new exprs.SmaExpr(new exprs.AbsExpr(CLOSE_LC), N3, new exprs.ConstExpr(1))), new exprs.ConstExpr(100))));
+    _this13.addOutput(new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("RSI3", new __WEBPACK_IMPORTED_MODULE_0__exprs__["v" /* MulExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["h" /* DivExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["D" /* SmaExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["u" /* MaxExpr */](CLOSE_LC, new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](0)), N3, new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](1)), new __WEBPACK_IMPORTED_MODULE_0__exprs__["D" /* SmaExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["a" /* AbsExpr */](CLOSE_LC), N3, new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](1))), new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](100))));
 
     return _this13;
   }
@@ -17679,50 +17060,47 @@ function (_Indicator13) {
     }
   }]);
 
-  _inherits(RSIIndicator, _Indicator13);
-
   return RSIIndicator;
 }(Indicator);
-
-exports.RSIIndicator = RSIIndicator;
-
 var WRIndicator =
 /*#__PURE__*/
 function (_Indicator14) {
+  _inherits(WRIndicator, _Indicator14);
+
   function WRIndicator() {
     var _this14;
 
     _classCallCheck(this, WRIndicator);
 
     _this14 = _possibleConstructorReturn(this, _getPrototypeOf(WRIndicator).call(this));
-    var N = new exprs.ParameterExpr("N", 2, 100, 10);
-    var N1 = new exprs.ParameterExpr("N1", 2, 100, 6);
+    var N = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("N", 2, 100, 10);
+    var N1 = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("N1", 2, 100, 6);
 
     _this14.addParameter(N);
 
     _this14.addParameter(N1);
 
-    var HHV = new exprs.AssignExpr("HHV", new exprs.HhvExpr(new exprs.HighExpr(), N));
+    var HHV = new __WEBPACK_IMPORTED_MODULE_0__exprs__["d" /* AssignExpr */]("HHV", new __WEBPACK_IMPORTED_MODULE_0__exprs__["n" /* HhvExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["o" /* HighExpr */](), N));
 
     _this14.addAssign(HHV);
 
-    var HHV1 = new exprs.AssignExpr("HHV1", new exprs.HhvExpr(new exprs.HighExpr(), N1));
+    var HHV1 = new __WEBPACK_IMPORTED_MODULE_0__exprs__["d" /* AssignExpr */]("HHV1", new __WEBPACK_IMPORTED_MODULE_0__exprs__["n" /* HhvExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["o" /* HighExpr */](), N1));
 
     _this14.addAssign(HHV1);
 
-    var LLV = new exprs.AssignExpr("LLV", new exprs.LlvExpr(new exprs.LowExpr(), N));
+    var LLV = new __WEBPACK_IMPORTED_MODULE_0__exprs__["d" /* AssignExpr */]("LLV", new __WEBPACK_IMPORTED_MODULE_0__exprs__["q" /* LlvExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["r" /* LowExpr */](), N));
 
     _this14.addAssign(LLV);
 
-    var LLV1 = new exprs.AssignExpr("LLV1", new exprs.LlvExpr(new exprs.LowExpr(), N1));
+    var LLV1 = new __WEBPACK_IMPORTED_MODULE_0__exprs__["d" /* AssignExpr */]("LLV1", new __WEBPACK_IMPORTED_MODULE_0__exprs__["q" /* LlvExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["r" /* LowExpr */](), N1));
 
     _this14.addAssign(LLV1);
 
-    var WR1 = new exprs.OutputExpr("WR1", new exprs.MulExpr(new exprs.DivExpr(new exprs.SubExpr(HHV, new exprs.CloseExpr()), new exprs.SubExpr(HHV, LLV)), new exprs.ConstExpr(100)));
+    var WR1 = new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("WR1", new __WEBPACK_IMPORTED_MODULE_0__exprs__["v" /* MulExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["h" /* DivExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["F" /* SubExpr */](HHV, new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */]()), new __WEBPACK_IMPORTED_MODULE_0__exprs__["F" /* SubExpr */](HHV, LLV)), new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](100)));
 
     _this14.addOutput(WR1);
 
-    var WR2 = new exprs.OutputExpr("WR2", new exprs.MulExpr(new exprs.DivExpr(new exprs.SubExpr(HHV1, new exprs.CloseExpr()), new exprs.SubExpr(HHV1, LLV1)), new exprs.ConstExpr(100)));
+    var WR2 = new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("WR2", new __WEBPACK_IMPORTED_MODULE_0__exprs__["v" /* MulExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["h" /* DivExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["F" /* SubExpr */](HHV1, new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */]()), new __WEBPACK_IMPORTED_MODULE_0__exprs__["F" /* SubExpr */](HHV1, LLV1)), new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](100)));
 
     _this14.addOutput(WR2);
 
@@ -17736,28 +17114,25 @@ function (_Indicator14) {
     }
   }]);
 
-  _inherits(WRIndicator, _Indicator14);
-
   return WRIndicator;
 }(Indicator);
-
-exports.WRIndicator = WRIndicator;
-
 var SARIndicator =
 /*#__PURE__*/
 function (_Indicator15) {
+  _inherits(SARIndicator, _Indicator15);
+
   function SARIndicator() {
     var _this15;
 
     _classCallCheck(this, SARIndicator);
 
     _this15 = _possibleConstructorReturn(this, _getPrototypeOf(SARIndicator).call(this));
-    var N = new exprs.ConstExpr(4);
-    var MIN = new exprs.ConstExpr(2);
-    var STEP = new exprs.ConstExpr(2);
-    var MAX = new exprs.ConstExpr(20);
+    var N = new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](4);
+    var MIN = new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](2);
+    var STEP = new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](2);
+    var MAX = new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](20);
 
-    _this15.addOutput(new exprs.OutputExpr("SAR", new exprs.SarExpr(N, MIN, STEP, MAX), exprs.OutputExpr.outputStyle.SARPoint));
+    _this15.addOutput(new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("SAR", new __WEBPACK_IMPORTED_MODULE_0__exprs__["C" /* SarExpr */](N, MIN, STEP, MAX), __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */].outputStyle.SARPoint));
 
     return _this15;
   }
@@ -17769,25 +17144,22 @@ function (_Indicator15) {
     }
   }]);
 
-  _inherits(SARIndicator, _Indicator15);
-
   return SARIndicator;
 }(Indicator);
-
-exports.SARIndicator = SARIndicator;
-
 var KDJIndicator =
 /*#__PURE__*/
 function (_Indicator16) {
+  _inherits(KDJIndicator, _Indicator16);
+
   function KDJIndicator() {
     var _this16;
 
     _classCallCheck(this, KDJIndicator);
 
     _this16 = _possibleConstructorReturn(this, _getPrototypeOf(KDJIndicator).call(this));
-    var N = new exprs.ParameterExpr("N", 2, 90, 9);
-    var M1 = new exprs.ParameterExpr("M1", 2, 30, 3);
-    var M2 = new exprs.ParameterExpr("M2", 2, 30, 3);
+    var N = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("N", 2, 90, 9);
+    var M1 = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("M1", 2, 30, 3);
+    var M2 = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("M2", 2, 30, 3);
 
     _this16.addParameter(N);
 
@@ -17795,27 +17167,27 @@ function (_Indicator16) {
 
     _this16.addParameter(M2);
 
-    var HHV = new exprs.AssignExpr("HHV", new exprs.HhvExpr(new exprs.HighExpr(), N));
+    var HHV = new __WEBPACK_IMPORTED_MODULE_0__exprs__["d" /* AssignExpr */]("HHV", new __WEBPACK_IMPORTED_MODULE_0__exprs__["n" /* HhvExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["o" /* HighExpr */](), N));
 
     _this16.addAssign(HHV);
 
-    var LLV = new exprs.AssignExpr("LLV", new exprs.LlvExpr(new exprs.LowExpr(), N));
+    var LLV = new __WEBPACK_IMPORTED_MODULE_0__exprs__["d" /* AssignExpr */]("LLV", new __WEBPACK_IMPORTED_MODULE_0__exprs__["q" /* LlvExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["r" /* LowExpr */](), N));
 
     _this16.addAssign(LLV);
 
-    var RSV = new exprs.AssignExpr("RSV", new exprs.MulExpr(new exprs.DivExpr(new exprs.SubExpr(new exprs.CloseExpr(), LLV), new exprs.SubExpr(HHV, LLV)), new exprs.ConstExpr(100)));
+    var RSV = new __WEBPACK_IMPORTED_MODULE_0__exprs__["d" /* AssignExpr */]("RSV", new __WEBPACK_IMPORTED_MODULE_0__exprs__["v" /* MulExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["h" /* DivExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["F" /* SubExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), LLV), new __WEBPACK_IMPORTED_MODULE_0__exprs__["F" /* SubExpr */](HHV, LLV)), new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](100)));
 
     _this16.addAssign(RSV);
 
-    var K = new exprs.OutputExpr("K", new exprs.SmaExpr(RSV, M1, new exprs.ConstExpr(1)));
+    var K = new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("K", new __WEBPACK_IMPORTED_MODULE_0__exprs__["D" /* SmaExpr */](RSV, M1, new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](1)));
 
     _this16.addOutput(K);
 
-    var D = new exprs.OutputExpr("D", new exprs.SmaExpr(K, M2, new exprs.ConstExpr(1)));
+    var D = new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("D", new __WEBPACK_IMPORTED_MODULE_0__exprs__["D" /* SmaExpr */](K, M2, new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](1)));
 
     _this16.addOutput(D);
 
-    var J = new exprs.OutputExpr("J", new exprs.SubExpr(new exprs.MulExpr(K, new exprs.ConstExpr(3)), new exprs.MulExpr(D, new exprs.ConstExpr(2))));
+    var J = new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("J", new __WEBPACK_IMPORTED_MODULE_0__exprs__["F" /* SubExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["v" /* MulExpr */](K, new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](3)), new __WEBPACK_IMPORTED_MODULE_0__exprs__["v" /* MulExpr */](D, new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](2))));
 
     _this16.addOutput(J);
 
@@ -17829,38 +17201,35 @@ function (_Indicator16) {
     }
   }]);
 
-  _inherits(KDJIndicator, _Indicator16);
-
   return KDJIndicator;
 }(Indicator);
-
-exports.KDJIndicator = KDJIndicator;
-
 var ROCIndicator =
 /*#__PURE__*/
 function (_Indicator17) {
+  _inherits(ROCIndicator, _Indicator17);
+
   function ROCIndicator() {
     var _this17;
 
     _classCallCheck(this, ROCIndicator);
 
     _this17 = _possibleConstructorReturn(this, _getPrototypeOf(ROCIndicator).call(this));
-    var N = new exprs.ParameterExpr("N", 2, 120, 12);
-    var M = new exprs.ParameterExpr("M", 2, 60, 6);
+    var N = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("N", 2, 120, 12);
+    var M = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("M", 2, 60, 6);
 
     _this17.addParameter(N);
 
     _this17.addParameter(M);
 
-    var REF_CLOSE_N = new exprs.AssignExpr("REF_CLOSE_N", new exprs.RefExpr(new exprs.CloseExpr(), N));
+    var REF_CLOSE_N = new __WEBPACK_IMPORTED_MODULE_0__exprs__["d" /* AssignExpr */]("REF_CLOSE_N", new __WEBPACK_IMPORTED_MODULE_0__exprs__["B" /* RefExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), N));
 
     _this17.addAssign(REF_CLOSE_N);
 
-    var ROC = new exprs.OutputExpr("ROC", new exprs.MulExpr(new exprs.DivExpr(new exprs.SubExpr(new exprs.CloseExpr(), REF_CLOSE_N), REF_CLOSE_N), new exprs.ConstExpr(100)));
+    var ROC = new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("ROC", new __WEBPACK_IMPORTED_MODULE_0__exprs__["v" /* MulExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["h" /* DivExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["F" /* SubExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), REF_CLOSE_N), REF_CLOSE_N), new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](100)));
 
     _this17.addOutput(ROC);
 
-    var MAROC = new exprs.OutputExpr("MAROC", new exprs.MaExpr(ROC, M));
+    var MAROC = new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("MAROC", new __WEBPACK_IMPORTED_MODULE_0__exprs__["t" /* MaExpr */](ROC, M));
 
     _this17.addOutput(MAROC);
 
@@ -17874,34 +17243,31 @@ function (_Indicator17) {
     }
   }]);
 
-  _inherits(ROCIndicator, _Indicator17);
-
   return ROCIndicator;
 }(Indicator);
-
-exports.ROCIndicator = ROCIndicator;
-
 var MTMIndicator =
 /*#__PURE__*/
 function (_Indicator18) {
+  _inherits(MTMIndicator, _Indicator18);
+
   function MTMIndicator() {
     var _this18;
 
     _classCallCheck(this, MTMIndicator);
 
     _this18 = _possibleConstructorReturn(this, _getPrototypeOf(MTMIndicator).call(this));
-    var N = new exprs.ParameterExpr("N", 2, 120, 12);
-    var M = new exprs.ParameterExpr("M", 2, 60, 6);
+    var N = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("N", 2, 120, 12);
+    var M = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("M", 2, 60, 6);
 
     _this18.addParameter(N);
 
     _this18.addParameter(M);
 
-    var MTM = new exprs.OutputExpr("MTM", new exprs.SubExpr(new exprs.CloseExpr(), new exprs.RefExpr(new exprs.CloseExpr(), N)));
+    var MTM = new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("MTM", new __WEBPACK_IMPORTED_MODULE_0__exprs__["F" /* SubExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), new __WEBPACK_IMPORTED_MODULE_0__exprs__["B" /* RefExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), N)));
 
     _this18.addOutput(MTM);
 
-    var MTMMA = new exprs.OutputExpr("MTMMA", new exprs.MaExpr(MTM, M));
+    var MTMMA = new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("MTMMA", new __WEBPACK_IMPORTED_MODULE_0__exprs__["t" /* MaExpr */](MTM, M));
 
     _this18.addOutput(MTMMA);
 
@@ -17915,39 +17281,36 @@ function (_Indicator18) {
     }
   }]);
 
-  _inherits(MTMIndicator, _Indicator18);
-
   return MTMIndicator;
 }(Indicator);
-
-exports.MTMIndicator = MTMIndicator;
-
 var BOLLIndicator =
 /*#__PURE__*/
 function (_Indicator19) {
+  _inherits(BOLLIndicator, _Indicator19);
+
   function BOLLIndicator() {
     var _this19;
 
     _classCallCheck(this, BOLLIndicator);
 
     _this19 = _possibleConstructorReturn(this, _getPrototypeOf(BOLLIndicator).call(this));
-    var N = new exprs.ParameterExpr("N", 2, 120, 20);
+    var N = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("N", 2, 120, 20);
 
     _this19.addParameter(N);
 
-    var STD_CLOSE_N = new exprs.AssignExpr("STD_CLOSE_N", new exprs.StdExpr(new exprs.CloseExpr(), N));
+    var STD_CLOSE_N = new __WEBPACK_IMPORTED_MODULE_0__exprs__["d" /* AssignExpr */]("STD_CLOSE_N", new __WEBPACK_IMPORTED_MODULE_0__exprs__["E" /* StdExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), N));
 
     _this19.addAssign(STD_CLOSE_N);
 
-    var BOLL = new exprs.OutputExpr("BOLL", new exprs.MaExpr(new exprs.CloseExpr(), N));
+    var BOLL = new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("BOLL", new __WEBPACK_IMPORTED_MODULE_0__exprs__["t" /* MaExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), N));
 
     _this19.addOutput(BOLL);
 
-    var UB = new exprs.OutputExpr("UB", new exprs.AddExpr(BOLL, new exprs.MulExpr(new exprs.ConstExpr(2), STD_CLOSE_N)));
+    var UB = new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("UB", new __WEBPACK_IMPORTED_MODULE_0__exprs__["b" /* AddExpr */](BOLL, new __WEBPACK_IMPORTED_MODULE_0__exprs__["v" /* MulExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](2), STD_CLOSE_N)));
 
     _this19.addOutput(UB);
 
-    var LB = new exprs.OutputExpr("LB", new exprs.SubExpr(BOLL, new exprs.MulExpr(new exprs.ConstExpr(2), STD_CLOSE_N)));
+    var LB = new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("LB", new __WEBPACK_IMPORTED_MODULE_0__exprs__["F" /* SubExpr */](BOLL, new __WEBPACK_IMPORTED_MODULE_0__exprs__["v" /* MulExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](2), STD_CLOSE_N)));
 
     _this19.addOutput(LB);
 
@@ -17961,34 +17324,31 @@ function (_Indicator19) {
     }
   }]);
 
-  _inherits(BOLLIndicator, _Indicator19);
-
   return BOLLIndicator;
 }(Indicator);
-
-exports.BOLLIndicator = BOLLIndicator;
-
 var PSYIndicator =
 /*#__PURE__*/
 function (_Indicator20) {
+  _inherits(PSYIndicator, _Indicator20);
+
   function PSYIndicator() {
     var _this20;
 
     _classCallCheck(this, PSYIndicator);
 
     _this20 = _possibleConstructorReturn(this, _getPrototypeOf(PSYIndicator).call(this));
-    var N = new exprs.ParameterExpr("N", 2, 100, 12);
-    var M = new exprs.ParameterExpr("M", 2, 100, 6);
+    var N = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("N", 2, 100, 12);
+    var M = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("M", 2, 100, 6);
 
     _this20.addParameter(N);
 
     _this20.addParameter(M);
 
-    var PSY = new exprs.OutputExpr("PSY", new exprs.MulExpr(new exprs.DivExpr(new exprs.CountExpr(new exprs.GtExpr(new exprs.CloseExpr(), new exprs.RefExpr(new exprs.CloseExpr(), new exprs.ConstExpr(1))), N), N), new exprs.ConstExpr(100)));
+    var PSY = new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("PSY", new __WEBPACK_IMPORTED_MODULE_0__exprs__["v" /* MulExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["h" /* DivExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["g" /* CountExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["m" /* GtExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), new __WEBPACK_IMPORTED_MODULE_0__exprs__["B" /* RefExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](1))), N), N), new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](100)));
 
     _this20.addOutput(PSY);
 
-    var PSYMA = new exprs.OutputExpr("PSYMA", new exprs.MaExpr(PSY, M));
+    var PSYMA = new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("PSYMA", new __WEBPACK_IMPORTED_MODULE_0__exprs__["t" /* MaExpr */](PSY, M));
 
     _this20.addOutput(PSYMA);
 
@@ -18002,16 +17362,13 @@ function (_Indicator20) {
     }
   }]);
 
-  _inherits(PSYIndicator, _Indicator20);
-
   return PSYIndicator;
 }(Indicator);
-
-exports.PSYIndicator = PSYIndicator;
-
 var STOCHRSIIndicator =
 /*#__PURE__*/
 function (_Indicator21) {
+  _inherits(STOCHRSIIndicator, _Indicator21);
+
   function STOCHRSIIndicator() {
     var _this21;
 
@@ -18023,10 +17380,10 @@ function (_Indicator21) {
       return "StochRSI";
     };
 
-    var N = new exprs.ParameterExpr("N", 3, 100, 14);
-    var M = new exprs.ParameterExpr("M", 3, 100, 14);
-    var P1 = new exprs.ParameterExpr("P1", 2, 50, 3);
-    var P2 = new exprs.ParameterExpr("P2", 2, 50, 3);
+    var N = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("N", 3, 100, 14);
+    var M = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("M", 3, 100, 14);
+    var P1 = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("P1", 2, 50, 3);
+    var P2 = new __WEBPACK_IMPORTED_MODULE_0__exprs__["z" /* ParameterExpr */]("P2", 2, 50, 3);
 
     _this21.addParameter(N);
 
@@ -18036,33 +17393,29 @@ function (_Indicator21) {
 
     _this21.addParameter(P2);
 
-    var LC = new exprs.AssignExpr("LC", new exprs.RefExpr(new exprs.CloseExpr(), new exprs.ConstExpr(1)));
+    var LC = new __WEBPACK_IMPORTED_MODULE_0__exprs__["d" /* AssignExpr */]("LC", new __WEBPACK_IMPORTED_MODULE_0__exprs__["B" /* RefExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](1)));
 
     _this21.addAssign(LC);
 
-    var CLOSE_LC = new exprs.AssignExpr("CLOSE_LC", new exprs.SubExpr(new exprs.CloseExpr(), LC));
+    var CLOSE_LC = new __WEBPACK_IMPORTED_MODULE_0__exprs__["d" /* AssignExpr */]("CLOSE_LC", new __WEBPACK_IMPORTED_MODULE_0__exprs__["F" /* SubExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["e" /* CloseExpr */](), LC));
 
     _this21.addAssign(CLOSE_LC);
 
-    var RSI = new exprs.AssignExpr("RSI", new exprs.MulExpr(new exprs.DivExpr(new exprs.SmaExpr(new exprs.MaxExpr(CLOSE_LC, new exprs.ConstExpr(0)), N, new exprs.ConstExpr(1)), new exprs.SmaExpr(new exprs.AbsExpr(CLOSE_LC), N, new exprs.ConstExpr(1))), new exprs.ConstExpr(100)));
+    var RSI = new __WEBPACK_IMPORTED_MODULE_0__exprs__["d" /* AssignExpr */]("RSI", new __WEBPACK_IMPORTED_MODULE_0__exprs__["v" /* MulExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["h" /* DivExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["D" /* SmaExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["u" /* MaxExpr */](CLOSE_LC, new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](0)), N, new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](1)), new __WEBPACK_IMPORTED_MODULE_0__exprs__["D" /* SmaExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["a" /* AbsExpr */](CLOSE_LC), N, new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](1))), new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](100)));
 
     _this21.addAssign(RSI);
 
-    var STOCHRSI = new exprs.OutputExpr("STOCHRSI", new exprs.MulExpr(new exprs.DivExpr(new exprs.MaExpr(new exprs.SubExpr(RSI, new exprs.LlvExpr(RSI, M)), P1), new exprs.MaExpr(new exprs.SubExpr(new exprs.HhvExpr(RSI, M), new exprs.LlvExpr(RSI, M)), P1)), new exprs.ConstExpr(100)));
+    var STOCHRSI = new __WEBPACK_IMPORTED_MODULE_0__exprs__["y" /* OutputExpr */]("STOCHRSI", new __WEBPACK_IMPORTED_MODULE_0__exprs__["v" /* MulExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["h" /* DivExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["t" /* MaExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["F" /* SubExpr */](RSI, new __WEBPACK_IMPORTED_MODULE_0__exprs__["q" /* LlvExpr */](RSI, M)), P1), new __WEBPACK_IMPORTED_MODULE_0__exprs__["t" /* MaExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["F" /* SubExpr */](new __WEBPACK_IMPORTED_MODULE_0__exprs__["n" /* HhvExpr */](RSI, M), new __WEBPACK_IMPORTED_MODULE_0__exprs__["q" /* LlvExpr */](RSI, M)), P1)), new __WEBPACK_IMPORTED_MODULE_0__exprs__["f" /* ConstExpr */](100)));
 
     _this21.addOutput(STOCHRSI);
 
-    _this21.addOutput(new exprs.RangeOutputExpr("MA", new exprs.MaExpr(STOCHRSI, P2)));
+    _this21.addOutput(new __WEBPACK_IMPORTED_MODULE_0__exprs__["A" /* RangeOutputExpr */]("MA", new __WEBPACK_IMPORTED_MODULE_0__exprs__["t" /* MaExpr */](STOCHRSI, P2)));
 
     return _this21;
   }
 
-  _inherits(STOCHRSIIndicator, _Indicator21);
-
   return STOCHRSIIndicator;
 }(Indicator);
-
-exports.STOCHRSIIndicator = STOCHRSIIndicator;
 
 /***/ }),
 /* 31 */
@@ -18085,8 +17438,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../node_modules/_css-loader@0.28.11@css-loader/index.js!./main.css", function() {
-			var newContent = require("!!../../node_modules/_css-loader@0.28.11@css-loader/index.js!./main.css");
+		module.hot.accept("!!../../node_modules/css-loader/index.js!./main.css", function() {
+			var newContent = require("!!../../node_modules/css-loader/index.js!./main.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -18745,23 +18098,17 @@ module.exports = function (css) {
 /* 47 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"trade_container dark hide\">\r\n    <div class=\"m_cent\">\r\n        <div class=\"m_guadan\">\r\n            <div class=\"symbol-title\">\r\n                <a class=\"dark\"></a>\r\n            </div>\r\n            <div id=\"orderbook\">\r\n                <div id=\"asks\">\r\n                    <div class=\"table\"></div>\r\n                </div>\r\n                <div id=\"gasks\">\r\n                    <div class=\"table\"></div>\r\n                </div>\r\n                <div id=\"price\" class=\"green\"></div>\r\n                <div id=\"bids\">\r\n                    <div class=\"table\"></div>\r\n                </div>\r\n                <div id=\"gbids\">\r\n                    <div class=\"table\"></div>\r\n                </div>\r\n            </div>\r\n            <div id=\"trades\" class=\"trades\">\r\n                <div class=\"trades_list\"></div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<div class=\"chart_container dark\">\r\n    <div id=\"chart_dom_elem_cache\"></div>\r\n    <!-- ToolBar -->\r\n    <div id=\"chart_toolbar\">\r\n        <div class=\"chart_toolbar_minisep\"></div>\r\n        <!-- Periods -->\r\n        <div class=\"chart_dropdown\" id=\"chart_toolbar_periods_vert\">\r\n            <div class=\"chart_dropdown_t\"><a class=\"chart_str_period\">周期</a></div>\r\n            <div class=\"chart_dropdown_data\" style=\"margin-left: -58px;\">\r\n                <table>\r\n                    <tbody>\r\n                    <tr>\r\n                        <td>\r\n                            <ul>\r\n                                <li id=\"chart_period_1w_v\" style=\"display:none;\" name=\"1w\">\r\n                                    <a class=\"chart_str_period_1w\">周线</a>\r\n                                </li>\r\n                                <li id=\"chart_period_3d_v\" style=\"display:none;\" name=\"3d\">\r\n                                    <a class=\"chart_str_period_3d\">3日</a>\r\n                                </li>\r\n                                <li id=\"chart_period_1d_v\" style=\"display:none;\" name=\"1d\">\r\n                                    <a class=\"chart_str_period_1d\">日线</a>\r\n                                </li>\r\n                                <li id=\"chart_period_12h_v\" style=\"display:none;\" name=\"12h\">\r\n                                    <a class=\"chart_str_period_12h\">12小时</a>\r\n                                </li>\r\n                                <li id=\"chart_period_6h_v\" style=\"display:none;\" name=\"6h\">\r\n                                    <a class=\"chart_str_period_6h\">6小时</a>\r\n                                </li>\r\n                                <li id=\"chart_period_4h_v\" style=\"display:none;\" name=\"4h\">\r\n                                    <a class=\"chart_str_period_4h\">4小时</a>\r\n                                </li>\r\n                                <li id=\"chart_period_2h_v\" style=\"display:none;\" name=\"2h\">\r\n                                    <a class=\"chart_str_period_2h\">2小时</a>\r\n                                </li>\r\n                                <li id=\"chart_period_1h_v\" style=\"display:none;\" name=\"1h\">\r\n                                    <a class=\"chart_str_period_1h\">1小时</a>\r\n                                </li>\r\n                            </ul>\r\n                        </td>\r\n\r\n                    </tr>\r\n\r\n                    <tr>\r\n                        <td>\r\n                            <ul>\r\n                                <li id=\"chart_period_30m_v\" style=\"display:none;\" name=\"30m\">\r\n                                    <a class=\"chart_str_period_30m\">30分钟</a>\r\n                                </li>\r\n                                <li id=\"chart_period_15m_v\" style=\"display:none;\" name=\"15m\">\r\n                                    <a class=\"chart_str_period_15m\">15分钟</a>\r\n                                </li>\r\n                                <li id=\"chart_period_5m_v\" style=\"display:none;\" name=\"5m\">\r\n                                    <a class=\"chart_str_period_5m\">5分钟</a>\r\n                                </li>\r\n                                <li id=\"chart_period_3m_v\" style=\"display:none;\" name=\"3m\">\r\n                                    <a class=\"chart_str_period_3m\">3分钟</a>\r\n                                </li>\r\n                                <li id=\"chart_period_1m_v\" style=\"display:none;\" name=\"1m\">\r\n                                    <a class=\"chart_str_period_1m selected\">1分钟</a>\r\n                                </li>\r\n                                <li id=\"chart_period_line_v\" style=\"display:none;\" name=\"line\">\r\n                                    <a class=\"chart_str_period_line\">分时</a>\r\n                                </li>\r\n                            </ul>\r\n                        </td>\r\n                    </tr>\r\n                    </tbody>\r\n                </table>\r\n            </div>\r\n        </div>\r\n        <div id=\"chart_toolbar_periods_horz\">\r\n            <ul class=\"chart_toolbar_tabgroup\" style=\"padding-left:5px; padding-right:11px;\">\r\n                <li id=\"chart_period_1w_h\" name=\"1w\" style=\"display: none;\">\r\n                    <a class=\"chart_str_period_1w\">周线</a>\r\n                </li>\r\n                <li id=\"chart_period_3d_h\" name=\"3d\" style=\"display: none;\">\r\n                    <a class=\"chart_str_period_3d\">3日</a>\r\n                </li>\r\n                <li id=\"chart_period_1d_h\" name=\"1d\" style=\"display: none;\">\r\n                    <a class=\"chart_str_period_1d\">日线</a>\r\n                </li>\r\n                <li id=\"chart_period_12h_h\" name=\"12h\" style=\"display: none;\">\r\n                    <a class=\"chart_str_period_12h\">12小时</a>\r\n                </li>\r\n                <li id=\"chart_period_6h_h\" name=\"6h\" style=\"display: none;\">\r\n                    <a class=\"chart_str_period_6h\">6小时</a>\r\n                </li>\r\n                <li id=\"chart_period_4h_h\" name=\"4h\" style=\"display: none;\">\r\n                    <a class=\"chart_str_period_4h\">4小时</a>\r\n                </li>\r\n                <li id=\"chart_period_2h_h\" name=\"2h\" style=\"display: none;\">\r\n                    <a class=\"chart_str_period_2h\">2小时</a>\r\n                </li>\r\n                <li id=\"chart_period_1h_h\" name=\"1h\" style=\"display: none;\">\r\n                    <a class=\"chart_str_period_1h\">1小时</a>\r\n                </li>\r\n                <li id=\"chart_period_30m_h\" name=\"30m\" style=\"display: none;\">\r\n                    <a class=\"chart_str_period_30m\">30分钟</a>\r\n                </li>\r\n                <li id=\"chart_period_15m_h\" name=\"15m\" style=\"display: none;\">\r\n                    <a class=\"chart_str_period_15m\">15分钟</a>\r\n                </li>\r\n                <li id=\"chart_period_5m_h\" name=\"5m\" style=\"display: none;\">\r\n                    <a class=\"chart_str_period_5m\">5分钟</a>\r\n                </li>\r\n                <li id=\"chart_period_3m_h\" name=\"3m\" style=\"display: none;\">\r\n                    <a class=\"chart_str_period_3m\">3分钟</a>\r\n                </li>\r\n                <li id=\"chart_period_1m_h\" name=\"1m\" style=\"display: none;\">\r\n                    <a class=\"chart_str_period_1m selected\">1分钟</a>\r\n                </li>\r\n                <li id=\"chart_period_line_h\" name=\"line\" style=\"display: none;\">\r\n                    <a class=\"chart_str_period_line\">分时</a>\r\n                </li>\r\n            </ul>\r\n        </div>\r\n        <div id=\"chart_show_indicator\" class=\"chart_toolbar_button chart_str_indicator_cap selected\">技术指标</div>\r\n        <div id=\"chart_show_tools\" class=\"chart_toolbar_button chart_str_tools_cap\">画线工具</div>\r\n        <div id=\"chart_toolbar_theme\">\r\n            <div class=\"chart_toolbar_label chart_str_theme_cap\">\r\n                主题选择\r\n            </div>\r\n            <a name=\"dark\" class=\"chart_icon chart_icon_theme_dark selected\"></a>\r\n            <a name=\"light\" class=\"chart_icon chart_icon_theme_light\"></a>\r\n        </div>\r\n        <div class=\"chart_dropdown\" id=\"chart_dropdown_settings\">\r\n            <div class=\"chart_dropdown_t\"><a class=\"chart_str_settings\">更多</a></div>\r\n\r\n            <div class=\"chart_dropdown_data\" style=\"margin-left: -142px;\">\r\n                <table>\r\n                    <tbody>\r\n                    <tr id=\"chart_select_main_indicator\">\r\n                        <td class=\"chart_str_main_indicator\">主指标</td>\r\n                        <td>\r\n                            <ul>\r\n                                <li><a name=\"MA\" class=\"selected\">MA</a></li>\r\n                                <li><a name=\"EMA\" class=\"\">EMA</a></li>\r\n                                <li><a name=\"BOLL\" class=\"\">BOLL</a></li>\r\n                                <li><a name=\"SAR\" class=\"\">SAR</a></li>\r\n                                <li><a name=\"NONE\" class=\"\">None</a></li>\r\n                            </ul>\r\n                        </td>\r\n                    </tr>\r\n\r\n                    <tr id=\"chart_select_chart_style\">\r\n                        <td class=\"chart_str_chart_style\">主图样式</td>\r\n                        <td>\r\n                            <ul>\r\n                                <li><a class=\"selected\">CandleStick</a></li>\r\n                                <li><a>CandleStickHLC</a></li>\r\n                                <li><a class=\"\">OHLC</a></li>\r\n                            </ul>\r\n                        </td>\r\n                    </tr>\r\n\r\n                    <tr id=\"chart_select_theme\" style=\"display: none;\">\r\n                        <td class=\"chart_str_theme\">主题选择</td>\r\n                        <td>\r\n                            <ul>\r\n                                <li>\r\n                                    <a name=\"dark\" class=\"chart_icon chart_icon_theme_dark selected\"></a>\r\n                                </li>\r\n\r\n                                <li>\r\n                                    <a name=\"light\" class=\"chart_icon chart_icon_theme_light\"></a>\r\n                                </li>\r\n                            </ul>\r\n                        </td>\r\n                    </tr>\r\n                    <tr id=\"chart_enable_tools\" style=\"display: none;\">\r\n                        <td class=\"chart_str_tools\">画线工具</td>\r\n                        <td>\r\n                            <ul>\r\n                                <li><a name=\"on\" class=\"chart_str_on\">开启</a></li>\r\n                                <li><a name=\"off\" class=\"chart_str_off selected\">关闭</a></li>\r\n\r\n                            </ul>\r\n\r\n                        </td>\r\n                    </tr>\r\n                    <tr id=\"chart_enable_indicator\" style=\"display: none;\">\r\n                        <td class=\"chart_str_indicator\">技术指标</td>\r\n                        <td>\r\n                            <ul>\r\n                                <li><a name=\"on\" class=\"chart_str_on selected\">开启</a></li>\r\n                                <li><a name=\"off\" class=\"chart_str_off\">关闭</a></li>\r\n                            </ul>\r\n                        </td>\r\n                    </tr>\r\n                    <tr>\r\n                        <td></td>\r\n                        <td>\r\n                            <ul>\r\n                                <li>\r\n                                    <a id=\"chart_btn_parameter_settings\" class=\"chart_str_indicator_parameters\">指标参数设置</a>\r\n                                </li>\r\n                            </ul>\r\n                        </td>\r\n                    </tr>\r\n                    </tbody>\r\n                </table>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"chart_dropdown\" id=\"chart_language_setting_div\" style=\"padding-left: 5px;\">\r\n            <div class=\"chart_dropdown_t\">\r\n                <a class=\"chart_language_setting\">语言(LANG)</a>\r\n            </div>\r\n            <div class=\"chart_dropdown_data\" style=\"padding-top: 15px; margin-left: -12px;\">\r\n                <ul>\r\n                    <li style=\"height: 25px;\">\r\n                        <a name=\"zh-cn\" class=\"selected\">简体中文(zh-CN)</a>\r\n                    </li>\r\n                    <li style=\"height: 25px;\">\r\n                        <a name=\"en-us\">English(en-US)</a>\r\n                    </li>\r\n                    <li style=\"height: 25px;\">\r\n                        <a name=\"zh-tw\">繁體中文(zh-HK)</a>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n        </div>\r\n        <div id=\"chart_updated_time\">\r\n            <div id=\"sizeIcon\" class=\"chart_BoxSize\"></div>\r\n\r\n        </div>\r\n    </div>\r\n               <!-- ToolPanel -->\r\n    <div id=\"chart_toolpanel\">\r\n        <div class=\"chart_toolpanel_separator\"></div>\r\n\r\n        <div class=\"chart_toolpanel_button\">\r\n            <div class=\"chart_toolpanel_icon\" id=\"chart_Cursor\" name=\"Cursor\"></div>\r\n            <div class=\"chart_toolpanel_tip chart_str_cursor\">\r\n                光标\r\n            </div>\r\n        </div>\r\n        <div class=\"chart_toolpanel_button\">\r\n            <div class=\"chart_toolpanel_icon\" id=\"chart_CrossCursor\" name=\"CrossCursor\"></div>\r\n            <div class=\"chart_toolpanel_tip chart_str_cross_cursor\">\r\n                十字光标\r\n            </div>\r\n        </div>\r\n        <div class=\"chart_toolpanel_button\">\r\n            <div class=\"chart_toolpanel_icon\" id=\"chart_SegLine\" name=\"SegLine\"></div>\r\n            <div class=\"chart_toolpanel_tip chart_str_seg_line\">\r\n                线段\r\n            </div>\r\n        </div>\r\n        <div class=\"chart_toolpanel_button\">\r\n            <div class=\"chart_toolpanel_icon\" id=\"chart_StraightLine\" name=\"StraightLine\"></div>\r\n            <div class=\"chart_toolpanel_tip chart_str_straight_line\">\r\n                直线\r\n            </div>\r\n        </div>\r\n        <div class=\"chart_toolpanel_button\">\r\n            <div class=\"chart_toolpanel_icon\" id=\"chart_RayLine\" name=\"RayLine\"></div>\r\n            <div class=\"chart_toolpanel_tip chart_str_ray_line\">\r\n                射线\r\n            </div>\r\n        </div>\r\n        <div class=\"chart_toolpanel_button\">\r\n            <div class=\"chart_toolpanel_icon\" id=\"chart_ArrowLine\" name=\"ArrowLine\"></div>\r\n            <div class=\"chart_toolpanel_tip chart_str_arrow_line\">\r\n                箭头\r\n            </div>\r\n        </div>\r\n        <div class=\"chart_toolpanel_button\">\r\n            <div class=\"chart_toolpanel_icon\" id=\"chart_HoriSegLine\" name=\"HoriSegLine\"></div>\r\n            <div class=\"chart_toolpanel_tip chart_str_horz_seg_line\">\r\n                水平线段\r\n            </div>\r\n        </div>\r\n        <div class=\"chart_toolpanel_button\">\r\n            <div class=\"chart_toolpanel_icon\" id=\"chart_HoriStraightLine\" name=\"HoriStraightLine\"></div>\r\n            <div class=\"chart_toolpanel_tip chart_str_horz_straight_line\">\r\n                水平直线\r\n            </div>\r\n        </div>\r\n        <div class=\"chart_toolpanel_button\">\r\n            <div class=\"chart_toolpanel_icon\" id=\"chart_HoriRayLine\" name=\"HoriRayLine\"></div>\r\n            <div class=\"chart_toolpanel_tip chart_str_horz_ray_line\">\r\n                水平射线\r\n            </div>\r\n        </div>\r\n        <div class=\"chart_toolpanel_button\">\r\n            <div class=\"chart_toolpanel_icon\" id=\"chart_VertiStraightLine\" name=\"VertiStraightLine\"></div>\r\n            <div class=\"chart_toolpanel_tip chart_str_vert_straight_line\">\r\n                垂直直线\r\n            </div>\r\n        </div>\r\n        <div class=\"chart_toolpanel_button\">\r\n            <div class=\"chart_toolpanel_icon\" id=\"chart_PriceLine\" name=\"PriceLine\"></div>\r\n            <div class=\"chart_toolpanel_tip chart_str_price_line\">\r\n                价格线\r\n            </div>\r\n        </div>\r\n        <div class=\"chart_toolpanel_button\">\r\n            <div class=\"chart_toolpanel_icon\" id=\"chart_TriParallelLine\" name=\"TriParallelLine\"></div>\r\n            <div class=\"chart_toolpanel_tip chart_str_tri_parallel_line\">\r\n                价格通道线\r\n            </div>\r\n        </div>\r\n        <div class=\"chart_toolpanel_button\">\r\n            <div class=\"chart_toolpanel_icon\" id=\"chart_BiParallelLine\" name=\"BiParallelLine\"></div>\r\n            <div class=\"chart_toolpanel_tip chart_str_bi_parallel_line\">\r\n                平行直线\r\n            </div>\r\n        </div>\r\n        <div class=\"chart_toolpanel_button\">\r\n            <div class=\"chart_toolpanel_icon\" id=\"chart_BiParallelRayLine\" name=\"BiParallelRayLine\"></div>\r\n            <div class=\"chart_toolpanel_tip chart_str_bi_parallel_ray\">\r\n                平行射线\r\n            </div>\r\n        </div>\r\n        <div class=\"chart_toolpanel_button\">\r\n            <div class=\"chart_toolpanel_icon\" id=\"chart_DrawFibRetrace\" name=\"DrawFibRetrace\"></div>\r\n            <div class=\"chart_toolpanel_tip chart_str_fib_retrace\">\r\n                斐波纳契回调\r\n            </div>\r\n        </div>\r\n        <div class=\"chart_toolpanel_button\">\r\n            <div class=\"chart_toolpanel_icon\" id=\"chart_DrawFibFans\" name=\"DrawFibFans\"></div>\r\n            <div class=\"chart_toolpanel_tip chart_str_fib_fans\">\r\n                斐波纳契扇形\r\n            </div>\r\n        </div>\r\n        <div style=\"padding-left: 3px;padding-top: 10px;\">\r\n            <button style=\"color: red;\" id=\"clearCanvas\" title=\"Clear All\">X</button>\r\n        </div>\r\n    </div>\r\n    <div id=\"chart_canvasGroup\" class=\"temp\">\r\n        <canvas class=\"chart_canvas\" id=\"chart_mainCanvas\" style=\"cursor: default;\"></canvas>\r\n        <canvas class=\"chart_canvas\" id=\"chart_overlayCanvas\" style=\"cursor: default;\"></canvas>\r\n    </div>\r\n    <div id=\"chart_tabbar\">\r\n        <ul>\r\n            <li><a name=\"MACD\" class=\"\">MACD</a></li>\r\n\r\n            <li><a name=\"KDJ\" class=\"\">KDJ</a></li>\r\n\r\n            <li><a name=\"StochRSI\" class=\"\">StochRSI</a></li>\r\n\r\n            <li><a name=\"RSI\" class=\"\">RSI</a></li>\r\n\r\n            <li><a name=\"DMI\" class=\"\">DMI</a></li>\r\n\r\n            <li><a name=\"OBV\" class=\"\">OBV</a></li>\r\n\r\n            <li><a name=\"BOLL\" class=\"\">BOLL</a></li>\r\n\r\n            <li><a name=\"SAR\" class=\"\">SAR</a></li>\r\n\r\n            <li><a name=\"DMA\" class=\"\">DMA</a></li>\r\n\r\n            <li><a name=\"TRIX\" class=\"\">TRIX</a></li>\r\n\r\n            <li><a name=\"BRAR\" class=\"\">BRAR</a></li>\r\n\r\n            <li><a name=\"VR\" class=\"\">VR</a></li>\r\n\r\n            <li><a name=\"EMV\" class=\"\">EMV</a></li>\r\n\r\n            <li><a name=\"WR\" class=\"\">WR</a></li>\r\n\r\n            <li><a name=\"ROC\" class=\"\">ROC</a></li>\r\n\r\n            <li><a name=\"MTM\" class=\"\">MTM</a></li>\r\n\r\n            <li><a name=\"PSY\">PSY</a></li>\r\n\r\n        </ul>\r\n\r\n    </div>\r\n\r\n    <div id=\"chart_parameter_settings\">\r\n        <h2 class=\"chart_str_indicator_parameters\">指标参数设置</h2>\r\n        <table>\r\n            <tbody>\r\n            <tr>\r\n                <th>MA</th>\r\n                <td><input name=\"MA\"><input name=\"MA\"><input name=\"MA\"><input name=\"MA\"><br><input\r\n                        name=\"MA\"><input\r\n                        name=\"MA\">\r\n                </td>\r\n                <td>\r\n                    <button class=\"chart_str_default\">默认值</button>\r\n                </td>\r\n\r\n                <th>DMA</th>\r\n                <td><input name=\"DMA\"><input name=\"DMA\"><input name=\"DMA\"></td>\r\n                <td>\r\n                    <button class=\"chart_str_default\">默认值</button>\r\n                </td>\r\n            </tr>\r\n\r\n            <tr>\r\n                <th>EMA</th>\r\n                <td>\r\n                    <input name=\"EMA\"><input name=\"EMA\"><input name=\"EMA\"><input name=\"EMA\"><br>\r\n                    <input name=\"EMA\"><input name=\"EMA\">\r\n                </td>\r\n                <td>\r\n                    <button class=\"chart_str_default\">默认值</button>\r\n                </td>\r\n\r\n                <th>TRIX</th>\r\n                <td><input name=\"TRIX\"><input name=\"TRIX\"></td>\r\n                <td>\r\n                    <button class=\"chart_str_default\">默认值</button>\r\n                </td>\r\n            </tr>\r\n\r\n            <tr>\r\n                <th>VOLUME</th>\r\n                <td><input name=\"VOLUME\"><input name=\"VOLUME\"></td>\r\n                <td>\r\n                    <button class=\"chart_str_default\">默认值</button>\r\n                </td>\r\n\r\n                <th>BRAR</th>\r\n                <td><input name=\"BRAR\"></td>\r\n                <td>\r\n                    <button class=\"chart_str_default\">默认值</button>\r\n                </td>\r\n            </tr>\r\n\r\n            <tr>\r\n                <th>MACD</th>\r\n                <td>\r\n                    <input name=\"MACD\"><input name=\"MACD\"><input name=\"MACD\">\r\n                </td>\r\n                <td>\r\n                    <button class=\"chart_str_default\">默认值</button>\r\n                </td>\r\n\r\n                <th>VR</th>\r\n                <td><input name=\"VR\"><input name=\"VR\"></td>\r\n                <td>\r\n                    <button class=\"chart_str_default\">默认值</button>\r\n                </td>\r\n            </tr>\r\n\r\n            <tr>\r\n                <th>KDJ</th>\r\n                <td>\r\n                    <input name=\"KDJ\"><input name=\"KDJ\"><input name=\"KDJ\">\r\n                </td>\r\n                <td>\r\n                    <button class=\"chart_str_default\">默认值</button>\r\n                </td>\r\n\r\n                <th>EMV</th>\r\n                <td>\r\n                    <input name=\"EMV\"><input name=\"EMV\">\r\n                </td>\r\n                <td>\r\n                    <button class=\"chart_str_default\">默认值</button>\r\n                </td>\r\n            </tr>\r\n\r\n            <tr>\r\n                <th>StochRSI</th>\r\n                <td>\r\n                    <input name=\"StochRSI\"><input name=\"StochRSI\"><input name=\"StochRSI\"><input name=\"StochRSI\">\r\n                </td>\r\n                <td>\r\n                    <button class=\"chart_str_default\">默认值</button>\r\n                </td>\r\n\r\n                <th>WR</th>\r\n                <td>\r\n                    <input name=\"WR\"><input name=\"WR\">\r\n                </td>\r\n                <td>\r\n                    <button class=\"chart_str_default\">默认值</button>\r\n                </td>\r\n            </tr>\r\n\r\n            <tr>\r\n                <th>RSI</th>\r\n                <td>\r\n                    <input name=\"RSI\"><input name=\"RSI\"><input name=\"RSI\">\r\n                </td>\r\n                <td>\r\n                    <button class=\"chart_str_default\">默认值</button>\r\n                </td>\r\n\r\n                <th>ROC</th>\r\n                <td>\r\n                    <input name=\"ROC\"><input name=\"ROC\">\r\n                </td>\r\n                <td>\r\n                    <button class=\"chart_str_default\">默认值</button>\r\n                </td>\r\n            </tr>\r\n\r\n            <tr>\r\n                <th>DMI</th>\r\n                <td>\r\n                    <input name=\"DMI\"><input name=\"DMI\">\r\n                </td>\r\n                <td>\r\n                    <button class=\"chart_str_default\">默认值</button>\r\n                </td>\r\n\r\n                <th>MTM</th>\r\n                <td>\r\n                    <input name=\"MTM\"><input name=\"MTM\">\r\n                </td>\r\n                <td>\r\n                    <button class=\"chart_str_default\">默认值</button>\r\n                </td>\r\n            </tr>\r\n\r\n            <tr>\r\n                <th>OBV</th>\r\n                <td>\r\n                    <input name=\"OBV\">\r\n                </td>\r\n                <td>\r\n                    <button class=\"chart_str_default\">默认值</button>\r\n                </td>\r\n\r\n                <th>PSY</th>\r\n                <td>\r\n                    <input name=\"PSY\"><input name=\"PSY\">\r\n                </td>\r\n                <td>\r\n                    <button class=\"chart_str_default\">默认值</button>\r\n                </td>\r\n            </tr>\r\n\r\n            <tr>\r\n                <th>BOLL</th>\r\n                <td>\r\n                    <input name=\"BOLL\">\r\n                </td>\r\n                <td>\r\n                    <button class=\"chart_str_default\">默认值</button>\r\n                </td>\r\n            </tr>\r\n            </tbody>\r\n        </table>\r\n\r\n        <div id=\"close_settings\"><a class=\"chart_str_close\">关闭</a></div>\r\n\r\n    </div>\r\n\r\n    <!-- Loading -->\r\n    <div id=\"chart_loading\" class=\"chart_str_loading\">正在读取数据...</div>\r\n</div>\r\n\r\n<div style=\"display: none\" id=\"chart_language_switch_tmp\">\r\n    <span name=\"chart_str_period\" zh_tw=\"週期\" zh_cn=\"周期\" en_us=\"TIME\"></span>\r\n    <span name=\"chart_str_period_line\" zh_tw=\"分時\" zh_cn=\"分时\" en_us=\"Line\"></span>\r\n    <span name=\"chart_str_period_1m\" zh_tw=\"1分鐘\" zh_cn=\"1分钟\" en_us=\"1m\"></span>\r\n    <span name=\"chart_str_period_3m\" zh_tw=\"3分鐘\" zh_cn=\"3分钟\" en_us=\"3m\"></span>\r\n    <span name=\"chart_str_period_5m\" zh_tw=\"5分鐘\" zh_cn=\"5分钟\" en_us=\"5m\"></span>\r\n    <span name=\"chart_str_period_15m\" zh_tw=\"15分鐘\" zh_cn=\"15分钟\" en_us=\"15m\"></span>\r\n    <span name=\"chart_str_period_30m\" zh_tw=\"30分鐘\" zh_cn=\"30分钟\" en_us=\"30m\"></span>\r\n    <span name=\"chart_str_period_1h\" zh_tw=\"1小時\" zh_cn=\"1小时\" en_us=\"1h\"></span>\r\n    <span name=\"chart_str_period_2h\" zh_tw=\"2小時\" zh_cn=\"2小时\" en_us=\"2h\"></span>\r\n    <span name=\"chart_str_period_4h\" zh_tw=\"4小時\" zh_cn=\"4小时\" en_us=\"4h\"></span>\r\n    <span name=\"chart_str_period_6h\" zh_tw=\"6小時\" zh_cn=\"6小时\" en_us=\"6h\"></span>\r\n    <span name=\"chart_str_period_12h\" zh_tw=\"12小時\" zh_cn=\"12小时\" en_us=\"12h\"></span>\r\n    <span name=\"chart_str_period_1d\" zh_tw=\"日線\" zh_cn=\"日线\" en_us=\"1d\"></span>\r\n    <span name=\"chart_str_period_3d\" zh_tw=\"3日\" zh_cn=\"3日\" en_us=\"3d\"></span>\r\n    <span name=\"chart_str_period_1w\" zh_tw=\"周線\" zh_cn=\"周线\" en_us=\"1w\"></span>\r\n    <span name=\"chart_str_settings\" zh_tw=\"更多\" zh_cn=\"更多\" en_us=\"MORE\"></span>\r\n    <span name=\"chart_setting_main_indicator\" zh_tw=\"均線設置\" zh_cn=\"均线设置\" en_us=\"Main Indicator\"></span>\r\n    <span name=\"chart_setting_main_indicator_none\" zh_tw=\"關閉均線\" zh_cn=\"关闭均线\" en_us=\"None\"></span>\r\n    <span name=\"chart_setting_indicator_parameters\" zh_tw=\"指標參數設置\" zh_cn=\"指标参数设置\" en_us=\"Indicator Parameters\"></span>\r\n    <span name=\"chart_str_chart_style\" zh_tw=\"主圖樣式\" zh_cn=\"主图样式\" en_us=\"Chart Style\"></span>\r\n    <span name=\"chart_str_main_indicator\" zh_tw=\"主指標\" zh_cn=\"主指标\" en_us=\"Main Indicator\"></span>\r\n    <span name=\"chart_str_indicator\" zh_tw=\"技術指標\" zh_cn=\"技术指标\" en_us=\"Indicator\"></span>\r\n    <span name=\"chart_str_indicator_cap\" zh_tw=\"技術指標\" zh_cn=\"技术指标\" en_us=\"INDICATOR\"></span>\r\n    <span name=\"chart_str_tools\" zh_tw=\"畫線工具\" zh_cn=\"画线工具\" en_us=\"Tools\"></span>\r\n    <span name=\"chart_str_tools_cap\" zh_tw=\"畫線工具\" zh_cn=\"画线工具\" en_us=\"TOOLS\"></span>\r\n    <span name=\"chart_str_theme\" zh_tw=\"主題選擇\" zh_cn=\"主题选择\" en_us=\"Theme\"></span>\r\n    <span name=\"chart_str_theme_cap\" zh_tw=\"主題選擇\" zh_cn=\"主题选择\" en_us=\"THEME\"></span>\r\n    <span name=\"chart_language_setting\" zh_tw=\"語言(LANG)\" zh_cn=\"语言(LANG)\" en_us=\"LANGUAGE\"></span>\r\n    <span name=\"chart_exchanges_setting\" zh_tw=\"更多市場\" zh_cn=\"更多市场\" en_us=\"MORE MARKETS\"></span>\r\n    <span name=\"chart_othercoin_setting\" zh_tw=\"其它市場\" zh_cn=\"其它市场\" en_us=\"OTHER MARKETS\"></span>\r\n\r\n    <span name=\"chart_str_none\" zh_tw=\"關閉\" zh_cn=\"关闭\" en_us=\"None\"></span>\r\n    <span name=\"chart_str_theme_dark\" zh_tw=\"深色主題\" zh_cn=\"深色主题\" en_us=\"Dark\"></span>\r\n    <span name=\"chart_str_theme_light\" zh_tw=\"淺色主題\" zh_cn=\"浅色主题\" en_us=\"Light\"></span>\r\n    <span name=\"chart_str_on\" zh_tw=\"開啟\" zh_cn=\"开启\" en_us=\"On\"></span>\r\n    <span name=\"chart_str_off\" zh_tw=\"關閉\" zh_cn=\"关闭\" en_us=\"Off\"></span>\r\n    <span name=\"chart_str_close\" zh_tw=\"關閉\" zh_cn=\"关闭\" en_us=\"CLOSE\"></span>\r\n    <span name=\"chart_str_default\" zh_tw=\"默認值\" zh_cn=\"默认值\" en_us=\"default\"></span>\r\n    <span name=\"chart_str_loading\" zh_tw=\"正在讀取數據...\" zh_cn=\"正在读取数据...\" en_us=\"Loading...\"></span>\r\n    <span name=\"chart_str_indicator_parameters\" zh_tw=\"指標參數設置\" zh_cn=\"指标参数设置\" en_us=\"Indicator Parameters\"></span>\r\n    <span name=\"chart_str_cursor\" zh_tw=\"光標\" zh_cn=\"光标\" en_us=\"Cursor\"></span>\r\n    <span name=\"chart_str_cross_cursor\" zh_tw=\"十字光標\" zh_cn=\"十字光标\" en_us=\"Cross Cursor\"></span>\r\n    <span name=\"chart_str_seg_line\" zh_tw=\"線段\" zh_cn=\"线段\" en_us=\"Trend Line\"></span>\r\n    <span name=\"chart_str_straight_line\" zh_tw=\"直線\" zh_cn=\"直线\" en_us=\"Extended\"></span>\r\n    <span name=\"chart_str_ray_line\" zh_tw=\"射線\" zh_cn=\"射线\" en_us=\"Ray\"></span>\r\n    <span name=\"chart_str_arrow_line\" zh_tw=\"箭頭\" zh_cn=\"箭头\" en_us=\"Arrow\"></span>\r\n    <span name=\"chart_str_horz_seg_line\" zh_tw=\"水平線段\" zh_cn=\"水平线段\" en_us=\"Horizontal Line\"></span>\r\n    <span name=\"chart_str_horz_straight_line\" zh_tw=\"水平直線\" zh_cn=\"水平直线\" en_us=\"Horizontal Extended\"></span>\r\n    <span name=\"chart_str_horz_ray_line\" zh_tw=\"水平射線\" zh_cn=\"水平射线\" en_us=\"Horizontal Ray\"></span>\r\n    <span name=\"chart_str_vert_straight_line\" zh_tw=\"垂直直線\" zh_cn=\"垂直直线\" en_us=\"Vertical Extended\"></span>\r\n    <span name=\"chart_str_price_line\" zh_tw=\"價格線\" zh_cn=\"价格线\" en_us=\"Price Line\"></span>\r\n    <span name=\"chart_str_tri_parallel_line\" zh_tw=\"價格通道線\" zh_cn=\"价格通道线\" en_us=\"Parallel Channel\"></span>\r\n    <span name=\"chart_str_bi_parallel_line\" zh_tw=\"平行直線\" zh_cn=\"平行直线\" en_us=\"Parallel Lines\"></span>\r\n    <span name=\"chart_str_bi_parallel_ray\" zh_tw=\"平行射線\" zh_cn=\"平行射线\" en_us=\"Parallel Rays\"></span>\r\n    <span name=\"chart_str_fib_retrace\" zh_tw=\"斐波納契回調\" zh_cn=\"斐波纳契回调\" en_us=\"Fibonacci Retracements\"></span>\r\n    <span name=\"chart_str_fib_fans\" zh_tw=\"斐波納契扇形\" zh_cn=\"斐波纳契扇形\" en_us=\"Fibonacci Fans\"></span>\r\n    <span name=\"chart_str_updated\" zh_tw=\"更新於\" zh_cn=\"更新于\" en_us=\"Updated\"></span>\r\n    <span name=\"chart_str_ago\" zh_tw=\"前\" zh_cn=\"前\" en_us=\"ago\"></span>\r\n</div>\r\n";
+module.exports = "<div class=\"trade_container dark hide\">\r\n    <div class=\"m_cent\">\r\n        <div class=\"m_guadan\">\r\n            <div class=\"symbol-title\">\r\n                <a class=\"dark\"></a>\r\n            </div>\r\n            <div id=\"orderbook\">\r\n                <div id=\"asks\">\r\n                    <div class=\"table\"></div>\r\n                </div>\r\n                <div id=\"gasks\">\r\n                    <div class=\"table\"></div>\r\n                </div>\r\n                <div id=\"price\" class=\"green\"></div>\r\n                <div id=\"bids\">\r\n                    <div class=\"table\"></div>\r\n                </div>\r\n                <div id=\"gbids\">\r\n                    <div class=\"table\"></div>\r\n                </div>\r\n            </div>\r\n            <div id=\"trades\" class=\"trades\">\r\n                <div class=\"trades_list\"></div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<div class=\"chart_container dark\">\r\n    <div id=\"chart_dom_elem_cache\"></div>\r\n    <!-- ToolBar -->\r\n    <div id=\"chart_toolbar\">\r\n        <div class=\"chart_toolbar_minisep\"></div>\r\n        <!-- Periods -->\r\n        <div class=\"chart_dropdown\" id=\"chart_toolbar_periods_vert\">\r\n            <div class=\"chart_dropdown_t\"><a class=\"chart_str_period\">周期</a></div>\r\n            <div class=\"chart_dropdown_data\" style=\"margin-left: -58px;\">\r\n                <table>\r\n                    <tbody>\r\n                    <tr>\r\n                        <td>\r\n                            <ul>\r\n                                <li id=\"chart_period_1w_v\" style=\"display:none;\" name=\"1w\">\r\n                                    <a class=\"chart_str_period_1w\">周线</a>\r\n                                </li>\r\n                                <li id=\"chart_period_3d_v\" style=\"display:none;\" name=\"3d\">\r\n                                    <a class=\"chart_str_period_3d\">3日</a>\r\n                                </li>\r\n                                <li id=\"chart_period_1d_v\" style=\"display:none;\" name=\"1d\">\r\n                                    <a class=\"chart_str_period_1d\">日线</a>\r\n                                </li>\r\n                                <li id=\"chart_period_12h_v\" style=\"display:none;\" name=\"12h\">\r\n                                    <a class=\"chart_str_period_12h\">12小时</a>\r\n                                </li>\r\n                                <li id=\"chart_period_6h_v\" style=\"display:none;\" name=\"6h\">\r\n                                    <a class=\"chart_str_period_6h\">6小时</a>\r\n                                </li>\r\n                                <li id=\"chart_period_4h_v\" style=\"display:none;\" name=\"4h\">\r\n                                    <a class=\"chart_str_period_4h\">4小时</a>\r\n                                </li>\r\n                                <li id=\"chart_period_2h_v\" style=\"display:none;\" name=\"2h\">\r\n                                    <a class=\"chart_str_period_2h\">2小时</a>\r\n                                </li>\r\n                                <li id=\"chart_period_1h_v\" style=\"display:none;\" name=\"1h\">\r\n                                    <a class=\"chart_str_period_1h\">1小时</a>\r\n                                </li>\r\n                            </ul>\r\n                        </td>\r\n\r\n                    </tr>\r\n\r\n                    <tr>\r\n                        <td>\r\n                            <ul>\r\n                                <li id=\"chart_period_30m_v\" style=\"display:none;\" name=\"30m\">\r\n                                    <a class=\"chart_str_period_30m\">30分钟</a>\r\n                                </li>\r\n                                <li id=\"chart_period_15m_v\" style=\"display:none;\" name=\"15m\">\r\n                                    <a class=\"chart_str_period_15m\">15分钟</a>\r\n                                </li>\r\n                                <li id=\"chart_period_5m_v\" style=\"display:none;\" name=\"5m\">\r\n                                    <a class=\"chart_str_period_5m\">5分钟</a>\r\n                                </li>\r\n                                <li id=\"chart_period_3m_v\" style=\"display:none;\" name=\"3m\">\r\n                                    <a class=\"chart_str_period_3m\">3分钟</a>\r\n                                </li>\r\n                                <li id=\"chart_period_1m_v\" style=\"display:none;\" name=\"1m\">\r\n                                    <a class=\"chart_str_period_1m selected\">1分钟</a>\r\n                                </li>\r\n                                <li id=\"chart_period_line_v\" style=\"display:none;\" name=\"line\">\r\n                                    <a class=\"chart_str_period_line\">分时</a>\r\n                                </li>\r\n                            </ul>\r\n                        </td>\r\n                    </tr>\r\n                    </tbody>\r\n                </table>\r\n            </div>\r\n        </div>\r\n        <div id=\"chart_toolbar_periods_horz\">\r\n            <ul class=\"chart_toolbar_tabgroup\" style=\"padding-left:5px; padding-right:11px;\">\r\n                <li id=\"chart_period_1w_h\" name=\"1w\" style=\"display: none;\">\r\n                    <a class=\"chart_str_period_1w\">周线</a>\r\n                </li>\r\n                <li id=\"chart_period_3d_h\" name=\"3d\" style=\"display: none;\">\r\n                    <a class=\"chart_str_period_3d\">3日</a>\r\n                </li>\r\n                <li id=\"chart_period_1d_h\" name=\"1d\" style=\"display: none;\">\r\n                    <a class=\"chart_str_period_1d\">日线</a>\r\n                </li>\r\n                <li id=\"chart_period_12h_h\" name=\"12h\" style=\"display: none;\">\r\n                    <a class=\"chart_str_period_12h\">12小时</a>\r\n                </li>\r\n                <li id=\"chart_period_6h_h\" name=\"6h\" style=\"display: none;\">\r\n                    <a class=\"chart_str_period_6h\">6小时</a>\r\n                </li>\r\n                <li id=\"chart_period_4h_h\" name=\"4h\" style=\"display: none;\">\r\n                    <a class=\"chart_str_period_4h\">4小时</a>\r\n                </li>\r\n                <li id=\"chart_period_2h_h\" name=\"2h\" style=\"display: none;\">\r\n                    <a class=\"chart_str_period_2h\">2小时</a>\r\n                </li>\r\n                <li id=\"chart_period_1h_h\" name=\"1h\" style=\"display: none;\">\r\n                    <a class=\"chart_str_period_1h\">1小时</a>\r\n                </li>\r\n                <li id=\"chart_period_30m_h\" name=\"30m\" style=\"display: none;\">\r\n                    <a class=\"chart_str_period_30m\">30分钟</a>\r\n                </li>\r\n                <li id=\"chart_period_15m_h\" name=\"15m\" style=\"display: none;\">\r\n                    <a class=\"chart_str_period_15m\">15分钟</a>\r\n                </li>\r\n                <li id=\"chart_period_5m_h\" name=\"5m\" style=\"display: none;\">\r\n                    <a class=\"chart_str_period_5m\">5分钟</a>\r\n                </li>\r\n                <li id=\"chart_period_3m_h\" name=\"3m\" style=\"display: none;\">\r\n                    <a class=\"chart_str_period_3m\">3分钟</a>\r\n                </li>\r\n                <li id=\"chart_period_1m_h\" name=\"1m\" style=\"display: none;\">\r\n                    <a class=\"chart_str_period_1m selected\">1分钟</a>\r\n                </li>\r\n                <li id=\"chart_period_line_h\" name=\"line\" style=\"display: none;\">\r\n                    <a class=\"chart_str_period_line\">分时</a>\r\n                </li>\r\n            </ul>\r\n        </div>\r\n        <div id=\"chart_show_indicator\" class=\"chart_toolbar_button chart_str_indicator_cap selected\">技术指标</div>\r\n        <div id=\"chart_show_tools\" class=\"chart_toolbar_button chart_str_tools_cap\">画线工具</div>\r\n        <div id=\"chart_toolbar_theme\">\r\n            <div class=\"chart_toolbar_label chart_str_theme_cap\">\r\n                主题选择\r\n            </div>\r\n            <a name=\"dark\" class=\"chart_icon chart_icon_theme_dark selected\"></a>\r\n            <a name=\"light\" class=\"chart_icon chart_icon_theme_light\"></a>\r\n        </div>\r\n        <div class=\"chart_dropdown\" id=\"chart_dropdown_settings\">\r\n            <div class=\"chart_dropdown_t\"><a class=\"chart_str_settings\">更多</a></div>\r\n\r\n            <div class=\"chart_dropdown_data\" style=\"margin-left: -142px;\">\r\n                <table>\r\n                    <tbody>\r\n                    <tr id=\"chart_select_main_indicator\">\r\n                        <td class=\"chart_str_main_indicator\">主指标</td>\r\n                        <td>\r\n                            <ul>\r\n                                <li><a name=\"MA\" class=\"selected\">MA</a></li>\r\n                                <li><a name=\"EMA\" class=\"\">EMA</a></li>\r\n                                <li><a name=\"BOLL\" class=\"\">BOLL</a></li>\r\n                                <li><a name=\"SAR\" class=\"\">SAR</a></li>\r\n                                <li><a name=\"NONE\" class=\"\">None</a></li>\r\n                            </ul>\r\n                        </td>\r\n                    </tr>\r\n\r\n                    <tr id=\"chart_select_chart_style\">\r\n                        <td class=\"chart_str_chart_style\">主图样式</td>\r\n                        <td>\r\n                            <ul>\r\n                                <li><a class=\"selected\">CandleStick</a></li>\r\n                                <li><a>CandleStickHLC</a></li>\r\n                                <li><a class=\"\">OHLC</a></li>\r\n                            </ul>\r\n                        </td>\r\n                    </tr>\r\n\r\n                    <tr id=\"chart_select_theme\" style=\"display: none;\">\r\n                        <td class=\"chart_str_theme\">主题选择</td>\r\n                        <td>\r\n                            <ul>\r\n                                <li>\r\n                                    <a name=\"dark\" class=\"chart_icon chart_icon_theme_dark selected\"></a>\r\n                                </li>\r\n\r\n                                <li>\r\n                                    <a name=\"light\" class=\"chart_icon chart_icon_theme_light\"></a>\r\n                                </li>\r\n                            </ul>\r\n                        </td>\r\n                    </tr>\r\n                    <tr id=\"chart_enable_tools\" style=\"display: none;\">\r\n                        <td class=\"chart_str_tools\">画线工具</td>\r\n                        <td>\r\n                            <ul>\r\n                                <li><a name=\"on\" class=\"chart_str_on\">开启</a></li>\r\n                                <li><a name=\"off\" class=\"chart_str_off selected\">关闭</a></li>\r\n\r\n                            </ul>\r\n\r\n                        </td>\r\n                    </tr>\r\n                    <tr id=\"chart_enable_indicator\" style=\"display: none;\">\r\n                        <td class=\"chart_str_indicator\">技术指标</td>\r\n                        <td>\r\n                            <ul>\r\n                                <li><a name=\"on\" class=\"chart_str_on selected\">开启</a></li>\r\n                                <li><a name=\"off\" class=\"chart_str_off\">关闭</a></li>\r\n                            </ul>\r\n                        </td>\r\n                    </tr>\r\n                    <tr>\r\n                        <td></td>\r\n                        <td>\r\n                            <ul>\r\n                                <li>\r\n                                    <a id=\"chart_btn_parameter_settings\" class=\"chart_str_indicator_parameters\">指标参数设置</a>\r\n                                </li>\r\n                            </ul>\r\n                        </td>\r\n                    </tr>\r\n                    </tbody>\r\n                </table>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"chart_dropdown\" id=\"chart_language_setting_div\" style=\"padding-left: 5px;\">\r\n            <div class=\"chart_dropdown_t\">\r\n                <a class=\"charts\">QUANTAXIS CHARTS</a>\r\n            </div>\r\n            <div class=\"chart_dropdown_data\" style=\"padding-top: 15px; margin-left: -12px;\">\r\n                <ul>\r\n                    <li style=\"height: 25px;\">\r\n                        <a name=\"zh-cn\" class=\"selected\">服务器设置</a>\r\n                    </li>\r\n                    <li style=\"height: 20px\">\r\n                        <a>QUANTAXIS 2019</a>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n        </div>\r\n\r\n        <!-- <div class=\"chart_dropdown\" id=\"chart_language_setting_div\" style=\"padding-left: 5px;\">\r\n            <div class=\"chart_dropdown_t\">\r\n                <a class=\"chart_language_setting\">语言(LANG)</a>\r\n            </div>\r\n            <div class=\"chart_dropdown_data\" style=\"padding-top: 15px; margin-left: -12px;\">\r\n                <ul>\r\n                    <li style=\"height: 25px;\">\r\n                        <a name=\"zh-cn\" class=\"selected\">简体中文(zh-CN)</a>\r\n                    </li>\r\n                    <li style=\"height: 25px;\">\r\n                        <a name=\"en-us\">English(en-US)</a>\r\n                    </li>\r\n                    <li style=\"height: 25px;\">\r\n                        <a name=\"zh-tw\">繁體中文(zh-HK)</a>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n        </div> -->\r\n        <div id=\"chart_updated_time\">\r\n            <div id=\"sizeIcon\" class=\"chart_BoxSize\"></div>\r\n\r\n        </div>\r\n    </div>\r\n               <!-- ToolPanel -->\r\n    <div id=\"chart_toolpanel\">\r\n        <div class=\"chart_toolpanel_separator\"></div>\r\n\r\n        <div class=\"chart_toolpanel_button\">\r\n            <div class=\"chart_toolpanel_icon\" id=\"chart_Cursor\" name=\"Cursor\"></div>\r\n            <div class=\"chart_toolpanel_tip chart_str_cursor\">\r\n                光标\r\n            </div>\r\n        </div>\r\n        <div class=\"chart_toolpanel_button\">\r\n            <div class=\"chart_toolpanel_icon\" id=\"chart_CrossCursor\" name=\"CrossCursor\"></div>\r\n            <div class=\"chart_toolpanel_tip chart_str_cross_cursor\">\r\n                十字光标\r\n            </div>\r\n        </div>\r\n        <div class=\"chart_toolpanel_button\">\r\n            <div class=\"chart_toolpanel_icon\" id=\"chart_SegLine\" name=\"SegLine\"></div>\r\n            <div class=\"chart_toolpanel_tip chart_str_seg_line\">\r\n                线段\r\n            </div>\r\n        </div>\r\n        <div class=\"chart_toolpanel_button\">\r\n            <div class=\"chart_toolpanel_icon\" id=\"chart_StraightLine\" name=\"StraightLine\"></div>\r\n            <div class=\"chart_toolpanel_tip chart_str_straight_line\">\r\n                直线\r\n            </div>\r\n        </div>\r\n        <div class=\"chart_toolpanel_button\">\r\n            <div class=\"chart_toolpanel_icon\" id=\"chart_RayLine\" name=\"RayLine\"></div>\r\n            <div class=\"chart_toolpanel_tip chart_str_ray_line\">\r\n                射线\r\n            </div>\r\n        </div>\r\n        <div class=\"chart_toolpanel_button\">\r\n            <div class=\"chart_toolpanel_icon\" id=\"chart_ArrowLine\" name=\"ArrowLine\"></div>\r\n            <div class=\"chart_toolpanel_tip chart_str_arrow_line\">\r\n                箭头\r\n            </div>\r\n        </div>\r\n        <div class=\"chart_toolpanel_button\">\r\n            <div class=\"chart_toolpanel_icon\" id=\"chart_HoriSegLine\" name=\"HoriSegLine\"></div>\r\n            <div class=\"chart_toolpanel_tip chart_str_horz_seg_line\">\r\n                水平线段\r\n            </div>\r\n        </div>\r\n        <div class=\"chart_toolpanel_button\">\r\n            <div class=\"chart_toolpanel_icon\" id=\"chart_HoriStraightLine\" name=\"HoriStraightLine\"></div>\r\n            <div class=\"chart_toolpanel_tip chart_str_horz_straight_line\">\r\n                水平直线\r\n            </div>\r\n        </div>\r\n        <div class=\"chart_toolpanel_button\">\r\n            <div class=\"chart_toolpanel_icon\" id=\"chart_HoriRayLine\" name=\"HoriRayLine\"></div>\r\n            <div class=\"chart_toolpanel_tip chart_str_horz_ray_line\">\r\n                水平射线\r\n            </div>\r\n        </div>\r\n        <div class=\"chart_toolpanel_button\">\r\n            <div class=\"chart_toolpanel_icon\" id=\"chart_VertiStraightLine\" name=\"VertiStraightLine\"></div>\r\n            <div class=\"chart_toolpanel_tip chart_str_vert_straight_line\">\r\n                垂直直线\r\n            </div>\r\n        </div>\r\n        <div class=\"chart_toolpanel_button\">\r\n            <div class=\"chart_toolpanel_icon\" id=\"chart_PriceLine\" name=\"PriceLine\"></div>\r\n            <div class=\"chart_toolpanel_tip chart_str_price_line\">\r\n                价格线\r\n            </div>\r\n        </div>\r\n        <div class=\"chart_toolpanel_button\">\r\n            <div class=\"chart_toolpanel_icon\" id=\"chart_TriParallelLine\" name=\"TriParallelLine\"></div>\r\n            <div class=\"chart_toolpanel_tip chart_str_tri_parallel_line\">\r\n                价格通道线\r\n            </div>\r\n        </div>\r\n        <div class=\"chart_toolpanel_button\">\r\n            <div class=\"chart_toolpanel_icon\" id=\"chart_BiParallelLine\" name=\"BiParallelLine\"></div>\r\n            <div class=\"chart_toolpanel_tip chart_str_bi_parallel_line\">\r\n                平行直线\r\n            </div>\r\n        </div>\r\n        <div class=\"chart_toolpanel_button\">\r\n            <div class=\"chart_toolpanel_icon\" id=\"chart_BiParallelRayLine\" name=\"BiParallelRayLine\"></div>\r\n            <div class=\"chart_toolpanel_tip chart_str_bi_parallel_ray\">\r\n                平行射线\r\n            </div>\r\n        </div>\r\n        <div class=\"chart_toolpanel_button\">\r\n            <div class=\"chart_toolpanel_icon\" id=\"chart_DrawFibRetrace\" name=\"DrawFibRetrace\"></div>\r\n            <div class=\"chart_toolpanel_tip chart_str_fib_retrace\">\r\n                斐波纳契回调\r\n            </div>\r\n        </div>\r\n        <div class=\"chart_toolpanel_button\">\r\n            <div class=\"chart_toolpanel_icon\" id=\"chart_DrawFibFans\" name=\"DrawFibFans\"></div>\r\n            <div class=\"chart_toolpanel_tip chart_str_fib_fans\">\r\n                斐波纳契扇形\r\n            </div>\r\n        </div>\r\n        <div style=\"padding-left: 3px;padding-top: 10px;\">\r\n            <button style=\"color: red;\" id=\"clearCanvas\" title=\"Clear All\">X</button>\r\n        </div>\r\n    </div>\r\n    <div id=\"chart_canvasGroup\" class=\"temp\">\r\n        <canvas class=\"chart_canvas\" id=\"chart_mainCanvas\" style=\"cursor: default;\"></canvas>\r\n        <canvas class=\"chart_canvas\" id=\"chart_overlayCanvas\" style=\"cursor: default;\"></canvas>\r\n    </div>\r\n    <div id=\"chart_tabbar\">\r\n        <ul>\r\n            <li><a name=\"MACD\" class=\"\">MACD</a></li>\r\n\r\n            <li><a name=\"KDJ\" class=\"\">KDJ</a></li>\r\n\r\n            <li><a name=\"StochRSI\" class=\"\">StochRSI</a></li>\r\n\r\n            <li><a name=\"RSI\" class=\"\">RSI</a></li>\r\n\r\n            <li><a name=\"DMI\" class=\"\">DMI</a></li>\r\n\r\n            <li><a name=\"OBV\" class=\"\">OBV</a></li>\r\n\r\n            <li><a name=\"BOLL\" class=\"\">BOLL</a></li>\r\n\r\n            <li><a name=\"SAR\" class=\"\">SAR</a></li>\r\n\r\n            <li><a name=\"DMA\" class=\"\">DMA</a></li>\r\n\r\n            <li><a name=\"TRIX\" class=\"\">TRIX</a></li>\r\n\r\n            <li><a name=\"BRAR\" class=\"\">BRAR</a></li>\r\n\r\n            <li><a name=\"VR\" class=\"\">VR</a></li>\r\n\r\n            <li><a name=\"EMV\" class=\"\">EMV</a></li>\r\n\r\n            <li><a name=\"WR\" class=\"\">WR</a></li>\r\n\r\n            <li><a name=\"ROC\" class=\"\">ROC</a></li>\r\n\r\n            <li><a name=\"MTM\" class=\"\">MTM</a></li>\r\n\r\n            <li><a name=\"PSY\">PSY</a></li>\r\n\r\n        </ul>\r\n\r\n    </div>\r\n\r\n    <div id=\"chart_parameter_settings\">\r\n        <h2 class=\"chart_str_indicator_parameters\">指标参数设置</h2>\r\n        <table>\r\n            <tbody>\r\n            <tr>\r\n                <th>MA</th>\r\n                <td><input name=\"MA\"><input name=\"MA\"><input name=\"MA\"><input name=\"MA\"><br><input\r\n                        name=\"MA\"><input\r\n                        name=\"MA\">\r\n                </td>\r\n                <td>\r\n                    <button class=\"chart_str_default\">默认值</button>\r\n                </td>\r\n\r\n                <th>DMA</th>\r\n                <td><input name=\"DMA\"><input name=\"DMA\"><input name=\"DMA\"></td>\r\n                <td>\r\n                    <button class=\"chart_str_default\">默认值</button>\r\n                </td>\r\n            </tr>\r\n\r\n            <tr>\r\n                <th>EMA</th>\r\n                <td>\r\n                    <input name=\"EMA\"><input name=\"EMA\"><input name=\"EMA\"><input name=\"EMA\"><br>\r\n                    <input name=\"EMA\"><input name=\"EMA\">\r\n                </td>\r\n                <td>\r\n                    <button class=\"chart_str_default\">默认值</button>\r\n                </td>\r\n\r\n                <th>TRIX</th>\r\n                <td><input name=\"TRIX\"><input name=\"TRIX\"></td>\r\n                <td>\r\n                    <button class=\"chart_str_default\">默认值</button>\r\n                </td>\r\n            </tr>\r\n\r\n            <tr>\r\n                <th>VOLUME</th>\r\n                <td><input name=\"VOLUME\"><input name=\"VOLUME\"></td>\r\n                <td>\r\n                    <button class=\"chart_str_default\">默认值</button>\r\n                </td>\r\n\r\n                <th>BRAR</th>\r\n                <td><input name=\"BRAR\"></td>\r\n                <td>\r\n                    <button class=\"chart_str_default\">默认值</button>\r\n                </td>\r\n            </tr>\r\n\r\n            <tr>\r\n                <th>MACD</th>\r\n                <td>\r\n                    <input name=\"MACD\"><input name=\"MACD\"><input name=\"MACD\">\r\n                </td>\r\n                <td>\r\n                    <button class=\"chart_str_default\">默认值</button>\r\n                </td>\r\n\r\n                <th>VR</th>\r\n                <td><input name=\"VR\"><input name=\"VR\"></td>\r\n                <td>\r\n                    <button class=\"chart_str_default\">默认值</button>\r\n                </td>\r\n            </tr>\r\n\r\n            <tr>\r\n                <th>KDJ</th>\r\n                <td>\r\n                    <input name=\"KDJ\"><input name=\"KDJ\"><input name=\"KDJ\">\r\n                </td>\r\n                <td>\r\n                    <button class=\"chart_str_default\">默认值</button>\r\n                </td>\r\n\r\n                <th>EMV</th>\r\n                <td>\r\n                    <input name=\"EMV\"><input name=\"EMV\">\r\n                </td>\r\n                <td>\r\n                    <button class=\"chart_str_default\">默认值</button>\r\n                </td>\r\n            </tr>\r\n\r\n            <tr>\r\n                <th>StochRSI</th>\r\n                <td>\r\n                    <input name=\"StochRSI\"><input name=\"StochRSI\"><input name=\"StochRSI\"><input name=\"StochRSI\">\r\n                </td>\r\n                <td>\r\n                    <button class=\"chart_str_default\">默认值</button>\r\n                </td>\r\n\r\n                <th>WR</th>\r\n                <td>\r\n                    <input name=\"WR\"><input name=\"WR\">\r\n                </td>\r\n                <td>\r\n                    <button class=\"chart_str_default\">默认值</button>\r\n                </td>\r\n            </tr>\r\n\r\n            <tr>\r\n                <th>RSI</th>\r\n                <td>\r\n                    <input name=\"RSI\"><input name=\"RSI\"><input name=\"RSI\">\r\n                </td>\r\n                <td>\r\n                    <button class=\"chart_str_default\">默认值</button>\r\n                </td>\r\n\r\n                <th>ROC</th>\r\n                <td>\r\n                    <input name=\"ROC\"><input name=\"ROC\">\r\n                </td>\r\n                <td>\r\n                    <button class=\"chart_str_default\">默认值</button>\r\n                </td>\r\n            </tr>\r\n\r\n            <tr>\r\n                <th>DMI</th>\r\n                <td>\r\n                    <input name=\"DMI\"><input name=\"DMI\">\r\n                </td>\r\n                <td>\r\n                    <button class=\"chart_str_default\">默认值</button>\r\n                </td>\r\n\r\n                <th>MTM</th>\r\n                <td>\r\n                    <input name=\"MTM\"><input name=\"MTM\">\r\n                </td>\r\n                <td>\r\n                    <button class=\"chart_str_default\">默认值</button>\r\n                </td>\r\n            </tr>\r\n\r\n            <tr>\r\n                <th>OBV</th>\r\n                <td>\r\n                    <input name=\"OBV\">\r\n                </td>\r\n                <td>\r\n                    <button class=\"chart_str_default\">默认值</button>\r\n                </td>\r\n\r\n                <th>PSY</th>\r\n                <td>\r\n                    <input name=\"PSY\"><input name=\"PSY\">\r\n                </td>\r\n                <td>\r\n                    <button class=\"chart_str_default\">默认值</button>\r\n                </td>\r\n            </tr>\r\n\r\n            <tr>\r\n                <th>BOLL</th>\r\n                <td>\r\n                    <input name=\"BOLL\">\r\n                </td>\r\n                <td>\r\n                    <button class=\"chart_str_default\">默认值</button>\r\n                </td>\r\n            </tr>\r\n            </tbody>\r\n        </table>\r\n\r\n        <div id=\"close_settings\"><a class=\"chart_str_close\">关闭</a></div>\r\n\r\n    </div>\r\n\r\n    <!-- Loading -->\r\n    <div id=\"chart_loading\" class=\"chart_str_loading\">正在读取数据...</div>\r\n</div>\r\n\r\n<div style=\"display: none\" id=\"chart_language_switch_tmp\">\r\n    <span name=\"chart_str_period\" zh_tw=\"週期\" zh_cn=\"周期\" en_us=\"TIME\"></span>\r\n    <span name=\"chart_str_period_line\" zh_tw=\"分時\" zh_cn=\"分时\" en_us=\"Line\"></span>\r\n    <span name=\"chart_str_period_1m\" zh_tw=\"1分鐘\" zh_cn=\"1分钟\" en_us=\"1m\"></span>\r\n    <span name=\"chart_str_period_3m\" zh_tw=\"3分鐘\" zh_cn=\"3分钟\" en_us=\"3m\"></span>\r\n    <span name=\"chart_str_period_5m\" zh_tw=\"5分鐘\" zh_cn=\"5分钟\" en_us=\"5m\"></span>\r\n    <span name=\"chart_str_period_15m\" zh_tw=\"15分鐘\" zh_cn=\"15分钟\" en_us=\"15m\"></span>\r\n    <span name=\"chart_str_period_30m\" zh_tw=\"30分鐘\" zh_cn=\"30分钟\" en_us=\"30m\"></span>\r\n    <span name=\"chart_str_period_1h\" zh_tw=\"1小時\" zh_cn=\"1小时\" en_us=\"1h\"></span>\r\n    <span name=\"chart_str_period_2h\" zh_tw=\"2小時\" zh_cn=\"2小时\" en_us=\"2h\"></span>\r\n    <span name=\"chart_str_period_4h\" zh_tw=\"4小時\" zh_cn=\"4小时\" en_us=\"4h\"></span>\r\n    <span name=\"chart_str_period_6h\" zh_tw=\"6小時\" zh_cn=\"6小时\" en_us=\"6h\"></span>\r\n    <span name=\"chart_str_period_12h\" zh_tw=\"12小時\" zh_cn=\"12小时\" en_us=\"12h\"></span>\r\n    <span name=\"chart_str_period_1d\" zh_tw=\"日線\" zh_cn=\"日线\" en_us=\"1d\"></span>\r\n    <span name=\"chart_str_period_3d\" zh_tw=\"3日\" zh_cn=\"3日\" en_us=\"3d\"></span>\r\n    <span name=\"chart_str_period_1w\" zh_tw=\"周線\" zh_cn=\"周线\" en_us=\"1w\"></span>\r\n    <span name=\"chart_str_settings\" zh_tw=\"更多\" zh_cn=\"更多\" en_us=\"MORE\"></span>\r\n    <span name=\"chart_setting_main_indicator\" zh_tw=\"均線設置\" zh_cn=\"均线设置\" en_us=\"Main Indicator\"></span>\r\n    <span name=\"chart_setting_main_indicator_none\" zh_tw=\"關閉均線\" zh_cn=\"关闭均线\" en_us=\"None\"></span>\r\n    <span name=\"chart_setting_indicator_parameters\" zh_tw=\"指標參數設置\" zh_cn=\"指标参数设置\" en_us=\"Indicator Parameters\"></span>\r\n    <span name=\"chart_str_chart_style\" zh_tw=\"主圖樣式\" zh_cn=\"主图样式\" en_us=\"Chart Style\"></span>\r\n    <span name=\"chart_str_main_indicator\" zh_tw=\"主指標\" zh_cn=\"主指标\" en_us=\"Main Indicator\"></span>\r\n    <span name=\"chart_str_indicator\" zh_tw=\"技術指標\" zh_cn=\"技术指标\" en_us=\"Indicator\"></span>\r\n    <span name=\"chart_str_indicator_cap\" zh_tw=\"技術指標\" zh_cn=\"技术指标\" en_us=\"INDICATOR\"></span>\r\n    <span name=\"chart_str_tools\" zh_tw=\"畫線工具\" zh_cn=\"画线工具\" en_us=\"Tools\"></span>\r\n    <span name=\"chart_str_tools_cap\" zh_tw=\"畫線工具\" zh_cn=\"画线工具\" en_us=\"TOOLS\"></span>\r\n    <span name=\"chart_str_theme\" zh_tw=\"主題選擇\" zh_cn=\"主题选择\" en_us=\"Theme\"></span>\r\n    <span name=\"chart_str_theme_cap\" zh_tw=\"主題選擇\" zh_cn=\"主题选择\" en_us=\"THEME\"></span>\r\n    <span name=\"chart_language_setting\" zh_tw=\"語言(LANG)\" zh_cn=\"语言(LANG)\" en_us=\"LANGUAGE\"></span>\r\n    <span name=\"chart_exchanges_setting\" zh_tw=\"更多市場\" zh_cn=\"更多市场\" en_us=\"MORE MARKETS\"></span>\r\n    <span name=\"chart_othercoin_setting\" zh_tw=\"其它市場\" zh_cn=\"其它市场\" en_us=\"OTHER MARKETS\"></span>\r\n\r\n    <span name=\"chart_str_none\" zh_tw=\"關閉\" zh_cn=\"关闭\" en_us=\"None\"></span>\r\n    <span name=\"chart_str_theme_dark\" zh_tw=\"深色主題\" zh_cn=\"深色主题\" en_us=\"Dark\"></span>\r\n    <span name=\"chart_str_theme_light\" zh_tw=\"淺色主題\" zh_cn=\"浅色主题\" en_us=\"Light\"></span>\r\n    <span name=\"chart_str_on\" zh_tw=\"開啟\" zh_cn=\"开启\" en_us=\"On\"></span>\r\n    <span name=\"chart_str_off\" zh_tw=\"關閉\" zh_cn=\"关闭\" en_us=\"Off\"></span>\r\n    <span name=\"chart_str_close\" zh_tw=\"關閉\" zh_cn=\"关闭\" en_us=\"CLOSE\"></span>\r\n    <span name=\"chart_str_default\" zh_tw=\"默認值\" zh_cn=\"默认值\" en_us=\"default\"></span>\r\n    <span name=\"chart_str_loading\" zh_tw=\"正在讀取數據...\" zh_cn=\"正在读取数据...\" en_us=\"Loading...\"></span>\r\n    <span name=\"chart_str_indicator_parameters\" zh_tw=\"指標參數設置\" zh_cn=\"指标参数设置\" en_us=\"Indicator Parameters\"></span>\r\n    <span name=\"chart_str_cursor\" zh_tw=\"光標\" zh_cn=\"光标\" en_us=\"Cursor\"></span>\r\n    <span name=\"chart_str_cross_cursor\" zh_tw=\"十字光標\" zh_cn=\"十字光标\" en_us=\"Cross Cursor\"></span>\r\n    <span name=\"chart_str_seg_line\" zh_tw=\"線段\" zh_cn=\"线段\" en_us=\"Trend Line\"></span>\r\n    <span name=\"chart_str_straight_line\" zh_tw=\"直線\" zh_cn=\"直线\" en_us=\"Extended\"></span>\r\n    <span name=\"chart_str_ray_line\" zh_tw=\"射線\" zh_cn=\"射线\" en_us=\"Ray\"></span>\r\n    <span name=\"chart_str_arrow_line\" zh_tw=\"箭頭\" zh_cn=\"箭头\" en_us=\"Arrow\"></span>\r\n    <span name=\"chart_str_horz_seg_line\" zh_tw=\"水平線段\" zh_cn=\"水平线段\" en_us=\"Horizontal Line\"></span>\r\n    <span name=\"chart_str_horz_straight_line\" zh_tw=\"水平直線\" zh_cn=\"水平直线\" en_us=\"Horizontal Extended\"></span>\r\n    <span name=\"chart_str_horz_ray_line\" zh_tw=\"水平射線\" zh_cn=\"水平射线\" en_us=\"Horizontal Ray\"></span>\r\n    <span name=\"chart_str_vert_straight_line\" zh_tw=\"垂直直線\" zh_cn=\"垂直直线\" en_us=\"Vertical Extended\"></span>\r\n    <span name=\"chart_str_price_line\" zh_tw=\"價格線\" zh_cn=\"价格线\" en_us=\"Price Line\"></span>\r\n    <span name=\"chart_str_tri_parallel_line\" zh_tw=\"價格通道線\" zh_cn=\"价格通道线\" en_us=\"Parallel Channel\"></span>\r\n    <span name=\"chart_str_bi_parallel_line\" zh_tw=\"平行直線\" zh_cn=\"平行直线\" en_us=\"Parallel Lines\"></span>\r\n    <span name=\"chart_str_bi_parallel_ray\" zh_tw=\"平行射線\" zh_cn=\"平行射线\" en_us=\"Parallel Rays\"></span>\r\n    <span name=\"chart_str_fib_retrace\" zh_tw=\"斐波納契回調\" zh_cn=\"斐波纳契回调\" en_us=\"Fibonacci Retracements\"></span>\r\n    <span name=\"chart_str_fib_fans\" zh_tw=\"斐波納契扇形\" zh_cn=\"斐波纳契扇形\" en_us=\"Fibonacci Fans\"></span>\r\n    <span name=\"chart_str_updated\" zh_tw=\"更新於\" zh_cn=\"更新于\" en_us=\"Updated\"></span>\r\n    <span name=\"chart_str_ago\" zh_tw=\"前\" zh_cn=\"前\" en_us=\"ago\"></span>\r\n</div>\r\n";
 
 /***/ }),
 /* 48 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = fire;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_firebase__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_firebase__);
 
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = fire;
-
-var firebase = _interopRequireWildcard(__webpack_require__(49));
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
 function date() {
   var d = new Date(),
@@ -18774,10 +18121,10 @@ function date() {
 }
 
 function fire() {
-  firebase.initializeApp({
+  __WEBPACK_IMPORTED_MODULE_0_firebase__["initializeApp"]({
     databaseURL: "https://kline-1f82d.firebaseio.com"
   });
-  firebase.database().ref('/domains/' + btoa(document.domain)).transaction(function (data) {
+  __WEBPACK_IMPORTED_MODULE_0_firebase__["database"]().ref('/domains/' + btoa(document.domain)).transaction(function (data) {
     var d = date();
 
     if (data === null) {
